@@ -6759,14 +6759,7 @@ if th &gt;= 100 then hpp = ch end
 --
 end
 deleteLine()
-setTextSize()
-charStat()
-statc()
-affWindow()
-roomList()
-gatherpeople()
-showpeople()
-checkCircle()
+updateUI()
 bmCheck()
 if bp &lt; 0 then bp = tonumber(0) end
 if autoKill then sys("&lt;SteelBlue&gt;[&lt;green&gt;MS A.I.&lt;SteelBlue&gt;] &lt;gold&gt;[&lt;red&gt;MS Target&lt;gold&gt;]") cecho(f"&lt;green&gt;{target} &lt;red&gt;{hp}&lt;DimGrey&gt;% &lt;cyan&gt;{mp}&lt;DimGrey&gt;%") end
@@ -49510,7 +49503,8 @@ sys("&lt;green&gt;MS") cecho("&lt;snow&gt;Windows Reset")</script>
 							</Alias>
 							<Alias isActive="yes" isFolder="no">
 								<name>Font Size</name>
-								<script>msFontSize(matches[2])</script>
+								<script>msFontSize(matches[2])
+</script>
 								<command></command>
 								<packageName></packageName>
 								<regex>^ms fs (\d+)$</regex>
@@ -49539,6 +49533,7 @@ sys("&lt;green&gt;MS") cecho("&lt;snow&gt;Windows Reset")</script>
   chat = ms.save["windows"]["chat"],
 }
 sys("&lt;green&gt;MS Windows")
+echo "\n"
 for name,fs in pairsByKeys(wfs) do
   cecho(string.format("\n&lt;snow&gt;|  &lt;cyan&gt;%12s &lt;snow&gt;set to: &lt;yellow&gt;%d  &lt;snow&gt;|", name, fs))
 end
@@ -49678,6 +49673,55 @@ end</script>
 								<command></command>
 								<packageName></packageName>
 								<regex>^ms window (\d+)$</regex>
+							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>Window Show</name>
+								<script>ui = true
+updateUI()
+wfs = {
+  afflictions = ms.save["windows"]["affOne"],
+  toggles = ms.save["windows"]["toggles"],
+  healthmana = ms.save["windows"]["hbar"],
+  map = ms.save["windows"]["map"],
+  roominfo = ms.save["windows"]["roomInfo"],
+  selfaffs = ms.save["windows"]["scOne"],
+  skills = ms.save["windows"]["scTwo"],
+  prompt = ms.save["windows"]["scFour"],
+  targetinfo = ms.save["windows"]["scThree"],
+  roomitems = ms.save["windows"]["roomItems"],
+  charstats = ms.save["windows"]["charStats"],
+  chat = ms.save["windows"]["chat"],
+}
+sys("&lt;green&gt;MS Windows")
+echo "\n"
+uwc = tonumber(1)
+for name,fs in pairsByKeys(wfs) do
+  lui(name)
+  cecho(string.format("\n&lt;snow&gt;|&lt;yellow&gt;%2s  &lt;cyan&gt;%12s &lt;snow&gt;set to: &lt;red&gt;%d  &lt;snow&gt;|", uwc, name, fs))
+  uwc = uwc + 1
+end
+  if ww &gt; 1680 then
+    createLabel("hide_numbers", 450, 100, 1000, 50, 1)
+    echo("hide_numbers", [[&lt;p style="font-size:25px"&gt;&lt;b&gt;&lt;center&gt;&lt;font color="yellow"&gt;When finished, type: ms ui hide&lt;/font&gt;&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;]])
+  else
+    createLabel("hide_numbers", 425, 100, 650, 50, 1)
+    echo("hide_numbers", [[&lt;p style="font-size:22px"&gt;&lt;b&gt;&lt;center&gt;&lt;font color="yellow"&gt;When finished, type: ms ui hide&lt;/font&gt;&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;]])
+  end
+echo"\n"
+cecho(string.rep("-", 30))
+cecho(string.format("\n&lt;snow&gt;|       &lt;snow&gt;Overall FontSize: &lt;red&gt;%d  &lt;snow&gt;|", ms.save["fontSize"]))</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^ms ui show$</regex>
+							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>Window Label Delete</name>
+								<script>dui()
+deleteLabel("hide_numbers")
+sys("&lt;green&gt;MS UI") cecho("&lt;snow&gt;Successfully removed labels")</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^ms ui hide$</regex>
 							</Alias>
 						</AliasGroup>
 					</AliasGroup>
@@ -52681,6 +52725,10 @@ cecho(f("\n&lt;SteelBlue&gt;U.I. System Functions:\n"))
 sys("&lt;SteelBlue&gt;U.I.")
   echoHelp("ms window 1920|1600", "cmd")
   echoHelp("Set UI to scale to display resolution of either 1920 or 1600 width")
+  echoHelp("ms ui show", "cmd")
+  echoHelp("Shows where the windows are located to set the font sizes accordingly")
+  echoHelp("ms ui hide", "cmd")
+  echoHelp("Hides the numbers where the windows are located to set font sizes")
   echoHelp("ms fs", "cmd")
   echoHelp("Lists names of miniconsole windows")
   echoHelp("ms fs &lt;font_size&gt;", "cmd")
@@ -54253,6 +54301,82 @@ end</script>
 end</script>
 							<eventHandlerList />
 						</Script>
+						<Script isActive="yes" isFolder="no">
+							<name>Update UI</name>
+							<packageName></packageName>
+							<script>function updateUI()
+  setTextSize()
+  charStat()
+  statc()
+  affWindow()
+  roomList()
+  gatherpeople()
+  showpeople()
+  checkCircle()
+end</script>
+							<eventHandlerList />
+						</Script>
+						<Script isActive="yes" isFolder="no">
+							<name>Label UI</name>
+							<packageName></packageName>
+							<script>function lui(t_name)
+  ww = getMainWindowSize()
+  if ww &gt; 1680 then
+    t_ui = {
+      ["afflictions"] = {x=150, y=700},
+      ["toggles"] = {x=150, y=350},
+      ["healthmana"] = {x=625, y=800},
+      ["map"] = {x=1650, y=550},
+      ["roominfo"] = {x=1650, y=750},
+      ["selfaffs"] = {x=20, y=470},
+      ["skills"] = {x=230, y=470},
+      ["prompt"] = {x=1050, y=800},
+      ["targetinfo"] = {x=700, y=860},
+      ["roomitems"] = {x=1650, y=300},
+      ["charstats"] = {x=1650, y=100},
+      ["chat"] = {x=150, y=100},
+    }
+  else
+    t_ui = {
+      ["afflictions"] = {x=100, y=550},
+      ["toggles"] = {x=100, y=275},
+      ["healthmana"] = {x=520, y=630},
+      ["map"] = {x=1350, y=415},
+      ["roominfo"] = {x=1350, y=600},
+      ["selfaffs"] = {x=20, y=360},
+      ["skills"] = {x=200, y=360},
+      ["prompt"] = {x=850, y=630},
+      ["targetinfo"] = {x=570, y=690},
+      ["roomitems"] = {x=1350, y=225},
+      ["charstats"] = {x=1350, y=50},
+      ["chat"] = {x=100, y=50},
+    }
+  end
+  createLabel(t_name.."_ui", t_ui[t_name].x, t_ui[t_name].y, 50, 50, 1)
+  echo(t_name.."_ui", [[&lt;p style="font-size:25px"&gt;&lt;b&gt;&lt;center&gt;&lt;font color="yellow"&gt;]]..uwc..[[&lt;/font&gt;&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;]])
+end
+
+function dui()
+  local t_ui = {
+    "afflictions",
+    "toggles",
+    "healthmana",
+    "map",
+    "roominfo",
+    "selfaffs",
+    "skills",
+    "prompt",
+    "targetinfo",
+    "roomitems",
+    "charstats",
+    "chat",
+  }
+  for _,name in pairs(t_ui) do
+    deleteLabel(name.."_ui")
+  end
+end</script>
+							<eventHandlerList />
+						</Script>
 					</ScriptGroup>
 					<ScriptGroup isActive="yes" isFolder="yes">
 						<name>Var ID's and Tables</name>
@@ -54444,6 +54568,7 @@ ms.defCheck = {
 							<packageName></packageName>
 							<script>function msReset()
   --Misc
+  ui = false
   force_capture = false
   ms.trooms = {}
   exitList = {}
