@@ -141,7 +141,7 @@ resetFormat()
 							</Trigger>
 							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
 								<name>Deaths</name>
-								<script>if string.find(matches[1], 'slain by') or string.find(matches[1], 'killed by') or string.find(matches[1], 'has been slain') then 
+								<script>if string.find(matches[1], 'slain by') or string.find(matches[1], "hacked to death by") or string.find(matches[1], 'killed by') or string.find(matches[1], 'has been slain') then 
   demonnic.chat:append("Deaths")
   deselect()
   resetFormat()
@@ -18367,7 +18367,7 @@ end</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Assassin</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -19069,6 +19069,31 @@ end</script>
 									<regexCodePropertyList>
 										<integer>1</integer>
 										<integer>3</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Overload</name>
+									<script>deleteLine()
+sys("&lt;red&gt;Engulf Overload") cecho("&lt;gold&gt;"..matches[2])
+rb = false
+fenugreek = false
+wloc = "None"
+engulfed = false</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You use Spatium Engulf \(overload\) on (\w+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
 									</regexCodePropertyList>
 								</Trigger>
 							</TriggerGroup>
@@ -30169,7 +30194,7 @@ enableTimer("shaman confound")</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Hunter</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -39401,7 +39426,7 @@ moon = true</script>
 						<packageName></packageName>
 						<time>00:00:30.000</time>
 					</Timer>
-					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>ghost</name>
 						<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -42510,7 +42535,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="no" isFolder="yes">
+							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Assassin</name>
 								<script></script>
 								<command></command>
@@ -42623,7 +42648,7 @@ end</script>
 		atk = "dstab "..target.." butisol mazanor"
   elseif (ms.ass.aff[1] == "benzene" or ms.ass.aff[2] == "benzene") and not shield and not rb then
     atk = "dstab "..target.." benzene benzene"
-  elseif (th &lt; 40 or (tbleed &gt; 20) or (#ms.afflictions &gt;= 7))  and not autoKill then
+  elseif (th &lt; 40 or (#ms.afflictions &gt;= 7))  and not autoKill then
     if blind and not rb and lamia then
       atk = "dstab "..target.." oxalis "..ms.ass.aff[1]
     elseif not transfixed and not blind and lamia then
@@ -47610,7 +47635,7 @@ probe = true</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="yes" isFolder="yes">
+							<AliasGroup isActive="no" isFolder="yes">
 								<name>Hunter</name>
 								<script></script>
 								<command></command>
@@ -51878,9 +51903,9 @@ end</script>
   elseif #ms.afflictions &gt;= 5 and ms.class["Shaman"] then qf = "dustthrow cure me"
   elseif (ms.class["Deathknight"] or ms.class["Hunter"]) and table.contains(ms.afflictions, "asthma") and table.contains(ms.afflictions, "slickness") and (table.contains(ms.afflictions, "numbness") or table.contains("paralysis")) then qf = "fitness"
   elseif paralysis and (ms.class["Hunter"] or ms.class["Druid"]) then qf = "might"
-  elseif ms.class["Hunter"] and (#ms.afflictions &gt;= 5 or bleed &gt;= 60 or th &lt;= 45 or (brl and bll) or (bla and brl) or (bla and bll) or (bla and brl) or (bra and bll) or (bra and brl)) then
+  elseif ms.class["Hunter"] and not zerker and (#ms.afflictions &gt;= 6 or th &lt;= 45 or (brl and bll) or (bla and brl) or (bla and bll) or (bla and brl) or (bra and bll) or (bra and brl)) then
       if snare and ms.class["Hunter"] then
-        -- qf = "bat invoke "..target
+        qf = "bat invoke "..target
       elseif (autoKill) then
         qf = "backflip "..ms.exits[1]
       end
@@ -58306,7 +58331,7 @@ function dstabAtk()
         atk = "worm attach volcano"..s.."worm engulf "..target
     elseif (useBlizzard) and (swiftAttach or wloc:find("Tundra")) and not blizzard then
         atk = "worm attach tundra"..s.."worm blizzard"
-    elseif rb or rbhit then 
+    elseif (rb or rbhit) and not engulfed and not swiftAttach then 
         wld = quickdraw(ms.save["whip"], ms.save["shield"])
         atk = "flay "..target.." aura"
     elseif tumbling then
@@ -58315,19 +58340,6 @@ function dstabAtk()
         atk = "worm attach circular"..s.."worm enthrall "..target..""..s.."puncture "..target.." with "..ms.ass.aff[1]
     elseif snap and sealed then
         atk = "snap "..target..""..s.."dstab "..target.." "..(ms.ass.aff[1] or "").." "..(ms.ass.aff[2] or "")
-    -- elseif (table.contains(ms.afflictions, "clumsiness") or (shield and scourge)) and not tlock then
-        -- --atk
-        -- if fenugreek then
-            -- if not scourge then
-                -- wld = quickdraw(ms.save["whip"], ms.save["shield"])
-                -- atk = "scourge "..target
-            -- else
-                -- wld = quickdraw(ms.save["whip"], ms.save["shield"])
-                -- atk = "flay "..target
-            -- end
-        -- else
-              -- atk = "puncture "..target.." with "..ms.ass.aff[1]
-        -- end
     elseif #ms.ass.aff == 0 then
         if not scourge then
             wld = quickdraw(ms.save["whip"], ms.save["shield"])
@@ -58346,6 +58358,9 @@ function dstabAtk()
 			      wld = quickdraw(ms.save["dirk"], ms.save["shield"])
             atk = "dstab "..target.." "..ms.ass.aff[1].." "..(ms.ass.aff[2] or "")
         end--dstab
+        if (rb or rbhit) and engulfed and swiftAttach then
+          atk = "worm engulf "..target.." overload::"..atk
+        end
     end--atk
 end
 
