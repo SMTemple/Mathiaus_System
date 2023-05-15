@@ -41595,10 +41595,10 @@ send("queue eqbal scoop eyeball from body")</script>
 						<Alias isActive="yes" isFolder="no">
 							<name>Harvest Plants</name>
 							<script>send("queue eqbal search for plants")
-send("queue eqbal harvest all plants")</script>
+send("queue eqbal harvest all "..(matches[2].." plant" or 'plants'))</script>
 							<command>queue reset all</command>
 							<packageName></packageName>
-							<regex>^sfp$</regex>
+							<regex>^sfp(?: (\w+))?$</regex>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Atlas Travel</name>
@@ -41896,9 +41896,9 @@ end</script>
 							<name>Bash</name>
 							<script>if healing then
   direction = ""
-  if ms.hunt[1] then
+  if ms.hunt[1] and gmcp.Char.Status.name == "Mathiaus" then
     rubCard(ms.hunt[1])
-  else
+  elseif gmcp.Char.Status.name == "Mathiaus" then
     rubCard(creature)
   end
   if ms.class["Bard"] and ebal and bbal then
@@ -48838,7 +48838,7 @@ enableTrigger("Apply defences")
 enableTrigger("Current defences")
 enableTrigger("Prompt Stop")
 if target == "None" then send("autocuring toadstool 70", false);toadstool = true end
-if #ms.allies &gt; 0 then send("touch chameleon "..ms.allies[math.random(#ms.allies)], false) end
+if #ms.allies &gt; 0 and gmcp.Char.Status.name == "Mathiaus" then send("touch chameleon "..ms.allies[math.random(#ms.allies)], false) end
 send("queue reset all"..s.."def raw", false)</script>
 								<command></command>
 								<packageName></packageName>
