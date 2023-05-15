@@ -19923,7 +19923,7 @@ phantomel = ""</script>
 								</regexCodePropertyList>
 							</Trigger>
 						</TriggerGroup>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Deathknight</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -30194,7 +30194,7 @@ enableTimer("shaman confound")</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Hunter</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -43157,7 +43157,7 @@ send("queue eqbal "..quickdraw(ms.save["dirk"], ms.save["shield"]))</script>
 									<regex>^sud (\w+)$</regex>
 								</Alias>
 							</AliasGroup>
-							<AliasGroup isActive="yes" isFolder="yes">
+							<AliasGroup isActive="no" isFolder="yes">
 								<name>Deathknight</name>
 								<script></script>
 								<command></command>
@@ -47634,7 +47634,7 @@ probe = true</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="no" isFolder="yes">
+							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Hunter</name>
 								<script></script>
 								<command></command>
@@ -51902,10 +51902,10 @@ end</script>
   elseif #ms.afflictions &gt;= 5 and ms.class["Shaman"] then qf = "dustthrow cure me"
   elseif (ms.class["Deathknight"] or ms.class["Hunter"]) and table.contains(ms.afflictions, "asthma") and table.contains(ms.afflictions, "slickness") and (table.contains(ms.afflictions, "numbness") or table.contains("paralysis")) then qf = "fitness"
   elseif paralysis and (ms.class["Hunter"] or ms.class["Druid"]) then qf = "might"
-  elseif ms.class["Hunter"] and not zerker and (#ms.afflictions &gt;= 6 or th &lt;= 45 or (brl and bll) or (bla and brl) or (bla and bll) or (bla and brl) or (bra and bll) or (bra and brl)) then
+  elseif ms.class["Hunter"] and not zerker and (th &lt;= 45 or (brl and bll) or (bla and brl) or (bla and bll) or (bla and brl) or (bra and bll) or (bra and brl)) then
       if snare and ms.class["Hunter"] then
         qf = "bat invoke "..target
-      elseif (autoKill) then
+      elseif (autoKill or transfixed) then
         qf = "backflip "..ms.exits[1]
       end
 	elseif (ms.class["Assassin"] or ms.class["Renegade"]) and resetPets then qf = "order loyals passive"..s.."order loyals follow me"..s.."order loyals attack "..target
@@ -52445,7 +52445,7 @@ end</script>
 							<name>Defences</name>
 							<packageName></packageName>
 							<script>function showDef(skill, class)
-  if skill == "Current Defences:" then
+  if skill == "current defences:" then
     selectCurrentLine()
     replace("")
     cecho(f("&lt;red&gt; [ &lt;cyan&gt;Defences &lt;red&gt;]:"))
@@ -52470,7 +52470,7 @@ end
 
 function ms.checkDef(defense, timeLeft)
   local class = gmcp.Char.Status.prof:lower()
-  
+  local defense = defense:lower()
   if timeLeft then
     if table.contains(ms.save["deflist"][class], defense) then
       showDef(defense.." ["..timeLeft.."]", gmcp.Char.Status.prof)
@@ -52998,8 +52998,10 @@ sys("&lt;SteelBlue&gt;Hunting Functions")
   echoHelp("Target specified creature")
   echoHelp("b [&lt;selected_creature]", "cmd")
   echoHelp("Either &lt;green&gt;b &lt;snow&gt;or &lt;green&gt;b &lt;yellow&gt;creature_name &lt;snow&gt;will attack a creature")
-  echoHelp("Ctrl+b", "cmd")
+  echoHelp("Ctrl+b | bash ", "cmd")
   echoHelp("Hitting the &lt;green&gt;control+b &lt;snow&gt;keys will enable hitting the creatures in room automatically. &lt;red&gt;Note, &lt;snow&gt;please follow hunting guidelines and IRE's rules about being present at your keyboard while hunting, thank you!")
+  echoHelp("brooms", "cmd")
+  echoHelp("Hunts the current area and moves to the next room after clearing the room. Risky, and punishable if you are not at your keyboard when doing so")
   nl()
 end
 
@@ -54276,7 +54278,7 @@ function applyDefGeneral()
       elseif ans["queue"] then
         local varType = type(ans["queue"])
         if varType == "string" then
-          table.insert(ms.def, ans["queue"])
+          table.insert(ms.def, ans["queue"]:lower())
         elseif varType == "function" then
           ans["queue"]()
         end
@@ -54295,7 +54297,7 @@ function applyDefClass()
         elseif ans["queue"] then
           local varType = type(ans["queue"])
           if varType == "string" then
-            table.insert(ms.def, ans["queue"])
+            table.insert(ms.def, ans["queue"]:lower())
           elseif varType == "function" then
             ans["queue"]()
           end
