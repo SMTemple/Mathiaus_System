@@ -48512,6 +48512,21 @@ end</script>
 								<command></command>
 								<packageName></packageName>
 								<regex></regex>
+								<Alias isActive="yes" isFolder="no">
+									<name>Cleave</name>
+									<script>noheal()
+send("queue eqbal cleave "..(matches[3] or target))</script>
+									<command></command>
+									<packageName></packageName>
+									<regex>^cl(\s(\w+))?$</regex>
+								</Alias>
+								<Alias isActive="yes" isFolder="no">
+									<name>Block</name>
+									<script>send("queue eqbal block "..matches[2])</script>
+									<command></command>
+									<packageName></packageName>
+									<regex>^bl (\w+)$</regex>
+								</Alias>
 							</AliasGroup>
 							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Rampage</name>
@@ -48526,6 +48541,13 @@ end</script>
 									<packageName></packageName>
 									<regex>^wdo$</regex>
 								</Alias>
+								<Alias isActive="yes" isFolder="no">
+									<name>Doubledance PVP</name>
+									<script>send("queue eqbal doubledance eviscerate spurn")</script>
+									<command></command>
+									<packageName></packageName>
+									<regex>^dd$</regex>
+								</Alias>
 							</AliasGroup>
 							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Warchants</name>
@@ -48539,6 +48561,13 @@ end</script>
 									<command></command>
 									<packageName></packageName>
 									<regex>^wt(?: (\w+))?$</regex>
+								</Alias>
+								<Alias isActive="yes" isFolder="no">
+									<name>Persist</name>
+									<script>send("queue eqbal top warchant persist "..matches[2])</script>
+									<command></command>
+									<packageName></packageName>
+									<regex>^wp (\w+)$</regex>
 								</Alias>
 							</AliasGroup>
 							<Alias isActive="yes" isFolder="no">
@@ -48614,7 +48643,7 @@ elseif ms.class["Assassin"] or ms.class["Renegade"] then send(quickdraw(ms.save[
 elseif ms.class["Mage"] or ms.class["Hunter"] then send(quickdraw("sword", ms.save["shield"]))
 elseif ms.class["Summoner"] then send(quickdraw(ms.save["sabre"], ms.save["shield"]))
 elseif ms.class["Diabolist"] then send (quickdraw(ms.save["daegger"], ms.save["shield"]))
-elseif ms.class["Deathknight"] or ms.class["Runeguard"] then send(quickdraw(ms.save["longsword"], ms.save["shield"]))
+elseif ms.class["Deathknight"] or ms.class["Runeguard"] or ms.class["Berserker"] or ms.class["Templar"] then send(quickdraw(ms.save["longsword"], ms.save["shield"]))
 elseif ms.class["Defiler"] then send(quickdraw(ms.save["flail"], ms.save["shield"]))
 elseif ms.class["Engineer"] then send(quickdraw(ms.save["flintlock"], ms.save["shield"]))
 elseif ms.class["Druid"] then send(quickdraw(ms.save["quarterstaff"], ms.save["shield"]))
@@ -60138,6 +60167,36 @@ function helpOutrider()
 cecho(f("\n&lt;SteelBlue&gt;Coming soon!:\n"))
 end
 
+function helpBerserker()
+cecho(f("\n&lt;SteelBlue&gt;List of Berserker Functions:\n"))
+sys("&lt;SteelBlue&gt;Combat Functions")
+	echoHelp("aff", "cmd")
+	echoHelp("Affliction route focused on stacks towards multiple warchants and shouts")
+	echoHelp("dmg", "cmd")
+	echoHelp("Damage route focused on rage momentum and warchant health denial")
+  echoHelp("F4 Key", "cmd")
+  echoHelp("Channel Cleave on current target")
+nl()
+sys("&lt;SteelBlue&gt;Maiming")
+  echoHelp("cl [&lt;selected_target&gt;]", "cmd")
+  echoHelp("Cleave current or selected target")
+  echoHelp("bl &lt;direction&gt;", "cmd")
+  echoHelp("Block people from leaving the selected exit")
+nl()
+sys("&lt;SteelBlue&gt;Rampage")
+  echoHelp("wdo", "cmd")
+  echoHelp("Turn off wardances")
+  echoHelp("dd", "cmd")
+  echoHelp("Doubledance for eviscerate and spurn")
+  echoHelp("wp &lt;warchant&gt;", "cmd")
+  echoHelp("Warchant persist a warchant")
+nl()
+sys("&lt;SteelBlue&gt;Warchants")
+  echoHelp("wt [&lt;selected_target&gt;]", "cmd")
+  echoHelp("Warchant taunt current or selected target to you")
+nl()
+end
+
 function helpSetup()
 cecho(f("\n&lt;SteelBlue&gt;List of Commands and Helpful Information of Math's System (MS):\n"))
 sys("&lt;SteelBlue&gt;New User")
@@ -60306,6 +60365,8 @@ function helpProf(class)
     helpPredator()
   elseif class:lower() == "outrider" then
     helpOutrider()
+  elseif class:lower() == "berserker" then
+    helpBerserker()
   end
 end
 
@@ -68420,7 +68481,7 @@ elseif ms.class["Diabolist"] then
 	send("queue eqbal "..quickdraw(ms.save["daegger"], ms.save["shield"])..""..s.."demon catharsis "..target)
 elseif ms.class["Assassin"] or ms.class["Renegade"] then
 	send("queue eqbal worm attach rashirmir"..s.."worm devour "..target)
-elseif ms.class["Deathknight"] or ms.class["Runeguard"] then
+elseif ms.class["Deathknight"] or ms.class["Runeguard"] or ms.class["Berserker"] or ms.class["Templar"] then
   send("queue eqbal "..quickdraw(ms.save["longsword"], ms.save["shield"])..""..s.."cleave "..target)
 elseif ms.class["Defiler"] then
   send("queue eqbal torment "..target.." with arachnids")
