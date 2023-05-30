@@ -13403,6 +13403,8 @@ disableTrigger("autoKill prompt")</script>
 						<script>if healing and (direction ~= "" or mmp.autowalking) then 
 	if ms.class["Defiler"] then
 		send("queue eqbal shadowbind me with projection "..direction)
+  elseif ms.class["Hunter"] and fire &gt;= 10 then
+    send(f'queue eqbal {ms.save["hunter_form"]} firebreath icewall {direction}{s}{direction}')
 	else
 		send("dismount"..s.."backflip "..direction) 
 	end
@@ -13840,6 +13842,26 @@ sys("&lt;blue&gt;Flood Ring") cecho("&lt;blue&gt;Room is flooded!")</script>
 						<name>Ice Wall</name>
 						<script>deleteLine()
 iwDir = iwDir or ""
+local dir_conv = { 
+  ["north"] = "n", 
+  ["northeast"] = "ne", 
+  ["east"] = "e", 
+  ["southeast"] = "se", 
+  ["south"] = "s", 
+  ["southwest"] = "sw", 
+  ["west"] = "w", 
+  ["northwest"] = "nw", 
+  ["up"] = "u", 
+  ["down"] = "d", 
+  ["in"] = "in", 
+  ["out"] = "out"
+  }
+for dir_name, short_name in pairs(dir_conv) do
+  if iwDir == short_name then
+    iwDir = dir_name
+    break
+  end
+end
 if matches[2] then
   sys("&lt;cyan&gt;Ice Wall") cecho("&lt;ivory&gt;"..matches[2]:title())
 else
@@ -14114,7 +14136,7 @@ hammer = true</script>
 						<name>Deep Water</name>
 						<script>if wall then
   if ms.class["Hunter"] and fire &gt;= 10 then
-    send("queue eqbal top firebreath icewall "..direction)
+    send("queue eqbal top "..ms.save["hunter_form"].." firebreath icewall "..direction)
   else
 	 send("queue eqbal top shard disrupt "..direction)
   end
@@ -15092,6 +15114,26 @@ sys("Afflictions") cecho("&lt;ivory&gt;Affs: "..table.size(ms.affs).." ("..table
 							</regexCodePropertyList>
 						</Trigger>
 					</TriggerGroup>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Icewall direction</name>
+						<script>iwDir = matches[2]</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^Weaver icewall (\w+) added to the bottom of your EQBAL queue.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
 				</TriggerGroup>
 				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Classes</name>
