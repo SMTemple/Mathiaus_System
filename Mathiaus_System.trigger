@@ -3,13 +3,13 @@
 <MudletPackage version="1.001">
 	<TriggerPackage>
 		<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-			<name>MS_v3.1.3</name>
+			<name>Mathiaus_System</name>
 			<script></script>
 			<triggerType>0</triggerType>
 			<conditonLineDelta>0</conditonLineDelta>
 			<mStayOpen>0</mStayOpen>
 			<mCommand></mCommand>
-			<packageName>MS_v3.1.3</packageName>
+			<packageName>Mathiaus_System</packageName>
 			<mFgColor>#ff0000</mFgColor>
 			<mBgColor>#ffff00</mBgColor>
 			<mSoundFile></mSoundFile>
@@ -39626,10 +39626,10 @@ end</script>
 	</TriggerPackage>
 	<TimerPackage>
 		<TimerGroup isActive="yes" isFolder="yes" isTempTimer="no" isOffsetTimer="no">
-			<name>MS_v3.1.3</name>
+			<name>Mathiaus_System</name>
 			<script></script>
 			<command></command>
-			<packageName>MS_v3.1.3</packageName>
+			<packageName>Mathiaus_System</packageName>
 			<time></time>
 			<TimerGroup isActive="yes" isFolder="yes" isTempTimer="no" isOffsetTimer="no">
 				<name>MS</name>
@@ -40315,10 +40315,10 @@ disableTimer("zerk_shake")</script>
 	</TimerPackage>
 	<AliasPackage>
 		<AliasGroup isActive="yes" isFolder="yes">
-			<name>MS_v3.1.3</name>
+			<name>Mathiaus_System</name>
 			<script></script>
 			<command></command>
-			<packageName>MS_v3.1.3</packageName>
+			<packageName>Mathiaus_System</packageName>
 			<regex></regex>
 			<AliasGroup isActive="yes" isFolder="yes">
 				<name>MS</name>
@@ -51905,8 +51905,8 @@ mmp.echo("All astral nodes have been "..(matches[2]:lower()=="on" and "" or "un"
 	<ActionPackage />
 	<ScriptPackage>
 		<ScriptGroup isActive="yes" isFolder="yes">
-			<name>MS_v3.1.3</name>
-			<packageName>MS_v3.1.3</packageName>
+			<name>Mathiaus_System</name>
+			<packageName>Mathiaus_System</packageName>
 			<script></script>
 			<eventHandlerList />
 			<ScriptGroup isActive="yes" isFolder="yes">
@@ -68476,8 +68476,8 @@ end</script>
 	</ScriptPackage>
 	<KeyPackage>
 		<KeyGroup isActive="yes" isFolder="yes">
-			<name>MS_v3.1.3</name>
-			<packageName>MS_v3.1.3</packageName>
+			<name>Mathiaus_System</name>
+			<packageName>Mathiaus_System</packageName>
 			<script></script>
 			<command></command>
 			<keyCode>0</keyCode>
