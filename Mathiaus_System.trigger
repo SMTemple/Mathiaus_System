@@ -61518,7 +61518,7 @@ end
         ["celerity blessing"] = {queue = "bless me celerity", state = true,},
       },
       renegade = {
-        ["demon protect"] = {queue = function() expandAlias("wss") end, state = true,},
+        ["spectre protect"] = {queue = function() expandAlias("wss") end, state = true,},
         ghost = {queue = "conjure ghost", state = true,},
         harden = {queue = "harden", state = true,},
         hide = {queue = "hide", state = true,},
