@@ -616,7 +616,7 @@ end
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList />
 						<regexCodePropertyList />
-						<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>autoKill prompt</name>
 							<script>if autoKill and target ~= "None" and not akTimer then
 	if ebal and bbal and healing then
@@ -1902,7 +1902,12 @@ if healing and ms.save["defMe"] then
   if ms.def[1] then send("queue eqbal "..ms.def[1]);table.remove(ms.def, 1) end 
 end--healing
 if ms.class["Hunter"] and ms.save["defMe"] then 
-  if ice &lt; 50 then
+  if ice &lt; 50 and fire &lt; 50 then
+    send("queue eqbal summon ice")
+    send("queue eqbal summon ice")
+    send("queue eqbal summon fire")
+    send("queue eqbal summon fire")
+  elseif ice &lt; 50 then
     send("queue eqbal summon ice")
     send("queue eqbal summon ice")
   elseif fire &lt; 50 then
@@ -50396,6 +50401,31 @@ sys("&lt;green&gt;MS UI") cecho("&lt;snow&gt;Successfully removed labels")</scri
 								<packageName></packageName>
 								<regex>^ms ui hide$</regex>
 							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>Set Main Window Size and Wrap</name>
+								<script>if matches[2] == "left" then
+  ms.save["mwbl"] = matches[3]
+elseif matches[2] == "bottom" then
+  ms.save["mwbb"] = matches[3]
+elseif matches[2] == "wrap" then
+  ms.save["mww"] = matches[3]
+end
+msBorders()
+sys("&lt;green&gt;MS "..matches[2]:title()) cecho("&lt;snow&gt;Set to: &lt;yellow&gt;"..matches[3])</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^ms mw (left|bottom|wrap) (\d+)$</regex>
+							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>Check Main windows specs</name>
+								<script>sys("&lt;green&gt;MS Main Window") 
+  cecho("\n&lt;snow&gt;Left Border set to: &lt;yellow&gt;"..tostring(ms.save["mwbl"]))
+  cecho("\n&lt;snow&gt;Bottom Border set to: &lt;yellow&gt;"..tostring(ms.save["mwbb"]))
+  cecho("\n&lt;snow&gt;Wrap Width set to: &lt;yellow&gt;"..tostring(ms.save["mww"]))</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^ms mw$</regex>
+							</Alias>
 						</AliasGroup>
 					</AliasGroup>
 				</AliasGroup>
@@ -60336,6 +60366,13 @@ sys("&lt;SteelBlue&gt;U.I.")
   echoHelp("Set overall font size for all windows at once")
   echoHelp("ms fs &lt;window_name&gt; &lt;font_increment&gt;", "cmd")
   echoHelp("Increase or decrease the size of a specific window by adding a positive or negative number")
+  echoHelp("ms mw", "cmd")
+  echoHelp("Show borders and wrap width of main windows")
+  echoHelp("Left Border set to: &lt;yellow&gt;"..tostring(ms.save["mwbl"]))
+  echoHelp("Bottom Border set to: &lt;yellow&gt;"..tostring(ms.save["mwbb"]))
+  echoHelp("Wrap Width set to: &lt;yellow&gt;"..tostring(ms.save["mww"]))
+  echoHelp("ms mw left|bottom|wrap &lt;number&gt;", "cmd")
+  echoHelp("Set desired parameter to typed number")
   nl()
 end
 
