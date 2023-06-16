@@ -59268,32 +59268,32 @@ function zerkAtk()
   elseif impaled then
     atk1 = f'disembowel {target}'
   elseif dmg then
-    atk1 = f'strike {ms.zerk.affs[1]} {target}'
+    atk1 = f'strike {ms.zerk.affs[1]}'
   else
-    atk1 = f'slash {ms.zerk.affs[1]} {target}'
+    atk1 = f'slash {ms.zerk.affs[1]}'
   end
   -- Shield attack
   if hk and ptar:find(target) then
-    atk2 = f'trip {target}'
+    atk2 = f'trip'
   elseif not zerk_crush then
-    atk2 = f'crush {target}'
+    atk2 = f'crush'
   elseif ina("nausea") or ina("clumsiness") or ina("weariness") then
-    atk2 = f'smash {target}'
+    atk2 = f'smash'
   elseif afflict and  (ina("sensitivity") or (ina("numbness") and ina("paralysis")) or ina("ignorance")) then
-    atk2 = f'bash {target}'
+    atk2 = f'bash'
   elseif afflict and (ina("stupidity") or ina("vertigo") or ina("dementia")) then
-    atk2 = f'batter {target}'
+    atk2 = f'batter'
   elseif afflict and ina("dizziness") then
-    atk2 = f'knockout {target}'
+    atk2 = f'knockout'
   else
-    atk2 = f'slam {target}'
+    atk2 = f'slam'
   end
   -- Razing
   if shield and rb then
-    atk1 = f'raze {target}'
-    atk2 = f'raze {target}'
+    atk1 = f'raze'
+    atk2 = f'raze'
   elseif shield or rb then
-    atk1 = f'raze {target}'
+    atk1 = f'raze'
   end
 end
 
