@@ -55627,6 +55627,9 @@ function statc() clearWindow("statusconsole");clearWindow("statusconsole2");clea
   cecho("statusconsole2", "\n&lt;snow&gt;Circling:   ");if circling then cecho("statusconsole2", "&lt;green&gt;Up") else cecho("statusconsole2", "&lt;red&gt;Down") end
   cecho("statusconsole2", "\n&lt;purple&gt;Overwhelm:  ");if overwhelm then cecho("statusconsole2", "&lt;green&gt;Up") else cecho("statusconsole2", "&lt;red&gt;Down") end
   cecho("statusconsole2", "\n&lt;yellow&gt;Shock:      ");if druid_shock then cecho("statusconsole2", "&lt;green&gt;Up") else cecho("statusconsole2", "&lt;red&gt;Down") end
+    elseif ms.class["Templar"] then
+  cecho("statusconsole3", "&lt;SteelBlue&gt;Target Affs: &lt;green&gt;"..acount)
+  cecho("statusconsole3", " | &lt;cyan&gt;Devotion: &lt;snow&gt;"..gmcp.Char.Vitals.devotion)
     elseif ms.class["Priest"] then
   cecho("statusconsole3", "&lt;SteelBlue&gt;Target Affs: &lt;green&gt;"..acount)
   cecho("statusconsole3", " | &lt;yellow&gt;Fanatism: &lt;magenta&gt;"..gmcp.Char.Vitals.fanatism)
