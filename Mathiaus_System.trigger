@@ -616,7 +616,7 @@ end
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList />
 						<regexCodePropertyList />
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>autoKill prompt</name>
 							<script>if autoKill and target ~= "None" and not akTimer then
 	if ebal and bbal and healing then
@@ -6787,7 +6787,7 @@ if autoKill then sys("&lt;SteelBlue&gt;[&lt;green&gt;MS A.I.&lt;SteelBlue&gt;] &
 if ttimes == 0 then expandAlias("trig");ttimes = "off" end
 --gags
 disableTrigger("Gag defences")
-tempRegexTrigger("^$", function() deleteLine() end, 1)
+-- tempRegexTrigger("^$", function() deleteLine() end, 1)
 --
 -- if #toxCured == 1 then
 	-- sys("&lt;green&gt;"..toxCured[1]:title()) cecho("&lt;green&gt;Cured")
@@ -18429,7 +18429,7 @@ end</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Assassin</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -30256,7 +30256,7 @@ enableTimer("shaman confound")</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Hunter</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -39953,7 +39953,7 @@ moon = true</script>
 						<packageName></packageName>
 						<time>00:00:30.000</time>
 					</Timer>
-					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>ghost</name>
 						<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -43085,7 +43085,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="no" isFolder="yes">
+							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Assassin</name>
 								<script></script>
 								<command></command>
@@ -48184,7 +48184,7 @@ probe = true</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="yes" isFolder="yes">
+							<AliasGroup isActive="no" isFolder="yes">
 								<name>Hunter</name>
 								<script></script>
 								<command></command>
