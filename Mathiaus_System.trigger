@@ -59303,21 +59303,21 @@ end
 function warchants()
   wc = ''
   if (hp+mp &lt; 75) or (hp+mp &lt; 95 and zerk_weaken) then
-    wc = f'warchant shatter {target}'
+    wc = f'shatter {target}'
   elseif #ms.zerk.weaken &gt;= 3 then
-    wc = f'warchant pierce {target}'
+    wc = f'pierce {target}'
   elseif dmg and not zerk_shake and not zerk_shake_cd then
-    wc = f'warchant shake {target}'
+    wc = f'shake {target}'
   elseif dmg and hp &lt; 60 then 
-    wc = f'warchant shout {target}'
+    wc = f'shout {target}'
   elseif afflict and  (ina('healthleech') or ina('clumsiness') or ina('weariness') or ina('lethargy') or ina('nausea')) then
-    wc = f'warchant weaken {target}'
+    wc = f'weaken {target}'
   elseif afflict and  (ina('dementia') or ina('hypersomnia') or ina('paranoia') or ina('vertigo') or ina('hallucinations')) then
-    wc = f'warchant disorient {target}'
+    wc = f'disorient {target}'
   else
-    wc = f'warchant shout {target}'
+    wc = f'shout {target}'
   end
-  if rage &gt;= 100 then wc = string.gsub(wc, "warchant", "warchant enrage") end
+  if rage &gt;= 100 then wc = string.gsub(wc, "(%w+) ", "%1 enrage ") end
 end
 
 function checkWeaken()
