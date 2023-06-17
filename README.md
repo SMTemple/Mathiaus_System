@@ -27,7 +27,8 @@ Before doing ms save reset and this will list all your settings so you can refer
 
 Open up the package module installer
 
-Make sure that you have it clear of any other packages other than custom packages you made yourself
+Make sure that you have it clear of any other packages other than custom packages you made yourself.
+
 Install Mathiaus_System.trigger or MS_v(<current-version).trigger file from archives. Ex: MS_v3.0.trigger
 
 Once installed, close down mudlet, and restart.
