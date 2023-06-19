@@ -40489,10 +40489,14 @@ end</script>
 						</AliasGroup>
 						<Alias isActive="yes" isFolder="no">
 							<name>Reply</name>
-							<script>send("reply "..matches[2], false)</script>
+							<script>if matches[2] == 'rep' or matches[2] == 'ry' then
+  send("reply "..matches[3], false)
+else
+  send("retell "..matches[3], false)
+end</script>
 							<command></command>
 							<packageName></packageName>
-							<regex>^ry (.+)$</regex>
+							<regex>^(rep|ret|ry) (.+)$</regex>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Path find</name>
@@ -60432,6 +60436,7 @@ sys("&lt;SteelBlue&gt;Misc")
   echoHelp("Standard of all fighting, set your target to the specified name. Use the &lt;yellow&gt;tab key &lt;snow&gt;to help fill out names faster when typing them out!")
   echoHelp("ms clan [&lt;clan_tag&gt;]", "cmd")
   echoHelp("Check current combat clan or optionally set clan to new ID tag")
+  echoHelp("Affliction clan currently set to: &lt;yellow&gt;"..ms.save["clan"])
   echoHelp("0 &lt;yellow&gt;\&lt;\= Zero", "cmd")
   echoHelp("Soft reset MS variables, afflictions, and defences to ready instance")
   echoHelp("*&lt;yellow&gt;NOTE&lt;snow&gt;* I use this often when target has escaped or arena fights")
@@ -61383,7 +61388,7 @@ end
     pet = "pet",
     parry = false,
     mount = "horse",
-    clan = "",
+    clan = "clt",
     --
     mwbb = 75,
     mwbl = 480,
@@ -61865,7 +61870,7 @@ function msSetup(_, cmd)
       sys("&lt;green&gt;Setup - Settings") cecho("Type &lt;yellow&gt;continue &lt;snow&gt;when finished with defences")
       mss = mss + 1
     elseif mss == 4 or (mss == 2 and not ms.save["defMe"]) then
-      sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;clan name &lt;snow&gt;to call afflictions. Default to &lt;DimGray&gt;clt &lt;snow&gt;if you don't have any: ")
+      sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;clan name &lt;snow&gt;to call afflictions. Currently set to &lt;yellow&gt;"..ms.save["clan"].."&lt;snow&gt;. Default to &lt;DimGray&gt;clt &lt;snow&gt;if you don't have any: ")
       if not ms.save["defMe"] then mss = mss + 2 end
     elseif mss == 5 then
       sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Quickdraw&lt;snow&gt; in Weaponry? (yes/no): ")
