@@ -7790,8 +7790,10 @@ end</script>
 							<string>^You use Flail devastate on (\w+).$</string>
 							<string>^You use Sabotage Flay \(rebounding\) on (\w+).$</string>
 							<string>^You use \w+ Raze on (\w+)\.$</string>
+							<string>^You use Rampage Eviscerate \(rebounding\) on (\w+).$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
+							<integer>1</integer>
 							<integer>1</integer>
 							<integer>1</integer>
 							<integer>1</integer>
@@ -18429,7 +18431,7 @@ end</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Assassin</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -29694,6 +29696,70 @@ end</script>
 								</regexCodePropertyList>
 							</Trigger>
 						</TriggerGroup>
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Outrider</name>
+							<script></script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList />
+							<regexCodePropertyList />
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Trailblazing</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+							</TriggerGroup>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Wyrmriding</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+							</TriggerGroup>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Hunting</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+							</TriggerGroup>
+						</TriggerGroup>
 					</TriggerGroup>
 					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Neutral</name>
@@ -31491,7 +31557,7 @@ end</script>
 							<regexCodeList />
 							<regexCodePropertyList />
 						</TriggerGroup>
-						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Berserker</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -31543,7 +31609,7 @@ end</script>
 									<colorTriggerFgColor>#000000</colorTriggerFgColor>
 									<colorTriggerBgColor>#000000</colorTriggerBgColor>
 									<regexCodeList>
-										<string>^You use Maiming Smash on (\w+).$</string>
+										<string>^You use Maiming Smash on (\w+)\.$</string>
 									</regexCodeList>
 									<regexCodePropertyList>
 										<integer>1</integer>
@@ -31931,6 +31997,46 @@ end</script>
 									</regexCodeList>
 									<regexCodePropertyList>
 										<integer>3</integer>
+										<integer>3</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Warchants cd</name>
+									<script>zerk_warchant_cd = true</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You use Warchants \w+ on (\w+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Warchants cd</name>
+									<script>zerk_warchant_cd = false</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>You are again able to use a warchant.</string>
+									</regexCodeList>
+									<regexCodePropertyList>
 										<integer>3</integer>
 									</regexCodePropertyList>
 								</Trigger>
@@ -34961,7 +35067,7 @@ for af,state in ms.afflicted:pairs() do
       notaff(af)
 			if af == "slickness" and fitnessUsed then instill = true end
 			cured = true
-		elseif plant == "nightshade root" and not table.contains(ms.shadowplant, plant) and (af == "haemophilia" or af == "dryblood" or af == "lethargy" or af == "burning nerves" or af == "taint attunement" or af == "nausea" or af == "sulfonal") then
+		elseif plant == "nightshade root" and not table.contains(ms.shadowplant, plant) and (af == "recurring freezing" or af == "haemophilia" or af == "dryblood" or af == "lethargy" or af == "burning nerves" or af == "taint attunement" or af == "nausea" or af == "sulfonal") then
 			notaff(af)
 			if af == "nausea" then disableTimer("nausea") end
 			cured = true
@@ -39975,7 +40081,7 @@ moon = true</script>
 						<packageName></packageName>
 						<time>00:00:30.000</time>
 					</Timer>
-					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>ghost</name>
 						<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -40489,14 +40595,10 @@ end</script>
 						</AliasGroup>
 						<Alias isActive="yes" isFolder="no">
 							<name>Reply</name>
-							<script>if matches[2] == 'rep' or matches[2] == 'ry' then
-  send("reply "..matches[3], false)
-else
-  send("retell "..matches[3], false)
-end</script>
+							<script>send("reply "..matches[2], false)</script>
 							<command></command>
 							<packageName></packageName>
-							<regex>^(rep|ret|ry) (.+)$</regex>
+							<regex>^ry (.+)$</regex>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Path find</name>
@@ -42675,9 +42777,9 @@ end</script>
   		if creature == "head" then
   			send("queue eqbal attack head"..s..""..becloudHunt)
   			send("queue eqbal attack hydra"..s..""..becloudHunt)
-  		elseif ms.hunt[1] then send(quickdraw(ms.save["dirk"], ms.save["shield"])..""..s.."puncture "..ms.hunt[1].." with trioxin"..s..""..becloudHunt)
+  		elseif ms.hunt[1] then send(quickdraw(ms.save["daegger"], ms.save["shield"])..""..s.."puncture "..ms.hunt[1].." with trioxin"..s..""..becloudHunt)
   			if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send(quickdraw(ms.save["dirk"], ms.save["shield"])..""..s.."puncture "..creature.." with trioxin"..s..""..becloudHunt)
+  		else send(quickdraw(ms.save["daegger"], ms.save["shield"])..""..s.."puncture "..creature.." with trioxin"..s..""..becloudHunt)
   		end
   	end
   elseif ms.class["Deathknight"] and ebal and bbal then
@@ -43111,7 +43213,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="yes" isFolder="yes">
+							<AliasGroup isActive="no" isFolder="yes">
 								<name>Assassin</name>
 								<script></script>
 								<command></command>
@@ -47976,6 +48078,34 @@ end</script>
 									<regex>^dmg$</regex>
 								</Alias>
 							</AliasGroup>
+							<AliasGroup isActive="no" isFolder="yes">
+								<name>Outrider</name>
+								<script></script>
+								<command></command>
+								<packageName></packageName>
+								<regex></regex>
+								<AliasGroup isActive="yes" isFolder="yes">
+									<name>Trailblazing</name>
+									<script></script>
+									<command></command>
+									<packageName></packageName>
+									<regex></regex>
+								</AliasGroup>
+								<AliasGroup isActive="yes" isFolder="yes">
+									<name>Wyrmriding</name>
+									<script></script>
+									<command></command>
+									<packageName></packageName>
+									<regex></regex>
+								</AliasGroup>
+								<AliasGroup isActive="yes" isFolder="yes">
+									<name>Hunting</name>
+									<script></script>
+									<command></command>
+									<packageName></packageName>
+									<regex></regex>
+								</AliasGroup>
+							</AliasGroup>
 						</AliasGroup>
 						<AliasGroup isActive="yes" isFolder="yes">
 							<name>Neutral</name>
@@ -48610,7 +48740,7 @@ end</script>
 									<regex></regex>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="no" isFolder="yes">
+							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Berserker</name>
 								<script></script>
 								<command></command>
@@ -48759,6 +48889,7 @@ elseif ms.class["Engineer"] then send(quickdraw(ms.save["flintlock"], ms.save["s
 elseif ms.class["Druid"] then send(quickdraw(ms.save["quarterstaff"], ms.save["shield"]))
 elseif ms.class["Shaman"] then send(quickdraw(ms.save["sabre"], ms.save["shield"]))
 elseif ms.class["Priest"] then send(quickdraw(ms.save["mace"], ms.save["shield"]))
+elseif ms.class["Outrider"] then send(quickdraw(ms.save["spear"], ms.save["shield"]))
 end</script>
 							<command></command>
 							<packageName></packageName>
@@ -53880,6 +54011,7 @@ ms.defCheck = {
   zerk_rage = false
   zerk_focus_cd = false
   zerk_focus = false
+  zerk_warchant_cd = false
 
   
   --Druid
@@ -54941,6 +55073,7 @@ ms.afflicted = ol(
 {sensitivity = "notaff"},
 {hemotoxin = "notaff"},
 {impatience = "notaff"},
+{["recurring freezing"] = "notaff"},
 {shivering = "notaff"},
 {frozen = "notaff"},
 {heroism = "notaff"},
@@ -55950,6 +56083,7 @@ if ms.afflicted["peace"] == "aff" then cecho("winAffs3", "&lt;ivory&gt;[&lt;gree
 if ms.afflicted["poisoned blood"] == "aff" then cecho("winAffs3", "&lt;ivory&gt;[&lt;green&gt;O&lt;ivory&gt;]poisoned blood\n") else cecho("winAffs3", "&lt;ivory&gt;[&lt;red&gt;X&lt;ivory&gt;]poisoned blood\n") end
 if ms.afflicted["poisoned mind"] == "aff" then cecho("winAffs3", "&lt;ivory&gt;[&lt;green&gt;O&lt;ivory&gt;]poisoned mind\n") else cecho("winAffs3", "&lt;ivory&gt;[&lt;red&gt;X&lt;ivory&gt;]poisoned mind\n") end
 if ms.afflicted["recklessness"] == "aff" then cecho("winAffs3", "&lt;ivory&gt;[&lt;green&gt;O&lt;ivory&gt;]recklessness\n") else cecho("winAffs3", "&lt;ivory&gt;[&lt;red&gt;X&lt;ivory&gt;]recklessness\n") end
+if ms.afflicted["recurring freezing"] == "aff" then cecho("winAffs3", "&lt;ivory&gt;[&lt;green&gt;O&lt;ivory&gt;]recurring freezing\n") else cecho("winAffs3", "&lt;ivory&gt;[&lt;red&gt;X&lt;ivory&gt;]recurring freezing\n") end
 if ms.afflicted["rigidity"] == "aff" then cecho("winAffs3", "&lt;ivory&gt;[&lt;green&gt;O&lt;ivory&gt;]rigidity\n") else cecho("winAffs3", "&lt;ivory&gt;[&lt;red&gt;X&lt;ivory&gt;]rigidity\n") end
 if ms.afflicted["sensitivity"] == "aff" then cecho("winAffs3", "&lt;ivory&gt;[&lt;green&gt;O&lt;ivory&gt;]sensitivity\n") else cecho("winAffs3", "&lt;ivory&gt;[&lt;red&gt;X&lt;ivory&gt;]sensitivity\n") end
 if ms.afflicted["shivering"] == "aff" then cecho("winAffs3", "&lt;ivory&gt;[&lt;green&gt;O&lt;ivory&gt;]shivering\n") else cecho("winAffs3", "&lt;ivory&gt;[&lt;red&gt;X&lt;ivory&gt;]shivering\n") end
@@ -58415,6 +58549,14 @@ function priestDmg()
 end</script>
 								<eventHandlerList />
 							</Script>
+							<Script isActive="yes" isFolder="no">
+								<name>Outrider</name>
+								<packageName></packageName>
+								<script>ms.outrider = {}
+ms.outrider.affs = {}
+</script>
+								<eventHandlerList />
+							</Script>
 						</ScriptGroup>
 						<ScriptGroup isActive="yes" isFolder="yes">
 							<name>Neutral</name>
@@ -59246,21 +59388,21 @@ function zerkAff()
     ms.zerk.affs = {}
     if ms.afflicted["numbness"] == "notaff" and ms.afflicted["paralysis"] == "notaff" and tik then table.insert(ms.zerk.affs, "ciguatoxin") end
     if tlock and ms.afflicted["cyanide"] == "notaff" then table.insert(ms.zerk.affs, "cyanide") end
+    if ms.afflicted["asthma"] == "notaff" then table.insert(ms.zerk.affs, "mercury") end
     if ms.afflicted["anorexia"] == "notaff" and (ms.afflicted["slickness"] == "aff" or (ms.zerk.affs[1] == "iodine" or ms.zerk.affs[2] == "iodine")) and (ms.afflicted["hemotoxin"] == "aff" or (ms.zerk.affs[1] == "hemotoxin" or ms.zerk.affs[2] == "hemotoxin")) and (ms.afflicted["impatience"] == "aff" or snap) and ((ms.afflicted["numbness"] == "aff" or ms.afflicted["paralysis"] == "aff") or (ms.zerk.affs[1] == "ciguatoxin" or ms.zerk.affs[2] == "ciguatoxin")) then table.insert(ms.zerk.affs, "bromine") end
     if ms.afflicted["nausea"] == "notaff" then table.insert(ms.zerk.affs, "botulinum") end
-    if ms.afflicted["sensitivity"] == "notaff" then table.insert(ms.zerk.affs, "strychnine") end
     if ms.afflicted["hemotoxin"] == "notaff" and not pbob then table.insert(ms.zerk.affs, "hemotoxin") end
     if ms.afflicted["slickness"] == "notaff" and (ms.afflicted["asthma"] == "aff" or (ms.zerk.affs[1] == "mercury" or ms.zerk.affs[2] == "mercury")) and (ms.afflicted["hemotoxin"] == "aff" or (ms.zerk.affs[1] == "hemotoxin" or ms.zerk.affs[2] == "hemotoxin")) then table.insert(ms.zerk.affs, "iodine") end
     if ms.afflicted["butisol"] == "notaff" then table.insert(ms.zerk.affs, "butisol") end
     if ms.afflicted["slow elixirs"] == "notaff" then table.insert(ms.zerk.affs, "luminal") end
     if ms.afflicted["recklessness"] == "notaff" then table.insert(ms.zerk.affs, "atropine") end
-    if ms.afflicted["asthma"] == "notaff" then table.insert(ms.zerk.affs, "mercury") end
     if ms.afflicted["clumsiness"] == "notaff" and not ccd and not shaman and not bard and not assassin and not summoner and not diabolist and not mage then table.insert(ms.zerk.affs, "ether") end 
 	  if ms.afflicted["numbness"] == "notaff" and ms.afflicted["paralysis"] == "notaff" and not tob then table.insert(ms.zerk.affs, "ciguatoxin") end
     if ms.afflicted["slow balance"] == "notaff" and not bard and not mage and ((ms.afflicted["asthma"] == "aff" or (ms.zerk.affs[1] == "mercury" or ms.zerk.affs[2] == "mercury")) or (ms.zerk.affs[1] == "mercury" or ms.zerk.affs[2] == "mercury")) then table.insert(ms.zerk.affs, "noctec") end
     if ms.afflicted["slow equilibrium"] == "notaff" and (bard or mage) and ((ms.afflicted["asthma"] == "aff" or (ms.zerk.affs[1] == "mercury" or ms.zerk.affs[2] == "mercury")) or (ms.zerk.affs[1] == "mercury" or ms.zerk.affs[2] == "mercury")) then table.insert(ms.zerk.affs, "mebaral") end  
     if ms.afflicted["numbness"] == "notaff" and ms.afflicted["paralysis"] == "notaff" then table.insert(ms.zerk.affs, "ciguatoxin") end
     if ms.afflicted["metrazol"] == "notaff" then table.insert(ms.zerk.affs, "metrazol") end
+    if ms.afflicted["sensitivity"] == "notaff" then table.insert(ms.zerk.affs, "strychnine") end
     if ms.afflicted["slow herbs"] == "notaff" and (ms.afflicted["slickness"] == "aff" or (ms.zerk.affs[1] == "iodine" or ms.zerk.affs[2] == "iodine")) and (ms.afflicted["hemotoxin"] == "aff" or (ms.zerk.affs[1] == "hemotoxin" or ms.zerk.affs[2] == "hemotoxin")) then table.insert(ms.zerk.affs, "mazanor") end
     if ms.afflicted["calotropis"] == "notaff" and (ms.afflicted["slickness"] == "aff" or (ms.zerk.affs[1] == "iodine" or ms.zerk.affs[2] == "iodine")) and (ms.afflicted["hemotoxin"] == "aff" or (ms.zerk.affs[1] == "hemotoxin" or ms.zerk.affs[2] == "hemotoxin")) then table.insert(ms.zerk.affs, "calotropis") end
     if ms.afflicted["butisol"] == "notaff" and ms.afflicted["asthma"] == "notaff" then table.insert(ms.zerk.affs, "butisol") end
@@ -59328,22 +59470,26 @@ end
 
 function warchants()
   wc = ''
-  if (hp+mp &lt; 75) or (hp+mp &lt; 95 and zerk_weaken) then
-    wc = f'shatter {target}'
-  elseif #ms.zerk.weaken &gt;= 3 then
-    wc = f'pierce {target}'
-  elseif dmg and not zerk_shake and not zerk_shake_cd then
-    wc = f'shake {target}'
-  elseif dmg and hp &lt; 60 then 
-    wc = f'shout {target}'
-  elseif afflict and  (ina('healthleech') or ina('clumsiness') or ina('weariness') or ina('lethargy') or ina('nausea')) then
-    wc = f'weaken {target}'
-  elseif afflict and  (ina('dementia') or ina('hypersomnia') or ina('paranoia') or ina('vertigo') or ina('hallucinations')) then
-    wc = f'disorient {target}'
+  if not zerk_warchant_cd then
+    if (hp+mp &lt; 75) or (hp+mp &lt; 95 and zerk_weaken) then
+      wc = f'shatter {target}'
+    elseif #ms.zerk.weaken &gt;= 3 then
+      wc = f'pierce {target}'
+    elseif dmg and not zerk_shake and not zerk_shake_cd then
+      wc = f'shake {target}'
+    elseif dmg and hp &lt; 60 then 
+      wc = f'shout {target}'
+    elseif afflict and  (ina('healthleech') or ina('clumsiness') or ina('weariness') or ina('lethargy') or ina('nausea')) then
+      wc = f'weaken {target}'
+    elseif afflict and  (ina('dementia') or ina('hypersomnia') or ina('paranoia') or ina('vertigo') or ina('hallucinations')) then
+      wc = f'disorient {target}'
+    else
+      wc = f'shout {target}'
+    end
+    if rage &gt;= 100 then wc = string.gsub(wc, "(%w+) ", "%1 enrage ") end
   else
-    wc = f'shout {target}'
+    wc = target
   end
-  if rage &gt;= 100 then wc = string.gsub(wc, "(%w+) ", "%1 enrage ") end
 end
 
 function checkWeaken()
@@ -60436,7 +60582,6 @@ sys("&lt;SteelBlue&gt;Misc")
   echoHelp("Standard of all fighting, set your target to the specified name. Use the &lt;yellow&gt;tab key &lt;snow&gt;to help fill out names faster when typing them out!")
   echoHelp("ms clan [&lt;clan_tag&gt;]", "cmd")
   echoHelp("Check current combat clan or optionally set clan to new ID tag")
-  echoHelp("Affliction clan currently set to: &lt;yellow&gt;"..ms.save["clan"])
   echoHelp("0 &lt;yellow&gt;\&lt;\= Zero", "cmd")
   echoHelp("Soft reset MS variables, afflictions, and defences to ready instance")
   echoHelp("*&lt;yellow&gt;NOTE&lt;snow&gt;* I use this often when target has escaped or arena fights")
@@ -61388,7 +61533,7 @@ end
     pet = "pet",
     parry = false,
     mount = "horse",
-    clan = "clt",
+    clan = "",
     --
     mwbb = 75,
     mwbl = 480,
@@ -61565,6 +61710,7 @@ end
         levitating = {queue = "evoke levitate", state = true,},
         ["nature protection"] = {queue = "evoke protection", state = true,},
         ["nature screen"] = {queue = "naturebind screen me", state = true,},
+        bandages = {queue = "apply bandages", state = true,},
       },
       mage = {
         shimmer = {queue = "cast shimmer", state = true,},
@@ -61573,6 +61719,20 @@ end
         waterbreathing = {queue = "cast waterbreathing", state = true,},
         waterwalking = {queue = "cast waterwalking", state = true,},
         ["crystal charging"] = {queue = "charge crystal auto", state = true,},
+      },
+      outrider = {
+        nightsight = {action = "nightsight", state = true,},
+        weathering = {action = "weathering", state = true,},
+        fitness = {queue = "fitness", state = true,},
+        barkskin = {queue = "barkskin", state = true,},
+        deadaim = {queue = "deadaim on", state = false,},
+        ["secured weapons"] = {action = "secure wielded", state = true,},
+        bandages = {queue = "apply bandages", state = true,},
+        vitality = {queue = "vitality", state = true,},
+        lifesense = {queue = "lifesense on", state = true,},
+        camouflage = {action = "apply camouflage", state = true,},
+        ["concealed weapons"] = {action = "conceal weapons", state = true,},
+        ["cover tracks"] = {queue = "cover", state = true,},
       },
       priest = {
         ["hunting heretics"] = {queue = "hunt heresy", state = false,},
@@ -61626,6 +61786,7 @@ end
         ["possessed by skyrax"] = {queue =  "summon skyrax", state = false,},
       },
       hunter = {
+        bandages = {queue = "apply bandages", state = true,},
         deadaim = {queue = "deadaim on", state = false,},
         discernment = {queue = "bat discern", state = true,},
         camouflage = {action = "apply camouflage", state = true,},
@@ -61870,7 +62031,7 @@ function msSetup(_, cmd)
       sys("&lt;green&gt;Setup - Settings") cecho("Type &lt;yellow&gt;continue &lt;snow&gt;when finished with defences")
       mss = mss + 1
     elseif mss == 4 or (mss == 2 and not ms.save["defMe"]) then
-      sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;clan name &lt;snow&gt;to call afflictions. Currently set to &lt;yellow&gt;"..ms.save["clan"].."&lt;snow&gt;. Default to &lt;DimGray&gt;clt &lt;snow&gt;if you don't have any: ")
+      sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;clan name &lt;snow&gt;to call afflictions. Default to &lt;DimGray&gt;clt &lt;snow&gt;if you don't have any: ")
       if not ms.save["defMe"] then mss = mss + 2 end
     elseif mss == 5 then
       sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Quickdraw&lt;snow&gt; in Weaponry? (yes/no): ")
