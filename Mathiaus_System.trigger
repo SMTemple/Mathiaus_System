@@ -43278,7 +43278,7 @@ end</script>
 							<Alias isActive="yes" isFolder="no">
 								<name>Hunt Area</name>
 								<script>if ms.class["Assassin"] then
-	send(""..quickdraw(ms.save["whip"], ms.save["shield"])..""..s.."worm attach tundra")
+	send(""..quickdraw(ms.save["dirk"], ms.save["shield"])..""..s.."worm attach tundra")
 elseif ms.class["Deathknight"] then
 	send(quickdraw(ms.save["broadsword"], ms.save["shield"]))
 end
