@@ -50824,7 +50824,35 @@ sys("&lt;green&gt;MS") cecho("&lt;snow&gt;Windows Reset")</script>
 								</Alias>
 								<Alias isActive="yes" isFolder="no">
 									<name>Font Size Window</name>
-									<script>msFontWindow(matches[2], matches[3])</script>
+									<script>local window = ''
+local wNum = {
+  afflictions = "1",
+  toggles = "12",
+  healthmana = "4",
+  map = "5",
+  roominfo = "7",
+  selfaffs = "9",
+  skills = "10",
+  prompt = "6",
+  targetinfo = "11",
+  roomitems = "8",
+  charstats = "2",
+  chat = "3",
+}
+
+for wName,numb in pairs(wNum) do
+  if matches[2] == numb then
+    window = tostring(wName)
+    break
+  end
+end
+
+if window ~= '' then
+  msFontWindow(window, matches[3])
+else
+  msFontWindow(matches[2], matches[3])
+end
+</script>
 									<command></command>
 									<packageName></packageName>
 									<regex>^ms fs (\w+) (.*)$</regex>
@@ -61163,7 +61191,7 @@ end</script>
       ["selfaffs"] = {x=p(ww, 1), y=p(wh, 51)},
       ["skills"] = {x=p(ww, 12), y=p(wh, 51)},
       ["prompt"] = {x=p(ww, 55), y=p(wh, 86)},
-      ["targetinfo"] = {x=p(ww, 37), y=p(wh, 93)},
+      ["targetinfo"] = {x=p(ww, 37), y=p(wh, 90)},
       ["roomitems"] = {x=p(ww, 86), y=p(wh, 33)},
       ["charstats"] = {x=p(ww, 86), y=p(wh, 11)},
       ["chat"] = {x=p(ww, 8), y=p(wh, 11)},
