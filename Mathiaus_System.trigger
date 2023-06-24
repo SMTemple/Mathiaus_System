@@ -42551,7 +42551,7 @@ end</script>
 								<name>Walk Area</name>
 								<script>action = ""
 ms.trooms = {}
-mmp.echoRoomList(gmcp.Room.Info.area)
+mmp.echoRoomListMS(gmcp.Room.Info.area)
 
 for k,v in ipairs(trooms) do
 	if not table.contains(ms.ignoreRooms, v) then table.insert(ms.trooms, v) end
@@ -43289,23 +43289,23 @@ bash = true
 ms.huntRooms = {}
 trooms = {}
 if matches[3] then
-	mmp.echoRoomList(matches[3])
+	mmp.echoRoomListMS(matches[3])
 elseif gmcp.Room.Info.area:find("Underworld") then
-	mmp.echoRoomList("the Underworld Ithaqua")
-	mmp.echoRoomList("the Underworld Celidon")
-	mmp.echoRoomList("the Underworld Stavenn")
-	mmp.echoRoomList("the Underworld Antioch")
-	mmp.echoRoomList("the Underworld Khandava")
-	mmp.echoRoomList("the Underworld Caanae")
+	mmp.echoRoomListMS("the Underworld Ithaqua")
+	mmp.echoRoomListMS("the Underworld Celidon")
+	mmp.echoRoomListMS("the Underworld Stavenn")
+	mmp.echoRoomListMS("the Underworld Antioch")
+	mmp.echoRoomListMS("the Underworld Khandava")
+	mmp.echoRoomListMS("the Underworld Caanae")
 elseif gmcp.Room.Info.area:find("the Sands of Aetherius") or gmcp.Room.Info.area:find("the Frozen Reaches") then
-	mmp.echoRoomList("Authlair")
+	mmp.echoRoomListMS("Authlair")
 else
-	mmp.echoRoomList(gmcp.Room.Info.area)
+	mmp.echoRoomListMS(gmcp.Room.Info.area)
 end
 if gmcp.Room.Info.area == "the Isle of Llus" then
-	mmp.echoRoomList("Llus Labratory")
+	mmp.echoRoomListMS("Llus Labratory")
 elseif gmcp.Room.Info.area == "Llus Labratory" then
-	mmp.echoRoomList("the Isle of Llus")
+	mmp.echoRoomListMS("the Isle of Llus")
 end
 brooms = false
 
@@ -69799,6 +69799,49 @@ function mmp.locateAndEchoSideMS(room, person)
     raiseEvent("mmapper updated pdb")
   end
   trackLocate = false
+end
+
+function mmp.echoRoomListMS(areaname, exact)
+  local areaid, msg, multiples = mmp.findAreaID(areaname, exact)
+  if areaid then
+    local roomlist, endresult = getAreaRooms(areaid) or {}, {}
+
+    -- obtain a room list for each of the room IDs we got
+    local getRoomName = getRoomName
+    for _, id in pairs(roomlist) do
+      endresult[id] = getRoomName(id)
+    end
+
+    -- sort room IDs so we can display them in order
+    table.sort(roomlist)
+	if not brooms then trooms = {} end
+	for k,v in pairs(roomlist) do
+		table.insert(trooms, v)
+	end
+
+    -- now display something half-decent looking
+if not brooms then
+   	cecho(string.format("&lt;DarkSlateGrey&gt;List of all rooms in &lt;grey&gt;%s&lt;DarkSlateGrey&gt; (areaid &lt;grey&gt;%s&lt;DarkSlateGrey&gt; - &lt;grey&gt;%d&lt;DarkSlateGrey&gt; rooms):\n", msg, areaid, table.size(endresult)))
+    local echoLink, sformat, fg, echo = echoLink, string.format, fg, cecho
+    -- use pairs, as we can have gaps between room IDs
+    for _, roomid in pairs(roomlist) do
+      local roomname = endresult[roomid]
+      fg("blue") cechoLink("&lt;"..mmp.settings.echocolour.."&gt;"..sformat("%6s", roomid), 'mmp.gotoRoom('..roomid..')', string.format("Go to %s (%s)", roomid, tostring(roomname)), true)
+       cecho(string.format("&lt;DarkSlateGrey&gt;: &lt;LightSlateGray&gt;%s&lt;DarkSlateGrey&gt;.\n", roomname))
+    end
+end
+  elseif not id and #multiples &gt; 0 then
+    mmp.echo("For which area would you want to list rooms for?")
+    fg("DimGrey")
+    for _, areaname in ipairs(multiples) do
+      echo"  "; setUnderline(true) echoLink(areaname, 'mmp.echoRoomList("'..areaname..'", true)', "Click to view the room list for "..areaname, true) setUnderline(false) echo"\n"
+    end
+    resetFormat()
+
+  else
+    mmp.echo(string.format("Don't know of any area named '%s'.", areaname))
+  end
+  return
 end</script>
 							<eventHandlerList />
 						</Script>
