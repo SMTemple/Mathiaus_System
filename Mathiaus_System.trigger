@@ -36030,7 +36030,7 @@ end</script>
 				<regexCodePropertyList />
 				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>mudlet-mapper-MS</name>
-					<script>if exists("mudlet-mapper", "trigger") then
+					<script>if exists("mudlet-mapper", "trigger")==1 then
   disableAlias("mudlet-mapper-MS")
 end</script>
 					<triggerType>0</triggerType>
@@ -40949,7 +40949,7 @@ disableTimer("zerk_shake")</script>
 				<time>00:00:00.000</time>
 				<TimerGroup isActive="yes" isFolder="yes" isTempTimer="no" isOffsetTimer="no">
 					<name>mudlet-mapper-MS</name>
-					<script>if exists("mudlet-mapper", "timer") then
+					<script>if exists("mudlet-mapper", "timer")==1 then
   disableAlias("mudlet-mapper-MS")
 end</script>
 					<command></command>
@@ -51168,7 +51168,7 @@ raiseGlobalEvent("sysSendAllProfiles", matches[2])
 				<regex></regex>
 				<AliasGroup isActive="yes" isFolder="yes">
 					<name>echo-MS</name>
-					<script>if exists("echo", "alias") then
+					<script>if exists("echo", "alias")==1 then
   disableAlias("echo-MS")
 end</script>
 					<command></command>
@@ -51221,7 +51221,7 @@ echo("\n")</script>
 				</AliasGroup>
 				<AliasGroup isActive="yes" isFolder="yes">
 					<name>run-lua-code-v4-MS</name>
-					<script>if exists("run-lua-code-v4", "alias") then
+					<script>if exists("run-lua-code-v4", "alias")==1 then
   disableAlias("run-lua-code-v4-MS")
 end</script>
 					<command></command>
@@ -51248,7 +51248,7 @@ r(f())</script>
 				</AliasGroup>
 				<AliasGroup isActive="yes" isFolder="yes">
 					<name>enable-accessibility-MS</name>
-					<script>if exists("enable-accessibility", "alias") then
+					<script>if exists("enable-accessibility", "alias")==1 then
   disableAlias("enable-accessibility-MS")
 end</script>
 					<command></command>
@@ -51294,7 +51294,7 @@ installPackage"https://github.com/tspivey/mudlet-reader/releases/latest/download
 				</AliasGroup>
 				<AliasGroup isActive="yes" isFolder="yes">
 					<name>delete-Old-Profiles-MS</name>
-					<script>if exists("deleteOldProfiles", "alias") then
+					<script>if exists("deleteOldProfiles", "alias")==1 then
   disableAlias("delete-Old-Profiles-MS")
 end</script>
 					<command></command>
@@ -51314,7 +51314,7 @@ end</script>
 				<AliasGroup isActive="no" isFolder="yes">
 					<name>mudlet-mapper-MS</name>
 					<script>mudlet = mudlet or {}; mudlet.mapper_script = true
-if exists("mudlet-mapper", "alias") then
+if exists("mudlet-mapper", "alias")==1 then
   disableAlias("mudlet-mapper-MS")
 end</script>
 					<command></command>
@@ -63005,7 +63005,7 @@ end</script>
 				<ScriptGroup isActive="yes" isFolder="yes">
 					<name>deleteOldProfiles-MS</name>
 					<packageName>deleteOldProfiles</packageName>
-					<script>if exists("deleteOldProfiles", "script") then
+					<script>if exists("deleteOldProfiles", "script")==1 then
   disableAlias("deleteOldProfiles-MS")
 end</script>
 					<eventHandlerList />
@@ -63089,7 +63089,7 @@ end
 					<name>mudlet-mapper-MS</name>
 					<packageName></packageName>
 					<script>mudlet = mudlet or {}; mudlet.mapper_script = true
-if exists("mudlet-mapper", "script") then
+if exists("mudlet-mapper", "script")==1 then
   disableAlias("mudlet-mapper-MS")
 end</script>
 					<eventHandlerList />
