@@ -7729,7 +7729,7 @@ deleteLine()
 sys(matches[2]) cecho("&lt;cyan&gt;RB Gained+ &lt;gold&gt;"..matches[2])
 rbHit = true
 rb = true
-if healing then forceAtk(true) end
+if (not ebal or not bbal) and healing then forceAtk(true) end
 if pta then enableTrigger("affPrompt") end
 end</script>
 						<triggerType>0</triggerType>
@@ -18431,7 +18431,7 @@ end</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Assassin</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -30322,7 +30322,7 @@ enableTimer("shaman confound")</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Hunter</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -40578,7 +40578,7 @@ moon = true</script>
 						<packageName></packageName>
 						<time>00:00:30.000</time>
 					</Timer>
-					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>ghost</name>
 						<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -43722,7 +43722,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="yes" isFolder="yes">
+							<AliasGroup isActive="no" isFolder="yes">
 								<name>Assassin</name>
 								<script></script>
 								<command></command>
@@ -48647,7 +48647,7 @@ end</script>
   dustAff()
   send("queue reset all", false)
   if not rb and (pbob and ina("hemotoxin")) and ia("anorexia") and ia("asthma") and ia("impatience") and ia("slickness") and (ia("numbness") or ia("paralysis")) then
-    send("queue eqbal top "..qf..""..s..""..move..""..s..""..quickdraw(ms.save["sabre"], ms.save["shield"])..""..s.."slash "..target.." hemotoxin")
+    send("queue eqbal top "..qf..""..s..""..move..""..s..""..quickdraw(ms.save["longsword"], ms.save["shield"])..""..s.."slash "..target.." hemotoxin")
   else
     send(f"queue eqbal top {qf}{s}{move}{s}{brand()}{s}{curses()} {dustthrow()}{s}{prophecy()}")
   end
@@ -48669,7 +48669,7 @@ end</script>
   dustAff()
   send("queue reset all", false)
   if (not rb or sleeping) and ina("hemotoxin") and ia("anorexia") and ia("asthma") and ia("impatience") and ia("slickness") and (ia("numbness") or ia("paralysis")) then
-    send("queue eqbal top "..qf..""..s..""..move..""..s..""..quickdraw(ms.save["sabre"], ms.save["shield"])..""..s.."slash "..target.." hemotoxin")
+    send("queue eqbal top "..qf..""..s..""..move..""..s..""..quickdraw(ms.save["longsword"], ms.save["shield"])..""..s.."slash "..target.." hemotoxin")
   else
     send(f"queue eqbal top {qf}{s}{move}{s}{brand()}{s}{curses()} {dustthrow()}{s}{prophecy()}")
   end
@@ -48849,7 +48849,7 @@ probe = true</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="no" isFolder="yes">
+							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Hunter</name>
 								<script></script>
 								<command></command>
@@ -49396,7 +49396,7 @@ elseif ms.class["Deathknight"] or ms.class["Runeguard"] or ms.class["Berserker"]
 elseif ms.class["Defiler"] then send(quickdraw(ms.save["flail"], ms.save["shield"]))
 elseif ms.class["Engineer"] then send(quickdraw(ms.save["flintlock"], ms.save["shield"]))
 elseif ms.class["Druid"] then send(quickdraw(ms.save["quarterstaff"], ms.save["shield"]))
-elseif ms.class["Shaman"] then send(quickdraw(ms.save["sabre"], ms.save["shield"]))
+elseif ms.class["Shaman"] then send(quickdraw(ms.save["longsword"], ms.save["shield"]))
 elseif ms.class["Priest"] then send(quickdraw(ms.save["mace"], ms.save["shield"]))
 elseif ms.class["Outrider"] then send(quickdraw(ms.save["spear"], ms.save["shield"]))
 end</script>
@@ -51311,7 +51311,7 @@ end</script>
 						<regex>^delete old (profiles|maps|modules)(?: (\d+))?$</regex>
 					</Alias>
 				</AliasGroup>
-				<AliasGroup isActive="no" isFolder="yes">
+				<AliasGroup isActive="yes" isFolder="yes">
 					<name>mudlet-mapper-MS</name>
 					<script>mudlet = mudlet or {}; mudlet.mapper_script = true
 if exists("mudlet-mapper", "alias")==1 then
@@ -53282,7 +53282,7 @@ function rbCheck()
   else
     engulf_tick = false
   end    
-  forceAtk(true)
+  if not ebal or not bbal then forceAtk(true) end
   disableTimer("rebounding")
 end
 
@@ -62496,7 +62496,7 @@ end
         ["possessed by marduk"] = {queue = "summon marduk", state = true,},
         ["possessed by nin'kharsag"] = {queue = "summon nin'kharsag", state = false,},
         ["possessed by palpatar"] = {queue = "summon palpatar", state = true,},
-        ["possessed by pyradius"] = {queue = "summon palpatar", state = true,},
+        ["possessed by pyradius"] = {queue = "summon pyradius", state = true,},
         ["possessed by rixil"] = {queue = "summon rixil", state = false,},
         ["possessed by scrag"] = {queue = "summon scrag", state = false,},
         ["possessed by skyrax"] = {queue =  "summon skyrax", state = false,},
