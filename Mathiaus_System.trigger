@@ -43031,10 +43031,12 @@ end</script>
 							<script>if healing then
   local shield_th = tonumber(ms.save['sth'])
   direction = ""
-  if ms.hunt[1] and gmcp.Char.Status.name == "Mathiaus" then
-    rubCard(ms.hunt[1])
-  elseif gmcp.Char.Status.name == "Mathiaus" then
-    rubCard(creature)
+  if ms.save["rubcard"] then
+    if ms.hunt[1] then
+      rubCard(ms.hunt[1])
+    else
+      rubCard(creature)
+    end
   end
   if ms.class["Bard"] and ebal and bbal then
   	send("stand")
@@ -50054,8 +50056,7 @@ expandAlias("0", false)
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Fly</name>
-							<script>if 
-  send("queue eqbal top fly")
+							<script>  send("queue eqbal top fly")
 </script>
 							<command></command>
 							<packageName></packageName>
@@ -51131,6 +51132,19 @@ sys("&lt;green&gt;MS "..matches[2]:title()) cecho("&lt;snow&gt;Set to: &lt;yello
 								<command></command>
 								<packageName></packageName>
 								<regex>^ms mw$</regex>
+							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>Toggle rubcard</name>
+								<script>if matches[2] == "off" then
+  ms.save['rubcard'] = false
+  sys("&lt;red&gt;MS Hunting") cecho("&lt;snow&gt;You will cease rubbing cards when hunting")
+else
+  ms.save['rubcard'] = true
+  sys("&lt;green&gt;MS Hunting") cecho("&lt;snow&gt;You will now rub cards while hunting")
+end</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^ms rubcard (on|off)$</regex>
 							</Alias>
 						</AliasGroup>
 						<AliasGroup isActive="yes" isFolder="yes">
@@ -61457,6 +61471,8 @@ sys("&lt;SteelBlue&gt;Hunting Functions")
   echoHelp("View list of creature names in hunt list")
   echoHelp("sst &lt;1-100&gt;", "cmd")
   echoHelp("Set shield threshold for health while hunting")
+  echoHelp("ms rubcard on|off", "cmd")
+  echoHelp("Toggle using cards while hunting")
   echoHelp("b [&lt;selected_creature]", "cmd")
   echoHelp("Either &lt;green&gt;b &lt;snow&gt;or &lt;green&gt;b &lt;yellow&gt;creature_name &lt;snow&gt;will attack a creature")
   echoHelp("Ctrl+b | bash ", "cmd")
@@ -62191,6 +62207,7 @@ end
 						<packageName></packageName>
 						<script>function msSaveDefault()
   ms.defaultSave = {
+    rubcard = false,
     sth = 35,
     hunter_form = "weaver",
     mapper = {},
