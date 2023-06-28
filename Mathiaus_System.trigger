@@ -50541,6 +50541,17 @@ end</script>
 							<packageName></packageName>
 							<regex>^tlt(?: (\w+))?$</regex>
 						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>Rebounding on/off</name>
+							<script>if matches[2] == "on" then
+  send("ac rebounding on", false)
+elseif matches[2] == "off" or matches[2] == "of" then
+  send("ac rebounding off", false)
+end</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^rb(on|off|of)$</regex>
+						</Alias>
 					</AliasGroup>
 					<AliasGroup isActive="yes" isFolder="yes">
 						<name>Settings/Help</name>
@@ -61232,6 +61243,8 @@ sys("&lt;SteelBlue&gt;Misc")
   echoHelp("0 &lt;yellow&gt;\&lt;\= Zero", "cmd")
   echoHelp("Soft reset MS variables, afflictions, and defences to ready instance")
   echoHelp("*&lt;yellow&gt;NOTE&lt;snow&gt;* I use this often when target has escaped or arena fights")
+  echoHelp("rbon, rboff", "cmd")
+  echoHelp("Toggle autocuring rebounding on or off")
   nl()
 sys("&lt;SteelBlue&gt;A.I. System")
   echoHelp("ms solo","cmd")
