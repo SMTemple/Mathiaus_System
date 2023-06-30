@@ -51156,7 +51156,7 @@ end</script>
 							<Alias isActive="yes" isFolder="no">
 								<name>Check wholist</name>
 								<script>disableTrigger("Parse wholist")
-EnableTrigger("Parse wholist MS")
+enableTrigger("Parse wholist MS")
 send("who "..(matches[2] or ""), false)
 tempTimer(3, [[disableTrigger'Parse wholist MS']])</script>
 								<command></command>
