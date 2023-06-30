@@ -616,7 +616,7 @@ end
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList />
 						<regexCodePropertyList />
-						<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>autoKill prompt</name>
 							<script>if autoKill and target ~= "None" and not akTimer then
 	if ebal and bbal and healing then
@@ -40320,7 +40320,7 @@ disableTimer("Zriku")</script>
 						<packageName></packageName>
 						<time>00:00:12.000</time>
 					</Timer>
-					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>monolith</name>
 						<script>disableTimer("monolith")</script>
 						<command></command>
@@ -40543,7 +40543,7 @@ disableTimer("disruption")</script>
 						<packageName></packageName>
 						<time>00:00:11.000</time>
 					</Timer>
-					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>monotime</name>
 						<script>monotime = tonumber(0)
 mononame = "reset"
@@ -63033,6 +63033,52 @@ end
   return
 end</script>
 							<eventHandlerList />
+						</Script>
+						<Script isActive="yes" isFolder="no">
+							<name>speedwalkingMS</name>
+							<packageName></packageName>
+							<script>function speedwalkingMS(event, num)
+  local num = tonumber(num) or tonumber(gmcp.Room.Info.num)
+  if num == mmp.speedWalkPath[#mmp.speedWalkPath] then
+		--MathSystem
+			if capture == nil then capture = false end
+      		if shardarea or shardfall then send("queue eqbal top harvest shard");shardarea = false end
+			if capture then
+				tempTimer(2, [[expandAlias("cm");capture = false]])
+			elseif autoMono then
+				expandAlias("mos")
+			end
+			if bash then
+				table.remove(ms.huntRooms, 1)
+				if #ms.huntRooms == 0 then 
+					spdwalkarea = false 
+				else
+					tempTimer(0.5, [[expandAlias("goto "..ms.huntRooms[1])]])
+				end
+			else
+				table.remove(ms.trooms, 1)
+				if #ms.trooms == 0 then 
+					spdwalkarea = false 
+				else
+					tempTimer(0.5, [[expandAlias("goto "..ms.trooms[1])]])
+				end
+			end
+	guard = false
+	if bash and healing then expandAlias("b") end
+    raiseEvent("mmapper arrived")
+    if mmp.settings.shackle then
+      expandAlias("wear shackle")
+    end
+    mmp.speedWalkPath = {}
+    mmp.speedWalkDir = {}
+    speedWalkCounter = 0
+    mmp.autowalking = false
+  end
+end</script>
+							<eventHandlerList>
+								<string>RoomNum</string>
+								<string>gmcp.Room.Info</string>
+							</eventHandlerList>
 						</Script>
 					</ScriptGroup>
 				</ScriptGroup>
