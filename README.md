@@ -25,11 +25,11 @@ lua ms.save
 
 Before doing ms save reset and this will list all your settings so you can reference it afterwards.
 
+Download the latest version from Github through the link above
+
 Open up the package module installer
 
-Make sure that you have it clear of any other packages other than custom packages you made yourself.
-
-Install Mathiaus_System.trigger or MS_v(<current-version).trigger file from archives. Ex: MS_v3.0.trigger
+Install Mathiaus_System.trigger
 
 Once installed, close down mudlet, and restart.
 
@@ -53,9 +53,42 @@ Next it will ask if you have the skill Parry in weaponry.
 
 Next it will ask if you have the skill Kipup
 
-Next it will ask if you have Trueassess in perception
+Next it will ask if you have Trueassess  in perception
 
 In ms combat, you can set up your weapon id’s in this section:
+
+Once that’s done, type finish and hit enter.
+That’s it! You’re all done with the setup. I recommend highly going through ms allies and also checking out your class functions as well once you’re done.
+
+
+The UI can be adjusted with ms ui and ms fs, as well as ms window 1920 or ms window 1600
+
+
+1 -> chat
+
+2 -> toggles
+
+3 -> selfaffs
+
+4 -> skills
+
+5 -> afflictions
+
+6 -> main window (set in settings)
+
+7 -> healthmana
+
+8 -> prompt
+
+9 -> targetinfo
+
+10 -> charstats
+
+11 -> roomitems
+
+12 -> map
+
+13 -> roominfo
 
 Once that’s done, type finish and hit enter.
 That’s it! You’re all done with the setup. I recommend highly going through ms allies and also checking out your class functions as well once you’re done.
