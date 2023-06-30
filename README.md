@@ -65,17 +65,29 @@ The UI can be adjusted with ms ui and ms fs, as well as ms window 1920 or ms win
 
 
 1 -> chat
+
 2 -> toggles
+
 3 -> selfaffs
+
 4 -> skills
+
 5 -> afflictions
+
 6 -> main window (set in settings)
+
 7 -> healthmana
+
 8 -> prompt
+
 9 -> targetinfo
+
 10 -> charstats
+
 11 -> roomitems
+
 12 -> map
+
 13 -> roominfo
 
 Once that’s done, type finish and hit enter.
