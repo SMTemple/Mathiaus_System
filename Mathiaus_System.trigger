@@ -13411,6 +13411,7 @@ disableTrigger("autoKill prompt")</script>
 	if ms.class["Defiler"] then
 		send("queue eqbal shadowbind me with projection "..direction)
   elseif ms.class["Hunter"] and fire &gt;= 10 then
+    if direction == nil or direction == "" then direction = ms.exits[1] end
     send(f'queue eqbal {ms.save["hunter_form"]} firebreath icewall {direction}{s}{direction}')
 	else
 		send("dismount"..s.."backflip "..direction) 
@@ -40320,7 +40321,7 @@ disableTimer("Zriku")</script>
 						<packageName></packageName>
 						<time>00:00:12.000</time>
 					</Timer>
-					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>monolith</name>
 						<script>disableTimer("monolith")</script>
 						<command></command>
@@ -40543,7 +40544,7 @@ disableTimer("disruption")</script>
 						<packageName></packageName>
 						<time>00:00:11.000</time>
 					</Timer>
-					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>monotime</name>
 						<script>monotime = tonumber(0)
 mononame = "reset"
@@ -49566,20 +49567,20 @@ expandAlias("mse")</script>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Priorities</name>
-							<script>if not aph then
+							<script>if not aph or matches[2] == "h" then
 aph = true
 sys("Priority") cecho("&lt;red&gt;Health")
-send("aph", false)
+send("autocuring priority health", false)
 send("autocuring health 80"..s.."autocuring mana 60", false)
-else
+elseif aph or matches[2] == "m" then
 aph = false
 sys("Priority") cecho("&lt;blue&gt;Mana")
-send("apm", false)
+send("autocuring priority mana", false)
 send("autocuring health 75"..s.."autocuring mana 80", false)
 end</script>
 							<command></command>
 							<packageName></packageName>
-							<regex>^aph$</regex>
+							<regex>^ap(h|m)$</regex>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Spyglass</name>
@@ -50056,7 +50057,11 @@ expandAlias("0", false)
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Fly</name>
-							<script>  send("queue eqbal top fly")
+							<script>if ms.class["Assassin"] or ms.class["Renegade"] then
+  send("queue eqbal top worm attach rashirmir::worm flight")
+else 
+  send("queue eqbal top fly")
+end
 </script>
 							<command></command>
 							<packageName></packageName>
@@ -56625,21 +56630,21 @@ function roomList()
 		ms.hunt = {}
 		--ms.save['mobs'] list
 		for k,v in ipairs(gmcp.Char.Items.List.items) do
-			if table.contains(ms.save['mobs'], gmcp.Char.Items.List.items[k]["name"]) and not table.contains(ms.hunt, gmcp.Char.Items.List.items[k]["id"]) then
-				table.insert(ms.hunt, gmcp.Char.Items.List.items[k]["id"])
+			if table.contains(ms.save['mobs'], gmcp.Char.Items.List.items[k]["name"]) and not table.contains(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower()) then
+				table.insert(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower())
 			end
 			--Ethereal Check
 			if gmcp.Char.Items.List.items[k]["name"] == "an ethereal wraith" then eWraith = true else eWraith = false end
 		end
 		--checking for traders
 		for k,v in ipairs(gmcp.Char.Items.List.items) do
-			if gmcp.Char.Items.List.items[k]["name"]:find("caravan trader") and not table.contains(ms.hunt, gmcp.Char.Items.List.items[k]["id"]) then
-				table.insert(ms.hunt, gmcp.Char.Items.List.items[k]["id"])
+			if gmcp.Char.Items.List.items[k]["name"]:find("caravan trader") and not table.contains(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower()) then
+				table.insert(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower())
 			end
 		end
 	roomci = tonumber(0)
 	for k,v in pairs(gmcp.Char.Items.List.items) do
-		table.insert(ms.roomItems, gmcp.Char.Items.List.items[k]["name"])
+		table.insert(ms.roomItems, gmcp.Char.Items.List.items[k]["name"]:lower())
 	end
   if #ms.roomItems &lt; 12 then
     cecho("roomitems", "&lt;SteelBlue&gt;"..string.format("%s &lt;snow&gt;%s", "[Items#:", tostring(#ms.roomItems).."&lt;SteelBlue&gt;]\n"))
