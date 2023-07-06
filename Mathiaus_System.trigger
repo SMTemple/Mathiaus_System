@@ -405,7 +405,49 @@ sharding = false</script>
 							<script>if sharding and healing then 
   shardarea = true
   shardarea_name = matches[2]
-  mmp.gotoRoomMS(matches[2])
+  -- Goto Alias
+  local where = matches[2]:lower()
+  local gallop
+  if command:ends("gallop") then
+    gallop = "gallop"
+    where = where:sub(1, -8)
+  elseif command:ends("sprint") then
+    gallop = "sprint"
+    where = where:sub(1, -8)
+  elseif command:ends("dash") then
+    gallop = "dash"
+    where = where:sub(1, -6)
+  elseif command:ends("runaway") then
+    gallop = "runaway"
+    where = where:sub(1, -9)
+  elseif command:ends("glide") then
+    gallop = "glide"
+    where = where:sub(1, -7)
+  end
+  if mmp.debug then
+    mmp.gotoPerf = mmp.gotoPerf or createStopWatch()
+    startStopWatch(mmp.gotoPerf)
+  end
+  -- goto room ID
+  if tonumber(where) then
+    mmp.gotoRoomMS(where, gallop)
+  else
+    -- goto area or feature
+    local split = where:split(" ")
+    if split[1] == "feature" then
+  	  table.remove(split, 1)
+      mmp.gotoFeature(table.concat(split, " "), gallop)
+    else
+      if tonumber(split[#split]) then
+        mmp.gotoAreaMS(where:sub(1, -#(split[#split]) - 2), tonumber(split[#split]), gallop)
+      else
+        mmp.gotoAreaMS(where, nil, gallop)
+      end
+    end
+  end
+  if mmp.debug then
+    mmp.echo("goto alias took " .. stopStopWatch(mmp.gotoPerf) .. "s to run.")
+  end
 end</script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
@@ -54564,6 +54606,7 @@ ms.defCheck = {
 							<packageName></packageName>
 							<script>function msReset()
   --Misc
+  shardarea_name = ''
   body = ""
   ui = false
   force_capture = false
@@ -63031,13 +63074,9 @@ end
     mmp.echo(string.format("Don't know of any area named '%s'.", areaname))
   end
   return
-end</script>
-							<eventHandlerList />
-						</Script>
-						<Script isActive="yes" isFolder="no">
-							<name>speedwalkingMS</name>
-							<packageName></packageName>
-							<script>function mmp.gotoRoomMS(where, dashtype, gotoType)
+end
+
+function mmp.gotoRoomMS(where, dashtype, gotoType)
   mmp.speedWalk.type = gotoType or "room"
   if not where or not tonumber(where) then
     mmp.echo("Where do you want to go to?")
@@ -63053,6 +63092,7 @@ end</script>
   -- if getPath worked, then the dirs and room #'s tables were populated for us
   if not mmp.getPath(mmp.currentroom, tonumber(where)) then
     mmp.echo("Don't know how to get there (" .. tostring(where) .. ") from here :(")
+    if sharding then expandAlias("pf "..shardarea_name) end
     mmp.speedWalkPath = {}
     mmp.speedWalkDir = {}
     mmp.speedWalkCounter = 0
@@ -63069,7 +63109,7 @@ end</script>
   raiseEvent("mmp clear externals")
 end
 
-function mmp.gotoArea(where, number, dashtype, exact)
+function mmp.gotoAreaMS(where, number, dashtype, exact)
   mmp.speedWalk.type = "area"
   if not where or type(where) ~= "string" then
     mmp.echo("Where do you want to go to?")
@@ -63133,9 +63173,13 @@ function mmp.gotoArea(where, number, dashtype, exact)
     if sharding then expandAlias("pf "..shardarea_name) end
     return
   end
-end
-
-function speedwalkingMS(event, num)
+end</script>
+							<eventHandlerList />
+						</Script>
+						<Script isActive="yes" isFolder="no">
+							<name>speedwalkingMS</name>
+							<packageName></packageName>
+							<script>function speedwalkingMS(event, num)
   local num = tonumber(num) or tonumber(gmcp.Room.Info.num)
   if num == mmp.speedWalkPath[#mmp.speedWalkPath] then
 		--MathSystem
