@@ -402,7 +402,11 @@ sharding = false</script>
 						</Trigger>
 						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Sharding</name>
-							<script>if sharding and healing then expandAlias("pf "..matches[2]);shardarea = true end</script>
+							<script>if sharding and healing then 
+  shardarea = true
+  shardarea_name = matches[2]
+  mmp.gotoRoomMS(matches[2])
+end</script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
 							<mStayOpen>0</mStayOpen>
@@ -616,7 +620,7 @@ end
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList />
 						<regexCodePropertyList />
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>autoKill prompt</name>
 							<script>if autoKill and target ~= "None" and not akTimer then
 	if ebal and bbal and healing then
@@ -8490,9 +8494,7 @@ if matches[3]:find("vampiric bat") and healing then send("queue eqbal top bat su
 					</Trigger>
 					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>My Location</name>
-						<script>if ring then send("rt My Location: # "..matches[2].." - "..matches[3])
-elseif coalition then send(ms.save["clan"].." My Location: # "..matches[2].." - "..matches[3])
-elseif arena then send("at My Location: # "..matches[2].." - "..matches[3]) end</script>
+						<script>callout("My Location: # "..matches[2], matches[3])</script>
 						<triggerType>0</triggerType>
 						<conditonLineDelta>0</conditonLineDelta>
 						<mStayOpen>0</mStayOpen>
@@ -8986,9 +8988,7 @@ end
 	sys(matches[2]) cecho("&lt;red&gt;[ &lt;yellow&gt;PRISMATIC BARRIER DISSOLVED -&gt; "..matches[2].." &lt;red&gt;]")
 	sys(matches[2]) cecho("&lt;red&gt;[ &lt;yellow&gt;PRISMATIC BARRIER DISSOLVED -&gt; "..matches[2].." &lt;red&gt;]")
 	sys(matches[2]) cecho("&lt;red&gt;[ &lt;yellow&gt;PRISMATIC BARRIER DISSOLVED -&gt; "..matches[2].." &lt;red&gt;]")
-if ring then send("rt PRISMATIC BARRIER DISSOLVED - "..matches[2])
-elseif coalition then send("clt3 PRISMATIC BARRIER DISSOLVED - "..matches[2])
-elseif arena then send("at PRISMATIC BARRIER DISSOLVED - "..matches[2]) end
+callout("PRISMATIC BARRIER DISSOLVED", matches[2])
 -- pb = false
 if pta then enableTrigger("affPrompt") end
 end</script>
@@ -9015,9 +9015,7 @@ end</script>
 	sys(matches[2]) cecho("&lt;red&gt;[ &lt;yellow&gt;PRISMATIC BARRIER -&gt; "..matches[2].." &lt;red&gt;]")
 	sys(matches[2]) cecho("&lt;red&gt;[ &lt;yellow&gt;PRISMATIC BARRIER -&gt; "..matches[2].." &lt;red&gt;]")
 	sys(matches[2]) cecho("&lt;red&gt;[ &lt;yellow&gt;PRISMATIC BARRIER -&gt; "..matches[2].." &lt;red&gt;]")
-if ring then send("rt PRISMATIC BARRIER - "..matches[2]) end
-if coalition then send("clt3 PRISMATIC BARRIER - "..matches[2]) end
-if arena then send("at PRISMATIC BARRIER - "..matches[2]) end
+callout("PRISMATIC BARRIER DISSOLVED", matches[2])
 pb = true
 pta = false
 ptar = matches[2]
@@ -10193,7 +10191,7 @@ end</script>
 	universe = false
 end
 if loc == "Khandava" then
-	tempTimer(1, [[expandAlias("goto home")]])
+	tempTimer(1, [[expandAlias("goto 2251")]])
 elseif loc == "Graytrem" then
 	tempTimer(1, [[expandAlias("goto root")]])
 end</script>
@@ -10628,6 +10626,7 @@ end</script>
 							<string>^You use .+ \(death\) on \w+.$</string>
 							<string>You use Sabotage Phase.</string>
 							<string>You use Weaponry Behead (fail).</string>
+							<string>^You use Weaponry Behead \(fail \- neck guard\) on \w+.$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>3</integer>
@@ -10662,6 +10661,7 @@ end</script>
 							<integer>1</integer>
 							<integer>3</integer>
 							<integer>3</integer>
+							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
 					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -13563,10 +13563,7 @@ elseif ms.class["Hunter"] then
   send("queue eqbal summon ice")
   send("queue eqbal summon ice")
 end
-tempTimer(60, [[expandAlias("tag")]])
-coalition = false
-ring = false
-arena = false</script>
+tempTimer(60, [[expandAlias("tag")]])</script>
 						<triggerType>0</triggerType>
 						<conditonLineDelta>0</conditonLineDelta>
 						<mStayOpen>0</mStayOpen>
@@ -16547,7 +16544,7 @@ sys("&lt;red&gt;Daegger") cecho("&lt;green&gt;"..matches[2])</script>
 								</Trigger>
 								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 									<name>Demon Strip</name>
-									<script>if ring then send("rt Stripped "..multimatches[1][2].." "..multimatches[2][2]) end</script>
+									<script>callout("Stripped "..multimatches[1][2], multimatches[2][2])</script>
 									<triggerType>0</triggerType>
 									<conditonLineDelta>1</conditonLineDelta>
 									<mStayOpen>0</mStayOpen>
@@ -21316,7 +21313,7 @@ end</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Summoner</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -30323,7 +30320,7 @@ enableTimer("shaman confound")</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Hunter</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -41359,11 +41356,11 @@ if matches[2]:find("b") then buy = true end</script>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Clan toggle</name>
-							<script>if not coalition then
-coalition = true
+							<script>if not ms.save['clan'] then
+ms.save['clan'] = true
 sys("Clan") cecho("&lt;cyan&gt;ON")
-elseif coalition then
-coalition = false
+else
+ms.save['clan'] = false
 sys("Clan") cecho("&lt;red&gt;OFF")
 end</script>
 							<command></command>
@@ -44787,7 +44784,7 @@ send("queue eqbal top soulsense "..matches[2])</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="no" isFolder="yes">
+							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Summoner</name>
 								<script></script>
 								<command></command>
@@ -48852,7 +48849,7 @@ probe = true</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="yes" isFolder="yes">
+							<AliasGroup isActive="no" isFolder="yes">
 								<name>Hunter</name>
 								<script></script>
 								<command></command>
@@ -50681,14 +50678,6 @@ end</script>
 								<regex>^ms def(\s(.+))?$</regex>
 							</Alias>
 							<Alias isActive="yes" isFolder="no">
-								<name>Clan</name>
-								<script>ms.save["clan"] = matches[2]
-sys("&lt;green&gt;Clan") cecho("&lt;snow&gt;Set to: &lt;yellow&gt;"..matches[2])</script>
-								<command></command>
-								<packageName></packageName>
-								<regex>^ms clan (.+)$</regex>
-							</Alias>
-							<Alias isActive="yes" isFolder="no">
 								<name>Weapons</name>
 								<script>sys("&lt;green&gt;MS") cecho("&lt;snow&gt;Setting up Weapons...")
 registerAnonymousEventHandler("sysDataSendRequest", "msWeapons")
@@ -50835,10 +50824,10 @@ end</script>
 							<Alias isActive="yes" isFolder="no">
 								<name>Set Clan</name>
 								<script>if matches[3] then
-  ms.save["clan"] = matches[3]
+  ms.save["clan_abbr"] = matches[3]
   sys("&lt;green&gt;MS Clan") cecho("&lt;snow&gt;Clan set to: &lt;yellow&gt;"..matches[3])
 else
-  sys("&lt;green&gt;MS Clan") cecho("&lt;snow&gt;Clan currently set to: &lt;yellow&gt;"..ms.save["clan"])
+  sys("&lt;green&gt;MS Clan") cecho("&lt;snow&gt;Clan currently set to: &lt;yellow&gt;"..ms.save["clan_abbr"])
 end</script>
 								<command></command>
 								<packageName></packageName>
@@ -52905,10 +52894,10 @@ function to(slain)
 end
 
 function affCall(affliction)
-	if ring or coalition then send(ms.save["clan"].." Afflicted "..target.." "..affliction, false)
+	if ms.save['ring'] or ms.save['clan'] then send(ms.save["clan_abbr"].." Afflicted "..target.." "..affliction, false)
   -- underground
   -- send("clt13 Afflicted "..target.." "..affliction, false) 
-	elseif arena then send("at Afflicted "..target.." "..affliction, false)
+	elseif ms.save['arena'] then send("at Afflicted "..target.." "..affliction, false)
 	end
   if ttd then send("ttd Afflicted "..target.." "..affliction, false) end
 end</script>
@@ -53066,26 +53055,26 @@ end</script>
 							<packageName></packageName>
 							<script>function callout(catt, cper)
 	if not ik then
-		if ring then send("rt "..catt.." - "..cper, false)
-		elseif coalition then send(ms.save["clan"].." "..catt.." - "..cper, false)
-		elseif arena then send("at "..catt.." - "..cper, false) end
+		if ms.save['ring'] then send("rt "..catt.." - "..cper, false)
+		elseif ms.save['clan'] then send(ms.save["clan_abbr"].." "..catt.." - "..cper, false)
+		elseif ms.save['arena'] then send("at "..catt.." - "..cper, false) end
     if ttd then send("ttd "..catt.." - "..cper, false) end
 	end
 end
 
 function targeter(tname)
-if ring then send("rt Target: "..tname, false)
+if ms.save['ring'] then send("rt Target: "..tname, false)
 elseif coalition then send(ms.save["clan"].." Target: "..tname, false)
 elseif arena then send("at  Target: "..tname, false) end
 if ttd then send("ttd Target: "..tname, false) end
 end
 
 function cor(catt, cper)
-if ring then send("rt "..catt.." - "..cper..""..s.."rt "..catt.." - "..cper..""..s.."rt "..catt.." - "..cper, false)
-elseif coalition then send(ms.save["clan"].." "..catt.." - "..cper..""..s..""..ms.save["clan"].." "..catt.." - "..cper..""..s..""..ms.save["clan"].." "..catt.." - "..cper, false)
+if ms.save['ring'] then send("rt "..catt.." - "..cper..""..s.."rt "..catt.." - "..cper..""..s.."rt "..catt.." - "..cper, false)
+elseif ms.save['clan'] then send(ms.save["clan_abbr"].." "..catt.." - "..cper..""..s..""..ms.save["clan"].." "..catt.." - "..cper..""..s..""..ms.save["clan"].." "..catt.." - "..cper, false)
   -- underground
   --send("clt13 "..catt.." - "..cper..""..s..""..ms.save["clan"].." "..catt.." - "..cper..""..s..""..ms.save["clan"].." "..catt.." - "..cper, false)
-elseif arena then send("at "..catt.." - "..cper..""..s.."at "..catt.." - "..cper..""..s.."at "..catt.." - "..cper, false) end
+elseif ms.save['arena'] then send("at "..catt.." - "..cper..""..s.."at "..catt.." - "..cper..""..s.."at "..catt.." - "..cper, false) end
 end</script>
 							<eventHandlerList />
 						</Script>
@@ -55154,8 +55143,6 @@ ms.defCheck = {
   dryblood = false
   haemophilia = false
   shardfall = false
-  coalition = coalition or true
-  arena = false
   unknown = tonumber(0)
   iengage = true
   parry = true
@@ -55180,7 +55167,6 @@ ms.defCheck = {
   cl = false
   dnote = "ta"
   ink = "ciguatoxin"
-  ring = ring or false
   we = false
   calltarget = false
   calltargetv = "false"
@@ -56188,9 +56174,9 @@ if prism then cecho("cc", "&lt;SteelBlue&gt;Prism: ") ccspace("prism") echoLink(
 if sharding then cecho("cc", "\n&lt;SteelBlue&gt;Sharding: ") ccspace("sharding") echoLink("cc", "ON", [[sharding = false ccw()]], "Toggle off") ccspaceon() else cecho("cc", "\n&lt;SteelBlue&gt;Sharding: ") ccspace("sharding") echoLink("cc", "OFF", [[sharding = true ccw()]], "Toggle on") ccspaceoff() end
 if shardfall then cecho("cc", "&lt;SteelBlue&gt;Shardfall: ") ccspace("shardfall") echoLink("cc", "ON", [[shardfall = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Shardfall: ") ccspace("shardfall") echoLink("cc", "OFF", [[shardfall = true ccw()]], "Toggle on") end
 if parry then cecho("cc", "\n&lt;SteelBlue&gt;Parry: ") ccspace("parry") echoLink("cc", "ON", [[parry = false ccw()]], "Toggle off") ccspaceon() else cecho("cc", "\n&lt;SteelBlue&gt;Parry: ") ccspace("parry") echoLink("cc", "OFF", [[parry = true ccw()]], "Toggle on") ccspaceoff() end
-if ring then cecho("cc", "&lt;SteelBlue&gt;Ring: ") ccspace("Ring") echoLink("cc", "ON", [[ring = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Ring: ") ccspace("ring") echoLink("cc", "OFF", [[ring = true ccw()]], "Toggle on") end
+if ms.save['ring'] then cecho("cc", "&lt;SteelBlue&gt;Ring: ") ccspace("Ring") echoLink("cc", "ON", [[ring = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Ring: ") ccspace("ring") echoLink("cc", "OFF", [[ring = true ccw()]], "Toggle on") end
 if res then cecho("cc", "\n&lt;SteelBlue&gt;Resurrect: ") ccspace("resurrect") echoLink("cc", "ON", [[res = false ccw()]], "Toggle off") ccspaceon() else cecho("cc", "\n&lt;SteelBlue&gt;Resurrect: ") ccspace("resurrect") echoLink("cc", "OFF", [[res = true ccw()]], "Toggle on") ccspaceoff() end
-if arena then cecho("cc", "&lt;SteelBlue&gt;Arena: ") ccspace("arena") echoLink("cc", "ON", [[arena = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Arena: ") ccspace("arena") echoLink("cc", "OFF", [[arena = true ccw()]], "Toggle on") end
+if ms.save['arena'] then cecho("cc", "&lt;SteelBlue&gt;Arena: ") ccspace("arena") echoLink("cc", "ON", [[arena = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Arena: ") ccspace("arena") echoLink("cc", "OFF", [[arena = true ccw()]], "Toggle on") end
 cecho("cc", "\n\n&lt;SteelBlue&gt;"..string.rep("-", ccWidth))
 end</script>
 							<eventHandlerList />
@@ -62226,7 +62212,10 @@ end
     pet = "pet",
     parry = false,
     mount = "horse",
-    clan = "",
+    clan = false,
+    clan_abbr = '',
+    ring = false,
+    arena = false,
     --
     mwbb = 75,
     mwbl = 480,
@@ -62734,9 +62723,15 @@ function msSetup(_, cmd)
   elseif mss == 3 and cmd:lower() == "continue" then
     mss = mss + 1
   elseif mss == 4 then
-    ms.save["clan"] = tostring(cmd)
-    sys("&lt;green&gt;Affliction Clan") cecho("&lt;snow&gt;Clan set to: &lt;yellow&gt;"..cmd.."\n")
-    mss = mss + 1
+    if cmd:lower() == 'none' then
+      ms.save["clan_abbr"] = ''
+      sys("&lt;green&gt;Affliction Clan") cecho("&lt;snow&gt;Clan set to default\n")
+      mss = mss + 1
+    else
+      ms.save["clan_abbr"] = tostring(cmd)
+      sys("&lt;green&gt;Affliction Clan") cecho("&lt;snow&gt;Clan set to: &lt;yellow&gt;"..cmd.."\n")
+      mss = mss + 1
+    end
   elseif mss == 6 and (cmd:lower() == "yes" or cmd:lower() == "no") then
     mss = mss + 1
     if cmd:lower() == "yes" then
@@ -62792,7 +62787,7 @@ function msSetup(_, cmd)
       sys("&lt;green&gt;Setup - Settings") cecho("Type &lt;yellow&gt;continue &lt;snow&gt;when finished with defences")
       mss = mss + 1
     elseif mss == 4 or (mss == 2 and not ms.save["defMe"]) then
-      sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;clan name &lt;snow&gt;to call afflictions. Default to &lt;DimGray&gt;clt &lt;snow&gt;if you don't have any: ")
+      sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;clan name &lt;snow&gt;to call afflictions. Default to using &lt;DimGray&gt;none &lt;snow&gt;if you don't have any: ")
       if not ms.save["defMe"] then mss = mss + 2 end
     elseif mss == 5 then
       sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Quickdraw&lt;snow&gt; in Weaponry? (yes/no): ")
@@ -63042,7 +63037,105 @@ end</script>
 						<Script isActive="yes" isFolder="no">
 							<name>speedwalkingMS</name>
 							<packageName></packageName>
-							<script>function speedwalkingMS(event, num)
+							<script>function mmp.gotoRoomMS(where, dashtype, gotoType)
+  mmp.speedWalk.type = gotoType or "room"
+  if not where or not tonumber(where) then
+    mmp.echo("Where do you want to go to?")
+    return
+  end
+  if tonumber(where) == mmp.currentroom then
+    mmp.echo("We're already at " .. where .. "!")
+    raiseEvent("mmapper arrived")
+    return
+  end
+  -- allow mapper 'addons' to link their own exits in
+  raiseEvent("mmp link externals")
+  -- if getPath worked, then the dirs and room #'s tables were populated for us
+  if not mmp.getPath(mmp.currentroom, tonumber(where)) then
+    mmp.echo("Don't know how to get there (" .. tostring(where) .. ") from here :(")
+    mmp.speedWalkPath = {}
+    mmp.speedWalkDir = {}
+    mmp.speedWalkCounter = 0
+    raiseEvent("mmapper failed path")
+    if mmp.settings.shackle then
+      expandAlias("wear shackle")
+    end
+    -- allow mapper 'addons' to unlink their special exits
+    raiseEvent("mmp clear externals")
+    return
+  end
+  doSpeedWalk(dashtype)
+  -- allow mapper 'addons' to unlink their special exits
+  raiseEvent("mmp clear externals")
+end
+
+function mmp.gotoArea(where, number, dashtype, exact)
+  mmp.speedWalk.type = "area"
+  if not where or type(where) ~= "string" then
+    mmp.echo("Where do you want to go to?")
+    return
+  end
+  local where = where:lower()
+  number = tonumber(number)
+  local tmp = getRoomUserData(1, "gotoMapping")
+  if not tmp or tmp == '' then
+    tmp = "[]"
+  end
+  local temp, maptable = yajl.to_value(tmp), {}
+  for k, v in pairs(temp) do
+    maptable[k:lower()] = v
+  end
+  local destinationRoom = maptable[where]
+  if destinationRoom then
+    mmp.gotoRoom(destinationRoom, dashtype)
+    return
+  end
+  local areaid, msg, multiples = mmp.findAreaID(where, exact)
+  if areaid then
+    mmp.gotoAreaID(areaid)
+  elseif not areaid and #multiples &gt; 0 then
+    if number and number &lt;= #multiples then
+      mmp.gotoArea(multiples[number], nil, dashtype, true)
+      return
+    end
+    mmp.echo("Which area would you like to go to?")
+    fg("DimGrey")
+    for key, areaname in ipairs(multiples) do
+      echo("  ")
+      echoLink(
+        key .. ") ",
+        'mmp.gotoArea("' ..
+        areaname ..
+        '", nil, ' ..
+        (dashtype and '"' .. dashtype .. '"' or "nil") ..
+        ', true)',
+        "Click to go to " .. areaname,
+        true
+      )
+      setUnderline(true)
+      echoLink(
+        areaname,
+        'mmp.gotoArea("' ..
+        areaname ..
+        '", nil, ' ..
+        (dashtype and '"' .. dashtype .. '"' or "nil") ..
+        ', true)',
+        "Click to go to " .. areaname,
+        true
+      )
+      setUnderline(false)
+      echo("\n")
+    end
+    resetFormat()
+    return
+  else
+    mmp.echo(string.format("Don't know of any area named '%s'.", where))
+    if sharding then expandAlias("pf "..shardarea_name) end
+    return
+  end
+end
+
+function speedwalkingMS(event, num)
   local num = tonumber(num) or tonumber(gmcp.Room.Info.num)
   if num == mmp.speedWalkPath[#mmp.speedWalkPath] then
 		--MathSystem
