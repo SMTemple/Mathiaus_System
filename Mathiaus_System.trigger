@@ -264,8 +264,10 @@ resetFormat()
 						<regexCodePropertyList />
 						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Shards</name>
-							<script>if shardfall or sharding then 
+							<script>if (shardfall or sharding) and (ebal and bbal) and not harvest_queued then 
 	send("queue eqbal harvest shard")
+  harvest_queued = true
+  tempRegexTrigger("^You start unearthing", [[harvest_queued = false]], 1)
 end</script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
@@ -531,8 +533,11 @@ end</script>
 						</Trigger>
 						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Harvest</name>
-							<script>if shardfall or sharding then send("queue eqbal harvest shard") end
-</script>
+							<script>if (shardfall or sharding) and (ebal and bbal) and not harvest_queued then 
+	send("queue eqbal harvest shard")
+  harvest_queued = true
+  tempRegexTrigger("^You start unearthing", [[harvest_queued = false]], 1)
+end</script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
 							<mStayOpen>0</mStayOpen>
@@ -662,7 +667,7 @@ end
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList />
 						<regexCodePropertyList />
-						<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>autoKill prompt</name>
 							<script>if autoKill and target ~= "None" and not akTimer then
 	if ebal and bbal and healing then
@@ -8205,7 +8210,7 @@ if matches[2] == "naturebinding regen" then send("naturebind regenerate") end
 if matches[2] == "alacrity" then priest_alacrity = false end
 if matches[2] == "clarity" then rc = "clarity" end
 if matches[2] == "landsense" and (gmcp.Room.Info.area == "the Khandava Council" or gmcp.Room.Info.area == "the City of Antioch") and healing then send("landsense all") end
-if matches[2] == "soulchain" and autoKill and not mono and healing and ms.class["Summoner"] then send("queue eqbal invoke soulchain") end 
+if matches[2] == "soulchain" and (autoKill or gmcp.Room.Info.area == "the Khandava Council") and not mono and healing and ms.class["Summoner"] then send("queue eqbal invoke soulchain") end 
 if matches[2] == "sprinting" then send("start sprinting") end
 if matches[2] == "blackwind" then heal() end
 if matches[2] == "numbness" then numbed = false end
@@ -44870,7 +44875,9 @@ send("queue eqbal order doppleganger seek "..(matches[4] or target)..""..s.."ord
 									</Alias>
 									<Alias isActive="yes" isFolder="no">
 										<name>Chariot</name>
-										<script>send("queue eqbal fling chariot at ground"..s.."queue eqbal board chariot"..s.."order loyals follow me")</script>
+										<script>send("queue eqbal fling chariot at ground")
+send("queue eqbal board chariot"..s.."order loyals follow me")
+send("queue eqbal fly")</script>
 										<command></command>
 										<packageName></packageName>
 										<regex>^flc$</regex>
@@ -50098,6 +50105,8 @@ expandAlias("0", false)
 							<name>Fly</name>
 							<script>if ms.class["Assassin"] or ms.class["Renegade"] then
   send("queue eqbal top worm attach rashirmir::worm flight")
+elseif ms.class["Summoner"] then
+  expandAlias("flc")
 else 
   send("queue eqbal top fly")
 end
@@ -54606,6 +54615,7 @@ ms.defCheck = {
 							<packageName></packageName>
 							<script>function msReset()
   --Misc
+  harvest_queued = false
   shardarea_name = ''
   body = ""
   ui = false
