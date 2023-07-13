@@ -1619,6 +1619,7 @@ selectCaptureGroup(1)
 copy()
 enableTrigger("MapContents")
 enableTrigger("Map Exits")
+roomList()
 indoors = false
 if ll then send("ll", false) end
 move = ""
