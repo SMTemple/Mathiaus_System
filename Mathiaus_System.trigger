@@ -1642,7 +1642,9 @@ geis = false
 crystal = false
 deselect()
 resetFormat()
-
+if bash and ebal and bbal and #ms.hunt &gt; 0 then
+  expandAlias("b")
+end
 </script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
