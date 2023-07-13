@@ -43104,7 +43104,7 @@ end</script>
   				ul = "unleash eerion at "..ms.hunt[1]
   			end
   		end
-  		send(""..s.."invoke combustion "..ms.hunt[1].." duplicate"..s..""..ul)
+  		send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."invoke combustion "..ms.hunt[1].." duplicate"..s..""..ul)
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1])
   		elseif creature ~= tc and calltarget and bash then tc = creature;send("rt Target "..creature)
   		end
@@ -43116,16 +43116,16 @@ end</script>
   				ul = "unleash eerion at "..creature
   			end
   		end
-  		send("invoke combustion "..creature.. " duplicate"..s..""..ul)
+  		send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."invoke combustion "..creature.. " duplicate"..s..""..ul)
   	end
   elseif ms.class["Diabolist"] and ebal and bbal then
   	send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then send("queue eqbal raisewings");send("queue eqbal touch shield tattoo")
   	elseif healme then expandAlias("dht")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send("wraith recall"..s..""..quickdraw(ms.save["daegger"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send("wraith recall"..s..""..quickdrawHunt(ms.save["daegger"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send("wraith recall"..s..""..quickdraw(ms.save["daegger"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send("wraith recall"..s..""..quickdrawHunt(ms.save["daegger"], ms.save["shield"])..""..s.."attack "..creature)
   		end
   		if reflective == 5 then
   			send("wraith bane")
@@ -43141,9 +43141,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["flail"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["flail"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["flail"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["flail"], ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Druid"] and ebal and bbal then
@@ -43152,9 +43152,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["quarterstaff"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["quarterstaff"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["quarterstaff"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["quarterstaff"], ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Hunter"] and ebal and bbal then
@@ -43163,9 +43163,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Shaman"] and ebal and bbal then
@@ -43174,9 +43174,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Priest"] and ebal and bbal then
@@ -43185,9 +43185,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal seraph aura")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["mace"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["mace"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["mace"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["mace"], ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Berserker"] and ebal and bbal then
@@ -43196,9 +43196,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["longsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["longsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["shield"], ms.save["longsword"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"], ms.save["longsword"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Templar"] and ebal and bbal then
@@ -43207,9 +43207,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Monk"] and ebal and bbal then
@@ -43218,9 +43218,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Amazon"] and ebal and bbal then
@@ -43229,9 +43229,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["javelin"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["javelin"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["javelin"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["javelin"], ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Ranger"] and ebal and bbal then
@@ -43240,9 +43240,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["glaive"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["glaive"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["glaive"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["glaive"], ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Predator"] and ebal and bbal then
@@ -43251,9 +43251,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["sitara"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["sitara"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["sitara"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["sitara"], ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif ms.class["Outrider"] and ebal and bbal then
@@ -43262,9 +43262,9 @@ end</script>
       send("queue eqbal raisewings")
       send("queue eqbal touch shield tattoo")
   	else 
-  		if ms.hunt[1] then send("queue reset eqbal");send(quickdraw(ms.save["spear"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
+  		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["spear"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send("queue reset eqbal");send(quickdraw(ms.save["spear"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send("queue reset eqbal", false);send(quickdrawHunt(ms.save["spear"], ms.save["shield"])..""..s.."attack "..creature)
   		end
     end
   elseif (ms.class["Assassin"] or ms.class["Renegade"]) and ebal and bbal then
@@ -43281,18 +43281,18 @@ end</script>
   		if creature == "head" then
   			send("queue eqbal attack head"..s..""..becloudHunt)
   			send("queue eqbal attack hydra"..s..""..becloudHunt)
-  		elseif ms.hunt[1] then send(quickdraw(ms.save["daegger"], ms.save["shield"])..""..s.."puncture "..ms.hunt[1].." with trioxin"..s..""..becloudHunt)
+  		elseif ms.hunt[1] then send(quickdrawHunt(ms.save["daegger"], ms.save["shield"])..""..s.."puncture "..ms.hunt[1].." with trioxin"..s..""..becloudHunt)
   			if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send(quickdraw(ms.save["daegger"], ms.save["shield"])..""..s.."puncture "..creature.." with trioxin"..s..""..becloudHunt)
+  		else send(quickdrawHunt(ms.save["daegger"], ms.save["shield"])..""..s.."puncture "..creature.." with trioxin"..s..""..becloudHunt)
   		end
   	end
   elseif ms.class["Deathknight"] and ebal and bbal then
   	if th &lt; shield_th and (not shielded or shielded == nil) then send("queue eqbal raisewings");send("queue eqbal touch shield tattoo")
   	elseif healme then send("vigour")
   	else 
-  		if ms.hunt[1] then send(quickdraw(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1]..""..s.."chill "..ms.hunt[1])
+  		if ms.hunt[1] then send(quickdrawHunt(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1]..""..s.."chill "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
-  		else send(quickdraw(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..creature)
+  		else send(quickdrawHunt(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..creature)
   		end
   	end
   end
@@ -51180,16 +51180,16 @@ sys("&lt;green&gt;MS "..matches[2]:title()) cecho("&lt;snow&gt;Set to: &lt;yello
 							</Alias>
 							<Alias isActive="yes" isFolder="no">
 								<name>Toggle rubcard</name>
-								<script>if matches[2] == "off" then
+								<script>if matches[2] == "off" or (matches[2] == nil and ms.save['rubcard']) then
   ms.save['rubcard'] = false
   sys("&lt;red&gt;MS Hunting") cecho("&lt;snow&gt;You will cease rubbing cards when hunting")
-else
+elseif matches[2] == "on" or (matches[2] == nil and not ms.save['rubcard']) then
   ms.save['rubcard'] = true
   sys("&lt;green&gt;MS Hunting") cecho("&lt;snow&gt;You will now rub cards while hunting")
 end</script>
 								<command></command>
 								<packageName></packageName>
-								<regex>^ms rubcard (on|off)$</regex>
+								<regex>^ms rubcard(?: (on|off))?$</regex>
 							</Alias>
 						</AliasGroup>
 						<AliasGroup isActive="yes" isFolder="yes">
@@ -54157,6 +54157,34 @@ end</script>
       return "unwield left"..s.."unwield right"..s.."wield "..left
     end
   end
+end
+
+function quickdrawHunt(left, right)
+  local lw = gmcp.Char.Vitals.leftwield
+  local rw = gmcp.Char.Vitals.rightwield
+  local lw_name = gmcp.Char.Vitals.leftwield_name
+  local rw_name = gmcp.Char.Vitals.rightwield_name
+  
+  if (lw == "0" and rw == "0") or (lw_name ~= "shield" and rw_name ~= "shield") then
+    if ms.save["quickdraw"] then
+      if right then
+        return "quickdraw "..left.." "..right.." "..qd
+      else
+        return "quickdraw "..left.." "..qd
+      end
+    elseif qd == "left right" and right then
+      return "unwield left"..s.."unwield right"..s.."wield "..left..""..s.."wield "..right
+    else
+      if right then
+        return "unwield left"..s.."unwield right"..s.."wield "..right..""..s.."wield "..left
+      else
+        return "unwield left"..s.."unwield right"..s.."wield "..left
+      end
+    end
+  else
+    return ''
+  end
+    
 end</script>
 							<eventHandlerList />
 						</Script>
