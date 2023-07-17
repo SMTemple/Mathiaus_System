@@ -37,67 +37,65 @@ Before doing ms save reset and this will list all your settings so you can refer
 
 4.) Once installed, close down mudlet, and restart.
 
- a.) Things to remember: Make sure that you have GMCP enabled in settings, as well as config gmcpVitalsAdvanced in game
+ -- a.) Things to remember: Make sure that you have GMCP enabled in settings, as well as config gmcpVitalsAdvanced in game
 
- b.) Autosave on exit as well, same page
+-- b.) Autosave on exit as well, same page
 
- c.) On the Mapper tab, Download and Save the current map
+ -- c.) On the Mapper tab, Download and Save the current map
 
 5.) Using ms or ms help will bring up the commands to use for the system.
 
 6.) Use ms setup to get started.
 
- a.) It will ask you a series of questions. First one will be about defenses.
+ -- a.) It will ask you a series of questions. First one will be about defenses.
 
- b.) Using ms def will list the current defenses you’re using for your class, and you can toggle the defense on or off by doing ms def <def_name>.
+ -- b.) Using ms def will list the current defenses you’re using for your class, and you can toggle the defense on or off by doing ms def <def_name>.
 
- c.) Once you’re satisfied, type continue and hit enter.
+ -- c.) Once you’re satisfied, type continue and hit enter.
 
- d.) The next step is to set your affliction call clan, which you either set with the tag name or the shortcode call of clt<number> where you have your clan placed in the list.
+ -- d.) The next step is to set your affliction call clan, which you either set with the tag name or the shortcode call of clt<number> where you have your clan placed in the list.
 
- e.) Next it will ask if you have the skill quickdraw in weaponry. 
+ -- e.) Next it will ask if you have the skill quickdraw in weaponry. 
 
- f.) Next it will ask if you have the skill Parry in weaponry.
+ -- f.) Next it will ask if you have the skill Parry in weaponry.
 
- g.) Next it will ask if you have the skill Kipup
+ -- g.) Next it will ask if you have the skill Kipup
 
- h.) Next it will ask if you have Trueassess  in perception
+ -- h.) Next it will ask if you have Trueassess  in perception
 
- i.) In ms combat, you can set up your weapon id’s in this section:
+ -- i.) In ms combat, you can set up your weapon id’s in this section:
 
- j.) Once that’s done, type finish and hit enter.
+ -- j.) Once that’s done, type finish and hit enter.
 
 7.) That’s it! You’re all done with the setup. I recommend highly going through ms allies and also checking out your class functions as well once you’re done.
 
-
 8.) The UI can be adjusted with ms ui and ms fs, as well as ms window 1920 or ms window 1600
 
+ -- 1 -> chat
 
- 1 -> chat
+ -- 2 -> toggles
 
- 2 -> toggles
+ -- 3 -> selfaffs
 
- 3 -> selfaffs
+ -- 4 -> skills
 
- 4 -> skills
+ -- 5 -> afflictions
 
- 5 -> afflictions
+ -- 6 -> main window (set in settings)
 
- 6 -> main window (set in settings)
+ -- 7 -> healthmana
 
- 7 -> healthmana
+ -- 8 -> prompt
 
- 8 -> prompt
+ -- 9 -> targetinfo
 
- 9 -> targetinfo
+ -- 10 -> charstats
 
- 10 -> charstats
+ -- 11 -> roomitems
 
- 11 -> roomitems
+ -- 12 -> map
 
- 12 -> map
-
- 13 -> roominfo
+ -- 13 -> roominfo
 
 9.) Once that’s done, type finish and hit enter.
  
