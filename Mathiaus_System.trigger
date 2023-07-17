@@ -141,11 +141,11 @@ resetFormat()
 							</Trigger>
 							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
 								<name>Deaths</name>
-								<script>if string.find(matches[1], 'slain by') or string.find(matches[1], "hacked to death by") or string.find(matches[1], 'killed by') or string.find(matches[1], 'has been slain') then 
+								<script>if string.find(matches[1], 'slain by') or string.find(matches[1], "has been executed") or string.find(matches[1], "to death by") or string.find(matches[1], 'killed by') or string.find(matches[1], 'has been slain') then 
   demonnic.chat:append("Deaths")
   deselect()
   resetFormat()
---white, red
+--red, black
 end</script>
 								<triggerType>0</triggerType>
 								<conditonLineDelta>0</conditonLineDelta>
@@ -314,7 +314,10 @@ end</script>
 						</Trigger>
 						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Person harvesting</name>
-							<script>if shardfall or sharding then tempTimer(4, [[send("path find shard"..s.."path go")]]) end</script>
+							<script>if shardfall or sharding then 
+  harvest_queued = false
+  tempTimer(4, [[send("path find shard"..s.."path go")]]) 
+end</script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
 							<mStayOpen>0</mStayOpen>
@@ -44989,8 +44992,8 @@ elseif healing then
 		else
 			atk = "invoke cleanseaura "..target..""..s..""..ul
 		end
-	elseif th &lt; 50 and hp &lt; 75 and ulb then
-		if belial and hp &gt; 50 then
+	elseif th &lt; 50 and hp &lt; 65 and ulb then
+		if belial and hp &gt; 75 then
 			ul = "unleash belial at "..target
 		elseif dameron and hp &gt; 50 then
 			ul = "unleash dameron at "..target.." belial"
@@ -45017,12 +45020,12 @@ elseif healing then
 				atk = ul..""..s.."fling hangedman at "..target
 			end
 		end
-    if taint &gt;= 60 then
+    if taint &gt;= 60 and hp &lt;= 65 then
 			si = ""..s.."invoke soulburn "..target.." instant"
 		end
-    -- if taint == 100 and not incinerate then
-      -- atk = ul..""..s.."invoke incinerate "..target
-		if hp &lt; 50 then
+    if taint == 100 and not incinerate then
+      atk = ul..""..s.."invoke incinerate "..target
+		elseif hp &lt; 50 then
 			atk = ul..""..si..""..s.."invoke quicken "..target..""..ti
 		else
 			atk = ul..""..si..""..s.."fling creator fever at "..target
@@ -57413,13 +57416,15 @@ function uldmg()
     	ul = "unleash pyradius at "..target
     elseif incinerate and dameron and taint &lt;= 70 then
       ul = "unleash dameron at "..target.. " pyradius"
+    elseif pyradius and hp &gt;= 65 then
+			ul = "unleash pyradius at "..target
 		elseif belial and hp &gt;= 80 then 
 			ul = "unleash belial at "..target
 		elseif palpatar then 
 			ul = "unleash palpatar at "..target
 		elseif dameron then
 			ul = "unleash dameron at "..target.. " palpatar"
-		elseif golgotha then 
+		elseif golgotha and hp &lt;= 75 then 
 			ul = "unleash golgotha at "..target
 		elseif pyradius then
 			ul = "unleash pyradius at "..target
@@ -57447,7 +57452,7 @@ end
 
 function ulenl()
 	if ulb then
-		if belial and hp &gt; 50 then ul = "unleash belial at "..target
+		if belial and hp &gt; 70 then ul = "unleash belial at "..target
 		elseif cadmus and (ms.afflicted["addiction"] == "notaff" or ms.afflicted["hallucinations"] == "notaff") then ul = "unleash cadmus at "..target
 		elseif dameron and (ms.afflicted["addiction"] == "notaff" or ms.afflicted["hallucinations"] == "notaff") and ms.afflicted["asthma"] == "aff" and ms.afflicted["impatience"] == "aff" then ul = "unleash dameron at "..target.." cadmus"
 		elseif palpatar then ul = "unleash palpatar at "..target
