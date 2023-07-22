@@ -13,6 +13,8 @@ Welcome to Mathiaus’s System! (MS)
 
 WORDS OF CAUTION (Skip to Step 1 if this is your first time installing MS)
 
+-----
+
 USE THIS IF MS IS BROKEN AFTER UPDATING SYSTEM
 
 !!  If you have already installed MS and are installing a newer version, you will more than likely need to do:
@@ -25,73 +27,76 @@ lua ms.save
 
 Before doing ms save reset and this will list all your settings so you can reference it afterwards.
 
-Download the latest version from Github through the link above
+-----
 
-Open up the package module installer
+1.) Download the latest version from Github through the link above
 
-Install Mathiaus_System.trigger
+2.) Open up the package module installer
 
-Once installed, close down mudlet, and restart.
+3.) Install Mathiaus_System.trigger
 
-Things to remember: Make sure that you have GMCP enabled in settings, as well as config gmcpVitalsAdvanced in game
+4.) Once installed, close down mudlet, and restart.
 
-Autosave on exit as well, same page
-On the Mapper tab, Download and Save the current map
+ -- a.) Things to remember: Make sure that you have GMCP enabled in settings, as well as config gmcpVitalsAdvanced in game
 
-Using ms or ms help will bring up the commands to use for the system.
+-- b.) Autosave on exit as well, same page
 
-Use ms setup to get started.
-It will ask you a series of questions. First one will be about defenses.
-Using ms def will list the current defenses you’re using for your class, and you can toggle the defense on or off by doing ms def <def_name>.
+ -- c.) On the Mapper tab, Download and Save the current map
 
-Once you’re satisfied, type continue and hit enter.
-The next step is to set your affliction call clan, which you either set with the tag name or the shortcode call of clt<number> where you have your clan placed in the list.
+5.) Using ms or ms help will bring up the commands to use for the system.
 
-Next it will ask if you have the skill quickdraw in weaponry. 
+6.) Use ms setup to get started.
 
-Next it will ask if you have the skill Parry in weaponry.
+ -- a.) It will ask you a series of questions. First one will be about defenses.
 
-Next it will ask if you have the skill Kipup
+ -- b.) Using ms def will list the current defenses you’re using for your class, and you can toggle the defense on or off by doing ms def <def_name>.
 
-Next it will ask if you have Trueassess  in perception
+ -- c.) Once you’re satisfied, type continue and hit enter.
 
-In ms combat, you can set up your weapon id’s in this section:
+ -- d.) The next step is to set your affliction call clan, which you either set with the tag name or the shortcode call of clt<number> where you have your clan placed in the list.
 
-Once that’s done, type finish and hit enter.
-That’s it! You’re all done with the setup. I recommend highly going through ms allies and also checking out your class functions as well once you’re done.
+ -- e.) Next it will ask if you have the skill quickdraw in weaponry. 
 
+ -- f.) Next it will ask if you have the skill Parry in weaponry.
 
-The UI can be adjusted with ms ui and ms fs, as well as ms window 1920 or ms window 1600
+ -- g.) Next it will ask if you have the skill Kipup
 
+ -- h.) Next it will ask if you have Trueassess  in perception
 
-1 -> chat
+ -- i.) In ms combat, you can set up your weapon id’s in this section:
 
-2 -> toggles
+ -- j.) Once that’s done, type finish and hit enter.
 
-3 -> selfaffs
+7.) That’s it! You’re all done with the setup. I recommend highly going through ms allies and also checking out your class functions as well once you’re done.
 
-4 -> skills
+8.) The UI can be adjusted with ms ui and ms fs, as well as ms window 1920 or ms window 1600
 
-5 -> afflictions
+ -- 1 -> chat
 
-6 -> main window (set in settings)
+ -- 2 -> toggles
 
-7 -> healthmana
+ -- 3 -> selfaffs
 
-8 -> prompt
+ -- 4 -> skills
 
-9 -> targetinfo
+ -- 5 -> afflictions
 
-10 -> charstats
+ -- 6 -> main window (set in settings)
 
-11 -> roomitems
+ -- 7 -> healthmana
 
-12 -> map
+ -- 8 -> prompt
 
-13 -> roominfo
+ -- 9 -> targetinfo
 
-Once that’s done, type finish and hit enter.
-That’s it! You’re all done with the setup. I recommend highly going through ms allies and also checking out your class functions as well once you’re done.
+ -- 10 -> charstats
+
+ -- 11 -> roomitems
+
+ -- 12 -> map
+
+ -- 13 -> roominfo
+
+9.) Once that’s done, type finish and hit enter.
  
-The UI can be adjusted with ms ui and ms fs, as well as ms window 1920 or ms window 1600
-
+10.) The UI can be adjusted with ms ui and ms fs, as well as ms window 1920 or ms window 1600
