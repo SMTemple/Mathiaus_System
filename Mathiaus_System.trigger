@@ -1622,6 +1622,7 @@ selectCaptureGroup(1)
 copy()
 enableTrigger("MapContents")
 enableTrigger("Map Exits")
+dead = false
 roomList()
 indoors = false
 if ll then send("ll", false) end
@@ -6714,6 +6715,26 @@ sys("Quickdraw") cecho("&lt;ivory&gt;"..matches[2])</script>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Not Dead</name>
+						<script>dead = false</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>Before Death's Door</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>2</integer>
 						</regexCodePropertyList>
 					</Trigger>
 				</TriggerGroup>
@@ -40591,7 +40612,7 @@ disableTimer("bruised")</script>
 						<packageName></packageName>
 						<time>00:00:59.000</time>
 					</Timer>
-					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>disruption</name>
 						<script>if healing then send("concentrate") end
 disableTimer("disruption")</script>
