@@ -6734,125 +6734,127 @@ sys("Quickdraw") cecho("&lt;ivory&gt;"..matches[2])</script>
 					<regexCodePropertyList />
 					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Main Prompt</name>
-						<script>--
-s = ms.save["separator"]
-msSetClass()
-if gmcp.Char.Vitals.eq == "1" then ebal = true else ebal = false end
-if gmcp.Char.Vitals.bal == "1" then bbal = true else bbal = false end
---
-if saf &lt; 0 or saf == nil then saf = tonumber(0) end
-if resonance &lt; 0 or resonance == nil then resonance = tonumber(0) end
-ch = math.floor(tonumber(gmcp.Char.Vitals.hp)/11)
-max_health = math.floor(tonumber(gmcp.Char.Vitals.maxhp)/11)
-th = math.floor((ch*100)/max_health)
-cm = math.floor(tonumber(gmcp.Char.Vitals.mp)/11)
-max_mana = math.floor(tonumber(gmcp.Char.Vitals.maxmp)/11)
-tm = math.floor((cm*100)/max_mana)
--- xp = tonumber(matches[6])
-bleed = math.floor(tonumber(gmcp.Char.Vitals.bleed/11))
-if ms.class["Deathknight"] then essence = math.floor((gmcp.Char.Vitals.essence*100)/2000) end
-if ms.class["Berserker"] then rage = tonumber(gmcp.Char.Vitals.rage) end
--- focusPoints = tonumber(matches[11])
--- focusPercentage = tonumber(matches[12])
-chillCount = tonumber(0)
-if rbHit then
-	if table.contains(ms.limbs, "right leg") then rlHit = rlHit - 1 end
-	if table.contains(ms.limbs, "left leg") then llHit = llHit - 1 end
-	if table.contains(ms.limbs, "right arm") then raHit = raHit - 1 end
-	if table.contains(ms.limbs, "left arm") then laHit = laHit - 1 end
-	ms.limbs = {}
-	rbHit = false
-end
-
--- if justiceCheck then
-  -- ms.afflicted["justice"] = "aff"
-  -- jc = tonumber(0)
-  -- justiceCheck = false
--- elseif jc &gt; 4 then
-  -- ms.afflicted["justice"] = "notaff"
-  -- jc = tonumber(0)
-  -- justiceCheck = false
--- end
-if th == 100 then chf = ch end
-if tm == 100 then cmf = cm end
-dead = false
-if th &lt;= 20 and cmh and reserves and healing then expandAlias("cmh") cmh = false;reserves = false end
-if tm &lt;= 50 and cmm and reserves and healing then expandAlias("cmm") cmm = false;reserves = false end
-ccw()
-affcount()
-if healing then
---
-if ebal and bbal and parry and ms.save["parry"] then
-	plf()
-	send(plimb, false)
-end
---
-if (dryblood and th &gt;= 65) and (not haemophilia and not arteryShot) then
-  if clot and tm &gt; 50 then
-	if bleed &gt; 40 then sys("Clotting") cecho("&lt;red&gt;"..bleed);send("clot"..s.."clot"..s.."clot"..s.."clot") clot = false
-	elseif bleed &gt; 30 then sys("Clotting") cecho("&lt;red&gt;"..bleed);send("clot"..s.."clot"..s.."clot") clot = false
-	elseif bleed &gt; 20 then sys("Clotting") cecho("&lt;red&gt;"..bleed);send("clot"..s.."clot") clot = false
-	end
-	if not clot then tempTimer(3, [[clot = true]]) end
+						<script>if not dead then
+  --
+  s = ms.save["separator"]
+  msSetClass()
+  if gmcp.Char.Vitals.eq == "1" then ebal = true else ebal = false end
+  if gmcp.Char.Vitals.bal == "1" then bbal = true else bbal = false end
+  --
+  if saf &lt; 0 or saf == nil then saf = tonumber(0) end
+  if resonance &lt; 0 or resonance == nil then resonance = tonumber(0) end
+  ch = math.floor(tonumber(gmcp.Char.Vitals.hp)/11)
+  max_health = math.floor(tonumber(gmcp.Char.Vitals.maxhp)/11)
+  th = math.floor((ch*100)/max_health)
+  cm = math.floor(tonumber(gmcp.Char.Vitals.mp)/11)
+  max_mana = math.floor(tonumber(gmcp.Char.Vitals.maxmp)/11)
+  tm = math.floor((cm*100)/max_mana)
+  -- xp = tonumber(matches[6])
+  bleed = math.floor(tonumber(gmcp.Char.Vitals.bleed/11))
+  if ms.class["Deathknight"] then essence = math.floor((gmcp.Char.Vitals.essence*100)/2000) end
+  if ms.class["Berserker"] then rage = tonumber(gmcp.Char.Vitals.rage) end
+  -- focusPoints = tonumber(matches[11])
+  -- focusPercentage = tonumber(matches[12])
+  chillCount = tonumber(0)
+  if rbHit then
+  	if table.contains(ms.limbs, "right leg") then rlHit = rlHit - 1 end
+  	if table.contains(ms.limbs, "left leg") then llHit = llHit - 1 end
+  	if table.contains(ms.limbs, "right arm") then raHit = raHit - 1 end
+  	if table.contains(ms.limbs, "left arm") then laHit = laHit - 1 end
+  	ms.limbs = {}
+  	rbHit = false
+  end
+  
+  -- if justiceCheck then
+    -- ms.afflicted["justice"] = "aff"
+    -- jc = tonumber(0)
+    -- justiceCheck = false
+  -- elseif jc &gt; 4 then
+    -- ms.afflicted["justice"] = "notaff"
+    -- jc = tonumber(0)
+    -- justiceCheck = false
+  -- end
+  if th == 100 then chf = ch end
+  if tm == 100 then cmf = cm end
+  dead = false
+  if th &lt;= 20 and cmh and reserves and healing then expandAlias("cmh") cmh = false;reserves = false end
+  if tm &lt;= 50 and cmm and reserves and healing then expandAlias("cmm") cmm = false;reserves = false end
+  ccw()
+  affcount()
+  if healing then
+  --
+  if ebal and bbal and parry and ms.save["parry"] then
+  	plf()
+  	send(plimb, false)
+  end
+  --
+  if (dryblood and th &gt;= 65) and (not haemophilia and not arteryShot) then
+    if clot and tm &gt; 50 then
+  	if bleed &gt; 40 then sys("Clotting") cecho("&lt;red&gt;"..bleed);send("clot"..s.."clot"..s.."clot"..s.."clot") clot = false
+  	elseif bleed &gt; 30 then sys("Clotting") cecho("&lt;red&gt;"..bleed);send("clot"..s.."clot"..s.."clot") clot = false
+  	elseif bleed &gt; 20 then sys("Clotting") cecho("&lt;red&gt;"..bleed);send("clot"..s.."clot") clot = false
+  	end
+  	if not clot then tempTimer(3, [[clot = true]]) end
+    end
+  end
+  if th &lt;= tonumber(ms.save['sth']) then 
+  healme = true
+  if healing then
+  	--apathy
+  	if ms.class["Diabolist"] then
+  		if fiery &gt; 1 then trueasses = false end
+  		if th &lt; 40 and not paralysis then
+  			hta = chf-ch
+  				if hta &gt; cm then hta = cm end
+  			healtype = "demon healthtap "..hta
+  		elseif tm &lt;= 51 then
+  			mta = cmf-cm
+  				if mta &gt;= ch then mta = ch-50 end
+  			healtype = "demon manatap "..mta
+  		else healtype = ""
+  		end
+  	end
+  	--dk
+  	if ms.class["Deathknight"] then
+  		--if not numbness and not shielded and th &lt; 40 and not paralysis and (not heroism or heroism == nil) and not prone then healtype = "raisewings"
+  		if not paralysis and th &lt; 25 then healtype = "vigour"
+  		else healtype = ""
+  		end
+  	end
+  	if ebal and bbal then send(healtype) end
+  end
+  else 
+  healme = false
+  healtype = ""
+  end
+  if th &gt;= 100 then hpp = ch end
+  --
   end
 end
-if th &lt;= tonumber(ms.save['sth']) then 
-healme = true
-if healing then
-	--apathy
-	if ms.class["Diabolist"] then
-		if fiery &gt; 1 then trueasses = false end
-		if th &lt; 40 and not paralysis then
-			hta = chf-ch
-				if hta &gt; cm then hta = cm end
-			healtype = "demon healthtap "..hta
-		elseif tm &lt;= 51 then
-			mta = cmf-cm
-				if mta &gt;= ch then mta = ch-50 end
-			healtype = "demon manatap "..mta
-		else healtype = ""
-		end
-	end
-	--dk
-	if ms.class["Deathknight"] then
-		--if not numbness and not shielded and th &lt; 40 and not paralysis and (not heroism or heroism == nil) and not prone then healtype = "raisewings"
-		if not paralysis and th &lt; 25 then healtype = "vigour"
-		else healtype = ""
-		end
-	end
-	if ebal and bbal then send(healtype) end
-end
-else 
-healme = false
-healtype = ""
-end
-if th &gt;= 100 then hpp = ch end
---
-end
-deleteLine()
-updateUI()
-bmCheck()
-if bp &lt; 0 then bp = tonumber(0) end
-if autoKill then sys("&lt;SteelBlue&gt;[&lt;green&gt;MS A.I.&lt;SteelBlue&gt;] &lt;gold&gt;[&lt;red&gt;MS Target&lt;gold&gt;]") cecho(f"&lt;green&gt;{target} &lt;red&gt;{hp}&lt;DimGrey&gt;% &lt;cyan&gt;{mp}&lt;DimGrey&gt;%") end
-
--- if ms.class["Defiler"] then
-	-- pet = "2265"
--- else
-	-- pet = "207121" 
--- end
---
-if ttimes == 0 then expandAlias("trig");ttimes = "off" end
---gags
-disableTrigger("Gag defences")
--- tempRegexTrigger("^$", function() deleteLine() end, 1)
---
--- if #toxCured == 1 then
-	-- sys("&lt;green&gt;"..toxCured[1]:title()) cecho("&lt;green&gt;Cured")
-	-- toxCured = {}
--- elseif #toxCured &gt;= 2 then
-	-- sys("&lt;green&gt;"..table.concat(toxCured, ", ")) cecho("&lt;green&gt;Cured")
-	-- toxCured = {}
--- end</script>
+  deleteLine()
+  updateUI()
+  bmCheck()
+  if bp &lt; 0 then bp = tonumber(0) end
+  if autoKill then sys("&lt;SteelBlue&gt;[&lt;green&gt;MS A.I.&lt;SteelBlue&gt;] &lt;gold&gt;[&lt;red&gt;MS Target&lt;gold&gt;]") cecho(f"&lt;green&gt;{target} &lt;red&gt;{hp}&lt;DimGrey&gt;% &lt;cyan&gt;{mp}&lt;DimGrey&gt;%") end
+  
+  -- if ms.class["Defiler"] then
+  	-- pet = "2265"
+  -- else
+  	-- pet = "207121" 
+  -- end
+  --
+  if ttimes == 0 then expandAlias("trig");ttimes = "off" end
+  --gags
+  disableTrigger("Gag defences")
+  -- tempRegexTrigger("^$", function() deleteLine() end, 1)
+  --
+  -- if #toxCured == 1 then
+  	-- sys("&lt;green&gt;"..toxCured[1]:title()) cecho("&lt;green&gt;Cured")
+  	-- toxCured = {}
+  -- elseif #toxCured &gt;= 2 then
+  	-- sys("&lt;green&gt;"..table.concat(toxCured, ", ")) cecho("&lt;green&gt;Cured")
+  	-- toxCured = {}
+  -- end</script>
 						<triggerType>0</triggerType>
 						<conditonLineDelta>0</conditonLineDelta>
 						<mStayOpen>0</mStayOpen>
@@ -6990,6 +6992,7 @@ end
 end
 end
 if ttimes == nil then ttimes = tonumber(0) end
+ttime = tonumber(ttime)
 if ttimes &lt;= -1 then enableAlias("trig") end</script>
 						<triggerType>0</triggerType>
 						<conditonLineDelta>0</conditonLineDelta>
@@ -7280,7 +7283,7 @@ statc()
 					</Trigger>
 					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Reckless check</name>
-						<script>send("autocuring assume recklessness")</script>
+						<script>if not dead then send("autocuring assume recklessness") end</script>
 						<triggerType>0</triggerType>
 						<conditonLineDelta>1</conditonLineDelta>
 						<mStayOpen>0</mStayOpen>
@@ -7339,7 +7342,7 @@ if commitmana &gt; cmt then cmm = true end
 sys("Reserves") cecho("&lt;red&gt;"..multimatches[1][4].."&lt;ivory&gt;/&lt;blue&gt;"..multimatches[2][4])
 local rchk = math.floor(gmcp.Char.Vitals.hp/11)
 local rch = tonumber(multimatches[1][2])
-if rchk ~= rch then send("autocuring assume recklessness") end
+if rchk ~= rch and not dead then send("autocuring assume recklessness") end
 ssCheck = false
 end</script>
 						<triggerType>0</triggerType>
@@ -10722,6 +10725,8 @@ end</script>
 						<script>callout("Died to "..matches[2], gmcp.Room.Info.area.." ["..gmcp.Room.Info.num.."]")
 cecho("\n\n&lt;red&gt;Died at "..gmcp.Room.Info.area.." ["..gmcp.Room.Info.num.."]\n")
 send("rt Vv(xXx''xXx)vV")
+send("queue reset all")
+healing = false
 dat = gmcp.Room.Info.num
 songs = 0
 ba = tonumber(0)
@@ -11208,7 +11213,7 @@ plimb = ""
 					</Trigger>
 					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Masked Recklessness</name>
-						<script>send("autocuring assume recklessness")</script>
+						<script>if not dead then send("autocuring assume recklessness") end</script>
 						<triggerType>0</triggerType>
 						<conditonLineDelta>1</conditonLineDelta>
 						<mStayOpen>0</mStayOpen>
@@ -20038,7 +20043,7 @@ phantomel = ""</script>
 								</regexCodePropertyList>
 							</Trigger>
 						</TriggerGroup>
-						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Deathknight</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -21366,7 +21371,7 @@ end</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Summoner</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -40586,7 +40591,7 @@ disableTimer("bruised")</script>
 						<packageName></packageName>
 						<time>00:00:59.000</time>
 					</Timer>
-					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>disruption</name>
 						<script>if healing then send("concentrate") end
 disableTimer("disruption")</script>
@@ -41254,7 +41259,7 @@ hbar:setValue(100, 100, [[&lt;font color="black"&gt;&lt;b&gt;Health ]]..ch..[[(1
 mbar:setValue(100, 100, [[&lt;font color="black"&gt;&lt;b&gt;Mana ]]..cm..[[(100%)&lt;/b&gt;&lt;/font&gt;]])
 sys("Variables") cecho("&lt;red&gt;[&lt;DimGrey&gt;Reset&lt;red&gt;]")
 if not healing then heal() end
-expandAlias("ss", false)</script>
+if not dead then expandAlias("ss", false) end</script>
 							<command></command>
 							<packageName></packageName>
 							<regex>^0$</regex>
@@ -44397,7 +44402,7 @@ send("queue eqbal "..quickdraw(ms.save["dirk"], ms.save["shield"]))</script>
 									<regex>^sud (\w+)$</regex>
 								</Alias>
 							</AliasGroup>
-							<AliasGroup isActive="no" isFolder="yes">
+							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Deathknight</name>
 								<script></script>
 								<command></command>
@@ -44837,7 +44842,7 @@ send("queue eqbal top soulsense "..matches[2])</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="yes" isFolder="yes">
+							<AliasGroup isActive="no" isFolder="yes">
 								<name>Summoner</name>
 								<script></script>
 								<command></command>
