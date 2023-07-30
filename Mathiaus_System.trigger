@@ -40862,10 +40862,10 @@ ashcloud = false</script>
 					<packageName></packageName>
 					<time>00:00:04.000</time>
 				</Timer>
-				<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 					<name>foreboding</name>
 					<script>disableTimer("foreboding")
-if (gmcp.Room.Info.area == "the Khandava Council" or gmcp.Room.Info.area == "the Ithaquan Council" or autoKill) and healing then
+if (gmcp.Room.Info.area == "the Khandava Council" or gmcp.Room.Info.area == "the City of Stavenn" or gmcp.Room.Info.area == "the Ithaquan Council" or autoKill) and healing then
 	send("queue eqbal top touch foreboding")
 end</script>
 					<command></command>
