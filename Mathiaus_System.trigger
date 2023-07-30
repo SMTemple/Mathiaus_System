@@ -61579,7 +61579,7 @@ end</script>
   if not f then
     return mmp.echo("Couldn't write to the location file, because: " .. err)
   end
-  f:read(file)
+  f:write(new_file)
   f:close()
   ms.echo("Downloading Mathiaus' System...")
 end
