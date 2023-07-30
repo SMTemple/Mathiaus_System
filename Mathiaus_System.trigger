@@ -40733,7 +40733,7 @@ disableTimer("bruised")</script>
 						<packageName></packageName>
 						<time>00:00:59.000</time>
 					</Timer>
-					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>disruption</name>
 						<script>if healing then send("concentrate") end
 disableTimer("disruption")</script>
@@ -51365,6 +51365,18 @@ tempTimer(3, [[disableTrigger'Parse wholist MS']])</script>
 								<regex>^who ?(\w+)?$</regex>
 							</Alias>
 						</AliasGroup>
+						<Alias isActive="yes" isFolder="no">
+							<name>Install Updated MS</name>
+							<script>if matches[2] then
+  msDownload()
+  installMS()
+else
+  sys("&lt;green&gt;Mathiaus' System Package Installer") cecho("&lt;snow&gt;Are you sure you want to update MS? Type &lt;yellow&gt;ms install new package confirm &lt;snow&gt; to proceed.")
+end</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^ms install new package(?: (confirm))?$</regex>
+						</Alias>
 					</AliasGroup>
 					<AliasGroup isActive="yes" isFolder="yes">
 						<name>Smithing</name>
@@ -51784,7 +51796,7 @@ mmp.settings:setOption(matches[3], val)</script>
 						<packageName></packageName>
 						<regex>^area list$</regex>
 					</Alias>
-					<AliasGroup isActive="yes" isFolder="yes">
+					<AliasGroup isActive="no" isFolder="yes">
 						<name>mm Mapping</name>
 						<script></script>
 						<command></command>
@@ -53546,7 +53558,15 @@ end</script>
 						<Script isActive="yes" isFolder="no">
 							<name>Function list</name>
 							<packageName></packageName>
-							<script>function last_cured()
+							<script>function ms.echo(what)
+  what = what or ""
+  moveCursorEnd("main") if getCurrentLine() ~= "" then echo"\n" end
+  decho("&lt;112,229,0&gt;(&lt;0,255,0&gt;MS&lt;0,255,0&gt;): &lt;255,255,255&gt;")
+  cecho(tostring(what))
+  echo("\n")
+end
+
+function last_cured()
   if lastCured ~= "sulfonal" and not table.contains(ms.passives, lastCured) and lastCured ~= "ablaze" and lastCured ~= "" then aff(lastCured) end
 end
 
@@ -61501,6 +61521,40 @@ end</script>
 					<packageName></packageName>
 					<script></script>
 					<eventHandlerList />
+					<Script isActive="yes" isFolder="no">
+						<name>Install Updated MS</name>
+						<packageName></packageName>
+						<script>function msDownload()
+	
+  local file = getMudletHomeDir().."/MS/Mathiaus_System.trigger"
+  
+  local exists = lfs.attributes
+  
+  if io.exists(file) then
+    local s,m = os.remove(file)
+	if not s then ms.echo("Couldn't delete the old trigger file (located at %s), because of: %s. This might be a problem.", file, m) end
+  end
+  download_script = file
+  downloadFile(
+    download_script,
+    "https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger"
+  )
+  local f, err = io.open(downloadlocationfile, "w")
+  if not f then
+    return ms.echo("Couldn't write to the location file, because: " .. err)
+  end
+  f:write(downloadlocation)
+  f:close()
+  ms.echo("Downloading Mathiaus' System...")
+  
+end
+
+function installMS()
+  uninstallPackage("Mathiaus_system")
+  installPackage(download_script)
+end</script>
+						<eventHandlerList />
+					</Script>
 					<Script isActive="yes" isFolder="no">
 						<name>Help Script</name>
 						<packageName></packageName>
