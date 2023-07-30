@@ -61586,7 +61586,7 @@ end
 
 function installMS()
   uninstallPackage("Mathiaus_System")
-  installPackage(download_script)
+  installPackage(new_file)
 end</script>
 							<eventHandlerList />
 						</Script>
