@@ -40864,7 +40864,7 @@ ashcloud = false</script>
 					<packageName></packageName>
 					<time>00:00:04.000</time>
 				</Timer>
-				<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 					<name>foreboding</name>
 					<script>disableTimer("foreboding")
 if (gmcp.Room.Info.area == "the Khandava Council" or gmcp.Room.Info.area == "the City of Stavenn" or gmcp.Room.Info.area == "the Ithaquan Council" or autoKill) and healing then
@@ -43194,6 +43194,13 @@ end</script>
 						<command></command>
 						<packageName></packageName>
 						<regex>^lsa$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>Touch foreboding stone</name>
+						<script>send("queue eqbal top touch foreboding")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^tfs$</regex>
 					</Alias>
 				</AliasGroup>
 				<AliasGroup isActive="yes" isFolder="yes">
