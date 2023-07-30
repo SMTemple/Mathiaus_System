@@ -12611,7 +12611,9 @@ end</script>
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Whois</name>
-					<script>ring = true;tempTimer(8, [[ring = false]])
+					<script>if not ms.save["ring"] then
+  ms.save["ring"] = true;tempTimer(8, [[ring = false]])
+end
 expandAlias("chk "..matches[2])</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
