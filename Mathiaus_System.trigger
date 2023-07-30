@@ -61579,14 +61579,14 @@ end</script>
   if not f then
     return mmp.echo("Couldn't write to the location file, because: " .. err)
   end
-  f:write(new_file)
+  f:write(file)
   f:close()
   ms.echo("Downloading Mathiaus' System...")
 end
 
 function installMS()
   uninstallPackage("Mathiaus_System")
-  installPackage(new_file)
+  installPackage(download_script)
 end</script>
 							<eventHandlerList />
 						</Script>
