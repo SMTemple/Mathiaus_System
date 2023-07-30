@@ -670,7 +670,7 @@ end
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList />
 						<regexCodePropertyList />
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>autoKill prompt</name>
 							<script>if autoKill and target ~= "None" and not akTimer then
 	if ebal and bbal and healing then
@@ -1649,8 +1649,7 @@ deselect()
 resetFormat()
 if bash and ebal and bbal and #ms.hunt &gt; 0 then
   expandAlias("b")
-end
-</script>
+end</script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
 							<mStayOpen>0</mStayOpen>
@@ -6332,8 +6331,10 @@ if matches[1]:find("parry") then parry = false;tempTimer(10, [[parry = true]]) e
 						<regexCodeList>
 							<string>- (\w+) was incitizened in the introduction\.$</string>
 							<string>^\(Khandava\)\: (\w+) says?, (\".+\")$</string>
+							<string>^\(Stavenn\)\: (\w+) says?, (\".+\")$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
+							<integer>1</integer>
 							<integer>1</integer>
 							<integer>1</integer>
 						</regexCodePropertyList>
@@ -18508,7 +18509,7 @@ end</script>
 								</Trigger>
 							</TriggerGroup>
 						</TriggerGroup>
-						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Assassin</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -20064,7 +20065,7 @@ phantomel = ""</script>
 								</regexCodePropertyList>
 							</Trigger>
 						</TriggerGroup>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Deathknight</name>
 							<script></script>
 							<triggerType>0</triggerType>
@@ -36089,6 +36090,126 @@ end</script>
 						</regexCodePropertyList>
 					</Trigger>
 				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>MS Allies</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>City Citizens</name>
+						<script>enableTrigger("add ally")
+tempPromptTrigger(function() disableTrigger("add ally") end, 1)</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>The following are ACTIVE citizens of the City of Stavenn:</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>3</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>add ally</name>
+						<script>if not table.contains(ms.allies, matches[2]) then
+  expandAlias("msa "..matches[2])
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^(\w+)\s</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Smithing</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Forge lit</name>
+						<script>forge = true</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>You light the forge, and work the bellows until the fire within is burning brightly.</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>3</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Forge died</name>
+						<script>forge = false</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>The fires in the forge start to flicker and then burn out.</string>
+							<string>The forge is dark and cold.</string>
+							<string>A sturdy iron forge stands here, cold and dark.</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>3</integer>
+							<integer>3</integer>
+							<integer>0</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
 			</TriggerGroup>
 			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>additional packages</name>
@@ -40612,7 +40733,7 @@ disableTimer("bruised")</script>
 						<packageName></packageName>
 						<time>00:00:59.000</time>
 					</Timer>
-					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>disruption</name>
 						<script>if healing then send("concentrate") end
 disableTimer("disruption")</script>
@@ -40655,7 +40776,7 @@ moon = true</script>
 						<packageName></packageName>
 						<time>00:00:30.000</time>
 					</Timer>
-					<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+					<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 						<name>ghost</name>
 						<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -41415,7 +41536,7 @@ sys("Solution") expandAlias("lua math.max("..matches[2]..")", false)
 </script>
 							<command></command>
 							<packageName></packageName>
-							<regex>^cal (.+)$</regex>
+							<regex>^calc (.+)$</regex>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Clan switch</name>
@@ -41831,7 +41952,7 @@ else send("close satchel") end</script>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Switch Profesion</name>
-							<script>relearn = matches[4] or "grimnir"
+							<script>relearn = matches[4] or "niccolo"
 if matches[2] == "dk" then
   send("switch profession deathknight"..s.."agree")
 elseif matches[2] == "sassy" then
@@ -42006,9 +42127,9 @@ tline = matches[2]
 taction = matches[3]
 ttimes = tonumber(matches[4])
 
-ttrig = tempTrigger(tline, [[send("queue eqbal top "..taction);ttimes = ttimes - 1;cecho("\n-"..tostring(ttimes).." lines left-")]], ttimes)
+ttrig = tempTrigger(tline, [[if tonumber(ttimes) &gt; 0 then send("queue eqbal top "..taction) end;ttimes = ttimes - 1;sys("&lt;green&gt;Lines Left") cecho("&lt;snow&gt;"..tostring(ttimes))]], ttimes)
 
-sys("TempTrigger") cecho("&lt;green&gt;Alive \n Line[&lt;ivory&gt;"..matches[2].."&lt;green&gt;] \n &lt;green&gt;Times[&lt;ivory&gt;"..matches[4].."&lt;green&gt;] \n Reflex[&lt;ivory&gt;"..matches[3].."&lt;green&gt;]")
+sys("TempTrigger") cecho("&lt;green&gt;Alive \n Line   [&lt;ivory&gt;"..matches[2].."&lt;green&gt;] \n &lt;green&gt;Times  [&lt;ivory&gt;"..matches[4].."&lt;green&gt;] \n Reflex [&lt;ivory&gt;"..matches[3].."&lt;green&gt;]\n")
 </script>
 							<command></command>
 							<packageName></packageName>
@@ -43801,7 +43922,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
-							<AliasGroup isActive="no" isFolder="yes">
+							<AliasGroup isActive="yes" isFolder="yes">
 								<name>Assassin</name>
 								<script></script>
 								<command></command>
@@ -44423,7 +44544,7 @@ send("queue eqbal "..quickdraw(ms.save["dirk"], ms.save["shield"]))</script>
 									<regex>^sud (\w+)$</regex>
 								</Alias>
 							</AliasGroup>
-							<AliasGroup isActive="yes" isFolder="yes">
+							<AliasGroup isActive="no" isFolder="yes">
 								<name>Deathknight</name>
 								<script></script>
 								<command></command>
@@ -50681,6 +50802,8 @@ elseif matches[2]:lower() == "load" then
   sys("&lt;green&gt;MS") cecho("Loading Settings...")
   table.load(getMudletHomeDir().."/mssave.lua", ms.save)
   sys("&lt;green&gt;MS") cecho("&lt;green&gt;Loading Successful!\n")
+elseif matches[2]:lower() == "smithing" then
+  helpSmithing()
 else
   sys("&lt;DimGray&gt;MS Command") cecho("&lt;DimGray&gt;"..matches[2])
 end
@@ -51060,13 +51183,6 @@ end</script>
 								<regex>^ms mindseye$</regex>
 							</Alias>
 							<Alias isActive="yes" isFolder="no">
-								<name>New alias</name>
-								<script></script>
-								<command></command>
-								<packageName></packageName>
-								<regex></regex>
-							</Alias>
-							<Alias isActive="yes" isFolder="no">
 								<name>Check Class Defs</name>
 								<script>local f,e = loadstring("return ms.save['deflist']['"..matches[2].."']")
 if not f then
@@ -51223,6 +51339,14 @@ end</script>
 								<packageName></packageName>
 								<regex>^ms rubcard(?: (on|off))?$</regex>
 							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>Ms people</name>
+								<script>table.sort(ms.people)
+sys("&lt;green&gt;Names of People in Room:") cecho("&lt;SteelBlue&gt;"..table.concat(ms.people, ", "))</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^ms people$</regex>
+							</Alias>
 						</AliasGroup>
 						<AliasGroup isActive="yes" isFolder="yes">
 							<name>Math Mapper</name>
@@ -51241,6 +51365,101 @@ tempTimer(3, [[disableTrigger'Parse wholist MS']])</script>
 								<regex>^who ?(\w+)?$</regex>
 							</Alias>
 						</AliasGroup>
+					</AliasGroup>
+					<AliasGroup isActive="yes" isFolder="yes">
+						<name>Smithing</name>
+						<script></script>
+						<command></command>
+						<packageName></packageName>
+						<regex></regex>
+						<Alias isActive="yes" isFolder="no">
+							<name>Smelt</name>
+							<script>local ct = matches[2]
+local ingot = matches[3]:lower()
+
+if ct == 0 or ct &gt; 10 then
+  sys("&lt;red&gt;Error") cecho("&lt;yellow&gt;You must select a number ranging from 1-10")
+elseif ingot == "r" or ingot == "rahnse" then
+  if ingot == "r" then ingot = "rahnse" end
+  send("smelt for "..tostring(ct).." "..ingot)
+elseif ingot == "s" or ingot == "stehl" then
+  if ingot == "s" then ingot = "stehl" end
+  send("smelt for "..tostring(ct).." "..ingot)
+elseif ingot == "e" or ingot == "electrum" then
+  if ingot == "e" then ingot = "electrum" end
+  send("smelt for "..tostring(ct).." "..ingot)
+end</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^ms smelt (\d+) (\w+)$</regex>
+						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>Smith Item</name>
+							<script>local smith_item = matches[2]:lower()
+
+if not table.contains(ms.smithing.ingots, smith_item) then
+
+  sys("&lt;red&gt;Error") cecho("&lt;snow&gt;Unable to forge &lt;yellow&gt;"..smith_item)
+  
+else
+
+  if forge == false then
+    send("put coal in forge"..s.."fire forge", false)
+  end
+  
+  local ingot_amount = ms.smithing.ingots[smith_item]
+  
+  if matches[3] then
+    if matches[3]:find("heavy") then 
+      ingot_amount = ingot_amount + 2
+    end
+  end
+  
+  if ms.save["crystehl"] and table.contains(ms.smithing.weapons, smith_item) then 
+    ingot_amount = ingot_amount - 1
+    send("queue eqbal add "..tostring(ingot_amount).." "..ms.save["ingot_type"].." to forge")
+    send("queue eqbal add 1 crystehl to forge")
+    send("queue eqbal smith for "..smith_item.." "..tostring(ingot_amount).." "..ms.save["ingot_type"].." 1 crystehl")
+    send("queue eqbal smith "..(matches[3] or ''))
+  else
+    send("queue eqbal add "..tostring(ingot_amount).." "..ms.save["ingot_type"].." to forge")
+    send("queue eqbal smith for "..smith_item.." "..tostring(ingot_amount).." "..ms.save["ingot_type"])
+    send("queue eqbal smith "..(matches[3] or ''))
+  end
+  
+end</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^ms smith (\w+)(?: (.+))?$</regex>
+						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>Clear off forge</name>
+							<script>send("queue eqbal clear off forge")</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^cof$</regex>
+						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>Toggle Crystehl</name>
+							<script>if ms.save["crystehl"] or matches[2] == "off" then
+  ms.save["crystehl"] = false
+  sys("&lt;red&gt;MS Crystehl") cecho("&lt;snow&gt;You will no longer use crystehl while forging weapons")
+elseif matches[2] == "on" or not ms.save["crystehl"] then
+  ms.save["crystehl"] = true
+  sys("&lt;green&gt;MS Crystehl") cecho("&lt;snow&gt;You will use crystehl while forging weapons")
+end</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^ms crystehl(?: (on|off))?$</regex>
+						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>Set ingot</name>
+							<script>ms.save["ingot_type"] = matches[2]:lower()
+sys("&lt;green&gt;MS Ingot") cecho("&lt;snow&gt;Set ingot-type to: &lt;yellow&gt;"..ms.save["ingot_type"])</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^ms ingot (\w+)$</regex>
+						</Alias>
 					</AliasGroup>
 				</AliasGroup>
 				<AliasGroup isActive="yes" isFolder="yes">
@@ -51565,7 +51784,7 @@ mmp.settings:setOption(matches[3], val)</script>
 						<packageName></packageName>
 						<regex>^area list$</regex>
 					</Alias>
-					<AliasGroup isActive="no" isFolder="yes">
+					<AliasGroup isActive="yes" isFolder="yes">
 						<name>mm Mapping</name>
 						<script></script>
 						<command></command>
@@ -54242,7 +54461,7 @@ end</script>
 							<script>circle = ""
 ms.save["hunter_form"] = "wyvern"
 function checkCircle()
-  if ms.city == "Khandava" then
+  if ms.city == "Khandava" or ms.city == "Stavenn" then
     circle = "demonic"
     ms.save["hunter_form"] = "Weaver"
   elseif ms.city == "Antioch" or ms.city == "Ithaqua" then
@@ -54483,6 +54702,85 @@ end</script>
 end</script>
 							<eventHandlerList />
 						</Script>
+						<Script isActive="yes" isFolder="no">
+							<name>Smithing Items</name>
+							<packageName></packageName>
+							<script>ms.smithing = {}
+ms.smithing.weapons = {
+  "club",
+  "dirk",
+  "spear",
+  "halberd",
+  "shortsword",
+  "handaxe",
+  "bardiche",
+  "dagger",
+  "whip",
+  "morningstar",
+  "glaive",
+  "warhammer",
+  "sabre",
+  "javelin",
+  "flail",
+  "trident",
+  "battleaxe",
+  "claymore",
+  "lance",
+  "joustinglance",
+  "scimitar",
+  "broadsword",
+  "longsword",
+}
+ms.smithing.ingots = {
+  ["shovel"]      = 2,
+  ["talons"]      = 2,
+  ["pike"]        = 2,
+  ["club"]        = 1,
+  ["dirk"]        = 2,
+  ["spear"]       = 4,
+  ["halberd"]     = 9,
+  ["shortsword"]  = 2,
+  ["handaxe"]     = 3,
+  ["bardiche"]    = 9,
+  ["dagger"]      = 1,
+  ["whip"]        = 1,
+  ["morningstar"] = 6,
+  ["glaive"]      = 4,
+  ["warhammer"]   = 5,
+  ["sabre"]       = 5,
+  ["javelin"]     = 4,
+  ["flail"]       = 6,
+  ["trident"]     = 4,
+  ["battleaxe"]   = 7,
+  ["claymore"]    = 9,
+  ["lance"]       = 7,
+  ["scimitar"]    = 8,
+  ["broadsword"]  = 8,
+  ["longsword"]   = 8,
+  ["leatherarmour"]    = 3,
+  ["ringmail"]         = 4,
+  ["leathervambraces"] = 2,
+  ["leathergreaves"]   = 3,
+  ["leatherhelm"]      = 2,
+  ["scalemail"]        = 6,
+  ["chainmail"]        = 12,
+  ["chainvambraces"]   = 3,
+  ["chaingreaves"]     = 4,
+  ["chainhelm"]        = 3,
+  ["splintmail"]       = 18,
+  ["platevambraces"]   = 4,
+  ["plategreaves"]     = 5,
+  ["platehelm"]        = 4,
+  ["fieldplate"]       = 34,
+  ["fullplate"]        = 80,
+  ["buckler"] = 1,
+  ["cavalry"] = 1,
+  ["banded"]  = 2,
+  ["kite"]    = 5,
+  ["tower"]   = 9,
+}</script>
+							<eventHandlerList />
+						</Script>
 					</ScriptGroup>
 					<ScriptGroup isActive="yes" isFolder="yes">
 						<name>Var ID's and Tables</name>
@@ -54674,6 +54972,9 @@ ms.defCheck = {
 							<name>Startup/Reset</name>
 							<packageName></packageName>
 							<script>function msReset()
+  -- smithing
+  forge = false
+
   --Misc
   harvest_queued = false
   shardarea_name = ''
@@ -56309,7 +56610,7 @@ igmap:setFontSize(fontSize+ms.save["windows"]["map"])
 
 people = Geyser.MiniConsole:new({
 name = "people",
-x = "-20%", y = "-23%",
+x = "-20%", y = "-21%",
 width = "15%", height = "11%",
 color = "black",
 })
@@ -56359,7 +56660,12 @@ function showpeople()
   cecho("people", "   &lt;SteelBlue&gt;Outdoors: ");if table.contains(gmcp.Room.Info.details, "outdoors") then cecho("people", "&lt;green&gt;Yes") else cecho("people", "&lt;red&gt;No") end;cecho("people", "\n")
   setDir("w");cecho("people", "&lt;SteelBlue&gt;[");udio();cecho("people", "&lt;SteelBlue&gt;]");setDir("e");cecho("people", "\n")
   setDir("sw");p_s();setDir("s");p_s();setDir("se")
-  cecho("people", "\n\n&lt;SteelBlue&gt;People: &lt;ivory&gt;"..table.concat(ms.people, ", "))
+  cecho("people", "\n\n&lt;SteelBlue&gt;People: ")
+  if #ms.people &lt;= 10 then
+    cecho("people", "&lt;ivory&gt;"..table.concat(ms.people, ", "))
+  else
+    cecho("people", "&lt;snow&gt;Over &lt;yellow&gt;"..tostring(#ms.people).." &lt;snow&gt;People")
+  end
 	if gmcp.Room.Info.num == 2251 and #ms.allies &lt;= 0 then expandAlias("msr") end
 	ms.enemies = {}
 	for _,name in pairs(ms.people) do
@@ -61265,6 +61571,25 @@ sys("&lt;SteelBlue&gt;Warchants")
 nl()
 end
 
+function helpSmithing()
+cecho(f("\n&lt;SteelBlue&gt;Smithing Functions:\n"))
+sys("&lt;SteelBlue&gt;Smelting")
+  echoHelp("ms smelt 1-10 rahnse|stehl|electrum", "cmd")
+  echoHelp("Smelt for ingots. Example: &lt;green&gt;ms smelt 5 stehl")
+  nl()
+sys("&lt;SteelBlue&gt;Forging")
+  echoHelp("ms smith &lt;item&gt; [properties]", "cmd")
+  echoHelp("Smith an item, weapon, armour, or shield of choice. If you want properties, add them to the end of the syntax.")
+  echoHelp("Example: &lt;green&gt;ms smith longsword serrated sharp")
+  nl()
+sys("&lt;SteelBlue&gt;Setting Ingots")
+  echoHelp("ms ingot &lt;ingot_type&gt;", "cmd")
+  echoHelp("Set the type of ingot you want to use for forging. Currently set to: &lt;yellow&gt;"..ms.save["ingot_type"])
+  echoHelp("ms crystehl [on|off]", "cmd")
+  echoHelp("Toggle whether you want to use crystehl with forging weapons.")
+  nl()
+end
+
 function helpSetup()
 cecho(f("\n&lt;SteelBlue&gt;List of Commands and Helpful Information of Math's System (MS):\n"))
 sys("&lt;SteelBlue&gt;New User")
@@ -61286,6 +61611,8 @@ sys("&lt;SteelBlue&gt;MS Functions")
   echoHelp("List of commands to modify and save Allies List")
   echoHelp("ms hunting", "cmd")
   echoHelp("List of commands for hunting")
+  echoHelp("ms smithing", "cmd")
+  echoHelp("List of commands for smithing")
   nl()
 sys("&lt;SteelBlue&gt;Profession")
   echoHelp(f"ms {gmcp.Char.Status.prof:lower()}", "cmd")
@@ -62313,6 +62640,8 @@ end
 						<packageName></packageName>
 						<script>function msSaveDefault()
   ms.defaultSave = {
+    ingot_type = "stehl",
+    crystehl = true,
     rubcard = false,
     sth = 35,
     hunter_form = "weaver",
