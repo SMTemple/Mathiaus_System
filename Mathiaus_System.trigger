@@ -61575,11 +61575,11 @@ end</script>
     download_script,
     "https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger"
   )
-  local f, err = io.open(downloadlocationfile, "w")
+  local f, err = io.open(file, "w")
   if not f then
     return mmp.echo("Couldn't write to the location file, because: " .. err)
   end
-  f:write(downloadlocation)
+  f:read(file)
   f:close()
   ms.echo("Downloading Mathiaus' System...")
 end
@@ -70272,11 +70272,11 @@ function mmp.downloadmapperscript()
     mmp.downloadedscript,
     "http://ire-mudlet-mapping.github.io/ire-mapping-script/downloads/mudlet-mapper.xml"
   )
-  local f, err = io.open(file)
+  local f, err = io.open(downloadlocationfile, "w")
   if not f then
     return mmp.echo("Couldn't write to the location file, because: " .. err)
   end
-  f:read(file)
+  f:write(downloadlocation)
   f:close()
   mmp.echo("Okay, downloading the mapper script...")
 end
