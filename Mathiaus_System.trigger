@@ -8998,7 +8998,11 @@ if not ms.class["Summoner"] then
 		if gmcp.Room.Info.area == "Elemental Monolith" then
 			tempTimer(3, [[expandAlias("ga")]])
 		else
-			tempTimer(3, [[expandAlias("goto home")]])
+      if gmcp.Char.Status.name == "Mathiaus" then
+			 tempTimer(3, [[expandAlias("goto stav")]])
+      else
+        tempTimer(3, [[expandAlias("goto home")]])
+      end
 		end
 	heal()
 	else
@@ -51774,7 +51778,7 @@ mmp.settings:setOption(matches[3], val)</script>
 						<packageName></packageName>
 						<regex>^area list$</regex>
 					</Alias>
-					<AliasGroup isActive="no" isFolder="yes">
+					<AliasGroup isActive="yes" isFolder="yes">
 						<name>mm Mapping</name>
 						<script></script>
 						<command></command>
