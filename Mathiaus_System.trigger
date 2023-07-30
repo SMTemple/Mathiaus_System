@@ -51342,13 +51342,13 @@ tempTimer(3, [[disableTrigger'Parse wholist MS']])</script>
 if matches[2] and install_confirm then
   installMS()
 elseif matches[2] and not install_confirm then
-  sys("&lt;red&gt;Error") cecho("&lt;snow&gt;You have 10 seconds to type confirm once initiated.") 
+  sys("&lt;red&gt;Error") cecho("&lt;snow&gt;You have 30 seconds to type confirm once initiated.") 
   sys("&lt;red&gt;Error") cecho("&lt;snow&gt;Please retype &lt;yellow&gt;ms install new package &lt;snow&gt;to begin the resinstall process.")
 else
   sys("&lt;green&gt;Mathiaus' System") cecho("&lt;snow&gt;Are you sure you want to update MS?")
   sys("&lt;green&gt;Mathiaus' System") cecho("&lt;snow&gt;Type &lt;yellow&gt;ms install new package confirm &lt;snow&gt;to proceed.\n")
   install_confirm = true
-  tempTimer(10, [[install_confirm = false]])
+  tempTimer(30, [[install_confirm = false]])
 end</script>
 						<command></command>
 						<packageName></packageName>
