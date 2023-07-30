@@ -31,7 +31,7 @@ Before doing ms save reset and this will list all your settings so you can refer
 
 1.) Download the latest version from Github through the link above
 
-2.) Open up the package installer
+2.) Open up the package manager installer
 
 3.) Install Mathiaus_System.trigger
 
