@@ -51372,7 +51372,7 @@ tempTimer(3, [[disableTrigger'Parse wholist MS']])</script>
   installMS()
 else
   sys("&lt;green&gt;Mathiaus' System") cecho("&lt;snow&gt;Are you sure you want to update MS?")
-  sys("&lt;green&gt;Mathiaus' System") cecho("&lt;snow&gt;Type &lt;yellow&gt;ms install new package confirm &lt;snow&gt; to proceed.")
+  sys("&lt;green&gt;Mathiaus' System") cecho("&lt;snow&gt;Type &lt;yellow&gt;ms install new package confirm &lt;snow&gt;to proceed.")
 end</script>
 							<command></command>
 							<packageName></packageName>
