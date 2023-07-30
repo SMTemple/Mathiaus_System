@@ -15085,6 +15085,7 @@ if pta then enableTrigger("affPrompt") end</script>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Track and Locate</name>
 					<script>deleteLine()
+disableTrigger("Hunt")
 if ms.class["Diabolist"] then 
   sys("&lt;red&gt;Demon Trace")
 elseif ms.class["Priest"] then
@@ -18498,7 +18499,7 @@ end</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Assassin</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -30389,7 +30390,7 @@ enableTimer("shaman confound")</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Hunter</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -39562,7 +39563,7 @@ mmp.roomEcho(multimatches[2][2]) </script>
 								<integer>1</integer>
 							</regexCodePropertyList>
 						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Hunt</name>
 							<script>selectCurrentLine()
 replace("")
@@ -40758,7 +40759,7 @@ moon = true</script>
 					<packageName></packageName>
 					<time>00:00:30.000</time>
 				</Timer>
-				<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 					<name>ghost</name>
 					<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -43897,7 +43898,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="yes" isFolder="yes">
+						<AliasGroup isActive="no" isFolder="yes">
 							<name>Assassin</name>
 							<script></script>
 							<command></command>
@@ -49026,7 +49027,7 @@ probe = true</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="no" isFolder="yes">
+						<AliasGroup isActive="yes" isFolder="yes">
 							<name>Hunter</name>
 							<script></script>
 							<command></command>
