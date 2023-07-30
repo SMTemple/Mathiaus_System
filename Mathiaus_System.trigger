@@ -50755,10 +50755,12 @@ elseif matches[2]:lower() == "ui" then
   helpUI()
 elseif matches[2]:lower() == "index" then
   helpCombat()
-  helpHunting()
   helpToggles()
   helpProf(matches[2])
   helpAllies()
+  helpHunting()
+  helpSmithing()
+  helpUI()
   helpMisc()
 elseif table.contains(profs, matches[2]:title()) then
   helpProf(matches[2])
