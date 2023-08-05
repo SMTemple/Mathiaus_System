@@ -40312,7 +40312,7 @@ end</script>
 							<regexCodePropertyList />
 							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
 								<name>Speech Channel</name>
-								<script>demonnic.chat:append("Speech")
+								<script>copy();demonnic.chat:append("Speech")
 deselect()
 resetFormat()
 if not matches[2] then
@@ -40349,7 +40349,7 @@ end
 							</Trigger>
 							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
 								<name>Says</name>
-								<script>demonnic.chat:append("Speech")
+								<script>copy();demonnic.chat:append("Speech")
 deselect()
 resetFormat()
 --light cyan, black</script>
@@ -40403,14 +40403,14 @@ end</script>
 if matches[2]:find("Ring") then replace(matches[2]:upper(), fg("green"))
 else replace(matches[2]:upper(), fg("SteelBlue"))
 end
-deselect()
-resetFormat()
 if matches[2] == ms.city then copy();demonnic.chat:append("Circle")
 elseif matches[2] == ms.guild then copy();demonnic.chat:append("Circle")
 elseif matches[2] == "Ring" then copy();demonnic.chat:append("Ring")
 elseif matches[2] == "Market" then copy();demonnic.chat:append("Market")
 else copy();demonnic.chat:append("Clans")
 end
+deselect()
+resetFormat()
 </script>
 								<triggerType>0</triggerType>
 								<conditonLineDelta>0</conditonLineDelta>
