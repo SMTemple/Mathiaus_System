@@ -18,206 +18,6 @@
 			<regexCodeList />
 			<regexCodePropertyList />
 			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-				<name>YATCO-23</name>
-				<script></script>
-				<triggerType>0</triggerType>
-				<conditonLineDelta>0</conditonLineDelta>
-				<mStayOpen>0</mStayOpen>
-				<mCommand></mCommand>
-				<packageName>YATCO-23</packageName>
-				<mFgColor>#ff0000</mFgColor>
-				<mBgColor>#ffff00</mBgColor>
-				<mSoundFile></mSoundFile>
-				<colorTriggerFgColor>#000000</colorTriggerFgColor>
-				<colorTriggerBgColor>#000000</colorTriggerBgColor>
-				<regexCodeList />
-				<regexCodePropertyList />
-				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>Demonnic</name>
-					<script></script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>39</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName></packageName>
-					<mFgColor>#ff0000</mFgColor>
-					<mBgColor>#ffff00</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList />
-					<regexCodePropertyList />
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>Tabbed Chat</name>
-						<script></script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>0</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList />
-						<regexCodePropertyList />
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Speech Channel</name>
-							<script>demonnic.chat:append("Speech")
-deselect()
-resetFormat()
-if not matches[2] then
-	deleteLine()
-	cecho(" &lt;OrangeRed&gt;"..matches[1])
-end
-</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ffff00</mFgColor>
-							<mBgColor>#000000</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#ffff00</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^(\w+) tells you, \"(.+)\"$</string>
-								<string>^(You) tell (.+), \"(.+)\"$</string>
-								<string>^.+\s(\w+) tells you, \"(.+)\"$</string>
-								<string>^.+\s(\w+) tells you, in .+, \"(.+)\"$</string>
-								<string>^(\w+) tells you, in .+, \"(.+)\"$</string>
-								<string>^\w+ tells \w+, \".+\"$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-								<integer>1</integer>
-								<integer>1</integer>
-								<integer>1</integer>
-								<integer>1</integer>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Says</name>
-							<script>demonnic.chat:append("Speech")
-deselect()
-resetFormat()
---light cyan, black</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#00ffff</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>FG13BG2</string>
-								<string>^.+\, \".+\"$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>6</integer>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Deaths</name>
-							<script>if string.find(matches[1], 'slain by') or string.find(matches[1], "has been executed") or string.find(matches[1], "to death by") or string.find(matches[1], 'killed by') or string.find(matches[1], 'has been slain') then 
-  demonnic.chat:append("Deaths")
-  deselect()
-  resetFormat()
---red, black
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#800000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>FG4BG2</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>6</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Chat Window</name>
-							<script>selectCaptureGroup(2)
-if matches[2]:find("Ring") then replace(matches[2]:upper(), fg("green"))
-else replace(matches[2]:upper(), fg("SteelBlue"))
-end
-deselect()
-resetFormat()
-if matches[2] == ms.city then copy();demonnic.chat:append("Circle")
-elseif matches[2] == ms.guild then copy();demonnic.chat:append("Circle")
-elseif matches[2] == "Ring" then copy();demonnic.chat:append("Ring")
-elseif matches[2] == "Market" then copy();demonnic.chat:append("Market")
-else copy();demonnic.chat:append("Clans")
-end
-</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^\((\w+)\)\: (.+) says?, (\".+\")$</string>
-								<string>^\&lt;\&lt;(\w+)\&gt;\&gt;\: (.+) says?, (\".+\")$</string>
-								<string>^\((\w+)\)\: .+ has left your ring\.$</string>
-								<string>^\((\w+)\)\: \w+ has invited \w+ to join your ring.$</string>
-								<string>^\((\w+)\)\: \w+ has joined your ring.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-								<integer>1</integer>
-								<integer>1</integer>
-								<integer>1</integer>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Shouts</name>
-							<script>copy();demonnic.chat:append("Shouts")
-deselect()
-resetFormat()
---light cyan, blue</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#00ffff</colorTriggerFgColor>
-							<colorTriggerBgColor>#000080</colorTriggerBgColor>
-							<regexCodeList>
-								<string>FG13BG10</string>
-								<string>^.+\, \".+\"$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>6</integer>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-					</TriggerGroup>
-				</TriggerGroup>
-			</TriggerGroup>
-			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Misc</name>
 				<script></script>
 				<triggerType>0</triggerType>
@@ -346,6 +146,8 @@ end</script>
 	sys("Shardfall") cecho("&lt;red&gt;[&lt;cyan&gt;AREA CLEARED&lt;red&gt;]")
 	if ms.class["Summoner"] then
 		expandAlias("fuk")
+  elseif gmcp.Char.Status.name == "Mathiaus" then
+    expandAlias("goto stav")
 	else
 		expandAlias("goto home")
 	end
@@ -2101,11 +1903,13 @@ tempTimer(10, [[expandAlias("def")]])</script>
 						<string>You have been defeated and are thrown out of the Arena.</string>
 						<string>You may REQUEST PASSAGE to Khandava or Caanae. To see other destinations, type PASSAGES.</string>
 						<string>You may ENTER DOOR TO Khandava or Caanae. To see other destinations, type DESTINATIONS.</string>
+						<string>You may ENTER DOOR TO Stavenn, Khandava or Caanae. To see other destinations, type DESTINATIONS.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>3</integer>
 						<integer>3</integer>
 						<integer>2</integer>
+						<integer>3</integer>
 						<integer>3</integer>
 						<integer>3</integer>
 						<integer>3</integer>
@@ -18501,7 +18305,7 @@ end</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Assassin</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -30392,7 +30196,7 @@ enableTimer("shaman confound")</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Hunter</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -40461,6 +40265,206 @@ end</script>
 						</Trigger>
 					</TriggerGroup>
 				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>YATCO-23</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName>YATCO-23</packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Demonnic</name>
+						<script></script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>39</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList />
+						<regexCodePropertyList />
+						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Tabbed Chat</name>
+							<script></script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList />
+							<regexCodePropertyList />
+							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Speech Channel</name>
+								<script>demonnic.chat:append("Speech")
+deselect()
+resetFormat()
+if not matches[2] then
+	deleteLine()
+	cecho(" &lt;OrangeRed&gt;"..matches[1])
+end
+</script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ffff00</mFgColor>
+								<mBgColor>#000000</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#ffff00</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList>
+									<string>^(\w+) tells you, \"(.+)\"$</string>
+									<string>^(You) tell (.+), \"(.+)\"$</string>
+									<string>^.+\s(\w+) tells you, \"(.+)\"$</string>
+									<string>^.+\s(\w+) tells you, in .+, \"(.+)\"$</string>
+									<string>^(\w+) tells you, in .+, \"(.+)\"$</string>
+									<string>^\w+ tells \w+, \".+\"$</string>
+								</regexCodeList>
+								<regexCodePropertyList>
+									<integer>1</integer>
+									<integer>1</integer>
+									<integer>1</integer>
+									<integer>1</integer>
+									<integer>1</integer>
+									<integer>1</integer>
+								</regexCodePropertyList>
+							</Trigger>
+							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Says</name>
+								<script>demonnic.chat:append("Speech")
+deselect()
+resetFormat()
+--light cyan, black</script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#00ffff</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList>
+									<string>FG13BG2</string>
+									<string>^.+\, \".+\"$</string>
+								</regexCodeList>
+								<regexCodePropertyList>
+									<integer>6</integer>
+									<integer>1</integer>
+								</regexCodePropertyList>
+							</Trigger>
+							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Deaths</name>
+								<script>if string.find(matches[1], 'slain by') or string.find(matches[1], "has been executed") or string.find(matches[1], "to death by") or string.find(matches[1], 'killed by') or string.find(matches[1], 'has been slain') then 
+  demonnic.chat:append("Deaths")
+  deselect()
+  resetFormat()
+--red, black
+end</script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#800000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList>
+									<string>FG4BG2</string>
+								</regexCodeList>
+								<regexCodePropertyList>
+									<integer>6</integer>
+								</regexCodePropertyList>
+							</Trigger>
+							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Chat Window</name>
+								<script>selectCaptureGroup(2)
+if matches[2]:find("Ring") then replace(matches[2]:upper(), fg("green"))
+else replace(matches[2]:upper(), fg("SteelBlue"))
+end
+deselect()
+resetFormat()
+if matches[2] == ms.city then copy();demonnic.chat:append("Circle")
+elseif matches[2] == ms.guild then copy();demonnic.chat:append("Circle")
+elseif matches[2] == "Ring" then copy();demonnic.chat:append("Ring")
+elseif matches[2] == "Market" then copy();demonnic.chat:append("Market")
+else copy();demonnic.chat:append("Clans")
+end
+</script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList>
+									<string>^\((\w+)\)\: (.+) says?, (\".+\")$</string>
+									<string>^\&lt;\&lt;(\w+)\&gt;\&gt;\: (.+) says?, (\".+\")$</string>
+									<string>^\((\w+)\)\: .+ has left your ring\.$</string>
+									<string>^\((\w+)\)\: \w+ has invited \w+ to join your ring.$</string>
+									<string>^\((\w+)\)\: \w+ has joined your ring.$</string>
+								</regexCodeList>
+								<regexCodePropertyList>
+									<integer>1</integer>
+									<integer>1</integer>
+									<integer>1</integer>
+									<integer>1</integer>
+									<integer>1</integer>
+								</regexCodePropertyList>
+							</Trigger>
+							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Shouts</name>
+								<script>copy();demonnic.chat:append("Shouts")
+deselect()
+resetFormat()
+--light cyan, blue</script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#00ffff</colorTriggerFgColor>
+								<colorTriggerBgColor>#000080</colorTriggerBgColor>
+								<regexCodeList>
+									<string>FG13BG10</string>
+									<string>^.+\, \".+\"$</string>
+								</regexCodeList>
+								<regexCodePropertyList>
+									<integer>6</integer>
+									<integer>1</integer>
+								</regexCodePropertyList>
+							</Trigger>
+						</TriggerGroup>
+					</TriggerGroup>
+				</TriggerGroup>
 			</TriggerGroup>
 		</TriggerGroup>
 	</TriggerPackage>
@@ -40761,7 +40765,7 @@ moon = true</script>
 					<packageName></packageName>
 					<time>00:00:30.000</time>
 				</Timer>
-				<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 					<name>ghost</name>
 					<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -43907,7 +43911,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="no" isFolder="yes">
+						<AliasGroup isActive="yes" isFolder="yes">
 							<name>Assassin</name>
 							<script></script>
 							<command></command>
@@ -49036,7 +49040,7 @@ probe = true</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="yes" isFolder="yes">
+						<AliasGroup isActive="no" isFolder="yes">
 							<name>Hunter</name>
 							<script></script>
 							<command></command>
@@ -51788,7 +51792,7 @@ mmp.settings:setOption(matches[3], val)</script>
 						<packageName></packageName>
 						<regex>^area list$</regex>
 					</Alias>
-					<AliasGroup isActive="yes" isFolder="yes">
+					<AliasGroup isActive="no" isFolder="yes">
 						<name>mm Mapping</name>
 						<script></script>
 						<command></command>
@@ -58009,13 +58013,13 @@ function bleedDSL() ms.dk.affs = {};atk1 = "";atk2 = ""
     if ms.afflicted["hemotoxin"] == "notaff" and not pbob then table.insert(ms.dk.affs, "hemotoxin") end
     if ms.afflicted["numbness"] == "notaff" and not mage and ms.afflicted["paralysis"] == "notaff" then table.insert(ms.dk.affs, "ciguatoxin") end
     if ms.afflicted["asthma"] == "notaff" and (toxShrugged ~= "mercury" and fitnessUsed == false) then table.insert(ms.dk.affs, "mercury") end
+    if ms.afflicted["clumsiness"] == "notaff" and not engineer and not shaman and not bard and not assassin and not summoner and not diabolist and not mage then table.insert(ms.dk.affs, "ether") end
     if ms.afflicted["sunallergy"] == "notaff" then table.insert(ms.dk.affs, "xeroderma") end
     if ms.afflicted["nausea"] == "notaff" then table.insert(ms.dk.affs, "botulinum") end
-    if ms.afflicted["metrazol"] == "notaff" then table.insert(ms.dk.affs, "metrazol") end
-    if ms.afflicted["clumsiness"] == "notaff" and not engineer and not shaman and not bard and not assassin and not summoner and not diabolist and not mage then table.insert(ms.dk.affs, "ether") end    
-    if ms.afflicted["slickness"] == "notaff" and (ms.afflicted["asthma"] == "aff" or (ms.dk.affs[1] == "mercury" or ms.dk.affs[2] == "mercury")) and (ms.afflicted["hemotoxin"] == "aff" or (ms.dk.affs[1] == "hemotoxin" or ms.dk.affs[2] == "hemotoxin") or pbob) then table.insert(ms.dk.affs, "iodine") end
     if ms.afflicted["slow balance"] == "notaff" and not bard and not mage and ((ms.afflicted["asthma"] == "aff" or (ms.dk.affs[1] == "mercury" or ms.dk.affs[2] == "mercury")) or (ms.dk.affs[1] == "mercury" or ms.dk.affs[2] == "mercury")) then table.insert(ms.dk.affs, "noctec") end
     if ms.afflicted["slow equilibrium"] == "notaff" and (bard or mage) and ((ms.afflicted["asthma"] == "aff" or (ms.dk.affs[1] == "mercury" or ms.dk.affs[2] == "mercury")) or (ms.dk.affs[1] == "mercury" or ms.dk.affs[2] == "mercury")) then table.insert(ms.dk.affs, "mebaral") end      
+    if ms.afflicted["metrazol"] == "notaff" then table.insert(ms.dk.affs, "metrazol") end
+    if ms.afflicted["slickness"] == "notaff" and (ms.afflicted["asthma"] == "aff" or (ms.dk.affs[1] == "mercury" or ms.dk.affs[2] == "mercury")) and (ms.afflicted["hemotoxin"] == "aff" or (ms.dk.affs[1] == "hemotoxin" or ms.dk.affs[2] == "hemotoxin") or pbob) then table.insert(ms.dk.affs, "iodine") end
     if ms.afflicted["butisol"] == "notaff" then table.insert(ms.dk.affs, "butisol") end
     if ms.afflicted["slow herbs"] == "notaff" and (ms.afflicted["hemotoxin"] == "aff" or (ms.dk.affs[1] == "hemotoxin" or ms.dk.affs[2] == "hemotoxin") or pbob) then table.insert(ms.dk.affs, "mazanor") end
     if ms.afflicted["slow elixirs"] == "notaff" and ((ms.afflicted["slickness"] == "aff" or ms.afflicted["butisol"] == "aff") or (ms.dk.affs[1] == "iodine" or ms.dk.affs[2] == "iodine")) and (ms.afflicted["hemotoxin"] == "aff" or (ms.dk.affs[1] == "hemotoxin" or ms.dk.affs[2] == "hemotoxin") or pbob) then table.insert(ms.dk.affs, "luminal") end
