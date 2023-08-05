@@ -51472,24 +51472,6 @@ sys("&lt;green&gt;MS Ingot") cecho("&lt;snow&gt;Set ingot-type to: &lt;yellow&gt
 				</AliasGroup>
 			</AliasGroup>
 			<AliasGroup isActive="yes" isFolder="yes">
-				<name>send-text-to-all-games</name>
-				<script></script>
-				<command></command>
-				<packageName>send-text-to-all-games</packageName>
-				<regex></regex>
-				<Alias isActive="yes" isFolder="no">
-					<name>Send text to all games with :</name>
-					<script>-- prefix with : to send text or run an alias in all open profiles that have this script installed
--- for example - :hi or :follow bob
-expandAlias(matches[2])
-raiseGlobalEvent("sysSendAllProfiles", matches[2])
-</script>
-					<command></command>
-					<packageName></packageName>
-					<regex>^:(.*)$</regex>
-				</Alias>
-			</AliasGroup>
-			<AliasGroup isActive="yes" isFolder="yes">
 				<name>additional packages</name>
 				<script></script>
 				<command></command>
@@ -53131,6 +53113,24 @@ mmp.echo("All astral nodes have been "..(matches[2]:lower()=="on" and "" or "un"
 						</AliasGroup>
 					</AliasGroup>
 				</AliasGroup>
+				<AliasGroup isActive="yes" isFolder="yes">
+					<name>send-text-to-all-games</name>
+					<script></script>
+					<command></command>
+					<packageName>send-text-to-all-games</packageName>
+					<regex></regex>
+					<Alias isActive="yes" isFolder="no">
+						<name>Send text to all games with :</name>
+						<script>-- prefix with : to send text or run an alias in all open profiles that have this script installed
+-- for example - :hi or :follow bob
+expandAlias(matches[2])
+raiseGlobalEvent("sysSendAllProfiles", matches[2])
+</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^:(.*)$</regex>
+					</Alias>
+				</AliasGroup>
 			</AliasGroup>
 		</AliasGroup>
 	</AliasPackage>
@@ -53141,22 +53141,6 @@ mmp.echo("All astral nodes have been "..(matches[2]:lower()=="on" and "" or "un"
 			<packageName>MS</packageName>
 			<script></script>
 			<eventHandlerList />
-			<ScriptGroup isActive="yes" isFolder="yes">
-				<name>send-text-to-all-games</name>
-				<packageName>send-text-to-all-games</packageName>
-				<script></script>
-				<eventHandlerList />
-				<Script isActive="yes" isFolder="no">
-					<name>sysSendAllProfiles</name>
-					<packageName></packageName>
-					<script>function sysSendAllProfiles(_, text)
-  expandAlias(text)
-end</script>
-					<eventHandlerList>
-						<string>sysSendAllProfiles</string>
-					</eventHandlerList>
-				</Script>
-			</ScriptGroup>
 			<ScriptGroup isActive="yes" isFolder="yes">
 				<name>Scripts</name>
 				<packageName>Mathiaus</packageName>
@@ -70554,6 +70538,22 @@ function mmp.getMapFeatures()
   return loadMapFeatures()
 end</script>
 						<eventHandlerList />
+					</Script>
+				</ScriptGroup>
+				<ScriptGroup isActive="yes" isFolder="yes">
+					<name>send-text-to-all-games</name>
+					<packageName>send-text-to-all-games</packageName>
+					<script></script>
+					<eventHandlerList />
+					<Script isActive="yes" isFolder="no">
+						<name>sysSendAllProfiles</name>
+						<packageName></packageName>
+						<script>function sysSendAllProfiles(_, text)
+  expandAlias(text)
+end</script>
+						<eventHandlerList>
+							<string>sysSendAllProfiles</string>
+						</eventHandlerList>
 					</Script>
 				</ScriptGroup>
 			</ScriptGroup>
