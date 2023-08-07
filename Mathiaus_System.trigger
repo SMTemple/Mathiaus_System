@@ -35815,7 +35815,8 @@ disableTrigger("affprompt")</script>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Login</name>
 					<script>raiseEvent("mmp logged in", "Imperian")
-mmp.game = "imperian"</script>
+mmp.game = "imperian"
+checkMSVersion()</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -51338,6 +51339,15 @@ sys("&lt;green&gt;Names of People in Room:") cecho("&lt;SteelBlue&gt;"..table.co
 							<packageName></packageName>
 							<regex>^ms people$</regex>
 						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>Check MS Version</name>
+							<script>sys("&lt;DimGrey&gt;Checking MS Version...") cecho("&lt;snow&gt;Please wait...")
+echo("\n\n")
+tempTimer(2, [[checkMSVersion()]])</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^ms cv$</regex>
+						</Alias>
 					</AliasGroup>
 					<AliasGroup isActive="yes" isFolder="yes">
 						<name>Math Mapper</name>
@@ -61504,7 +61514,44 @@ end</script>
   installPackage([[https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger]])
 end
 
-ms.version = "3.6"</script>
+ms.version = "3.6"
+
+function checkMSVersion()
+  gitVerFile = getMudletHomeDir().."/latest.html"
+  pageFile = "https://github.com/SMTemple/Mathiaus_System/releases/latest"
+  downloadFile(gitVerFile, pageFile)
+end
+
+function downloaded_file(_, filename)
+  -- is the file that downloaded ours?
+  if not filename:find("latest.html", 1, true) then return end
+
+  -- read the contents of the webpage in
+  local f, s, webpage = io.open(filename)
+  if f then webpage = f:read("*a"); io.close(f) end
+  -- delete the file on disk, don't clutter
+  os.remove(filename)
+
+  -- parse our downloaded file for the player count
+  local vs = webpage:match([[Release MS (.+) · SMTemple/Mathiaus_System · GitHub]])
+  sys("&lt;green&gt;MS Version") cecho("&lt;snow&gt;Github version is:    &lt;yellow&gt;"..tostring(vs))
+  sys("&lt;green&gt;MS Version") cecho("&lt;snow&gt;Installed version is: &lt;yellow&gt;"..ms.version)
+  local vs_string = tostring(vs)
+  echo("\n")
+  if vs_string ~= ms.version then
+    
+    sys("&lt;red&gt;MS Version Outdated") cecho("&lt;snow&gt;Upgrade to most current MS version with &lt;green&gt;ms install new package")
+    
+  else
+  
+    sys("&lt;green&gt;MS Version Up-to-Date") cecho("&lt;snow&gt;You have the most current version of Mathiaus' System")
+    
+  end
+  echo("\n\n")
+end
+
+-- register our function to run on the event that something was downloaded
+registerAnonymousEventHandler("sysDownloadDone", "downloaded_file")</script>
 					<eventHandlerList />
 				</Script>
 				<Script isActive="yes" isFolder="no">
