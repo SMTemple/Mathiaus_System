@@ -61502,7 +61502,9 @@ end</script>
 					<script>function installMS()
   uninstallPackage("Mathiaus_System")
   installPackage([[https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger]])
-end</script>
+end
+
+ms.version = "3.6"</script>
 					<eventHandlerList />
 				</Script>
 				<Script isActive="yes" isFolder="no">
