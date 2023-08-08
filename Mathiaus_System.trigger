@@ -51152,11 +51152,11 @@ end</script>
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Ms Update</name>
-							<script>msSaveDefault()
-ms.update = ms.save
-sys("MS Update") cecho("Updating system...")
-ms.save = table.update(ms.defaultSave, ms.update)
-sys("MS Update") cecho("&lt;green&gt;Update successful!")</script>
+							<script>    msSaveDefault()
+    ms.update = ms.save
+    sys("MS Update") cecho("Updating system settings...")
+    ms.save = table.update(ms.defaultSave, ms.update)
+    sys("MS Update") cecho("&lt;green&gt;System settings update successful!")</script>
 							<command></command>
 							<packageName></packageName>
 							<regex>^ms update$</regex>
