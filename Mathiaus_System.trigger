@@ -54375,9 +54375,9 @@ end</script>
     table.load(getMudletHomeDir().."/mssave.lua", ms.save)
     msSaveDefault()
     ms.update = ms.save
-    sys("MS Update") cecho("Updating system...")
+    sys("MS Update") cecho("Updating system settings...")
     ms.save = table.update(ms.defaultSave, ms.update)
-    sys("MS Update") cecho("&lt;green&gt;Update successful!")
+    sys("MS Update") cecho("&lt;green&gt;System settings update successful!")
   end
 end
 
