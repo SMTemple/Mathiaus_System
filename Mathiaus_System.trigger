@@ -368,81 +368,6 @@ send("rt Shardfall within [ "..matches[3]:title().." ] at ( "..matches[2]..")")<
 					</Trigger>
 				</TriggerGroup>
 				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>date plant subbing</name>
-					<script></script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>39</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName></packageName>
-					<mFgColor>#ff0000</mFgColor>
-					<mBgColor>#ffff00</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList />
-					<regexCodePropertyList />
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>date line 2 gag</name>
-						<script>deleteLine()</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>0</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^\w+[,|] the \d+\w+ of \w+, in the year \d+.$</string>
-							<string>^the \d+\w+ of \w+, in the year \d+.$</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>plant date trigger</name>
-						<script>deleteLine()
-local outputstring = ""
-echo("\nIt is the "..matches[2]..matches[3].." day of "..matches[4]..".")
-echo("\nIt is the "..months[matches[4]].." of "..matches[5]..".\n")
-for k,v in pairs(plantdb) do
---	echo(v["letum"]==false and "false" or "true")
-	if v[string.lower(matches[4])] then
-			outputstring = outputstring.."\n"..string.format("| %13s | %11s |",k,plantloc[k])
-	end
-end
-if outputstring~="" then
-	echo("\n+-----------------------------+\n|  Plants grown this month:   |\n+-----------------------------+\n|     Plant     | Environment |\n+---------------+-------------+"..outputstring.."\n+---------------+-------------+")
-else
-	echo("No plants grow this month.")
-end
-</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>39</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^Today is the (\d+)(\w+) day of (\w+), in the year (\d+) AD.+$</string>
-							<string>^Today is the (\d+)(\w+) day of (\w+).+, in the year (\d+) AM. In your world it is \w+, the .+ of \w+, in the year \d+.$</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-				</TriggerGroup>
-				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Auto Combat</name>
 					<script></script>
 					<triggerType>0</triggerType>
@@ -3998,50 +3923,6 @@ end</script>
 					</regexCodePropertyList>
 				</Trigger>
 				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>clickableURLs</name>
-					<script></script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>0</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName>clickableURLs</packageName>
-					<mFgColor>#ff0000</mFgColor>
-					<mBgColor>#ffff00</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList />
-					<regexCodePropertyList />
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="yes" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>Clickable URL's</name>
-						<script>for i,v in ipairs(matches) do
-  selectString(matches[i], 1)
-  setLink([[openUrl("]]..matches[i]..[[")]], matches[i])
-  cecho("winAll", "&lt;SteelBlue&gt;[URL]")
-  cechoLink("winAll", "&lt;cyan&gt;"..matches[i], [[openUrl("]]..matches[i]..[[")]], tostring(matches[i]), true)
-  echo("winAll", "\n")
-  deselect()
-  resetFormat()
-end</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>0</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#55aaff</mFgColor>
-						<mBgColor>#000000</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>\b(?:(?:(?:https?|ftp|telnet|Http|Https)://[\w\d:#@%/;$()~_?\+\-=&amp;]+|www|ftp|Www)(?:\.[\w\d:#@%/;$()~_?\+\-=&amp;]+)+|[\w\d._%+\-]+@[\w\d.\-]+\.[\w]{2,4})\b</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-				</TriggerGroup>
-				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Start Up</name>
 					<script></script>
 					<triggerType>0</triggerType>
@@ -4300,181 +4181,6 @@ disableTrigger("GagPrompt")</script>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>3</integer>
-						</regexCodePropertyList>
-					</Trigger>
-				</TriggerGroup>
-				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>crit counter</name>
-					<script></script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>0</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName></packageName>
-					<mFgColor>#ff0000</mFgColor>
-					<mBgColor>#ffff00</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList />
-					<regexCodePropertyList />
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>Damage dealt</name>
-						<script>attackCounter = attackCounter + 1</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>0</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^Damage dealt: \d+</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>CritX4</name>
-						<script>critX4 = critX4 + 1
-totalCrits = totalCrits + 1
-deleteLine()
-critx = 4</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>39</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^You have scored a hit on the vitals of your enemy!$</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>critX16</name>
-						<script>critX16 = critX16 + 1
-totalCrits = totalCrits + 1
-deleteLine()
-critx = 16</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>39</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^You have scored a shockingly powerful blow!$</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>critX2</name>
-						<script>critX2 = critX2 + 1
-totalCrits = totalCrits + 1
-deleteLine()
-critx = 2</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>39</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^You have scored a staggering blow!$</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>critX8</name>
-						<script>critX8 = critX8 + 1
-totalCrits = totalCrits + 1
-deleteLine()
-critx = 8</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>39</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^You have scored a surprisingly effective hit!$</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>critX32</name>
-						<script>critX32 = critX32 + 1
-totalCrits = totalCrits + 1
-deleteLine()
-critx = 32</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>39</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^You have scored an awe inspiring hit to your target!!!$</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-						</regexCodePropertyList>
-					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>Critx 0</name>
-						<script>critx = 0</script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>0</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList>
-							<string>^You stab .+ quickly with .+ daegger.$</string>
-							<string>^Ice encases .+ daegger as you stab .+.$</string>
-							<string>^Blood and gore flying, you repeatedly stab .+ with .+\.$</string>
-						</regexCodeList>
-						<regexCodePropertyList>
-							<integer>1</integer>
-							<integer>1</integer>
-							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
 				</TriggerGroup>
@@ -40408,7 +40114,13 @@ if matches[2] == ms.city then copy();demonnic.chat:append("Circle")
 elseif matches[2] == ms.guild then copy();demonnic.chat:append("Circle")
 elseif matches[2] == "Ring" then copy();demonnic.chat:append("Ring")
 elseif matches[2] == "Market" then copy();demonnic.chat:append("Market")
-else copy();demonnic.chat:append("Clans")
+elseif matches[4] then
+  local txt = matches[4]:lower()
+  if not txt:find("afflicted") then
+    copy();demonnic.chat:append("Clans")
+  end
+else
+  copy();demonnic.chat:append("Clans")
 end
 deselect()
 resetFormat()
@@ -40465,6 +40177,300 @@ resetFormat()
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
+				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>date plant subbing</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>39</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>date line 2 gag</name>
+						<script>deleteLine()</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^\w+[,|] the \d+\w+ of \w+, in the year \d+.$</string>
+							<string>^the \d+\w+ of \w+, in the year \d+.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>plant date trigger</name>
+						<script>deleteLine()
+local outputstring = ""
+echo("\nIt is the "..matches[2]..matches[3].." day of "..matches[4]..".")
+echo("\nIt is the "..months[matches[4]].." of "..matches[5]..".\n")
+for k,v in pairs(plantdb) do
+--	echo(v["letum"]==false and "false" or "true")
+	if v[string.lower(matches[4])] then
+			outputstring = outputstring.."\n"..string.format("| %13s | %11s |",k,plantloc[k])
+	end
+end
+if outputstring~="" then
+	echo("\n+-----------------------------+\n|  Plants grown this month:   |\n+-----------------------------+\n|     Plant     | Environment |\n+---------------+-------------+"..outputstring.."\n+---------------+-------------+")
+else
+	echo("No plants grow this month.")
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>39</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^Today is the (\d+)(\w+) day of (\w+), in the year (\d+) AD.+$</string>
+							<string>^Today is the (\d+)(\w+) day of (\w+).+, in the year (\d+) AM. In your world it is \w+, the .+ of \w+, in the year \d+.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>crit counter</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Damage dealt</name>
+						<script>attackCounter = attackCounter + 1</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^Damage dealt: \d+</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>CritX4</name>
+						<script>critX4 = critX4 + 1
+totalCrits = totalCrits + 1
+deleteLine()
+critx = 4</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>39</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You have scored a hit on the vitals of your enemy!$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>critX16</name>
+						<script>critX16 = critX16 + 1
+totalCrits = totalCrits + 1
+deleteLine()
+critx = 16</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>39</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You have scored a shockingly powerful blow!$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>critX2</name>
+						<script>critX2 = critX2 + 1
+totalCrits = totalCrits + 1
+deleteLine()
+critx = 2</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>39</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You have scored a staggering blow!$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>critX8</name>
+						<script>critX8 = critX8 + 1
+totalCrits = totalCrits + 1
+deleteLine()
+critx = 8</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>39</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You have scored a surprisingly effective hit!$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>critX32</name>
+						<script>critX32 = critX32 + 1
+totalCrits = totalCrits + 1
+deleteLine()
+critx = 32</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>39</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You have scored an awe inspiring hit to your target!!!$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Critx 0</name>
+						<script>critx = 0</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You stab .+ quickly with .+ daegger.$</string>
+							<string>^Ice encases .+ daegger as you stab .+.$</string>
+							<string>^Blood and gore flying, you repeatedly stab .+ with .+\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+							<integer>1</integer>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>clickableURLs</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName>clickableURLs</packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="yes" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Clickable URL's</name>
+						<script>for i,v in ipairs(matches) do
+  selectString(matches[i], 1)
+  setLink([[openUrl("]]..matches[i]..[[")]], matches[i])
+  cecho("winAll", "&lt;SteelBlue&gt;[URL]")
+  cechoLink("winAll", "&lt;cyan&gt;"..matches[i], [[openUrl("]]..matches[i]..[[")]], tostring(matches[i]), true)
+  echo("winAll", "\n")
+  deselect()
+  resetFormat()
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#55aaff</mFgColor>
+						<mBgColor>#000000</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>\b(?:(?:(?:https?|ftp|telnet|Http|Https)://[\w\d:#@%/;$()~_?\+\-=&amp;]+|www|ftp|Www)(?:\.[\w\d:#@%/;$()~_?\+\-=&amp;]+)+|[\w\d._%+\-]+@[\w\d.\-]+\.[\w]{2,4})\b</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
 				</TriggerGroup>
 			</TriggerGroup>
 		</TriggerGroup>
@@ -43666,100 +43672,6 @@ end
 						<packageName></packageName>
 						<regex>^sst (\d+)$</regex>
 					</Alias>
-				</AliasGroup>
-				<AliasGroup isActive="yes" isFolder="yes">
-					<name>YATCO-23</name>
-					<script></script>
-					<command></command>
-					<packageName>YATCO-23</packageName>
-					<regex></regex>
-					<AliasGroup isActive="yes" isFolder="yes">
-						<name>Demonnic</name>
-						<script></script>
-						<command></command>
-						<packageName></packageName>
-						<regex></regex>
-						<AliasGroup isActive="yes" isFolder="yes">
-							<name>Shared</name>
-							<script></script>
-							<command></command>
-							<packageName></packageName>
-							<regex></regex>
-							<Alias isActive="yes" isFolder="no">
-								<name>Reset chasing</name>
-								<script>demonnic.chaser:reset()</script>
-								<command></command>
-								<packageName></packageName>
-								<regex>^chaseres$</regex>
-							</Alias>
-							<Alias isActive="yes" isFolder="no">
-								<name>Debug</name>
-								<script>if matches[2] then
-  demonnic:listCategories()
-else
-  demonnic:toggleDebug()
-end</script>
-								<command></command>
-								<packageName></packageName>
-								<regex>^debug(?: (list))?$</regex>
-							</Alias>
-							<Alias isActive="yes" isFolder="no">
-								<name>debug categories</name>
-								<script>if matches[2] then
-  demonnic:watchCategory( matches[2] )
-else
-  demonnic:listCategories()
-end</script>
-								<command></command>
-								<packageName></packageName>
-								<regex>^debugc(?: (.*))?$</regex>
-							</Alias>
-						</AliasGroup>
-						<AliasGroup isActive="yes" isFolder="yes">
-							<name>Tabbed Chat</name>
-							<script></script>
-							<command></command>
-							<packageName></packageName>
-							<regex></regex>
-							<Alias isActive="yes" isFolder="no">
-								<name>Toggle blinking (temporary change)</name>
-								<script>if demonnic.chat.config.blink then
-  demonnic.chat.config.blink = false
-  demonnic.chat.tabsToBlink = {}
-  demonnic:echo("Blinking temporarily turned &lt;red&gt;off&lt;grey&gt;. It will reset if you edit your tabbed chat configuration, or close and reopen mudlet. To make it permanent, change demonnic.chat.config.blink to false in \"Demonnic-&gt;Tabbed Chat-&gt;Configuration options\" under scripts\n")
-else
-  demonnic.chat.config.blink = true
-  demonnic.chat:blink()
-  demonnic:echo("Blinking temporarily turned &lt;red&gt;on&lt;grey&gt;. It will reset if you edit your tabbed chat configuration, or close and reopen mudlet. To make it permanent, change demonnic.chat.config.blink to true in \"Demonnic-&gt;Tabbed Chat-&gt;Configuration options\" under scripts\n")
-end</script>
-								<command></command>
-								<packageName></packageName>
-								<regex>^dblink$</regex>
-							</Alias>
-							<Alias isActive="yes" isFolder="no">
-								<name>fixChat</name>
-								<script>local currentsetting = demonnic.chat.config.location
-local newsetting = ""
-if currentsetting == "topright" then 
-  newsetting = "bottomleft" 
-elseif currentsetting == "topleft" then
-  newsetting = "bottomright"
-elseif currentsetting == "bottomleft" then
-  newsetting = "topright"
-elseif currentsetting == "bottomright" then
-  newsetting = "topleft"
-end
-
-demonnic.chat.config.location = newsetting
-demonnic.chat:create()
-demonnic.chat.config.location = currentsetting
-demonnic.chat:create()</script>
-								<command></command>
-								<packageName></packageName>
-								<regex>^fixchat$</regex>
-							</Alias>
-						</AliasGroup>
-					</AliasGroup>
 				</AliasGroup>
 				<AliasGroup isActive="yes" isFolder="yes">
 					<name>Classes</name>
@@ -53141,6 +53053,100 @@ raiseGlobalEvent("sysSendAllProfiles", matches[2])
 						<regex>^:(.*)$</regex>
 					</Alias>
 				</AliasGroup>
+				<AliasGroup isActive="yes" isFolder="yes">
+					<name>YATCO-23</name>
+					<script></script>
+					<command></command>
+					<packageName>YATCO-23</packageName>
+					<regex></regex>
+					<AliasGroup isActive="yes" isFolder="yes">
+						<name>Demonnic</name>
+						<script></script>
+						<command></command>
+						<packageName></packageName>
+						<regex></regex>
+						<AliasGroup isActive="yes" isFolder="yes">
+							<name>Shared</name>
+							<script></script>
+							<command></command>
+							<packageName></packageName>
+							<regex></regex>
+							<Alias isActive="yes" isFolder="no">
+								<name>Reset chasing</name>
+								<script>demonnic.chaser:reset()</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^chaseres$</regex>
+							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>Debug</name>
+								<script>if matches[2] then
+  demonnic:listCategories()
+else
+  demonnic:toggleDebug()
+end</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^debug(?: (list))?$</regex>
+							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>debug categories</name>
+								<script>if matches[2] then
+  demonnic:watchCategory( matches[2] )
+else
+  demonnic:listCategories()
+end</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^debugc(?: (.*))?$</regex>
+							</Alias>
+						</AliasGroup>
+						<AliasGroup isActive="yes" isFolder="yes">
+							<name>Tabbed Chat</name>
+							<script></script>
+							<command></command>
+							<packageName></packageName>
+							<regex></regex>
+							<Alias isActive="yes" isFolder="no">
+								<name>Toggle blinking (temporary change)</name>
+								<script>if demonnic.chat.config.blink then
+  demonnic.chat.config.blink = false
+  demonnic.chat.tabsToBlink = {}
+  demonnic:echo("Blinking temporarily turned &lt;red&gt;off&lt;grey&gt;. It will reset if you edit your tabbed chat configuration, or close and reopen mudlet. To make it permanent, change demonnic.chat.config.blink to false in \"Demonnic-&gt;Tabbed Chat-&gt;Configuration options\" under scripts\n")
+else
+  demonnic.chat.config.blink = true
+  demonnic.chat:blink()
+  demonnic:echo("Blinking temporarily turned &lt;red&gt;on&lt;grey&gt;. It will reset if you edit your tabbed chat configuration, or close and reopen mudlet. To make it permanent, change demonnic.chat.config.blink to true in \"Demonnic-&gt;Tabbed Chat-&gt;Configuration options\" under scripts\n")
+end</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^dblink$</regex>
+							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>fixChat</name>
+								<script>local currentsetting = demonnic.chat.config.location
+local newsetting = ""
+if currentsetting == "topright" then 
+  newsetting = "bottomleft" 
+elseif currentsetting == "topleft" then
+  newsetting = "bottomright"
+elseif currentsetting == "bottomleft" then
+  newsetting = "topright"
+elseif currentsetting == "bottomright" then
+  newsetting = "topleft"
+end
+
+demonnic.chat.config.location = newsetting
+demonnic.chat:create()
+demonnic.chat.config.location = currentsetting
+demonnic.chat:create()</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^fixchat$</regex>
+							</Alias>
+						</AliasGroup>
+					</AliasGroup>
+				</AliasGroup>
 			</AliasGroup>
 		</AliasGroup>
 	</AliasPackage>
@@ -56488,67 +56494,6 @@ ms.toxins = {
 "vitriol",
 "xeroderma",
 }</script>
-						<eventHandlerList />
-					</Script>
-				</ScriptGroup>
-				<ScriptGroup isActive="yes" isFolder="yes">
-					<name>deleteOldProfiles</name>
-					<packageName>deleteOldProfiles</packageName>
-					<script></script>
-					<eventHandlerList />
-					<Script isActive="yes" isFolder="no">
-						<name>deleteOldProfiles</name>
-						<packageName></packageName>
-						<script>function deleteOldProfiles(keepdays_arg, delete_maps)
-
---[[
-	Deletes old profiles/maps in the "current"/"map" folders of the Mudlet home directory.
-	The following files are NOT deleted:
-	- Files newer than the amount of days specified as an argument to deleteOldProfiles(), or 31 days if not specified.	
-	- One file for every month before that. Specifically: The first available file of every month prior to this.
-	Setting the second argument to true will delete maps instead of profiles. (e.g. deleteOldProfiles(10, true))
---]]
-
-	local keepdays = tonumber(keepdays_arg) or 31
-	local profile_table = {}
-	local used_last_mod_months = {}
-	local slash = (string.char(getMudletHomeDir():byte()) == "/") and "/" or "\\"
-	local dirpath = getMudletHomeDir()..slash..(delete_maps and "map" or "current")
-	local delnum = 0
-
-	-- Traverse the profiles folder and create a table of files:
-	for filename in lfs.dir(dirpath) do
-		if filename~="." and filename~=".." then
-			profile_table[#profile_table+1] = {name = filename, last_mod = lfs.attributes(dirpath..slash..filename, "modification")}
-		end
-	end
-
-	-- Sort the table according to last modification date from old to new:
-	table.sort(profile_table, function (a,b) return a.last_mod &lt; b.last_mod end)
-
-	echo(string.format("\nDeleting old %s. Files newer than %d days and one profile for every month before that will be kept.", delete_maps and "maps" or "profiles", keepdays))
-	for i,v in ipairs(profile_table) do
-		local days = math.floor(os.difftime(os.time(), v.last_mod)/86400)
-		local last_mod_month = os.date("%Y/%m", v.last_mod)
-		if days &gt; keepdays then
-			-- For profiles older than X days, check if we already kept a table for this month:
-			if not table.contains(used_last_mod_months, last_mod_month) then
-				-- If not, do nothing and mark this month as "kept".
-				used_last_mod_months[#used_last_mod_months+1] = last_mod_month
-			else
-				-- Otherwise remove the file:
-				local success, errorstring = os.remove(dirpath..slash..v.name)
-				if success then
-					delnum = delnum + 1
-				else
-					cecho("\n&lt;red&gt;ERROR: "..errorstring)
-				end
-			end
-		end
-	end
-	echo(string.format("\nDeletion complete. %d/%d files were removed successfully.", delnum, #profile_table))
-end
-</script>
 						<eventHandlerList />
 					</Script>
 				</ScriptGroup>
@@ -60591,913 +60536,6 @@ function checkWeaken()
 end</script>
 							<eventHandlerList />
 						</Script>
-					</ScriptGroup>
-				</ScriptGroup>
-				<ScriptGroup isActive="yes" isFolder="yes">
-					<name>YATCO-23</name>
-					<packageName>YATCO-23</packageName>
-					<script></script>
-					<eventHandlerList />
-					<ScriptGroup isActive="yes" isFolder="yes">
-						<name>Demonnic</name>
-						<packageName></packageName>
-						<script></script>
-						<eventHandlerList />
-						<ScriptGroup isActive="yes" isFolder="yes">
-							<name>Shared</name>
-							<packageName></packageName>
-							<script>--Bootstrapping variables/etc. Don't touch this unless you really know what you're doing
-
---I mean it. I'll point. AND laugh. loudly. 
-demonnic = demonnic or {}
-demonnic.config = demonnic.config or {}
-demonnic.balances = demonnic.balances or {}
-demonnic.balances.balance = demonnic.balances.balance or 1
-demonnic.balances.equilibrium = demonnic.balances.equilibrium or 1
-demonnic.debug = demonnic.debug or {}
-demonnic.debug.active = demonnic.debug.active or nil
-demonnic.debug.categories = demonnic.debug.categories or { }
-
-
-function demonnic:echo(msg)
- cecho(string.format("\n&lt;blue&gt;(&lt;green&gt;Demonnic&lt;blue&gt;):&lt;white&gt; %s", msg))
-end</script>
-							<eventHandlerList />
-							<Script isActive="yes" isFolder="no">
-								<name>Debugging</name>
-								<packageName></packageName>
-								<script>--Adds debugging functionality 
-
-function demonnic:Debug(category,debugData)
-   if category then
-      if table.contains(demonnic.debug.categories, category) then
-         if type(debugData) == "table" then
-            demonnic:echo("&lt;red&gt;DEBUG " .. category .. ":&lt;white&gt;")
-            display(debugData)
-         elseif type(debugData) == "string" or type(debugData) == "number" then
-            demonnic:echo("&lt;red&gt;DEBUG " .. category .. ":&lt;white&gt; " .. debugData .. "\n" )
-         else
-            demonnic:echo("&lt;red&gt;DEBUG " .. category .. ":&lt;white&gt; " .. tostring(debugData) .. "\n" )
-         end
-      end
-   else
-      if type(debugData) == "table" then
-         demonnic:echo("&lt;red&gt;DEBUG:&lt;white&gt;")
-         display(debugData)
-      elseif type(debugData) == "string" or type(debugData) == "number" then
-         demonnic:echo("&lt;red&gt;DEBUG:&lt;white&gt; " .. debugData)
-      else
-         demonnic:echo("&lt;red&gt;DEBUG:&lt;white&gt; " .. tostring(debugData))
-      end
-   end
-end
-
-function demonnic:printDebug(category, debugData)
-   if not demonnic.debug.active then return end
-   demonnic:Debug(category, debugData)
-end
-
-function demonnic:toggleDebug()
-   if demonnic.debug.active then demonnic.debug.active = nil
-   else demonnic.debug.active = true
-   end
-   demonnic:echo("Debugging is currently " .. (( demonnic.debug.active and "&lt;green&gt;ON&lt;white&gt;") or "&lt;red&gt;OFF&lt;white&gt;"))
-end
-
-function demonnic:watchCategory( category )
-   if table.contains(demonnic.debug.categories, category) then
-      for i,v in ipairs(demonnic.debug.categories) do
-         if v == category then
-            table.remove(demonnic.debug.categories, i)
-         end
-      end
-      demonnic:echo("No longer watching the '&lt;red&gt;"..category.."&lt;white&gt;' category.") 
-   else
-      table.insert(demonnic.debug.categories, category)
-      demonnic:echo("Now watching the '&lt;red&gt;"..category.."&lt;white&gt;' category.")
-   end
-   demonnic:echo("Debugging is currently " .. (( demonnic.debug.active and "&lt;green&gt;ON&lt;white&gt;") or "&lt;red&gt;OFF&lt;white&gt;"))
-end
-
-function demonnic:listCategories()
-   if #demonnic.debug.categories &gt; 0 then
-      demonnic:echo("You are currently watching the following categories:\n" .. table.concat(demonnic.debug.categories,", ") )
-   else
-      demonnic:echo("You are not watching any debugs.")
-   end
-end
-</script>
-								<eventHandlerList />
-							</Script>
-							<Script isActive="yes" isFolder="no">
-								<name>demonnicVitals</name>
-								<packageName></packageName>
-								<script>--Set some vital statistics. Will work with both ATCP and GMCP. 
-
-function demonnicVitals( msg, arg )
-  demonnic.nextLevel = tonumber(gmcp.Char.Vitals.nl)
-  demonnic.curHealth = tonumber(gmcp.Char.Vitals.hp)    
-  demonnic.maxHealth = tonumber(gmcp.Char.Vitals.maxhp)
-  demonnic.curMana = tonumber(gmcp.Char.Vitals.mp)
-  demonnic.maxMana = tonumber(gmcp.Char.Vitals.maxmp)
-  demonnic.curEgo = tonumber(gmcp.Char.Vitals.ego)
-  demonnic.maxEgo = tonumber(gmcp.Char.Vitals.maxego)
-  demonnic.curPower = tonumber(gmcp.Char.Vitals.pow)
-  demonnic.maxPower = tonumber(gmcp.Char.Vitals.maxpow)
-  demonnic.curWillpower = tonumber(gmcp.Char.Vitals.wp)
-  demonnic.maxWillpower = tonumber(gmcp.Char.Vitals.maxwp)
-  demonnic.curEndurance = tonumber(gmcp.Char.Vitals.ep)
-  demonnic.maxEndurance = tonumber(gmcp.Char.Vitals.maxep)
-end</script>
-								<eventHandlerList>
-									<string>gmcp.Char</string>
-								</eventHandlerList>
-							</Script>
-							<Script isActive="yes" isFolder="no">
-								<name>Align</name>
-								<packageName></packageName>
-								<script>
-function align(str,options) --str is a string, options is a table
---[[ If they sent anything but a table as the second argument, return useful
-info. But if they didn't send a second argument then that's ok, the defaults
-will be enough to get by and just center the txt
-]]--
-  if (type(options) ~= "table") and (options ~= nil) then return "You call this with align(\"some text to format\", &lt;table of options&gt;. Pls check comments for what options and usage information" end
-  options = options or {} --if they sent options, don't overwrite them
-  options.width = options.width or 80 --default line length of 80
-  options.alignment = options.alignment or "center" --if we don't specify, it's centered
-  options.cap = options.cap or "" --default endcap of nothing (an empty string, technically)
-  options.spacer = options.spacer or " " --default spacer is.. well.. space
-  options.inside = options.inside or false --by default, when centering, formation as spacers|cap|text|cap|spacers
-  if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
-  local strLen = string.len(str)
-  local leftCap = options.cap
-  local rightCap = options.cap
-  local leftPadLen = math.floor((options.width - strLen)/2,1) - 1
-  local rightPadLen = leftPadLen + ((options.width - strLen)%2)
-  local maxPad = 0
-  local capLen = string.len(options.cap)
-  if capLen &gt; leftPadLen then --if the cap is bigger than the left total padding
-    options.cap = options.cap:sub(1, leftPadLen) -- trim it up right!
-    capLen = string.len(options.cap)
-  end --otherwise, don't mess with it
-
- 
-  if options.alignment == "center" then --we're going to center something
-    leftPadLen = math.floor((options.width - strLen)/2,1) - 1 --get the padding needed on the left
-    rightPadLen = leftPadLen + ((options.width - strLen)%2) --and on the right
-    if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
-      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
-      rightCap = string.gsub(rightCap, "%[", "%]")
-      rightCap = string.gsub(rightCap, "{", "}")
-      rightCap = string.gsub(rightCap, "%(", "%)")
-      rightCap = string.reverse(rightCap)
-    end --otherwise, they'll be the same, so don't do anything
-    str = string.format(" %s ", str)
-   
-  elseif options.alignment == "right" then --we'll right-align the text
-    leftPadLen = options.width - strLen - 1
-    rightPadLen = 0
-    rightCap = ""
-    str = string.format(" %s", str)
-   
-  else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
-    leftPadLen = 0
-    rightPadLen = options.width - strLen -1
-    leftCap = ""
-    str = string.format("%s ", str)
-  end--that's it, took care of both left, right, and center formattings, now to output the durn thing.
- 
-  if options.inside then
-  --if we're placing the repated spacer inside
-  --"=====endcap some text endcap====="
-  --"=====endcap some text pacdne====="
-  --"=================endcap some text"
-  --"some text endcap================="
-    return leftCap .. string.rep(options.spacer, (leftPadLen - capLen)) .. str ..string.rep(options.spacer, (rightPadLen - capLen)).. rightCap
-  else
-  --otherwise, it''s be the spaces on the 'inside'
-  -- "endcap===== some text =====endcap"
-  -- "endcap===== some text =====pacdne"
-  -- "endcap================= some text"
-  -- "some text =================endcap"
-    return string.rep(options.spacer, (leftPadLen - capLen)) .. leftCap .. str .. rightCap .. string.rep(options.spacer, (rightPadLen - capLen))
-  end
-end
-
-
-function calign(str,options) --str is a string, options is a table
---[[ If they sent anything but a table as the second argument, return useful 
-info. But if they didn't send a second argument then that's ok, the defaults 
-will be enough to get by and just center the txt
-]]--
-  if (not type(options) == "table") and (not options == nil) then return "You call this with align(\"some text to format\", &lt;table of options&gt;. Pls check comments for what options and usage information" end 
-  options = options or {} --if they sent options, don't overwrite them
-  options.width = options.width or 80 --default line length of 80
-  options.alignment = options.alignment or "center" --if we don't specify, it's centered
-  options.cap = options.cap or "" --default endcap of nothing (an empty string, technically)
-  options.spacer = options.spacer or " " --default spacer is.. well.. space
-  options.inside = options.inside or false --by default, when centering, formation as spacers|cap|text|cap|spacers
-  options.capColor = options.capColor or "&lt;white&gt;"--by default, don't change the color of the caps
-  options.spacerColor = options.spacerColor or "&lt;white&gt;"
-  options.textColor = options.textColor or "&lt;white&gt;"--or the text
-  if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
-  local strLen = string.len(str)
-  local leftCap = options.cap
-  local rightCap = options.cap
-  local leftPadLen = math.floor((options.width - strLen)/2,1) - 1
-  local rightPadLen = leftPadLen + ((options.width - strLen)%2)
-  local maxPad = 0
-  local capLen = string.len(options.cap)
-  if capLen &gt; leftPadLen then --if the cap is bigger than the left total padding
-    options.cap = options.cap:sub(1, leftPadLen) -- trim it up right!
-    capLen = string.len(options.cap)
-  end --otherwise, don't mess with it
-
-  
-  if options.alignment == "center" then --we're going to center something
-    leftPadLen = math.floor((options.width - strLen)/2,1) - 1 --get the padding needed on the left
-    rightPadLen = leftPadLen + ((options.width - strLen)%2) --and on the right
-    if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
-      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
-      rightCap = string.gsub(rightCap, "%[", "%]")
-      rightCap = string.gsub(rightCap, "{", "}")
-      rightCap = string.gsub(rightCap, "%(", "%)")
-      rightCap = string.reverse(rightCap)
-    end --otherwise, they'll be the same, so don't do anything
-    str = string.format(" %s ", str)
-    
-  elseif options.alignment == "right" then --we'll right-align the text
-    leftPadLen = options.width - strLen - 1
-    rightPadLen = 0
-    rightCap = ""
-    str = string.format(" %s", str)
-    
-  else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
-    leftPadLen = 0
-    rightPadLen = options.width - strLen -1
-    leftCap = ""
-    str = string.format("%s ", str)
-  end--that's it, took care of both left, right, and center formattings, now to output the durn thing. 
-  
-  if options.inside then 
-  --if we're placing the repated spacer inside
-  --"=====endcap some text endcap=====" 
-  --"=====endcap some text pacdne====="
-  --"=================endcap some text" 
-  --"some text endcap================="
-    return options.capColor .. leftCap .. options.spacerColor.. string.rep(options.spacer, (leftPadLen - capLen)) .. options.textColor .. str .. options.spacerColor ..string.rep(options.spacer, (rightPadLen - capLen)) .. options.capColor .. rightCap
-  else 
-  --otherwise, it''s be the spaces on the 'inside'
-  -- "endcap===== some text =====endcap"
-  -- "endcap===== some text =====pacdne" 
-  -- "endcap================= some text" 
-  -- "some text =================endcap"
-    return options.spacerColor .. string.rep(options.spacer, (leftPadLen - capLen)) .. options.capColor .. leftCap .. options.textColor .. str .. options.capColor .. rightCap .. options.spacerColor .. string.rep(options.spacer, (rightPadLen - capLen))
-  end
-end
-
-function dalign(str,options) --str is a string, options is a table
---[[ If they sent anything but a table as the second argument, return useful 
-info. But if they didn't send a second argument then that's ok, the defaults 
-will be enough to get by and just center the txt
-]]--
-  if (not type(options) == "table") and (not options == nil) then return "You call this with align(\"some text to format\", &lt;table of options&gt;. Pls check comments for what options and usage information" end 
-  options = options or {} --if they sent options, don't overwrite them
-  options.width = options.width or 80 --default line length of 80
-  options.alignment = options.alignment or "center" --if we don't specify, it's centered
-  options.cap = options.cap or "" --default endcap of nothing (an empty string, technically)
-  options.spacer = options.spacer or " " --default spacer is.. well.. space
-  options.inside = options.inside or false --by default, when centering, formation as spacers|cap|text|cap|spacers
-  options.capColor = options.capColor or "&lt;255,255,255&gt;"--by default, don't change the color of the caps
-  options.spacerColor = options.spacerColor or "&lt;255,255,255&gt;" 
-  options.textColor = options.textColor or "&lt;255,255,255&gt;"--or the text
-  if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
-  local strLen = string.len(str)
-  local leftCap = options.cap
-  local rightCap = options.cap
-  local leftPadLen = math.floor((options.width - strLen)/2,1) - 1
-  local rightPadLen = leftPadLen + ((options.width - strLen)%2)
-  local maxPad = 0
-  local capLen = string.len(options.cap)
-  if capLen &gt; leftPadLen then --if the cap is bigger than the left total padding
-    options.cap = options.cap:sub(1, leftPadLen) -- trim it up right!
-    capLen = string.len(options.cap)
-  end --otherwise, don't mess with it
-
-  
-  if options.alignment == "center" then --we're going to center something
-    leftPadLen = math.floor((options.width - strLen)/2,1) - 1 --get the padding needed on the left
-    rightPadLen = leftPadLen + ((options.width - strLen)%2) --and on the right
-    if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
-      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
-      rightCap = string.gsub(rightCap, "%[", "%]")
-      rightCap = string.gsub(rightCap, "{", "}")
-      rightCap = string.gsub(rightCap, "%(", "%)")
-      rightCap = string.reverse(rightCap)
-    end --otherwise, they'll be the same, so don't do anything
-    str = string.format(" %s ", str)
-    
-  elseif options.alignment == "right" then --we'll right-align the text
-    leftPadLen = options.width - strLen - 1
-    rightPadLen = 0
-    rightCap = ""
-    str = string.format(" %s", str)
-    
-  else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
-    leftPadLen = 0
-    rightPadLen = options.width - strLen -1
-    leftCap = ""
-    str = string.format("%s ", str)
-  end--that's it, took care of both left, right, and center formattings, now to output the durn thing. 
-  
-  if options.inside then 
-  --if we're placing the repated spacer inside
-  --"=====endcap some text endcap=====" 
-  --"=====endcap some text pacdne====="
-  --"=================endcap some text" 
-  --"some text endcap================="
-    return options.capColor .. leftCap .. options.spacerColor.. string.rep(options.spacer, (leftPadLen - capLen)) .. options.textColor .. str .. options.spacerColor ..string.rep(options.spacer, (rightPadLen - capLen)) .. options.capColor .. rightCap
-  else 
-  --otherwise, it''s be the spaces on the 'inside'
-  -- "endcap===== some text =====endcap"
-  -- "endcap===== some text =====pacdne" 
-  -- "endcap================= some text" 
-  -- "some text =================endcap"
-    return options.spacerColor .. string.rep(options.spacer, (leftPadLen - capLen)) .. options.capColor .. leftCap .. options.textColor .. str .. options.capColor .. rightCap .. options.spacerColor .. string.rep(options.spacer, (rightPadLen - capLen))
-  end
-end
-
-function halign(str,options) --str is a string, options is a table
---[[ If they sent anything but a table as the second argument, return useful 
-info. But if they didn't send a second argument then that's ok, the defaults 
-will be enough to get by and just center the txt
-]]--
-  if (not type(options) == "table") and (not options == nil) then return "You call this with align(\"some text to format\", &lt;table of options&gt;. Pls check comments for what options and usage information" end 
-  options = options or {} --if they sent options, don't overwrite them
-  options.width = options.width or 80 --default line length of 80
-  options.alignment = options.alignment or "center" --if we don't specify, it's centered
-  options.cap = options.cap or "" --default endcap of nothing (an empty string, technically)
-  options.spacer = options.spacer or " " --default spacer is.. well.. space
-  options.inside = options.inside or false --by default, when centering, formation as spacers|cap|text|cap|spacers
-  options.capColor = options.capColor or "|cFFFFFF"--by default, don't change the color of the caps
-  options.spacerColor = options.spacerColor or "|cFFFFFF" 
-  options.textColor = options.textColor or "|cFFFFFF"--or the text
-  if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
-  local strLen = string.len(str)
-  local leftCap = options.cap
-  local rightCap = options.cap
-  local leftPadLen = math.floor((options.width - strLen)/2,1) - 1
-  local rightPadLen = leftPadLen + ((options.width - strLen)%2)
-  local maxPad = 0
-  local capLen = string.len(options.cap)
-  if capLen &gt; leftPadLen then --if the cap is bigger than the left total padding
-    options.cap = options.cap:sub(1, leftPadLen) -- trim it up right!
-    capLen = string.len(options.cap)
-  end --otherwise, don't mess with it
-
-  
-  if options.alignment == "center" then --we're going to center something
-    leftPadLen = math.floor((options.width - strLen)/2,1) - 1 --get the padding needed on the left
-    rightPadLen = leftPadLen + ((options.width - strLen)%2) --and on the right
-    if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
-      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
-      rightCap = string.gsub(rightCap, "%[", "%]")
-      rightCap = string.gsub(rightCap, "{", "}")
-      rightCap = string.gsub(rightCap, "%(", "%)")
-      rightCap = string.reverse(rightCap)
-    end --otherwise, they'll be the same, so don't do anything
-    str = string.format(" %s ", str)
-    
-  elseif options.alignment == "right" then --we'll right-align the text
-    leftPadLen = options.width - strLen - 1
-    rightPadLen = 0
-    rightCap = ""
-    str = string.format(" %s", str)
-    
-  else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
-    leftPadLen = 0
-    rightPadLen = options.width - strLen -1
-    leftCap = ""
-    str = string.format("%s ", str)
-  end--that's it, took care of both left, right, and center formattings, now to output the durn thing. 
-  
-  if options.inside then 
-  --if we're placing the repated spacer inside
-  --"=====endcap some text endcap=====" 
-  --"=====endcap some text pacdne====="
-  --"=================endcap some text" 
-  --"some text endcap================="
-    return options.capColor .. leftCap .. options.spacerColor.. string.rep(options.spacer, (leftPadLen - capLen)) .. options.textColor .. str .. options.spacerColor ..string.rep(options.spacer, (rightPadLen - capLen)) .. options.capColor .. rightCap
-  else 
-  --otherwise, it''s be the spaces on the 'inside'
-  -- "endcap===== some text =====endcap"
-  -- "endcap===== some text =====pacdne" 
-  -- "endcap================= some text" 
-  -- "some text =================endcap"
-    return options.spacerColor .. string.rep(options.spacer, (leftPadLen - capLen)) .. options.capColor .. leftCap .. options.textColor .. str .. options.capColor .. rightCap .. options.spacerColor .. string.rep(options.spacer, (rightPadLen - capLen))
-  end
-end
- </script>
-								<eventHandlerList />
-							</Script>
-							<Script isActive="yes" isFolder="no">
-								<name>Geyser Additions</name>
-								<packageName></packageName>
-								<script>function Geyser.MiniConsole:clear()
-   clearWindow(self.name)
-end
-
-function Geyser.MiniConsole:append()
-  appendBuffer(self.name)
-end</script>
-								<eventHandlerList />
-							</Script>
-						</ScriptGroup>
-						<ScriptGroup isActive="yes" isFolder="yes">
-							<name>Tabbed Chat</name>
-							<packageName></packageName>
-							<script>--Do not remove the following lines. Or change them.
-demonnic = demonnic or {}
-demonnic.chat = demonnic.chat or {}
-demonnic.chat.tabsToBlink = demonnic.chat.tabsToBlink or {}
-demonnic.chat.config = demonnic.chat.config or {}
-demonnic.chat.tabs = demonnic.chat.tabs or {}
-demonnic.chat.windows = demonnic.chat.windows or {}
-demonnic.chat.config.activeColors = demonnic.chat.config.activeColors or {}
-demonnic.chat.config.inactiveColors = demonnic.chat.config.inactiveColors or {}</script>
-							<eventHandlerList />
-							<Script isActive="yes" isFolder="no">
-								<name>Configuration Options</name>
-								<packageName></packageName>
-								<script>--[[
-This is where all of the configuration options can be set. 
-Anything I've put in this script object can be changed, but please do pay attention to what you're doing.
-If you change one of the values to something it shouldn't be, you could break it. 
-]]
-
---This is where you tell it to use tabbed chat.
-demonnic.chat.use = true
-
---[[
-The timestamp option is set here.
-Set to false if you do not want any timestamps displayed for chat.
-If you do want it displayed, set to the string for the format you wish. 
-see http://wiki.mudlet.org/w/Manual:Lua_Functions#getTime for information
-how to format the string "HH:mm:ss"
-]]
-demonnic.chat.config.timestamp = "HH:mm:ss"
-
---[[ Should we use our own colors for the timestamp?
-Set to true if you want to specify foreground and background colors
-for the timestamp.
-Set to false if you want the timestamps background and foreground
-colors to match that of the mud output.
-]]
-demonnic.chat.config.timestampCustomColor = false
---[[
-and what foreground color? You can either use one of the 'named' colors
-(see http://wiki.mudlet.org/images/c/c3/ShowColors.png for available colors)
-demonnic.chat.config.timestampFG = "slate_grey"
-
-Or you can use a table of R,G,B values. 
-demonnic.chat.config.timestampFG = {
-  255,
-    0,
-    0,
-}
-then the foreground for the timestamp would be 255 read, 100 green, and 0 blue
-]]
-demonnic.chat.config.timestampFG = "red"
-
---and background? Same rules as for the foreground above
-demonnic.chat.config.timestampBG = "blue"
-
---[[
-This is where you say what corner of the screen you want the tabbed chat on
-Valid settings are "topright", "topleft", "bottomright", "bottomleft"
-]]--
-demonnic.chat.config.location = "topleft"
-
---[[
-This is a table of channels you would like.
-AKA the place you tell the script what tabs you want.
-Each entry must be a string. The defaults should be a pretty effective guide.
-]]
-
-demonnic.chat.config.channels = {
-  "All",
-  "Circle",
-  "Speech",
-  "Shouts",
-  "Ring",
-  "Market",
-  "Deaths",
-  "Clans",
-}
-
-
---Set this to the name of the channel you want to have everything sent to. 
---Per the default, this would be the "All" channel. If you have a different name for it:
---
---demonnic.chat.config.Alltab = "Bucket"  
---
---And if you don't want it turned on at all:
---
---demonnic.chat.config.Alltab = false
-
-demonnic.chat.config.Alltab = "All"
-
-
-
----------------------------------------------------------------------------------
---                                                                             --
---The infamous blinking stuff!!!                                               --
---                                                                             --
----------------------------------------------------------------------------------
-
---[[
-Do you want tabs to blink when you get new messages, until you click on the tab?
-True if yes, false if no.
-]]
-demonnic.chat.config.blink = true
-
---How long (in seconds) between blinks? For example, 1 would mean a 1 second pause in between blinks.
-demonnic.chat.config.blinkTime = 3
-
---Blink if the bucket tab ("All" by default, but configured above) is in focus?
-demonnic.chat.config.blinkFromAll = false
-
-
-
-
---Font size for the chat messages
-
-demonnic.chat.config.fontSize = calcFontSize(fontSize+ms.save["windows"]["chat"])
-
---[[
-Should we preserve the formatting of the text. 
-Or should we set the background of it to match the window color?
-Set this to false if you want the background for all chat to match the background of the window.
-Useful if you change the background from black, and don't like the way the pasted chat makes blocks in it
-]]
-
-demonnic.chat.config.preserveBackground = false
-
---[[
-Gag the chat lines in the main window?
-defaults to false, set to true if you want to gag.
-]]
-
-demonnic.chat.config.gag = false
-
---[[
-Number of lines of chat visible at once. 
-Will determine how tall the window for the chats is.
-]]
-
-demonnic.chat.config.lines = 20
-
---[[
-Number of characters to wrap the chatlines at.
-This will also determine how wide the chat windows are.
-]]
-
-demonnic.chat.config.width = 60
-
---[[
-Set the color for the active tab. R,G,B format.
-The default here is a brightish green
-]]
-
-demonnic.chat.config.activeColors = {
-  r = 0,
-  g = 180,
-  b = 0,
-}
-
---[[
-Set the color for the inactive tab. R,G,B format.
-The default here is a drab grey
-]]
-
-demonnic.chat.config.inactiveColors = {
-  r = 60,
-  g = 60,
-  b = 60,
-}
-
---[[
-Set the color for the chat window itself. R,G,B format.
-Defaulted to the black of my twisted hardened soul. Or something.
-]]
-
-demonnic.chat.config.windowColors = {
-  r = 0,
-  g = 0,
-  b = 0,
-}
-
---[[
-Set the color for the text on the active tab. Uses color names.
-Set the default to purple. So the tab you're looking at, by default will be purple on bright green. 
-Did I mention I'm a bit colorblind?
-]]
-
-demonnic.chat.config.activeTabText = "purple"
-
---[[
-Set the color for the text on the inactive tabs. Uses color names.
-Defaulted this to white. So the tabs you're not looking at will be white text on boring grey background.
-]]
-
-demonnic.chat.config.inactiveTabText = "white"
-
---[[
-have to make sure a currentTab is set... 
-so we'll use the one for the bucket, or the first one in the channels table
-Or, you know... what it's currently set to, if it's already set.
-]]
-demonnic.chat.currentTab = demonnic.chat.currentTab or demonnic.chat.config.Alltab or demonnic.chat.config.channels[1]
-</script>
-								<eventHandlerList />
-							</Script>
-							<Script isActive="yes" isFolder="no">
-								<name>Code</name>
-								<packageName></packageName>
-								<script>--[[
-If the label callbacks ever decide to start taking a function which is part of a table, 0then this will change.
-Or if it's modified to take actual functions. Anonymouse function clickcallback would be awfully nice.
-]]
-
-function demonnicChatSwitch(chat)
-  local r = demonnic.chat.config.inactiveColors.r
-  local g = demonnic.chat.config.inactiveColors.g
-  local b = demonnic.chat.config.inactiveColors.b
-  local newr = demonnic.chat.config.activeColors.r
-  local newg = demonnic.chat.config.activeColors.g
-  local newb = demonnic.chat.config.activeColors.b
-  local oldchat = demonnic.chat.currentTab
-  if demonnic.chat.currentTab ~= chat then
-    demonnic.chat.windows[oldchat]:hide()
-    demonnic.chat.tabs[oldchat]:setColor(r,g,b)
-    demonnic.chat.tabs[oldchat]:echo(oldchat, demonnic.chat.config.inactiveTabText, "c")
-    if demonnic.chat.config.blink and demonnic.chat.tabsToBlink[chat] then
-      demonnic.chat.tabsToBlink[chat] = nil
-    end
-    if demonnic.chat.config.blink and chat == demonnic.chat.config.Alltab then
-      demonnic.chat.tabsToBlink = {}
-    end
-  end
-  demonnic.chat.tabs[chat]:setColor(newr,newg,newb)
-  demonnic.chat.tabs[chat]:echo(chat, demonnic.chat.config.activeTabText, "c")
-  demonnic.chat.windows[chat]:show()
-  demonnic.chat.currentTab = chat  
-end
-
-function demonnic.chat:resetUI()
-  demonnic.chat.container = Geyser.Container:new(demonnic.chat[demonnic.chat.config.location]())
-  demonnic.chat.tabBox = Geyser.HBox:new({
-    x=0,
-    y=0,
-    width = "100%",
-    height = "25px",
-    name = "DemonChatTabs",
-  },demonnic.chat.container)
-
-end
-
-function demonnic.chat:create()
-  --reset the UI
-  demonnic.chat:resetUI()
-  --Set some variables locally to increase readability
-  local r = demonnic.chat.config.inactiveColors.r
-  local g = demonnic.chat.config.inactiveColors.g
-  local b = demonnic.chat.config.inactiveColors.b
-  local winr = demonnic.chat.config.windowColors.r
-  local wing = demonnic.chat.config.windowColors.g
-  local winb = demonnic.chat.config.windowColors.b
-
-  --iterate the table of channels and create some windows and tabs
-  for i,tab in ipairs(demonnic.chat.config.channels) do
-    demonnic.chat.tabs[tab] = Geyser.Label:new({
-      name=string.format("tab%s", tab),
-    }, demonnic.chat.tabBox)
-    demonnic.chat.tabs[tab]:echo(tab, demonnic.chat.config.inactiveTabText, "c")
-    demonnic.chat.tabs[tab]:setColor(r,g,b)
-    demonnic.chat.tabs[tab]:setClickCallback("demonnicChatSwitch", tab)
-    demonnic.chat.windows[tab] = Geyser.MiniConsole:new({
---      fontSize = demonnic.chat.config.fontSize,
-      x = 0,
-      y = 25,
-      height = "100%",
-      width = "100%",
-      name = string.format("win%s", tab),
-    }, demonnic.chat.container)
-    demonnic.chat.windows[tab]:setFontSize(demonnic.chat.config.fontSize)
-    demonnic.chat.windows[tab]:setColor(winr,wing,winb)
-    demonnic.chat.windows[tab]:setWrap(demonnic.chat.config.width)
-    demonnic.chat.windows[tab]:hide()
-  end
-  local showme = demonnic.chat.config.Alltab or demonnic.chat.config.channels[1]
-  demonnicChatSwitch(showme)
-  --start the blink timers, if enabled
-  if demonnic.chat.config.blink and not demonnic.chat.blinkTimerOn then
-    demonnic.chat:blink()
-  end
-end
-
-function demonnic.chat:append(chat)
-  local r = demonnic.chat.config.windowColors.r
-  local g = demonnic.chat.config.windowColors.g
-  local b = demonnic.chat.config.windowColors.b
-  selectCurrentLine()
-  local ofr,ofg,ofb = getFgColor()
-  local obr,obg,obb = getBgColor()
-  if demonnic.chat.config.preserveBackground then
-    setBgColor(r,g,b)
-  end
-  copy()
-  if demonnic.chat.config.timestamp then
-    local timestamp = getTime(true, demonnic.chat.config.timestamp)
-    local tsfg = {}
-    local tsbg = {}
-    local colorLeader = ""
-    if demonnic.chat.config.timestampCustomColor then
-      if type(demonnic.chat.config.timestampFG) == "string" then
-        tsfg = color_table[demonnic.chat.config.timestampFG]
-      else
-        tsfg = demonnic.chat.config.timestampFG
-      end
-      if type(demonnic.chat.config.timestampBG) == "string" then
-        tsbg = color_table[demonnic.chat.config.timestampBG]
-      else
-        tsbg = demonnic.chat.config.timestampBG
-      end
-      colorLeader = string.format("&lt;%s,%s,%s:%s,%s,%s&gt;",tsfg[1],tsfg[2],tsfg[3],tsbg[1],tsbg[2],tsbg[3])
-    else
-      colorLeader = string.format("&lt;%s,%s,%s:%s,%s,%s&gt;",ofr,ofg,ofb,obr,obg,obb)
-    end
-    local fullstamp = string.format("%s%s",colorLeader,timestamp)
-      demonnic.chat.windows[chat]:decho(fullstamp)
-      demonnic.chat.windows[chat]:echo(" ")
-      if demonnic.chat.config.Alltab then 
-        demonnic.chat.windows[demonnic.chat.config.Alltab]:decho(fullstamp)
-        demonnic.chat.windows[demonnic.chat.config.Alltab]:echo(" ")
-      end
-  end
-  demonnic.chat.windows[chat]:append()
-  if demonnic.chat.config.gag then 
-    deleteLine() 
-    tempLineTrigger(1,1, [[if isPrompt() then deleteLine() end]])
-  end
-  if demonnic.chat.config.Alltab then appendBuffer(string.format("win%s", demonnic.chat.config.Alltab)) end
-  if demonnic.chat.config.blink and chat ~= demonnic.chat.currentTab then 
-    if (demonnic.chat.config.Alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
-      return
-    else
-      demonnic.chat.tabsToBlink[chat] = true
-    end
-  end
-end
-
-
-
-function demonnic.chat:blink()
-  if demonnic.chat.blinkID then killTimer(demonnic.chat.blinkID) end
-  if not demonnic.chat.config.blink then 
-    demonnic.chat.blinkTimerOn = false
-    return 
-  end
-  for tab,_ in pairs(demonnic.chat.tabsToBlink) do
-    demonnic.chat.tabs[tab]:flash()
-  end
-  demonnic.chat.blinkID = tempTimer(demonnic.chat.config.blinkTime, function () demonnic.chat:blink() end)
-end
-
-function demonnic.chat:topright()
-  return {
-    fontSize = demonnic.chat.config.fontSize,
-    x=string.format("-%sc",demonnic.chat.config.width + 2),
-    y=0,
-    width="-15px",
-    height=string.format("%ic", demonnic.chat.config.lines + 2),
-  }
-end
-
-function demonnic.chat:topleft()
-  return {
-    fontSize = demonnic.chat.config.fontSize,
-    x=0,
-    y=0,
-    width=string.format("%sc",demonnic.chat.config.width),
-    height=string.format("%ic", demonnic.chat.config.lines + 2),
-  }
-end
-
-function demonnic.chat:bottomright()
-  return {
-    fontSize = demonnic.chat.config.fontSize,
-    x=string.format("-%sc",demonnic.chat.config.width + 2),
-    y=string.format("-%sc",demonnic.chat.config.lines + 2),
-    width="-15px",
-    height=string.format("%ic", demonnic.chat.config.lines + 2),
-  }
-end
-
-function demonnic.chat:bottomleft()
-  return {
-    fontSize = demonnic.chat.config.fontSize,
-    x=0,
-    y=string.format("-%sc",demonnic.chat.config.lines + 2),
-    width=string.format("%sc",demonnic.chat.config.width),
-    height=string.format("%ic", demonnic.chat.config.lines + 2),
-  }
-end</script>
-								<eventHandlerList />
-							</Script>
-							<Script isActive="yes" isFolder="no">
-								<name>demonnicOnStart</name>
-								<packageName></packageName>
-								<script>function demonnicOnStart()
-  if demonnic.chat.use then
-    demonnic.chat:create()
-  end
-end</script>
-								<eventHandlerList>
-									<string>sysLoadEvent</string>
-								</eventHandlerList>
-							</Script>
-							<Script isActive="yes" isFolder="no">
-								<name>echo functions</name>
-								<packageName></packageName>
-								<script>
-function demonnic.chat:cecho(chat, message)
-  local alltab = demonnic.chat.config.Alltab
-  local blink = demonnic.chat.config.blink
-  cecho(string.format("win%s",chat), message)
-  if alltab and chat ~= alltab then 
-    cecho(string.format("win%s", alltab), message)
-  end
-  if blink and chat ~= demonnic.chat.currentTab then
-    if (alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
-      return
-    else
-      demonnic.chat.tabsToBlink[chat] = true
-    end
-  end
-end
-
-function demonnic.chat:decho(chat, message)
-  local alltab = demonnic.chat.config.Alltab
-  local blink = demonnic.chat.config.blink
-  decho(string.format("win%s",chat), message)
-  if alltab and chat ~= alltab then 
-    decho(string.format("win%s", alltab), message)
-  end
-  if blink and chat ~= demonnic.chat.currentTab then
-    if (alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
-      return
-    else
-      demonnic.chat.tabsToBlink[chat] = true
-    end
-  end
-end
-
-function demonnic.chat:hecho(chat, message)
-  local alltab = demonnic.chat.config.Alltab
-  local blink = demonnic.chat.config.blink
-  hecho(string.format("win%s",chat), message)
-  if alltab and chat ~= alltab then 
-    hecho(string.format("win%s", alltab), message)
-  end
-  if blink and chat ~= demonnic.chat.currentTab then
-    if (alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
-      return
-    else
-      demonnic.chat.tabsToBlink[chat] = true
-    end
-  end
-end
-
-function demonnic.chat:echo(chat, message)
-  local alltab = demonnic.chat.config.Alltab
-  local blink = demonnic.chat.config.blink
-  echo(string.format("win%s",chat), message)
-  if alltab and chat ~= alltab then 
-    echo(string.format("win%s", alltab), message)
-  end
-  if blink and chat ~= demonnic.chat.currentTab then
-    if (alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
-      return
-    else
-      demonnic.chat.tabsToBlink[chat] = true
-    end
-  end
-end</script>
-								<eventHandlerList />
-							</Script>
-						</ScriptGroup>
 					</ScriptGroup>
 				</ScriptGroup>
 			</ScriptGroup>
@@ -70603,6 +69641,974 @@ end</script>
 						<eventHandlerList>
 							<string>sysSendAllProfiles</string>
 						</eventHandlerList>
+					</Script>
+				</ScriptGroup>
+				<ScriptGroup isActive="yes" isFolder="yes">
+					<name>YATCO-23</name>
+					<packageName>YATCO-23</packageName>
+					<script></script>
+					<eventHandlerList />
+					<ScriptGroup isActive="yes" isFolder="yes">
+						<name>Demonnic</name>
+						<packageName></packageName>
+						<script></script>
+						<eventHandlerList />
+						<ScriptGroup isActive="yes" isFolder="yes">
+							<name>Shared</name>
+							<packageName></packageName>
+							<script>--Bootstrapping variables/etc. Don't touch this unless you really know what you're doing
+
+--I mean it. I'll point. AND laugh. loudly. 
+demonnic = demonnic or {}
+demonnic.config = demonnic.config or {}
+demonnic.balances = demonnic.balances or {}
+demonnic.balances.balance = demonnic.balances.balance or 1
+demonnic.balances.equilibrium = demonnic.balances.equilibrium or 1
+demonnic.debug = demonnic.debug or {}
+demonnic.debug.active = demonnic.debug.active or nil
+demonnic.debug.categories = demonnic.debug.categories or { }
+
+
+function demonnic:echo(msg)
+ cecho(string.format("\n&lt;blue&gt;(&lt;green&gt;Demonnic&lt;blue&gt;):&lt;white&gt; %s", msg))
+end</script>
+							<eventHandlerList />
+							<Script isActive="yes" isFolder="no">
+								<name>Debugging</name>
+								<packageName></packageName>
+								<script>--Adds debugging functionality 
+
+function demonnic:Debug(category,debugData)
+   if category then
+      if table.contains(demonnic.debug.categories, category) then
+         if type(debugData) == "table" then
+            demonnic:echo("&lt;red&gt;DEBUG " .. category .. ":&lt;white&gt;")
+            display(debugData)
+         elseif type(debugData) == "string" or type(debugData) == "number" then
+            demonnic:echo("&lt;red&gt;DEBUG " .. category .. ":&lt;white&gt; " .. debugData .. "\n" )
+         else
+            demonnic:echo("&lt;red&gt;DEBUG " .. category .. ":&lt;white&gt; " .. tostring(debugData) .. "\n" )
+         end
+      end
+   else
+      if type(debugData) == "table" then
+         demonnic:echo("&lt;red&gt;DEBUG:&lt;white&gt;")
+         display(debugData)
+      elseif type(debugData) == "string" or type(debugData) == "number" then
+         demonnic:echo("&lt;red&gt;DEBUG:&lt;white&gt; " .. debugData)
+      else
+         demonnic:echo("&lt;red&gt;DEBUG:&lt;white&gt; " .. tostring(debugData))
+      end
+   end
+end
+
+function demonnic:printDebug(category, debugData)
+   if not demonnic.debug.active then return end
+   demonnic:Debug(category, debugData)
+end
+
+function demonnic:toggleDebug()
+   if demonnic.debug.active then demonnic.debug.active = nil
+   else demonnic.debug.active = true
+   end
+   demonnic:echo("Debugging is currently " .. (( demonnic.debug.active and "&lt;green&gt;ON&lt;white&gt;") or "&lt;red&gt;OFF&lt;white&gt;"))
+end
+
+function demonnic:watchCategory( category )
+   if table.contains(demonnic.debug.categories, category) then
+      for i,v in ipairs(demonnic.debug.categories) do
+         if v == category then
+            table.remove(demonnic.debug.categories, i)
+         end
+      end
+      demonnic:echo("No longer watching the '&lt;red&gt;"..category.."&lt;white&gt;' category.") 
+   else
+      table.insert(demonnic.debug.categories, category)
+      demonnic:echo("Now watching the '&lt;red&gt;"..category.."&lt;white&gt;' category.")
+   end
+   demonnic:echo("Debugging is currently " .. (( demonnic.debug.active and "&lt;green&gt;ON&lt;white&gt;") or "&lt;red&gt;OFF&lt;white&gt;"))
+end
+
+function demonnic:listCategories()
+   if #demonnic.debug.categories &gt; 0 then
+      demonnic:echo("You are currently watching the following categories:\n" .. table.concat(demonnic.debug.categories,", ") )
+   else
+      demonnic:echo("You are not watching any debugs.")
+   end
+end
+</script>
+								<eventHandlerList />
+							</Script>
+							<Script isActive="yes" isFolder="no">
+								<name>demonnicVitals</name>
+								<packageName></packageName>
+								<script>--Set some vital statistics. Will work with both ATCP and GMCP. 
+
+function demonnicVitals( msg, arg )
+  demonnic.nextLevel = tonumber(gmcp.Char.Vitals.nl)
+  demonnic.curHealth = tonumber(gmcp.Char.Vitals.hp)    
+  demonnic.maxHealth = tonumber(gmcp.Char.Vitals.maxhp)
+  demonnic.curMana = tonumber(gmcp.Char.Vitals.mp)
+  demonnic.maxMana = tonumber(gmcp.Char.Vitals.maxmp)
+  demonnic.curEgo = tonumber(gmcp.Char.Vitals.ego)
+  demonnic.maxEgo = tonumber(gmcp.Char.Vitals.maxego)
+  demonnic.curPower = tonumber(gmcp.Char.Vitals.pow)
+  demonnic.maxPower = tonumber(gmcp.Char.Vitals.maxpow)
+  demonnic.curWillpower = tonumber(gmcp.Char.Vitals.wp)
+  demonnic.maxWillpower = tonumber(gmcp.Char.Vitals.maxwp)
+  demonnic.curEndurance = tonumber(gmcp.Char.Vitals.ep)
+  demonnic.maxEndurance = tonumber(gmcp.Char.Vitals.maxep)
+end</script>
+								<eventHandlerList>
+									<string>gmcp.Char</string>
+								</eventHandlerList>
+							</Script>
+							<Script isActive="yes" isFolder="no">
+								<name>Align</name>
+								<packageName></packageName>
+								<script>
+function align(str,options) --str is a string, options is a table
+--[[ If they sent anything but a table as the second argument, return useful
+info. But if they didn't send a second argument then that's ok, the defaults
+will be enough to get by and just center the txt
+]]--
+  if (type(options) ~= "table") and (options ~= nil) then return "You call this with align(\"some text to format\", &lt;table of options&gt;. Pls check comments for what options and usage information" end
+  options = options or {} --if they sent options, don't overwrite them
+  options.width = options.width or 80 --default line length of 80
+  options.alignment = options.alignment or "center" --if we don't specify, it's centered
+  options.cap = options.cap or "" --default endcap of nothing (an empty string, technically)
+  options.spacer = options.spacer or " " --default spacer is.. well.. space
+  options.inside = options.inside or false --by default, when centering, formation as spacers|cap|text|cap|spacers
+  if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
+  local strLen = string.len(str)
+  local leftCap = options.cap
+  local rightCap = options.cap
+  local leftPadLen = math.floor((options.width - strLen)/2,1) - 1
+  local rightPadLen = leftPadLen + ((options.width - strLen)%2)
+  local maxPad = 0
+  local capLen = string.len(options.cap)
+  if capLen &gt; leftPadLen then --if the cap is bigger than the left total padding
+    options.cap = options.cap:sub(1, leftPadLen) -- trim it up right!
+    capLen = string.len(options.cap)
+  end --otherwise, don't mess with it
+
+ 
+  if options.alignment == "center" then --we're going to center something
+    leftPadLen = math.floor((options.width - strLen)/2,1) - 1 --get the padding needed on the left
+    rightPadLen = leftPadLen + ((options.width - strLen)%2) --and on the right
+    if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
+      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
+      rightCap = string.gsub(rightCap, "%[", "%]")
+      rightCap = string.gsub(rightCap, "{", "}")
+      rightCap = string.gsub(rightCap, "%(", "%)")
+      rightCap = string.reverse(rightCap)
+    end --otherwise, they'll be the same, so don't do anything
+    str = string.format(" %s ", str)
+   
+  elseif options.alignment == "right" then --we'll right-align the text
+    leftPadLen = options.width - strLen - 1
+    rightPadLen = 0
+    rightCap = ""
+    str = string.format(" %s", str)
+   
+  else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
+    leftPadLen = 0
+    rightPadLen = options.width - strLen -1
+    leftCap = ""
+    str = string.format("%s ", str)
+  end--that's it, took care of both left, right, and center formattings, now to output the durn thing.
+ 
+  if options.inside then
+  --if we're placing the repated spacer inside
+  --"=====endcap some text endcap====="
+  --"=====endcap some text pacdne====="
+  --"=================endcap some text"
+  --"some text endcap================="
+    return leftCap .. string.rep(options.spacer, (leftPadLen - capLen)) .. str ..string.rep(options.spacer, (rightPadLen - capLen)).. rightCap
+  else
+  --otherwise, it''s be the spaces on the 'inside'
+  -- "endcap===== some text =====endcap"
+  -- "endcap===== some text =====pacdne"
+  -- "endcap================= some text"
+  -- "some text =================endcap"
+    return string.rep(options.spacer, (leftPadLen - capLen)) .. leftCap .. str .. rightCap .. string.rep(options.spacer, (rightPadLen - capLen))
+  end
+end
+
+
+function calign(str,options) --str is a string, options is a table
+--[[ If they sent anything but a table as the second argument, return useful 
+info. But if they didn't send a second argument then that's ok, the defaults 
+will be enough to get by and just center the txt
+]]--
+  if (not type(options) == "table") and (not options == nil) then return "You call this with align(\"some text to format\", &lt;table of options&gt;. Pls check comments for what options and usage information" end 
+  options = options or {} --if they sent options, don't overwrite them
+  options.width = options.width or 80 --default line length of 80
+  options.alignment = options.alignment or "center" --if we don't specify, it's centered
+  options.cap = options.cap or "" --default endcap of nothing (an empty string, technically)
+  options.spacer = options.spacer or " " --default spacer is.. well.. space
+  options.inside = options.inside or false --by default, when centering, formation as spacers|cap|text|cap|spacers
+  options.capColor = options.capColor or "&lt;white&gt;"--by default, don't change the color of the caps
+  options.spacerColor = options.spacerColor or "&lt;white&gt;"
+  options.textColor = options.textColor or "&lt;white&gt;"--or the text
+  if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
+  local strLen = string.len(str)
+  local leftCap = options.cap
+  local rightCap = options.cap
+  local leftPadLen = math.floor((options.width - strLen)/2,1) - 1
+  local rightPadLen = leftPadLen + ((options.width - strLen)%2)
+  local maxPad = 0
+  local capLen = string.len(options.cap)
+  if capLen &gt; leftPadLen then --if the cap is bigger than the left total padding
+    options.cap = options.cap:sub(1, leftPadLen) -- trim it up right!
+    capLen = string.len(options.cap)
+  end --otherwise, don't mess with it
+
+  
+  if options.alignment == "center" then --we're going to center something
+    leftPadLen = math.floor((options.width - strLen)/2,1) - 1 --get the padding needed on the left
+    rightPadLen = leftPadLen + ((options.width - strLen)%2) --and on the right
+    if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
+      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
+      rightCap = string.gsub(rightCap, "%[", "%]")
+      rightCap = string.gsub(rightCap, "{", "}")
+      rightCap = string.gsub(rightCap, "%(", "%)")
+      rightCap = string.reverse(rightCap)
+    end --otherwise, they'll be the same, so don't do anything
+    str = string.format(" %s ", str)
+    
+  elseif options.alignment == "right" then --we'll right-align the text
+    leftPadLen = options.width - strLen - 1
+    rightPadLen = 0
+    rightCap = ""
+    str = string.format(" %s", str)
+    
+  else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
+    leftPadLen = 0
+    rightPadLen = options.width - strLen -1
+    leftCap = ""
+    str = string.format("%s ", str)
+  end--that's it, took care of both left, right, and center formattings, now to output the durn thing. 
+  
+  if options.inside then 
+  --if we're placing the repated spacer inside
+  --"=====endcap some text endcap=====" 
+  --"=====endcap some text pacdne====="
+  --"=================endcap some text" 
+  --"some text endcap================="
+    return options.capColor .. leftCap .. options.spacerColor.. string.rep(options.spacer, (leftPadLen - capLen)) .. options.textColor .. str .. options.spacerColor ..string.rep(options.spacer, (rightPadLen - capLen)) .. options.capColor .. rightCap
+  else 
+  --otherwise, it''s be the spaces on the 'inside'
+  -- "endcap===== some text =====endcap"
+  -- "endcap===== some text =====pacdne" 
+  -- "endcap================= some text" 
+  -- "some text =================endcap"
+    return options.spacerColor .. string.rep(options.spacer, (leftPadLen - capLen)) .. options.capColor .. leftCap .. options.textColor .. str .. options.capColor .. rightCap .. options.spacerColor .. string.rep(options.spacer, (rightPadLen - capLen))
+  end
+end
+
+function dalign(str,options) --str is a string, options is a table
+--[[ If they sent anything but a table as the second argument, return useful 
+info. But if they didn't send a second argument then that's ok, the defaults 
+will be enough to get by and just center the txt
+]]--
+  if (not type(options) == "table") and (not options == nil) then return "You call this with align(\"some text to format\", &lt;table of options&gt;. Pls check comments for what options and usage information" end 
+  options = options or {} --if they sent options, don't overwrite them
+  options.width = options.width or 80 --default line length of 80
+  options.alignment = options.alignment or "center" --if we don't specify, it's centered
+  options.cap = options.cap or "" --default endcap of nothing (an empty string, technically)
+  options.spacer = options.spacer or " " --default spacer is.. well.. space
+  options.inside = options.inside or false --by default, when centering, formation as spacers|cap|text|cap|spacers
+  options.capColor = options.capColor or "&lt;255,255,255&gt;"--by default, don't change the color of the caps
+  options.spacerColor = options.spacerColor or "&lt;255,255,255&gt;" 
+  options.textColor = options.textColor or "&lt;255,255,255&gt;"--or the text
+  if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
+  local strLen = string.len(str)
+  local leftCap = options.cap
+  local rightCap = options.cap
+  local leftPadLen = math.floor((options.width - strLen)/2,1) - 1
+  local rightPadLen = leftPadLen + ((options.width - strLen)%2)
+  local maxPad = 0
+  local capLen = string.len(options.cap)
+  if capLen &gt; leftPadLen then --if the cap is bigger than the left total padding
+    options.cap = options.cap:sub(1, leftPadLen) -- trim it up right!
+    capLen = string.len(options.cap)
+  end --otherwise, don't mess with it
+
+  
+  if options.alignment == "center" then --we're going to center something
+    leftPadLen = math.floor((options.width - strLen)/2,1) - 1 --get the padding needed on the left
+    rightPadLen = leftPadLen + ((options.width - strLen)%2) --and on the right
+    if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
+      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
+      rightCap = string.gsub(rightCap, "%[", "%]")
+      rightCap = string.gsub(rightCap, "{", "}")
+      rightCap = string.gsub(rightCap, "%(", "%)")
+      rightCap = string.reverse(rightCap)
+    end --otherwise, they'll be the same, so don't do anything
+    str = string.format(" %s ", str)
+    
+  elseif options.alignment == "right" then --we'll right-align the text
+    leftPadLen = options.width - strLen - 1
+    rightPadLen = 0
+    rightCap = ""
+    str = string.format(" %s", str)
+    
+  else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
+    leftPadLen = 0
+    rightPadLen = options.width - strLen -1
+    leftCap = ""
+    str = string.format("%s ", str)
+  end--that's it, took care of both left, right, and center formattings, now to output the durn thing. 
+  
+  if options.inside then 
+  --if we're placing the repated spacer inside
+  --"=====endcap some text endcap=====" 
+  --"=====endcap some text pacdne====="
+  --"=================endcap some text" 
+  --"some text endcap================="
+    return options.capColor .. leftCap .. options.spacerColor.. string.rep(options.spacer, (leftPadLen - capLen)) .. options.textColor .. str .. options.spacerColor ..string.rep(options.spacer, (rightPadLen - capLen)) .. options.capColor .. rightCap
+  else 
+  --otherwise, it''s be the spaces on the 'inside'
+  -- "endcap===== some text =====endcap"
+  -- "endcap===== some text =====pacdne" 
+  -- "endcap================= some text" 
+  -- "some text =================endcap"
+    return options.spacerColor .. string.rep(options.spacer, (leftPadLen - capLen)) .. options.capColor .. leftCap .. options.textColor .. str .. options.capColor .. rightCap .. options.spacerColor .. string.rep(options.spacer, (rightPadLen - capLen))
+  end
+end
+
+function halign(str,options) --str is a string, options is a table
+--[[ If they sent anything but a table as the second argument, return useful 
+info. But if they didn't send a second argument then that's ok, the defaults 
+will be enough to get by and just center the txt
+]]--
+  if (not type(options) == "table") and (not options == nil) then return "You call this with align(\"some text to format\", &lt;table of options&gt;. Pls check comments for what options and usage information" end 
+  options = options or {} --if they sent options, don't overwrite them
+  options.width = options.width or 80 --default line length of 80
+  options.alignment = options.alignment or "center" --if we don't specify, it's centered
+  options.cap = options.cap or "" --default endcap of nothing (an empty string, technically)
+  options.spacer = options.spacer or " " --default spacer is.. well.. space
+  options.inside = options.inside or false --by default, when centering, formation as spacers|cap|text|cap|spacers
+  options.capColor = options.capColor or "|cFFFFFF"--by default, don't change the color of the caps
+  options.spacerColor = options.spacerColor or "|cFFFFFF" 
+  options.textColor = options.textColor or "|cFFFFFF"--or the text
+  if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
+  local strLen = string.len(str)
+  local leftCap = options.cap
+  local rightCap = options.cap
+  local leftPadLen = math.floor((options.width - strLen)/2,1) - 1
+  local rightPadLen = leftPadLen + ((options.width - strLen)%2)
+  local maxPad = 0
+  local capLen = string.len(options.cap)
+  if capLen &gt; leftPadLen then --if the cap is bigger than the left total padding
+    options.cap = options.cap:sub(1, leftPadLen) -- trim it up right!
+    capLen = string.len(options.cap)
+  end --otherwise, don't mess with it
+
+  
+  if options.alignment == "center" then --we're going to center something
+    leftPadLen = math.floor((options.width - strLen)/2,1) - 1 --get the padding needed on the left
+    rightPadLen = leftPadLen + ((options.width - strLen)%2) --and on the right
+    if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
+      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
+      rightCap = string.gsub(rightCap, "%[", "%]")
+      rightCap = string.gsub(rightCap, "{", "}")
+      rightCap = string.gsub(rightCap, "%(", "%)")
+      rightCap = string.reverse(rightCap)
+    end --otherwise, they'll be the same, so don't do anything
+    str = string.format(" %s ", str)
+    
+  elseif options.alignment == "right" then --we'll right-align the text
+    leftPadLen = options.width - strLen - 1
+    rightPadLen = 0
+    rightCap = ""
+    str = string.format(" %s", str)
+    
+  else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
+    leftPadLen = 0
+    rightPadLen = options.width - strLen -1
+    leftCap = ""
+    str = string.format("%s ", str)
+  end--that's it, took care of both left, right, and center formattings, now to output the durn thing. 
+  
+  if options.inside then 
+  --if we're placing the repated spacer inside
+  --"=====endcap some text endcap=====" 
+  --"=====endcap some text pacdne====="
+  --"=================endcap some text" 
+  --"some text endcap================="
+    return options.capColor .. leftCap .. options.spacerColor.. string.rep(options.spacer, (leftPadLen - capLen)) .. options.textColor .. str .. options.spacerColor ..string.rep(options.spacer, (rightPadLen - capLen)) .. options.capColor .. rightCap
+  else 
+  --otherwise, it''s be the spaces on the 'inside'
+  -- "endcap===== some text =====endcap"
+  -- "endcap===== some text =====pacdne" 
+  -- "endcap================= some text" 
+  -- "some text =================endcap"
+    return options.spacerColor .. string.rep(options.spacer, (leftPadLen - capLen)) .. options.capColor .. leftCap .. options.textColor .. str .. options.capColor .. rightCap .. options.spacerColor .. string.rep(options.spacer, (rightPadLen - capLen))
+  end
+end
+ </script>
+								<eventHandlerList />
+							</Script>
+							<Script isActive="yes" isFolder="no">
+								<name>Geyser Additions</name>
+								<packageName></packageName>
+								<script>function Geyser.MiniConsole:clear()
+   clearWindow(self.name)
+end
+
+function Geyser.MiniConsole:append()
+  appendBuffer(self.name)
+end</script>
+								<eventHandlerList />
+							</Script>
+						</ScriptGroup>
+						<ScriptGroup isActive="yes" isFolder="yes">
+							<name>Tabbed Chat</name>
+							<packageName></packageName>
+							<script>--Do not remove the following lines. Or change them.
+demonnic = demonnic or {}
+demonnic.chat = demonnic.chat or {}
+demonnic.chat.tabsToBlink = demonnic.chat.tabsToBlink or {}
+demonnic.chat.config = demonnic.chat.config or {}
+demonnic.chat.tabs = demonnic.chat.tabs or {}
+demonnic.chat.windows = demonnic.chat.windows or {}
+demonnic.chat.config.activeColors = demonnic.chat.config.activeColors or {}
+demonnic.chat.config.inactiveColors = demonnic.chat.config.inactiveColors or {}</script>
+							<eventHandlerList />
+							<Script isActive="yes" isFolder="no">
+								<name>Configuration Options</name>
+								<packageName></packageName>
+								<script>--[[
+This is where all of the configuration options can be set. 
+Anything I've put in this script object can be changed, but please do pay attention to what you're doing.
+If you change one of the values to something it shouldn't be, you could break it. 
+]]
+
+--This is where you tell it to use tabbed chat.
+demonnic.chat.use = true
+
+--[[
+The timestamp option is set here.
+Set to false if you do not want any timestamps displayed for chat.
+If you do want it displayed, set to the string for the format you wish. 
+see http://wiki.mudlet.org/w/Manual:Lua_Functions#getTime for information
+how to format the string "HH:mm:ss"
+]]
+demonnic.chat.config.timestamp = "HH:mm:ss"
+
+--[[ Should we use our own colors for the timestamp?
+Set to true if you want to specify foreground and background colors
+for the timestamp.
+Set to false if you want the timestamps background and foreground
+colors to match that of the mud output.
+]]
+demonnic.chat.config.timestampCustomColor = false
+--[[
+and what foreground color? You can either use one of the 'named' colors
+(see http://wiki.mudlet.org/images/c/c3/ShowColors.png for available colors)
+demonnic.chat.config.timestampFG = "slate_grey"
+
+Or you can use a table of R,G,B values. 
+demonnic.chat.config.timestampFG = {
+  255,
+    0,
+    0,
+}
+then the foreground for the timestamp would be 255 read, 100 green, and 0 blue
+]]
+demonnic.chat.config.timestampFG = "red"
+
+--and background? Same rules as for the foreground above
+demonnic.chat.config.timestampBG = "blue"
+
+--[[
+This is where you say what corner of the screen you want the tabbed chat on
+Valid settings are "topright", "topleft", "bottomright", "bottomleft"
+]]--
+demonnic.chat.config.location = "topleft"
+
+--[[
+This is a table of channels you would like.
+AKA the place you tell the script what tabs you want.
+Each entry must be a string. The defaults should be a pretty effective guide.
+]]
+
+demonnic.chat.config.channels = {
+  "All",
+  "Circle",
+  "Speech",
+  "Shouts",
+  "Ring",
+  "Market",
+  "Deaths",
+  "Clans",
+}
+
+
+--Set this to the name of the channel you want to have everything sent to. 
+--Per the default, this would be the "All" channel. If you have a different name for it:
+--
+--demonnic.chat.config.Alltab = "Bucket"  
+--
+--And if you don't want it turned on at all:
+--
+--demonnic.chat.config.Alltab = false
+
+demonnic.chat.config.Alltab = "All"
+
+
+
+---------------------------------------------------------------------------------
+--                                                                             --
+--The infamous blinking stuff!!!                                               --
+--                                                                             --
+---------------------------------------------------------------------------------
+
+--[[
+Do you want tabs to blink when you get new messages, until you click on the tab?
+True if yes, false if no.
+]]
+demonnic.chat.config.blink = true
+
+--How long (in seconds) between blinks? For example, 1 would mean a 1 second pause in between blinks.
+demonnic.chat.config.blinkTime = 3
+
+--Blink if the bucket tab ("All" by default, but configured above) is in focus?
+demonnic.chat.config.blinkFromAll = false
+
+
+
+
+--Font size for the chat messages
+
+demonnic.chat.config.fontSize = calcFontSize(fontSize+ms.save["windows"]["chat"])
+
+--[[
+Should we preserve the formatting of the text. 
+Or should we set the background of it to match the window color?
+Set this to false if you want the background for all chat to match the background of the window.
+Useful if you change the background from black, and don't like the way the pasted chat makes blocks in it
+]]
+
+demonnic.chat.config.preserveBackground = false
+
+--[[
+Gag the chat lines in the main window?
+defaults to false, set to true if you want to gag.
+]]
+
+demonnic.chat.config.gag = false
+
+--[[
+Number of lines of chat visible at once. 
+Will determine how tall the window for the chats is.
+]]
+
+demonnic.chat.config.lines = 20
+
+--[[
+Number of characters to wrap the chatlines at.
+This will also determine how wide the chat windows are.
+]]
+
+demonnic.chat.config.width = 60
+
+--[[
+Set the color for the active tab. R,G,B format.
+The default here is a brightish green
+]]
+
+demonnic.chat.config.activeColors = {
+  r = 0,
+  g = 180,
+  b = 0,
+}
+
+--[[
+Set the color for the inactive tab. R,G,B format.
+The default here is a drab grey
+]]
+
+demonnic.chat.config.inactiveColors = {
+  r = 60,
+  g = 60,
+  b = 60,
+}
+
+--[[
+Set the color for the chat window itself. R,G,B format.
+Defaulted to the black of my twisted hardened soul. Or something.
+]]
+
+demonnic.chat.config.windowColors = {
+  r = 0,
+  g = 0,
+  b = 0,
+}
+
+--[[
+Set the color for the text on the active tab. Uses color names.
+Set the default to purple. So the tab you're looking at, by default will be purple on bright green. 
+Did I mention I'm a bit colorblind?
+]]
+
+demonnic.chat.config.activeTabText = "purple"
+
+--[[
+Set the color for the text on the inactive tabs. Uses color names.
+Defaulted this to white. So the tabs you're not looking at will be white text on boring grey background.
+]]
+
+demonnic.chat.config.inactiveTabText = "white"
+
+--[[
+have to make sure a currentTab is set... 
+so we'll use the one for the bucket, or the first one in the channels table
+Or, you know... what it's currently set to, if it's already set.
+]]
+demonnic.chat.currentTab = demonnic.chat.currentTab or demonnic.chat.config.Alltab or demonnic.chat.config.channels[1]
+</script>
+								<eventHandlerList />
+							</Script>
+							<Script isActive="yes" isFolder="no">
+								<name>Code</name>
+								<packageName></packageName>
+								<script>--[[
+If the label callbacks ever decide to start taking a function which is part of a table, 0then this will change.
+Or if it's modified to take actual functions. Anonymouse function clickcallback would be awfully nice.
+]]
+
+function demonnicChatSwitch(chat)
+  local r = demonnic.chat.config.inactiveColors.r
+  local g = demonnic.chat.config.inactiveColors.g
+  local b = demonnic.chat.config.inactiveColors.b
+  local newr = demonnic.chat.config.activeColors.r
+  local newg = demonnic.chat.config.activeColors.g
+  local newb = demonnic.chat.config.activeColors.b
+  local oldchat = demonnic.chat.currentTab
+  if demonnic.chat.currentTab ~= chat then
+    demonnic.chat.windows[oldchat]:hide()
+    demonnic.chat.tabs[oldchat]:setColor(r,g,b)
+    demonnic.chat.tabs[oldchat]:echo(oldchat, demonnic.chat.config.inactiveTabText, "c")
+    if demonnic.chat.config.blink and demonnic.chat.tabsToBlink[chat] then
+      demonnic.chat.tabsToBlink[chat] = nil
+    end
+    if demonnic.chat.config.blink and chat == demonnic.chat.config.Alltab then
+      demonnic.chat.tabsToBlink = {}
+    end
+  end
+  demonnic.chat.tabs[chat]:setColor(newr,newg,newb)
+  demonnic.chat.tabs[chat]:echo(chat, demonnic.chat.config.activeTabText, "c")
+  demonnic.chat.windows[chat]:show()
+  demonnic.chat.currentTab = chat  
+end
+
+function demonnic.chat:resetUI()
+  demonnic.chat.container = Geyser.Container:new(demonnic.chat[demonnic.chat.config.location]())
+  demonnic.chat.tabBox = Geyser.HBox:new({
+    x=0,
+    y=0,
+    width = "100%",
+    height = "25px",
+    name = "DemonChatTabs",
+  },demonnic.chat.container)
+
+end
+
+function demonnic.chat:create()
+  --reset the UI
+  demonnic.chat:resetUI()
+  --Set some variables locally to increase readability
+  local r = demonnic.chat.config.inactiveColors.r
+  local g = demonnic.chat.config.inactiveColors.g
+  local b = demonnic.chat.config.inactiveColors.b
+  local winr = demonnic.chat.config.windowColors.r
+  local wing = demonnic.chat.config.windowColors.g
+  local winb = demonnic.chat.config.windowColors.b
+
+  --iterate the table of channels and create some windows and tabs
+  for i,tab in ipairs(demonnic.chat.config.channels) do
+    demonnic.chat.tabs[tab] = Geyser.Label:new({
+      name=string.format("tab%s", tab),
+    }, demonnic.chat.tabBox)
+    demonnic.chat.tabs[tab]:echo(tab, demonnic.chat.config.inactiveTabText, "c")
+    demonnic.chat.tabs[tab]:setColor(r,g,b)
+    demonnic.chat.tabs[tab]:setClickCallback("demonnicChatSwitch", tab)
+    demonnic.chat.windows[tab] = Geyser.MiniConsole:new({
+--      fontSize = demonnic.chat.config.fontSize,
+      x = 0,
+      y = 25,
+      height = "100%",
+      width = "100%",
+      name = string.format("win%s", tab),
+    }, demonnic.chat.container)
+    demonnic.chat.windows[tab]:setFontSize(demonnic.chat.config.fontSize)
+    demonnic.chat.windows[tab]:setColor(winr,wing,winb)
+    demonnic.chat.windows[tab]:setWrap(demonnic.chat.config.width)
+    demonnic.chat.windows[tab]:hide()
+  end
+  local showme = demonnic.chat.config.Alltab or demonnic.chat.config.channels[1]
+  demonnicChatSwitch(showme)
+  --start the blink timers, if enabled
+  if demonnic.chat.config.blink and not demonnic.chat.blinkTimerOn then
+    demonnic.chat:blink()
+  end
+end
+
+function demonnic.chat:append(chat)
+  local r = demonnic.chat.config.windowColors.r
+  local g = demonnic.chat.config.windowColors.g
+  local b = demonnic.chat.config.windowColors.b
+  selectCurrentLine()
+  local ofr,ofg,ofb = getFgColor()
+  local obr,obg,obb = getBgColor()
+  if demonnic.chat.config.preserveBackground then
+    setBgColor(r,g,b)
+  end
+  copy()
+  if demonnic.chat.config.timestamp then
+    local timestamp = getTime(true, demonnic.chat.config.timestamp)
+    local tsfg = {}
+    local tsbg = {}
+    local colorLeader = ""
+    if demonnic.chat.config.timestampCustomColor then
+      if type(demonnic.chat.config.timestampFG) == "string" then
+        tsfg = color_table[demonnic.chat.config.timestampFG]
+      else
+        tsfg = demonnic.chat.config.timestampFG
+      end
+      if type(demonnic.chat.config.timestampBG) == "string" then
+        tsbg = color_table[demonnic.chat.config.timestampBG]
+      else
+        tsbg = demonnic.chat.config.timestampBG
+      end
+      colorLeader = string.format("&lt;%s,%s,%s:%s,%s,%s&gt;",tsfg[1],tsfg[2],tsfg[3],tsbg[1],tsbg[2],tsbg[3])
+    else
+      colorLeader = string.format("&lt;%s,%s,%s:%s,%s,%s&gt;",ofr,ofg,ofb,obr,obg,obb)
+    end
+    local fullstamp = string.format("%s%s",colorLeader,timestamp)
+      demonnic.chat.windows[chat]:decho(fullstamp)
+      demonnic.chat.windows[chat]:echo(" ")
+      if demonnic.chat.config.Alltab then 
+        demonnic.chat.windows[demonnic.chat.config.Alltab]:decho(fullstamp)
+        demonnic.chat.windows[demonnic.chat.config.Alltab]:echo(" ")
+      end
+  end
+  demonnic.chat.windows[chat]:append()
+  if demonnic.chat.config.gag then 
+    deleteLine() 
+    tempLineTrigger(1,1, [[if isPrompt() then deleteLine() end]])
+  end
+  if demonnic.chat.config.Alltab then appendBuffer(string.format("win%s", demonnic.chat.config.Alltab)) end
+  if demonnic.chat.config.blink and chat ~= demonnic.chat.currentTab then 
+    if (demonnic.chat.config.Alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
+      return
+    else
+      demonnic.chat.tabsToBlink[chat] = true
+    end
+  end
+end
+
+
+
+function demonnic.chat:blink()
+  if demonnic.chat.blinkID then killTimer(demonnic.chat.blinkID) end
+  if not demonnic.chat.config.blink then 
+    demonnic.chat.blinkTimerOn = false
+    return 
+  end
+  for tab,_ in pairs(demonnic.chat.tabsToBlink) do
+    demonnic.chat.tabs[tab]:flash()
+  end
+  demonnic.chat.blinkID = tempTimer(demonnic.chat.config.blinkTime, function () demonnic.chat:blink() end)
+end
+
+function demonnic.chat:topright()
+  return {
+    fontSize = demonnic.chat.config.fontSize,
+    x=string.format("-%sc",demonnic.chat.config.width + 2),
+    y=0,
+    width="-15px",
+    height=string.format("%ic", demonnic.chat.config.lines + 2),
+  }
+end
+
+function demonnic.chat:topleft()
+  return {
+    fontSize = demonnic.chat.config.fontSize,
+    x=0,
+    y=0,
+    width=string.format("%sc",demonnic.chat.config.width),
+    height=string.format("%ic", demonnic.chat.config.lines + 2),
+  }
+end
+
+function demonnic.chat:bottomright()
+  return {
+    fontSize = demonnic.chat.config.fontSize,
+    x=string.format("-%sc",demonnic.chat.config.width + 2),
+    y=string.format("-%sc",demonnic.chat.config.lines + 2),
+    width="-15px",
+    height=string.format("%ic", demonnic.chat.config.lines + 2),
+  }
+end
+
+function demonnic.chat:bottomleft()
+  return {
+    fontSize = demonnic.chat.config.fontSize,
+    x=0,
+    y=string.format("-%sc",demonnic.chat.config.lines + 2),
+    width=string.format("%sc",demonnic.chat.config.width),
+    height=string.format("%ic", demonnic.chat.config.lines + 2),
+  }
+end</script>
+								<eventHandlerList />
+							</Script>
+							<Script isActive="yes" isFolder="no">
+								<name>demonnicOnStart</name>
+								<packageName></packageName>
+								<script>function demonnicOnStart()
+  if demonnic.chat.use then
+    demonnic.chat:create()
+  end
+end</script>
+								<eventHandlerList>
+									<string>sysLoadEvent</string>
+								</eventHandlerList>
+							</Script>
+							<Script isActive="yes" isFolder="no">
+								<name>echo functions</name>
+								<packageName></packageName>
+								<script>
+function demonnic.chat:cecho(chat, message)
+  local alltab = demonnic.chat.config.Alltab
+  local blink = demonnic.chat.config.blink
+  cecho(string.format("win%s",chat), message)
+  if alltab and chat ~= alltab then 
+    cecho(string.format("win%s", alltab), message)
+  end
+  if blink and chat ~= demonnic.chat.currentTab then
+    if (alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
+      return
+    else
+      demonnic.chat.tabsToBlink[chat] = true
+    end
+  end
+end
+
+function demonnic.chat:decho(chat, message)
+  local alltab = demonnic.chat.config.Alltab
+  local blink = demonnic.chat.config.blink
+  decho(string.format("win%s",chat), message)
+  if alltab and chat ~= alltab then 
+    decho(string.format("win%s", alltab), message)
+  end
+  if blink and chat ~= demonnic.chat.currentTab then
+    if (alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
+      return
+    else
+      demonnic.chat.tabsToBlink[chat] = true
+    end
+  end
+end
+
+function demonnic.chat:hecho(chat, message)
+  local alltab = demonnic.chat.config.Alltab
+  local blink = demonnic.chat.config.blink
+  hecho(string.format("win%s",chat), message)
+  if alltab and chat ~= alltab then 
+    hecho(string.format("win%s", alltab), message)
+  end
+  if blink and chat ~= demonnic.chat.currentTab then
+    if (alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
+      return
+    else
+      demonnic.chat.tabsToBlink[chat] = true
+    end
+  end
+end
+
+function demonnic.chat:echo(chat, message)
+  local alltab = demonnic.chat.config.Alltab
+  local blink = demonnic.chat.config.blink
+  echo(string.format("win%s",chat), message)
+  if alltab and chat ~= alltab then 
+    echo(string.format("win%s", alltab), message)
+  end
+  if blink and chat ~= demonnic.chat.currentTab then
+    if (alltab == demonnic.chat.currentTab) and not demonnic.chat.config.blinkOnAll then
+      return
+    else
+      demonnic.chat.tabsToBlink[chat] = true
+    end
+  end
+end</script>
+								<eventHandlerList />
+							</Script>
+						</ScriptGroup>
+					</ScriptGroup>
+				</ScriptGroup>
+				<ScriptGroup isActive="yes" isFolder="yes">
+					<name>deleteOldProfiles</name>
+					<packageName>deleteOldProfiles</packageName>
+					<script></script>
+					<eventHandlerList />
+					<Script isActive="yes" isFolder="no">
+						<name>deleteOldProfiles</name>
+						<packageName></packageName>
+						<script>function deleteOldProfiles(keepdays_arg, delete_maps)
+
+--[[
+	Deletes old profiles/maps in the "current"/"map" folders of the Mudlet home directory.
+	The following files are NOT deleted:
+	- Files newer than the amount of days specified as an argument to deleteOldProfiles(), or 31 days if not specified.	
+	- One file for every month before that. Specifically: The first available file of every month prior to this.
+	Setting the second argument to true will delete maps instead of profiles. (e.g. deleteOldProfiles(10, true))
+--]]
+
+	local keepdays = tonumber(keepdays_arg) or 31
+	local profile_table = {}
+	local used_last_mod_months = {}
+	local slash = (string.char(getMudletHomeDir():byte()) == "/") and "/" or "\\"
+	local dirpath = getMudletHomeDir()..slash..(delete_maps and "map" or "current")
+	local delnum = 0
+
+	-- Traverse the profiles folder and create a table of files:
+	for filename in lfs.dir(dirpath) do
+		if filename~="." and filename~=".." then
+			profile_table[#profile_table+1] = {name = filename, last_mod = lfs.attributes(dirpath..slash..filename, "modification")}
+		end
+	end
+
+	-- Sort the table according to last modification date from old to new:
+	table.sort(profile_table, function (a,b) return a.last_mod &lt; b.last_mod end)
+
+	echo(string.format("\nDeleting old %s. Files newer than %d days and one profile for every month before that will be kept.", delete_maps and "maps" or "profiles", keepdays))
+	for i,v in ipairs(profile_table) do
+		local days = math.floor(os.difftime(os.time(), v.last_mod)/86400)
+		local last_mod_month = os.date("%Y/%m", v.last_mod)
+		if days &gt; keepdays then
+			-- For profiles older than X days, check if we already kept a table for this month:
+			if not table.contains(used_last_mod_months, last_mod_month) then
+				-- If not, do nothing and mark this month as "kept".
+				used_last_mod_months[#used_last_mod_months+1] = last_mod_month
+			else
+				-- Otherwise remove the file:
+				local success, errorstring = os.remove(dirpath..slash..v.name)
+				if success then
+					delnum = delnum + 1
+				else
+					cecho("\n&lt;red&gt;ERROR: "..errorstring)
+				end
+			end
+		end
+	end
+	echo(string.format("\nDeletion complete. %d/%d files were removed successfully.", delnum, #profile_table))
+end
+</script>
+						<eventHandlerList />
 					</Script>
 				</ScriptGroup>
 			</ScriptGroup>
