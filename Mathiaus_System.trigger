@@ -6215,7 +6215,8 @@ sys("Quickdraw") cecho("&lt;ivory&gt;"..matches[2])</script>
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Not Dead</name>
-					<script>dead = false</script>
+					<script>dead = false
+heal()</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -18011,7 +18012,7 @@ end</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Assassin</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -29902,7 +29903,7 @@ enableTimer("shaman confound")</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Hunter</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -40772,7 +40773,7 @@ moon = true</script>
 					<packageName></packageName>
 					<time>00:00:30.000</time>
 				</Timer>
-				<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 					<name>ghost</name>
 					<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -41418,12 +41419,12 @@ if not dead then expandAlias("ss", false) end</script>
 					</Alias>
 					<Alias isActive="yes" isFolder="no">
 						<name>Ring Toggle</name>
-						<script>if not ring then
-ring = true
+						<script>if not ms.save["ring"] then
+ms.save["ring"] = true
 ringv = "true"
 sys("Ring") cecho("&lt;cyan&gt;ON")
-elseif ring then
-ring = false
+elseif ms.save["ring"] then
+ms.save["ring"] = false
 ringv = "false"
 sys("Ring") cecho("&lt;red&gt;OFF")
 end</script>
@@ -43824,7 +43825,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="yes" isFolder="yes">
+						<AliasGroup isActive="no" isFolder="yes">
 							<name>Assassin</name>
 							<script></script>
 							<command></command>
@@ -48953,7 +48954,7 @@ probe = true</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="no" isFolder="yes">
+						<AliasGroup isActive="yes" isFolder="yes">
 							<name>Hunter</name>
 							<script></script>
 							<command></command>
