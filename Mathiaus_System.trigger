@@ -10246,7 +10246,9 @@ end</script>
 					<name>Died</name>
 					<script>callout("Died to "..matches[2], gmcp.Room.Info.area.." ["..gmcp.Room.Info.num.."]")
 cecho("\n\n&lt;red&gt;Died at "..gmcp.Room.Info.area.." ["..gmcp.Room.Info.num.."]\n")
-send("rt Vv(xXx''xXx)vV")
+if ms.save["death_spider"] then 
+  send("rt Vv(xXx''xXx)vV")
+end
 send("queue reset all")
 healing = false
 dat = gmcp.Room.Info.num
@@ -51261,6 +51263,19 @@ tempTimer(2, [[checkMSVersion()]])</script>
 							<packageName></packageName>
 							<regex>^ms cv$</regex>
 						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>Toggle Death Spider</name>
+							<script>if ms.save["death_spider"] or matches[2] == "off" then
+  ms.save["death_spider"] = false
+  msEcho("&lt;red&gt;Death Spider", "&lt;snow&gt;You will no longer see the dead spider upon death")
+elseif not ms.save["death_spider"] or matches[2] == "on" then
+  ms.save["death_spider"] = true
+  msEcho("&lt;green&gt;Death Spider", "&lt;snow&gt;You will now see the dead spider upon death")
+end</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^ms death spider(?: (on|off))?$</regex>
+						</Alias>
 					</AliasGroup>
 					<AliasGroup isActive="yes" isFolder="yes">
 						<name>Math Mapper</name>
@@ -60817,6 +60832,8 @@ sys("&lt;SteelBlue&gt;Misc")
   echoHelp("Call mount")
   echoHelp("mp", "cmd")
   echoHelp("Ride your mount")
+  echoHelp("ms death spider [on|off]", "cmd")
+  echoHelp("You can toggle seeing the dead spider upon death")
   echoHelp("ms set &lt;key&gt; &lt;value&gt;", "cmd")
   echoHelp("Use this to hard set particular keys and values within &lt;yellow&gt;ms.save&lt;snow&gt;. Be wary; know what you're setting and overwriting, else you will break the system.")
   nl()
@@ -61732,6 +61749,7 @@ end
 					<packageName></packageName>
 					<script>function msSaveDefault()
   ms.defaultSave = {
+    death_spider = true,
     ingot_type = "stehl",
     crystehl = true,
     rubcard = false,
@@ -62716,6 +62734,14 @@ end</script>
 						</eventHandlerList>
 					</Script>
 				</ScriptGroup>
+				<Script isActive="yes" isFolder="no">
+					<name>Full System Echo</name>
+					<packageName></packageName>
+					<script>function msEcho(sysEcho, contentEcho)
+  sys(sysEcho) cecho(contentEcho.."\n")
+end</script>
+					<eventHandlerList />
+				</Script>
 			</ScriptGroup>
 			<ScriptGroup isActive="yes" isFolder="yes">
 				<name>additional packages</name>
