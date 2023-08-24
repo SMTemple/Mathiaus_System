@@ -6315,6 +6315,7 @@ heal()</script>
   	if not clot then tempTimer(3, [[clot = true]]) end
     end
   end
+  --
   if th &lt;= tonumber(ms.save['sth']) then 
   healme = true
   if healing then
@@ -41528,7 +41529,7 @@ sys("Solution") expandAlias("lua math.max("..matches[2]..")", false)
 </script>
 						<command></command>
 						<packageName></packageName>
-						<regex>^calc (.+)$</regex>
+						<regex>^(?:cal|calc) (.+)$</regex>
 					</Alias>
 					<Alias isActive="yes" isFolder="no">
 						<name>Clan switch</name>
@@ -43021,7 +43022,7 @@ end</script>
 					</Alias>
 					<Alias isActive="yes" isFolder="no">
 						<name>Say</name>
-						<script>if ms.class["Deathknight"] and healing then
+						<script>if ms.save["wearing_helm"] and healing then
   send("open bevor"..s.."say "..matches[2]..""..s.."close bevor", false)
 else
   send("say "..matches[2], false)
@@ -51275,6 +51276,19 @@ end</script>
 							<command></command>
 							<packageName></packageName>
 							<regex>^ms death spider(?: (on|off))?$</regex>
+						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>Toggle open/close helm</name>
+							<script>if (ms.save["wearing_helm"] and not matches[2]) or matches[2] == "off" then
+  ms.save["wearing_helm"] = false
+  msEcho("&lt;red&gt;Helm", "&lt;snow&gt;Will no longer open/close helm when speaking")
+elseif (not ms.save["wearing_helm"] and not matches[2]) or matches[2] == "on" then
+  ms.save["wearing_helm"] = true
+  msEcho("&lt;green&gt;Helm", "&lt;snow&gt;Will now open/close helm when speaking")
+end</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^ms helm(?: (on|off))?$</regex>
 						</Alias>
 					</AliasGroup>
 					<AliasGroup isActive="yes" isFolder="yes">
@@ -60568,7 +60582,7 @@ end</script>
   installPackage([[https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger]])
 end
 
-ms.version = "3.6.4"
+ms.version = "3.6.5"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
@@ -61752,6 +61766,7 @@ end
 					<packageName></packageName>
 					<script>function msSaveDefault()
   ms.defaultSave = {
+    wearing_helm = false,
     death_spider = true,
     ingot_type = "stehl",
     crystehl = true,
@@ -62744,6 +62759,21 @@ end</script>
   sys(sysEcho) cecho(contentEcho.."\n")
 end</script>
 					<eventHandlerList />
+				</Script>
+				<Script isActive="yes" isFolder="no">
+					<name>msSysExit</name>
+					<packageName></packageName>
+					<script>function msSysExit()
+  sys("&lt;green&gt;MS") cecho("Saving Settings...")
+  table.save(getMudletHomeDir().."/mssave.lua", ms.save)
+    if #ms.allies &gt; 0 then 
+     table.save(getMudletHomeDir().."/msallies.lua", ms.allies)
+    end
+  sys("&lt;green&gt;MS") cecho("&lt;green&gt;Successfully Saved!\n")
+end</script>
+					<eventHandlerList>
+						<string>sysExitEvent</string>
+					</eventHandlerList>
 				</Script>
 			</ScriptGroup>
 			<ScriptGroup isActive="yes" isFolder="yes">
