@@ -18015,7 +18015,7 @@ end</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Assassin</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -29906,7 +29906,7 @@ enableTimer("shaman confound")</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Hunter</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -40776,7 +40776,7 @@ moon = true</script>
 					<packageName></packageName>
 					<time>00:00:30.000</time>
 				</Timer>
-				<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 					<name>ghost</name>
 					<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -43828,7 +43828,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="no" isFolder="yes">
+						<AliasGroup isActive="yes" isFolder="yes">
 							<name>Assassin</name>
 							<script></script>
 							<command></command>
@@ -48957,7 +48957,7 @@ probe = true</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="yes" isFolder="yes">
+						<AliasGroup isActive="no" isFolder="yes">
 							<name>Hunter</name>
 							<script></script>
 							<command></command>
@@ -56535,43 +56535,139 @@ ms.toxins = {
 					<Script isActive="yes" isFolder="no">
 						<name>Target and Toggle Console</name>
 						<packageName></packageName>
-						<script>cc = Geyser.MiniConsole:new({
-name = "cc",
-x = "0%", y = "36%",
-width = "23%", height = "28%",
-color = "black",
-})
-cc:setFontSize(fontSize+ms.save["windows"]["toggles"])
+						<script>cc =
+    Geyser.MiniConsole:new(
+    {
+        name = "cc",
+        x = "0%",
+        y = "36%",
+        width = "23%",
+        height = "28%",
+        color = "black"
+    }
+)
+cc:setFontSize(fontSize + ms.save["windows"]["toggles"])
 
 function ccspace(name)
-ccspacec = 11 - string.len(name)
-echo("cc", string.rep(" ", ccspacec))
+    ccspacec = 11 - string.len(name)
+    echo("cc", string.rep(" ", ccspacec))
 end
 
 function ccspaceon()
-echo("cc", "   ")
+    echo("cc", "   ")
 end
 
 function ccspaceoff()
-echo("cc", "  ")
+    echo("cc", "  ")
 end
 
 res = res or false
-function ccw() clearWindow("cc")
-ccWidth = cc:getColumnCount()
-cecho("cc", "&lt;SteelBlue&gt;"..string.rep("-", ccWidth))
-cecho("cc", "\n&lt;SteelBlue&gt;Creature: &lt;grey&gt;"..creature)
-if usetarget then cecho("cc", "\n&lt;SteelBlue&gt;Use-Target: ") ccspace("Use-Target") echoLink("cc", "ON", [[usetarget = false ccw()]], "Toggle off") ccspaceon() else cecho("cc", "\n&lt;SteelBlue&gt;Use-Target: ") ccspace("use-target") echoLink("cc", "OFF", [[usetarget = true ccw()]], "Toggle on") ccspaceoff() end
-if calltarget then cecho("cc", "&lt;SteelBlue&gt;Call-Target: ") ccspace("Call-Target") echoLink("cc", "ON", [[calltarget = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Call-Target: ") ccspace("call-target") echoLink("cc", "OFF", [[calltarget = true ccw()]], "Toggle on") end
-if bash then cecho("cc", "\n&lt;SteelBlue&gt;Bash: ") ccspace("Bash") echoLink("cc", "ON", [[bash = false ccw()]], "Toggle off") ccspaceon() else cecho("cc", "\n&lt;SteelBlue&gt;Bash: ") ccspace("bash") echoLink("cc", "OFF", [[bash = true ccw()]], "Toggle on") ccspaceoff() end
-if prism then cecho("cc", "&lt;SteelBlue&gt;Prism: ") ccspace("prism") echoLink("cc", "ON", [[prism = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Prism: ") ccspace("prism") echoLink("cc", "OFF", [[prism = true ccw()]], "Toggle on") end
-if sharding then cecho("cc", "\n&lt;SteelBlue&gt;Sharding: ") ccspace("sharding") echoLink("cc", "ON", [[sharding = false ccw()]], "Toggle off") ccspaceon() else cecho("cc", "\n&lt;SteelBlue&gt;Sharding: ") ccspace("sharding") echoLink("cc", "OFF", [[sharding = true ccw()]], "Toggle on") ccspaceoff() end
-if shardfall then cecho("cc", "&lt;SteelBlue&gt;Shardfall: ") ccspace("shardfall") echoLink("cc", "ON", [[shardfall = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Shardfall: ") ccspace("shardfall") echoLink("cc", "OFF", [[shardfall = true ccw()]], "Toggle on") end
-if parry then cecho("cc", "\n&lt;SteelBlue&gt;Parry: ") ccspace("parry") echoLink("cc", "ON", [[parry = false ccw()]], "Toggle off") ccspaceon() else cecho("cc", "\n&lt;SteelBlue&gt;Parry: ") ccspace("parry") echoLink("cc", "OFF", [[parry = true ccw()]], "Toggle on") ccspaceoff() end
-if ms.save['ring'] then cecho("cc", "&lt;SteelBlue&gt;Ring: ") ccspace("Ring") echoLink("cc", "ON", [[ring = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Ring: ") ccspace("ring") echoLink("cc", "OFF", [[ring = true ccw()]], "Toggle on") end
-if res then cecho("cc", "\n&lt;SteelBlue&gt;Resurrect: ") ccspace("resurrect") echoLink("cc", "ON", [[res = false ccw()]], "Toggle off") ccspaceon() else cecho("cc", "\n&lt;SteelBlue&gt;Resurrect: ") ccspace("resurrect") echoLink("cc", "OFF", [[res = true ccw()]], "Toggle on") ccspaceoff() end
-if ms.save['arena'] then cecho("cc", "&lt;SteelBlue&gt;Arena: ") ccspace("arena") echoLink("cc", "ON", [[arena = false ccw()]], "Toggle off") else cecho("cc", "&lt;SteelBlue&gt;Arena: ") ccspace("arena") echoLink("cc", "OFF", [[arena = true ccw()]], "Toggle on") end
-cecho("cc", "\n\n&lt;SteelBlue&gt;"..string.rep("-", ccWidth))
+function ccw()
+    clearWindow("cc")
+    ccWidth = cc:getColumnCount()
+    cecho("cc", "&lt;SteelBlue&gt;" .. string.rep("-", ccWidth))
+    cecho("cc", "\n&lt;SteelBlue&gt;Creature: &lt;grey&gt;" .. creature)
+    if usetarget then
+        cecho("cc", "\n&lt;SteelBlue&gt;Use-Target: ")
+        ccspace("Use-Target")
+        cechoLink("cc", "&lt;green&gt;ON", [[usetarget = false ccw()]], "Toggle off", true)
+        ccspaceon()
+    else
+        cecho("cc", "\n&lt;SteelBlue&gt;Use-Target: ")
+        ccspace("use-target")
+        cechoLink("cc", "&lt;red&gt;OFF", [[usetarget = true ccw()]], "Toggle on", true)
+        ccspaceoff()
+    end
+    if calltarget then
+        cecho("cc", "&lt;SteelBlue&gt;Call-Target: ")
+        ccspace("Call-Target")
+        cechoLink("cc", "&lt;green&gt;ON", [[calltarget = false ccw()]], "Toggle off", true)
+    else
+        cecho("cc", "&lt;SteelBlue&gt;Call-Target: ")
+        ccspace("call-target")
+        cechoLink("cc", "&lt;red&gt;OFF", [[calltarget = true ccw()]], "Toggle on", true)
+    end
+    if bash then
+        cecho("cc", "\n&lt;SteelBlue&gt;Bash: ")
+        ccspace("Bash")
+        cechoLink("cc", "&lt;green&gt;ON", [[bash = false ccw()]], "Toggle off", true)
+        ccspaceon()
+    else
+        cecho("cc", "\n&lt;SteelBlue&gt;Bash: ")
+        ccspace("bash")
+        cechoLink("cc", "&lt;red&gt;OFF", [[bash = true ccw()]], "Toggle on", true)
+        ccspaceoff()
+    end
+    if prism then
+        cecho("cc", "&lt;SteelBlue&gt;Prism: ")
+        ccspace("prism")
+        cechoLink("cc", "&lt;green&gt;ON", [[prism = false ccw()]], "Toggle off", true)
+    else
+        cecho("cc", "&lt;SteelBlue&gt;Prism: ")
+        ccspace("prism")
+        cechoLink("cc", "&lt;red&gt;OFF", [[prism = true ccw()]], "Toggle on", true)
+    end
+    if sharding then
+        cecho("cc", "\n&lt;SteelBlue&gt;Sharding: ")
+        ccspace("sharding")
+        cechoLink("cc", "&lt;green&gt;ON", [[sharding = false ccw()]], "Toggle off", true)
+        ccspaceon()
+    else
+        cecho("cc", "\n&lt;SteelBlue&gt;Sharding: ")
+        ccspace("sharding")
+        cechoLink("cc", "&lt;red&gt;OFF", [[sharding = true ccw()]], "Toggle on", true)
+        ccspaceoff()
+    end
+    if shardfall then
+        cecho("cc", "&lt;SteelBlue&gt;Shardfall: ")
+        ccspace("shardfall")
+        cechoLink("cc", "&lt;green&gt;ON", [[shardfall = false ccw()]], "Toggle off", true)
+    else
+        cecho("cc", "&lt;SteelBlue&gt;Shardfall: ")
+        ccspace("shardfall")
+        cechoLink("cc", "&lt;red&gt;OFF", [[shardfall = true ccw()]], "Toggle on", true)
+    end
+    if parry then
+        cecho("cc", "\n&lt;SteelBlue&gt;Parry: ")
+        ccspace("parry")
+        cechoLink("cc", "&lt;green&gt;ON", [[parry = false ccw()]], "Toggle off", true)
+        ccspaceon()
+    else
+        cecho("cc", "\n&lt;SteelBlue&gt;Parry: ")
+        ccspace("parry")
+        cechoLink("cc", "&lt;red&gt;OFF", [[parry = true ccw()]], "Toggle on", true)
+        ccspaceoff()
+    end
+    if ms.save["ring"] then
+        cecho("cc", "&lt;SteelBlue&gt;Ring: ")
+        ccspace("Ring")
+        cechoLink("cc", "&lt;green&gt;ON", [[ring = false ccw()]], "Toggle off", true)
+    else
+        cecho("cc", "&lt;SteelBlue&gt;Ring: ")
+        ccspace("ring")
+        cechoLink("cc", "&lt;red&gt;OFF", [[ring = true ccw()]], "Toggle on", true)
+    end
+    if res then
+        cecho("cc", "\n&lt;SteelBlue&gt;Resurrect: ")
+        ccspace("resurrect")
+        cechoLink("cc", "&lt;green&gt;ON", [[res = false ccw()]], "Toggle off", true)
+        ccspaceon()
+    else
+        cecho("cc", "\n&lt;SteelBlue&gt;Resurrect: ")
+        ccspace("resurrect")
+        cechoLink("cc", "&lt;red&gt;OFF", [[res = true ccw()]], "Toggle on", true)
+        ccspaceoff()
+    end
+    if ms.save["arena"] then
+        cecho("cc", "&lt;SteelBlue&gt;Arena: ")
+        ccspace("arena")
+        cechoLink("cc", "&lt;green&gt;ON", [[arena = false ccw()]], "Toggle off", true)
+    else
+        cecho("cc", "&lt;SteelBlue&gt;Arena: ")
+        ccspace("arena")
+        cechoLink("cc", "&lt;red&gt;OFF", [[arena = true ccw()]], "Toggle on", true)
+    end
+    cecho("cc", "\n\n&lt;SteelBlue&gt;" .. string.rep("-", ccWidth))
 end</script>
 						<eventHandlerList />
 					</Script>
@@ -57000,51 +57096,74 @@ end</script>
 					<Script isActive="yes" isFolder="no">
 						<name>Room Items</name>
 						<packageName></packageName>
-						<script>roomitems = Geyser.MiniConsole:new({
-name = "roomitems",
-x = "-20%", y = "25%",
-width = "15%", height = "20%",
-color = "black",
-})
-  roomitems:setFontSize(fontSize+ms.save["windows"]["roomItems"])
+						<script>roomitems =
+    Geyser.MiniConsole:new(
+    {
+        name = "roomitems",
+        x = "-20%",
+        y = "25%",
+        width = "15%",
+        height = "20%",
+        color = "black"
+    }
+)
+roomitems:setFontSize(fontSize + ms.save["windows"]["roomItems"])
 
 function roomList()
-	clearWindow("roomitems")
-    sendGMCP('Char.Items.Room')
-		ms.roomItems = {}
-		ms.hunt = {}
-		--ms.save['mobs'] list
-		for k,v in ipairs(gmcp.Char.Items.List.items) do
-			if table.contains(ms.save['mobs'], gmcp.Char.Items.List.items[k]["name"]) and not table.contains(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower()) then
-				table.insert(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower())
-			end
-			--Ethereal Check
-			if gmcp.Char.Items.List.items[k]["name"] == "an ethereal wraith" then eWraith = true else eWraith = false end
-		end
-		--checking for traders
-		for k,v in ipairs(gmcp.Char.Items.List.items) do
-			if gmcp.Char.Items.List.items[k]["name"]:find("caravan trader") and not table.contains(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower()) then
-				table.insert(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower())
-			end
-		end
-	roomci = tonumber(0)
-	for k,v in pairs(gmcp.Char.Items.List.items) do
-		table.insert(ms.roomItems, gmcp.Char.Items.List.items[k]["name"]:lower())
-	end
-  if #ms.roomItems &lt; 12 then
-    cecho("roomitems", "&lt;SteelBlue&gt;"..string.format("%s &lt;snow&gt;%s", "[Items#:", tostring(#ms.roomItems).."&lt;SteelBlue&gt;]\n"))
-  end
-	for k,v in pairs(gmcp.Char.Items.List.items) do
-		itemspace = 7 - tonumber(string.len(v.id))
-		ispace = string.rep(" ", itemspace)
-		echoLink("roomitems", v.id, [[send("get ]]..v.id..[[")]], v.id)
-		cecho("roomitems", ispace.."&lt;gray&gt;"..v.name.."\n")
-    roomci = roomci + 1
-	end--items
-  if #ms.roomItems &gt;= 12 then
-    cecho("roomitems", "&lt;SteelBlue&gt;"..string.format("%s &lt;snow&gt;%s", "[Items#:", tostring(#ms.roomItems).."&lt;SteelBlue&gt;]\n"))
-  end
-end--function</script>
+    clearWindow("roomitems")
+    sendGMCP("Char.Items.Room")
+    ms.roomItems = {}
+    ms.hunt = {}
+    --ms.save['mobs'] list
+    for k, v in ipairs(gmcp.Char.Items.List.items) do
+        if
+            table.contains(ms.save["mobs"], gmcp.Char.Items.List.items[k]["name"]) and
+                not table.contains(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower())
+         then
+            table.insert(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower())
+        end
+        --Ethereal Check
+        if gmcp.Char.Items.List.items[k]["name"] == "an ethereal wraith" then
+            eWraith = true
+        else
+            eWraith = false
+        end
+    end
+    --checking for traders
+    for k, v in ipairs(gmcp.Char.Items.List.items) do
+        if
+            gmcp.Char.Items.List.items[k]["name"]:find("caravan trader") and
+                not table.contains(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower())
+         then
+            table.insert(ms.hunt, gmcp.Char.Items.List.items[k]["id"]:lower())
+        end
+    end
+    roomci = tonumber(0)
+    for k, v in pairs(gmcp.Char.Items.List.items) do
+        table.insert(ms.roomItems, gmcp.Char.Items.List.items[k]["name"]:lower())
+    end
+    if #ms.roomItems &lt; 12 then
+        cecho(
+            "roomitems",
+            "&lt;SteelBlue&gt;" .. string.format("%s &lt;snow&gt;%s", "[Items#:", tostring(#ms.roomItems) .. "&lt;SteelBlue&gt;]\n")
+        )
+    end
+    for k, v in pairs(gmcp.Char.Items.List.items) do
+        itemspace = 7 - tonumber(string.len(v.id))
+        ispace = string.rep(" ", itemspace)
+        cechoLink("roomitems", "&lt;cyan&gt;"..v.id, [[send("get ]] .. v.id .. [[")]], v.id, true)
+        cecho("roomitems", ispace .. "&lt;gray&gt;" .. v.name .. "\n")
+        roomci = roomci + 1
+    end
+     --items
+    if #ms.roomItems &gt;= 12 then
+        cecho(
+            "roomitems",
+            "&lt;SteelBlue&gt;" .. string.format("%s &lt;snow&gt;%s", "[Items#:", tostring(#ms.roomItems) .. "&lt;SteelBlue&gt;]\n")
+        )
+    end
+end --function
+</script>
 						<eventHandlerList />
 					</Script>
 					<Script isActive="yes" isFolder="no">
@@ -60582,7 +60701,7 @@ end</script>
   installPackage([[https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger]])
 end
 
-ms.version = "3.6.5"
+ms.version = "3.6.6"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
