@@ -6362,7 +6362,7 @@ end
   	-- pet = "207121" 
   -- end
   --
-  if ttimes == 0 then expandAlias("trig") end
+  if ttimes == 0 then expandAlias("trig");ttimes = -1 end
   --gags
   disableTrigger("Gag defences")
   -- tempRegexTrigger("^$", function() deleteLine() end, 1)
@@ -7158,7 +7158,7 @@ end</script>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Dig out not there</name>
 					<script>shot = ""
-if matches[1]:find("You begin to dig") then digging = true
+if matches[1]:find("You begin to dig") or matches[1]:find("You use Dig Shot") then digging = true
 else digging = false end
 pta = true;forceAtk()</script>
 					<triggerType>0</triggerType>
@@ -7182,8 +7182,10 @@ pta = true;forceAtk()</script>
 						<string>^With a tired patience you dig out a .+ shot from your heart\.$</string>
 						<string>^Your bleeding slows as you dig out a .+ shot from your heart\.$</string>
 						<string>^Mushrooms seem more appetizing as you dig .+ shot out from your throat\.$</string>
+						<string>^You use Dig Shot \(start (\w+)\).$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
+						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
@@ -7599,7 +7601,8 @@ end
 recklessassume = recklessassume or false
 if ms.class["Summoner"] and #ms.afflictions &gt;= 2 and healing and fcad then send("focus cadmus");fcad = false end
 if matches[2] == "dryblood" then dryblood = false
-elseif matches[2]:find("dystite") or matches[2]:find("cryosite") then send("autocuring domecap 3");send("autocuring toadstool 70", false);toadstool = true
+elseif matches[2]:find("dystite") then send("autocuring domecap 1");send("autocuring toadstool 70", false);toadstool = true
+elseif matches[2]:find("cryosite") then send("autocuring domecap 3");send("autocuring toadstool 70", false);toadstool = true
 elseif matches[2]:find("lethargy") then send("ac unassume lethargy")
 elseif matches[2] == "hemotoxin" and shaman then hemotoxin = false
 	if not shrugcd and healing and (ms.class["Assassin"] or ms.class["Renegade"]) then send("shrug hemotoxin") end
@@ -18015,7 +18018,7 @@ end</script>
 							</Trigger>
 						</TriggerGroup>
 					</TriggerGroup>
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Assassin</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -19571,7 +19574,7 @@ phantomel = ""</script>
 							</regexCodePropertyList>
 						</Trigger>
 					</TriggerGroup>
-					<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Deathknight</name>
 						<script></script>
 						<triggerType>0</triggerType>
@@ -45169,7 +45172,7 @@ moon = true</script>
 					<packageName></packageName>
 					<time>00:00:30.000</time>
 				</Timer>
-				<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 					<name>ghost</name>
 					<script>disableTimer("ghost")
 if healing and ms.class["Assassin"] and ebal and bbal then send("conjure ghost") end</script>
@@ -48242,7 +48245,7 @@ send("queue eqbal siphon haze into shadowcrown")</script>
 								</Alias>
 							</AliasGroup>
 						</AliasGroup>
-						<AliasGroup isActive="yes" isFolder="yes">
+						<AliasGroup isActive="no" isFolder="yes">
 							<name>Assassin</name>
 							<script></script>
 							<command></command>
@@ -48864,7 +48867,7 @@ send("queue eqbal "..quickdraw(ms.save["dirk"], ms.save["shield"]))</script>
 								<regex>^sud (\w+)$</regex>
 							</Alias>
 						</AliasGroup>
-						<AliasGroup isActive="no" isFolder="yes">
+						<AliasGroup isActive="yes" isFolder="yes">
 							<name>Deathknight</name>
 							<script></script>
 							<command></command>
@@ -55671,8 +55674,7 @@ sys("&lt;green&gt;Names of People in Room:") cecho("&lt;SteelBlue&gt;"..table.co
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Check MS Version</name>
-							<script>sys("&lt;DimGrey&gt;Checking MS Version...") cecho("&lt;snow&gt;Please wait...")
-echo("\n\n")
+							<script>sys("&lt;DimGrey&gt;Checking MS Version...") cecho("&lt;snow&gt;Please wait...\n\n")
 tempTimer(2, [[checkMSVersion()]])</script>
 							<command></command>
 							<packageName></packageName>
