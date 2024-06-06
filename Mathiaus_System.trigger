@@ -8931,7 +8931,7 @@ end</script>
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Arrow Shield</name>
-					<script>if healing then send("queue reset eqbal");send("queue eqbal top raisewings") end</script>
+					<script>if healing then expandAlias("shi") end</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -13868,7 +13868,7 @@ goto home")]])</script>
 				</Trigger>
 				<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Doppie</name>
-					<script>if healing then send("queue eqbal top raisewings");send("queue ebal touch shield tattoo") end</script>
+					<script>if healing then expandAlias("shi") end</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -47690,7 +47690,7 @@ end</script>
   	end
   elseif ms.class["Diabolist"] and ebal and bbal then
   	send("stand", false)
-  	if th &lt; shield_th and (not shielded or shielded == nil) then send("queue eqbal raisewings");send("queue eqbal touch shield tattoo")
+  	if th &lt; shield_th and (not shielded or shielded == nil) then expandAlias("shi")
   	elseif healme then expandAlias("dht")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send("wraith recall"..s..""..quickdrawHunt(ms.save["daegger"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
@@ -47708,8 +47708,7 @@ end</script>
   elseif ms.class["Defiler"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["flail"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47719,8 +47718,7 @@ end</script>
   elseif ms.class["Druid"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["quarterstaff"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47730,8 +47728,7 @@ end</script>
   elseif ms.class["Hunter"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47741,8 +47738,7 @@ end</script>
   elseif ms.class["Shaman"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47752,7 +47748,6 @@ end</script>
   elseif ms.class["Priest"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
       send("queue eqbal seraph aura")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["mace"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
@@ -47763,8 +47758,7 @@ end</script>
   elseif ms.class["Berserker"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["longsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47774,8 +47768,7 @@ end</script>
   elseif ms.class["Templar"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47785,8 +47778,7 @@ end</script>
   elseif ms.class["Monk"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47796,8 +47788,7 @@ end</script>
   elseif ms.class["Amazon"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["javelin"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47807,8 +47798,7 @@ end</script>
   elseif ms.class["Ranger"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["glaive"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47818,8 +47808,7 @@ end</script>
   elseif ms.class["Predator"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["sitara"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47829,8 +47818,7 @@ end</script>
   elseif ms.class["Outrider"] and ebal and bbal then
     send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-      send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+      expandAlias("shi")
   	else 
   		if ms.hunt[1] then send("queue reset eqbal", false);send(quickdrawHunt(ms.save["spear"], ms.save["shield"])..""..s.."attack "..ms.hunt[1])
   		if ms.hunt[1] ~= tc and calltarget and bash then tc = ms.hunt[1];send("rt Target "..ms.hunt[1]) end
@@ -47840,8 +47828,7 @@ end</script>
   elseif (ms.class["Assassin"] or ms.class["Renegade"]) and ebal and bbal then
   	send("stand", false)
   	if th &lt; shield_th and (not shielded or shielded == nil) then 
-  		send("queue eqbal raisewings")
-      send("queue eqbal touch shield tattoo")
+  		expandAlias("shi")
   	else 
   		if becloud:find("becloud") then 
   			becloudHunt = "worm attach circular"..s.."worm becloud"
@@ -47857,7 +47844,7 @@ end</script>
   		end
   	end
   elseif ms.class["Deathknight"] and ebal and bbal then
-  	if th &lt; shield_th and (not shielded or shielded == nil) then send("queue eqbal raisewings");send("queue eqbal touch shield tattoo")
+  	if th &lt; shield_th and (not shielded or shielded == nil) then expandAlias("shi")
   	elseif healme then send("vigour")
   	else 
   		if ms.hunt[1] then send(quickdrawHunt(ms.save["broadsword"], ms.save["shield"])..""..s.."attack "..ms.hunt[1]..""..s.."chill "..ms.hunt[1])
@@ -54322,17 +54309,29 @@ send("get handaxe"..s.."get handaxe"..s.."get handaxe")</script>
 		if numbness then 
 		send("queue reset eqbal");send("queue eqbal top "..quickdraw(ms.save["daegger"], ms.save["shield"])..""..s.."trace inversion hammer me")
 		else
-		send("queue reset eqbal");send("queue eqbal top raisewings"..s.."touch shield tattoo")
+      if ms.save["wing_shield"] then
+		    send("queue reset eqbal");send("queue eqbal top raisewings")
+      else
+        send("queue reset eqbal");send("queue eqbal touch shield tattoo")
+      end
 		end	
 	end
 elseif ms.class["Summoner"] then
 	if ulb and arctar and paralysis then
 		send("unleash arctar at me")
 	else
-		send("queue reset eqbal");send("queue eqbal top raisewings"..s.."touch shield tattoo")
+    if ms.save["wing_shield"] then
+	    send("queue reset eqbal");send("queue eqbal top raisewings")
+    else
+      send("queue reset eqbal");send("queue eqbal touch shield tattoo")
+    end
 	end
 else
-	send("queue reset eqbal");send("queue eqbal top raisewings"..s.."touch shield tattoo")
+  if ms.save["wing_shield"] then
+    send("queue reset eqbal");send("queue eqbal top raisewings")
+  else
+    send("queue reset eqbal");send("queue eqbal touch shield tattoo")
+  end
 end</script>
 						<command></command>
 						<packageName></packageName>
@@ -55228,7 +55227,7 @@ msWeapons()</script>
 							<name>Setup</name>
 							<script>sys("&lt;green&gt;MS") cecho("&lt;snow&gt;Initiating setup...")
 registerAnonymousEventHandler("sysDataSendRequest", "msSetup")
-mss = tonumber(0)
+mss = 0
 enableAlias("mss")
 msSetup()</script>
 							<command></command>
@@ -55262,10 +55261,20 @@ send(matches[2], false)
 						</Alias>
 						<Alias isActive="yes" isFolder="no">
 							<name>Set ID</name>
-							<script>ms.save[matches[2]] = matches[3]
-sys("&lt;green&gt;"..matches[2]) cecho("&lt;snow&gt;ID Set to: &lt;yellow&gt;"..matches[3])
-nl()
-</script>
+							<script>local ms_save_keys = table.keys(ms.save)
+if table.contains(ms_save_keys, matches[2]:lower()) then
+  if matches[3] == 'false' then
+    ms.save[matches[2]] = false
+  elseif matches[3] == 'true' then
+    ms.save[matches[2]] = true
+  else
+    ms.save[matches[2]] = matches[3]
+  end
+    sys("&lt;green&gt;"..matches[2]) cecho("&lt;snow&gt;ID Set to: &lt;yellow&gt;"..tostring(matches[3]))
+    nl()
+else
+  sys("&lt;red&gt;Error") cecho(f"&lt;snow&gt;ID &lt;gold&gt;{matches[2]} &lt;snow&gt;Not Found in &lt;yellow&gt;ms.save settings table &lt;DimGrey&gt;[mssave.lua]")
+end</script>
 							<command></command>
 							<packageName></packageName>
 							<regex>^ms set (.+) (\w+)$</regex>
@@ -59090,6 +59099,19 @@ mmp.echo("All astral nodes have been "..(matches[2]:lower()=="on" and "" or "un"
 				</AliasGroup>
 			</AliasGroup>
 		</AliasGroup>
+		<Alias isActive="yes" isFolder="no">
+			<name>Wingshield Toggle</name>
+			<script>if (ms.save["wing_shield"] and not matches[2]) or matches[2] == "off" then
+  ms.save["wing_shield"] = false
+  msEcho("&lt;green&gt;MS Shield Tattoo", "&lt;snow&gt;Shield Tattoo will be used.")
+elseif (not ms.save["wing_shield"] and not matches[2]) or matches[2] == "on" then
+  ms.save["wing_shield"] = true
+  msEcho("&lt;green&gt;MS RaiseWings", "&lt;snow&gt;Raisewings will be used.")
+end</script>
+			<command></command>
+			<packageName></packageName>
+			<regex>^ms wingshield(?: (on|off))?$</regex>
+		</Alias>
 	</AliasPackage>
 	<ActionPackage />
 	<ScriptPackage>
@@ -66601,7 +66623,7 @@ end</script>
   installPackage([[https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger]])
 end
 
-ms.version = "3.6.8"
+ms.version = "3.6.9"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
@@ -67785,6 +67807,7 @@ end
 					<packageName></packageName>
 					<script>function msSaveDefault()
   ms.defaultSave = {
+    wing_shield = false,
     wearing_helm = false,
     death_spider = true,
     ingot_type = "stehl",
@@ -67807,7 +67830,6 @@ end
     clan_abbr = '',
     ring = false,
     arena = false,
-    --
     mwbb = 75,
     mwbl = 480,
     mww = 120,
@@ -68149,12 +68171,36 @@ end
   }
 end
 
+function msUpdateSave(default, current, parentKey)
+  parentKey = parentKey or ""
+  for k, v in pairs(default) do
+    local fullKey = parentKey .. (parentKey ~= "" and "." or "") .. k
+    if type(v) == "table" then
+      if type(current[k] or false) ~= "table" then
+        current[k] = {}
+        sys("&lt;green&gt;MS Updating Save Settings") 
+        cecho("&lt;yellow&gt;"..fullKey.." &lt;snow&gt;was added to mssave.lua settings.")
+      end
+      msUpdateSave(v, current[k], fullKey)
+    else
+      if current[k] == nil then
+        current[k] = v
+        sys("&lt;green&gt;MS Updating Save Settings") 
+        cecho("&lt;yellow&gt;"..fullKey.." &lt;snow&gt;was added to mssave.lua settings.")
+      end
+    end
+  end
+end
+
+
 if io.exists(getMudletHomeDir().."/mssave.lua") then
   ms.save = {}
   table.load(getMudletHomeDir().."/mssave.lua", ms.save)
   msSaveDefault()
   ms.update = ms.save
   ms.save = table.update(ms.defaultSave, ms.update)
+  msUpdateSave(ms.defaultSave, ms.save)
+  table.save(getMudletHomeDir().."/mssave.lua", ms.save)
 else
   ms.save = {}
   msSaveDefault()
@@ -68171,258 +68217,189 @@ end
 				<Script isActive="yes" isFolder="no">
 					<name>MS Setup Event Handlers</name>
 					<packageName></packageName>
-					<script>function msWeapons(_, cmd)
-if cmd and cmd:lower() ~= "none" then
-  if mwi == 2 then 
-	ms.save["longsword"] = cmd
-  elseif mwi == 3 then 
-	ms.save["broadsword"] = cmd
-  elseif mwi == 4 then 
-	ms.save["shortsword"] = cmd
-  elseif mwi == 5 then 
-	ms.save["scimitar"] = cmd
-  elseif mwi == 6 then 
-	ms.save["claymore"] = cmd
-  elseif mwi == 7 then 
-	ms.save["sabre"] = cmd
-  elseif mwi == 8 then 
-	ms.save["battleaxe"] = cmd
-  elseif mwi == 9 then 
-	ms.save["handaxe"] = cmd
-  elseif mwi == 10 then 
-	ms.save["club"] = cmd
-  elseif mwi == 11 then 
-	ms.save["dagger"] = cmd
-  elseif mwi == 12 then 
-	ms.save["dirk"] = cmd
-  elseif mwi == 13 then 
-	ms.save["flail"] = cmd
-  elseif mwi == 14 then 
-	ms.save["mace"] = cmd
-  elseif mwi == 15 then 
-	ms.save["javelin"] = cmd
-  elseif mwi == 16 then 
-	ms.save["glaive"] = cmd
-  elseif mwi == 17 then 
-	ms.save["halberd"] = cmd
-  elseif mwi == 18 then 
-	ms.save["morning star"] = cmd
-  elseif mwi == 19 then 
-	ms.save["spear"] = cmd
-  elseif mwi == 20 then 
-	ms.save["warhammer"] = cmd
-  elseif mwi == 21 then 
-	ms.save["trident"] = cmd
-  elseif mwi == 22 then 
-	ms.save["whip"] = cmd
-  elseif mwi == 23 then 
-	ms.save["bardiche"] = cmd
-  elseif mwi == 24 then 
-	ms.save["daegger"] = cmd
-  elseif mwi == 25 then 
-	ms.save["quarterstaff"] = cmd
-  elseif mwi == 26 then 
-	ms.save["shield"] = cmd
-  elseif mwi == 27 then
-  ms.save["bow"] = cmd
-  end
-end
-    if mwi == 1 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;longsword &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-    elseif mwi == 2 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;broadsword &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 3 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;shortsword &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 4 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;scimitar &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 5 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;claymore &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 6 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;sabre &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 7 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;battleaxe &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 8 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;handaxe &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 9 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;club &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 10 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;dagger &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 11 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;dirk &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 12 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;flail &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 13 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;mace &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 14 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;javelin &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 15 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;glaive &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 16 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;halberd &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 17 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;morning star &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 18 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;spear &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 19 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;warhammer &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 20 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;trident &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 21 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;whip &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 22 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;bardiche &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 23 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;daegger &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 24 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;quarterstaff &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-  	elseif mwi == 25 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;shield &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-    elseif mwi == 26 then
-        sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;Type the &lt;cyan&gt;bow &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ")
-    elseif mwi &gt; 26 then
-      sys("&lt;green&gt;Setup - Weapons") cecho("&lt;snow&gt;All weapons set!")
-        sys("&lt;green&gt;MS") cecho("Saving Settings...")
-        table.save(getMudletHomeDir().."/mssave.lua", ms.save)
-        sys("&lt;green&gt;MS") cecho("&lt;green&gt;Successfully Saved!\n")
+					<script>local weapons = {
+    "longsword", "broadsword", "shortsword", "scimitar", "claymore", "sabre", "battleaxe", "handaxe",
+    "club", "dagger", "dirk", "flail", "mace", "javelin", "glaive", "halberd", "morning star", "spear",
+    "warhammer", "trident", "whip", "bardiche", "daegger", "quarterstaff", "shield", "bow"
+}
+
+function msWeapons(_, cmd)
+    if cmd and cmd:lower() ~= "none" then
+        local weapon = weapons[mwi - 1]
+        if weapon then
+            ms.save[weapon] = cmd
+        end
     end
-    if mwi &lt; 27 then
-      denyCurrentSend()
-      mwi = mwi + 1
+
+    if mwi &lt;= #weapons then
+        local weapon = weapons[mwi - 1]
+        if weapon then
+            sys("&lt;green&gt;Setup - Weapons")
+            cecho(string.format("&lt;snow&gt;Type the &lt;cyan&gt;%s &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ", weapon))
+        end
     else
-      denyCurrentSend()
-      mwi = nil
-      disableAlias("msw")
-      if mssHold &gt; 0 then
-        mss = mssHold
-        mssHold = tonumber(0) 
-        enableAlias("mss") 
-      end
-    killAnonymousEventHandler("msWeapons")
-    end   
+        sys("&lt;green&gt;Setup - Weapons")
+        cecho("&lt;snow&gt;All weapons set!")
+        sys("&lt;green&gt;MS")
+        cecho("Saving Settings...")
+        table.save(getMudletHomeDir().."/mssave.lua", ms.save)
+        sys("&lt;green&gt;MS")
+        cecho("&lt;green&gt;Successfully Saved!\n")
+    end
+
+    if mwi &lt;= #weapons then
+        denyCurrentSend()
+        mwi = mwi + 1
+    else
+        denyCurrentSend()
+        mwi = nil
+        disableAlias("msw")
+        if mssHold &gt; 0 then
+            mss = mssHold
+            mssHold = tonumber(0)
+            enableAlias("mss")
+        end
+        killAnonymousEventHandler("msWeapons")
+    end
 end
 
 function msSetup(_, cmd)
-  if mss == 1 and (cmd:lower() == "yes" or cmd:lower() == "no") then
-    mss = mss + 1
-    if cmd:lower() == "yes" then
-      ms.save["defMe"] = true
-      sys("&lt;green&gt;ms defMe") cecho("&lt;snow&gt;Auto-applying defences\n")
-    elseif cmd:lower() == "no" then
-      ms.save["defMe"] = false
-      sys("&lt;red&gt;ms defMe") cecho("&lt;snow&gt;Disabled auto-applying defences\n")
+    -- Setup Command Validation
+    if mss == 1 and (cmd:lower() == "yes" or cmd:lower() == "no") then
+        mss = mss + 1
+        if cmd:lower() == "yes" then
+            ms.save["defMe"] = true
+            sys("&lt;green&gt;ms defMe") cecho("&lt;snow&gt;Auto-applying defences\n")
+        elseif cmd:lower() == "no" then
+            ms.save["defMe"] = false
+            sys("&lt;red&gt;ms defMe") cecho("&lt;snow&gt;Disabled auto-applying defences\n")
+        end
+    elseif mss == 3 and cmd:lower() == "continue" then
+        mss = mss + 1
+    elseif mss == 4 then
+        if cmd:lower() == 'none' then
+            ms.save["clan_abbr"] = ''
+            sys("&lt;green&gt;Affliction Clan") cecho("&lt;snow&gt;Clan set to default\n")
+            mss = mss + 1
+        else
+            ms.save["clan_abbr"] = tostring(cmd)
+            sys("&lt;green&gt;Affliction Clan") cecho("&lt;snow&gt;Clan set to: &lt;yellow&gt;"..cmd.."\n")
+            mss = mss + 1
+        end
+    elseif mss == 6 and (cmd:lower() == "yes" or cmd:lower() == "no") then
+        mss = mss + 1
+        if cmd:lower() == "yes" then
+            ms.save["quickdraw"] = true
+            sys("&lt;green&gt;MS Quickdraw") cecho("&lt;yellow&gt;Quickdraw &lt;snow&gt;will be used\n")
+        elseif cmd:lower() == "no" then
+            ms.save["quickdraw"] = false
+            sys("&lt;red&gt;MS Quickdraw") cecho("&lt;yellow&gt;Regular wielding &lt;snow&gt;will be used\n")
+        end
+    elseif mss == 8 and (cmd:lower() == "yes" or cmd:lower() == "no") then
+        mss = mss + 1
+        if cmd:lower() == "yes" then
+            ms.save["parry"] = true
+            sys("&lt;green&gt;MS Parry") cecho("&lt;yellow&gt;Parry &lt;snow&gt;will be used\n")
+        elseif cmd:lower() == "no" then
+            ms.save["parry"] = false
+            sys("&lt;red&gt;MS Parry") cecho("&lt;yellow&gt;Parry &lt;red&gt;will NOT be used\n")
+        end
+    elseif mss == 10 and (cmd:lower() == "yes" or cmd:lower() == "no") then
+        mss = mss + 1
+        if cmd:lower() == "yes" then
+            ms.save["kipup"] = "kipup"
+            sys("&lt;green&gt;MS Kipup") cecho("&lt;yellow&gt;Kipup &lt;snow&gt;will be used\n")
+        elseif cmd:lower() == "no" then
+            ms.save["kipup"] = "stand"
+            sys("&lt;red&gt;MS Stand") cecho("&lt;yellow&gt;Stand &lt;snow&gt;will be used\n")
+        end    
+    elseif mss == 12 and (cmd:lower() == "yes" or cmd:lower() == "no") then
+        mss = mss + 1
+        if cmd:lower() == "yes" then
+            ms.save["ta"] = true
+            sys("&lt;green&gt;MS Kipup") cecho("&lt;yellow&gt;Trueassess &lt;snow&gt;will be used\n")
+        elseif cmd:lower() == "no" then
+            ms.save["ta"] = false
+            sys("&lt;red&gt;MS Stand") cecho("&lt;yellow&gt;Truessess &lt;red&gt;will not be used\n")
+        end   
+    elseif mss == 14 and (cmd:lower() == "yes" or cmd:lower() == "no") then
+        mss = mss + 1
+        if cmd:lower() == "yes" then
+            ms.save["wing_shield"] = true
+            sys("&lt;green&gt;MS Shield") cecho("&lt;yellow&gt;Wings &lt;snow&gt;will be used for shielding\n")
+        elseif cmd:lower() == "no" then
+            ms.save["wing_shield"] = false
+            sys("&lt;red&gt;MS Shield") cecho("&lt;yellow&gt;Shield Tattoo &lt;snow&gt;will be used for shielding\n")
+        end   
+    elseif mss == 16 and (cmd:lower() == "skip") then
+        s = tostring(ms.save["separator"])
+        sys("&lt;green&gt;Separator") cecho("&lt;snow&gt;Set to: &lt;yellow&gt;"..tostring(s).."\n")
+        mss = mss + 1
+    elseif mss == 16 and (cmd:lower() ~= "skip") then
+        ms.save["separator"] = tostring(cmd)
+        s = tostring(ms.save["separator"])
+        sys("&lt;green&gt;Separator") cecho("&lt;snow&gt;Set to: &lt;yellow&gt;"..tostring(cmd).."\n")
+        mss = mss + 1
+    elseif mss == 18 and cmd:lower() == "finish" then
+        mss = mss + 1
+    elseif mss &gt; 0 then
+        sys("&lt;red&gt;Error") cecho("&lt;snow&gt;Incorrect Command\n")
+        mss = mss - 1
     end
-  elseif mss == 3 and cmd:lower() == "continue" then
-    mss = mss + 1
-  elseif mss == 4 then
-    if cmd:lower() == 'none' then
-      ms.save["clan_abbr"] = ''
-      sys("&lt;green&gt;Affliction Clan") cecho("&lt;snow&gt;Clan set to default\n")
-      mss = mss + 1
-    else
-      ms.save["clan_abbr"] = tostring(cmd)
-      sys("&lt;green&gt;Affliction Clan") cecho("&lt;snow&gt;Clan set to: &lt;yellow&gt;"..cmd.."\n")
-      mss = mss + 1
-    end
-  elseif mss == 6 and (cmd:lower() == "yes" or cmd:lower() == "no") then
-    mss = mss + 1
-    if cmd:lower() == "yes" then
-      ms.save["quickdraw"] = true
-      sys("&lt;green&gt;MS Quickdraw") cecho("&lt;yellow&gt;Quickdraw &lt;snow&gt;will be used\n")
-    elseif cmd:lower() == "no" then
-      ms.save["quickdraw"] = false
-      sys("&lt;red&gt;MS Quickdraw") cecho("&lt;yellow&gt;Regular wielding &lt;snow&gt;will be used\n")
-    end
-  elseif mss == 8 and (cmd:lower() == "yes" or cmd:lower() == "no") then
-    mss = mss + 1
-    if cmd:lower() == "yes" then
-      ms.save["parry"] = true
-      sys("&lt;green&gt;MS Parry") cecho("&lt;yellow&gt;Parry &lt;snow&gt;will be used\n")
-    elseif cmd:lower() == "no" then
-      ms.save["parry"] = false
-      sys("&lt;red&gt;MS Parry") cecho("&lt;yellow&gt;Parry &lt;red&gt;will NOT be used\n")
-    end
-  elseif mss == 10 and (cmd:lower() == "yes" or cmd:lower() == "no") then
-    mss = mss + 1
-    if cmd:lower() == "yes" then
-      ms.save["kipup"] = "kipup"
-      sys("&lt;green&gt;MS Kipup") cecho("&lt;yellow&gt;Kipup &lt;snow&gt;will be used\n")
-    elseif cmd:lower() == "no" then
-      ms.save["kipup"] = "stand"
-      sys("&lt;red&gt;MS Stand") cecho("&lt;yellow&gt;Stand &lt;snow&gt;will be used\n")
-    end    
-  elseif mss == 12 and (cmd:lower() == "yes" or cmd:lower() == "no") then
-    mss = mss + 1
-    if cmd:lower() == "yes" then
-      ms.save["ta"] = true
-      sys("&lt;green&gt;MS Kipup") cecho("&lt;yellow&gt;Trueassess &lt;snow&gt;will be used\n")
-    elseif cmd:lower() == "no" then
-      ms.save["ta"] = false
-      sys("&lt;red&gt;MS Stand") cecho("&lt;yellow&gt;Truessess &lt;red&gt;will not be used\n")
-    end   
-  elseif mss == 14 then
-    ms.save["separator"] = tostring(cmd)
-    s = ms.save["separator"]
-    sys("&lt;green&gt;Separator") cecho("&lt;snow&gt;Set to: &lt;yellow&gt;"..cmd.."\n")
-    mss = mss + 1
-  elseif mss == 16 and cmd:lower() == "finish" then
-    mss = mss + 1
-  elseif mss &gt; 0 then
-    sys("&lt;red&gt;Error") cecho("&lt;snow&gt;Incorrect Command\n")
-    mss = mss - 1
-  end
+    -- Setup Text
     if mss == 0 then
-      sys("&lt;green&gt;Setup - Settings") cecho("Do you want to allow MS to auto apply defences? (yes/no): ")
-      mss = mss + 1
+        sys("&lt;green&gt;Setup - Settings") cecho("Do you want to allow MS to auto apply defences? (yes/no): ")
+        mss = mss + 1
     elseif mss == 2 and ms.save["defMe"] then
-      sys("&lt;green&gt;Setup - Settings") cecho("Check &lt;green&gt;ms defs &lt;snow&gt;and toggle defences on\/off with &lt;green&gt;ms def \&lt;def_name\&gt;")
-      sys("&lt;green&gt;Setup - Settings") cecho("Type &lt;yellow&gt;continue &lt;snow&gt;when finished with defences")
-      mss = mss + 1
+        sys("&lt;green&gt;Setup - Settings") cecho("Check &lt;green&gt;ms defs &lt;snow&gt;and toggle defences on\/off with &lt;green&gt;ms def \&lt;def_name\&gt;")
+        sys("&lt;green&gt;Setup - Settings") cecho("Type &lt;yellow&gt;continue &lt;snow&gt;when finished with defences")
+        mss = mss + 1
     elseif mss == 4 or (mss == 2 and not ms.save["defMe"]) then
-      sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;clan name &lt;snow&gt;to call afflictions. Default to using &lt;DimGray&gt;none &lt;snow&gt;if you don't have any: ")
-      if not ms.save["defMe"] then mss = mss + 2 end
+        sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;clan name &lt;snow&gt;to call afflictions. Default to using &lt;DimGray&gt;none &lt;snow&gt;if you don't have any: ")
+        if not ms.save["defMe"] then mss = mss + 2 end
     elseif mss == 5 then
-      sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Quickdraw&lt;snow&gt; in Weaponry? (yes/no): ")
-      mss = mss + 1
+        sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Quickdraw&lt;snow&gt; in Weaponry? (yes/no): ")
+        mss = mss + 1
     elseif mss == 7 then
-      sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Parry&lt;snow&gt; in Weaponry? (yes/no): ")
-      mss = mss + 1
+        sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Parry&lt;snow&gt; in Weaponry? (yes/no): ")
+        mss = mss + 1
     elseif mss == 9 then
-      sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Kipup&lt;snow&gt;? (yes/no): ")
-      mss = mss + 1  
+        sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Kipup&lt;snow&gt;? (yes/no): ")
+        mss = mss + 1  
     elseif mss == 11 then
-      sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Trueassess&lt;snow&gt; in Perception? (yes/no): ")
-      mss = mss + 1      
+        sys("&lt;green&gt;Setup - Settings") cecho("Do you have the skill &lt;yellow&gt;Trueassess&lt;snow&gt; in Perception? (yes/no): ")
+        mss = mss + 1      
     elseif mss == 13 then
-      sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;separator &lt;snow&gt;to use between actions. Default to use &lt;DimGray&gt;:: &lt;snow&gt;if not custom.: ")
-      mss = mss + 1    
+        sys("&lt;green&gt;Setup - Settings") cecho("Do you want to use &lt;yellow&gt;raisewings &lt;snow&gt;for in shielding? (yes/no): ")
+        mss = mss + 1  
     elseif mss == 15 then
-      sys("&lt;green&gt;Setup - Settings") cecho("Check &lt;green&gt;ms combat&lt;snow&gt; and set your weapon ID's: ")
-      sys("&lt;green&gt;Setup - Settings") cecho("Type &lt;yellow&gt;finish &lt;snow&gt;when finished with weapon ID's")
-      mss = mss + 1
-    elseif mss &gt; 16 then
-      sys("&lt;green&gt;Setup - Settings") cecho("&lt;snow&gt;Setup Finished! You're all set!\n")
-      sys("&lt;green&gt;MS") cecho(f"In order for MS to work, &lt;yellow&gt;CONFIG COMBATMESSAGE BRIEF &lt;snow&gt;is toggled on. You may use &lt;yellow&gt;FULL &lt;snow&gt;as well.")
-      sys("&lt;green&gt;MS") cecho(f"Check out &lt;green&gt;ms allies &lt;snow&gt;to see how to modify your allies list.")
-      sys("&lt;green&gt;MS") cecho(f"Check out &lt;green&gt;ms {gmcp.Char.Status.prof:lower()} &lt;snow&gt;to study the functions of your profession. Happy hunting!")
+        sys("&lt;green&gt;Setup - Settings") cecho("Type the &lt;cyan&gt;separator &lt;snow&gt;to use between actions. Default to use &lt;DimGray&gt;"..tostring(ms.save["separator"]).." &lt;snow&gt;if you type &lt;cyan&gt;skip&lt;snow&gt;.: ")
+        mss = mss + 1    
+    elseif mss == 17 then
+        sys("&lt;green&gt;Setup - Settings") cecho("Check &lt;green&gt;ms combat&lt;snow&gt; and set your weapon ID's: ")
+        sys("&lt;green&gt;Setup - Settings") cecho("Type &lt;yellow&gt;finish &lt;snow&gt;when finished with weapon ID's")
+        mss = mss + 1
+    elseif mss &gt; 18 then
+        sys("&lt;green&gt;Setup - Settings") cecho("&lt;snow&gt;Setup Finished! You're all set!\n")
+        sys("&lt;green&gt;MS") cecho("In order for MS to work, &lt;yellow&gt;CONFIG COMBATMESSAGE BRIEF &lt;snow&gt;is toggled on. You may use &lt;yellow&gt;FULL &lt;snow&gt;as well.")
+        sys("&lt;green&gt;MS") cecho("Check out &lt;green&gt;ms allies &lt;snow&gt;to see how to modify your allies list.")
+        sys("&lt;green&gt;MS") cecho("Check out &lt;green&gt;ms {gmcp.Char.Status.prof:lower()} &lt;snow&gt;to study the functions of your profession. Happy hunting!")
         sys("&lt;green&gt;MS") cecho("Saving Settings...")
         table.save(getMudletHomeDir().."/mssave.lua", ms.save)
         sys("&lt;green&gt;MS") cecho("&lt;green&gt;Successfully Saved!\n")
     end
-    if mss &lt; 17 then
-      denyCurrentSend()
+    if mss &lt; 18 then
+        denyCurrentSend()
     else
-      denyCurrentSend()
-      mss = nil
-      disableAlias("mss")
-      send("config combatmessage brief", false)
-      send("config separator "..ms.save["separator"], false)
-      send("config GMCPVitalsAdvanced on", false)
-    killAnonymousEventHandler("msSetup")
+        denyCurrentSend()
+        mss = nil
+        disableAlias("mss")
+        send("config combatmessage brief", false)
+        send("config separator "..ms.save["separator"], false)
+        send("config GMCPVitalsAdvanced on", false)
+        killAnonymousEventHandler("msSetup")
     end
-end
-
-
-</script>
+end</script>
 					<eventHandlerList />
 				</Script>
 				<ScriptGroup isActive="yes" isFolder="yes">
