@@ -67797,7 +67797,7 @@ end)
   installPackage([[https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger]])
 end
 
-ms.version = "4.0.0"
+ms.version = "4.0.1"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
