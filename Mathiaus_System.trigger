@@ -61956,11 +61956,17 @@ end</script>
 									<name>Install Updated MS</name>
 									<packageName></packageName>
 									<script>function installMS()
-  uninstallPackage("Mathiaus_System")
-  installPackage([[https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger]])
+  -- Deferred via temp timer: temp timers belong to the profile, not the
+  -- package, so this code survives uninstallPackage instead of being
+  -- destroyed mid-execution (which crashes Mudlet).
+  sys("Mathiaus' System") cecho("Reinstalling MS in 2 seconds...")
+  tempTimer(2, function()
+    uninstallPackage("Mathiaus_System")
+    installPackage("https://raw.githubusercontent.com/SMTemple/Mathiaus_System/main/Mathiaus_System.trigger")
+  end)
 end
 
-ms.version = "4.0.1"
+ms.version = "4.1.0"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
