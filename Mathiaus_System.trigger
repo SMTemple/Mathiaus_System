@@ -49469,7 +49469,7 @@ end</script>
 end</script>
 											<command></command>
 											<packageName></packageName>
-											<regex>^wag$</regex>
+											<regex>^(wag|gaf)$</regex>
 										</Alias>
 										<Alias isActive="yes" isFolder="no">
 											<name>Block</name>
@@ -61011,6 +61011,9 @@ ms.outrider.affs = {}
 									<name>Hunter</name>
 									<packageName></packageName>
 									<script>ms.hunter = {}
+-- Bloodpoison cycle (aff route): open with this many stacks, then land
+-- hemotoxin + asthma, then toxicshock and stack to 4 for rupture.
+ms.hunter.bpOpen = 2
 ms.hunter.affs = {}
 ms.hunter.triggers = {}
 ms.hunter.triggerAffs = {}
@@ -61045,6 +61048,12 @@ function anorexiaBatCheck()
   else
     return false
   end
+end
+
+-- True once the support affs for the bloodpoison cycle are on the target.
+-- pbob (target recently used Purge Blood) stands in for hemotoxin, as elsewhere.
+function hunterBpSupport()
+  return (ms.afflicted["hemotoxin"] == "aff" or pbob) and ms.afflicted["asthma"] == "aff"
 end
 
 function checkTriggers()
@@ -61211,10 +61220,25 @@ function weaverAtk()
     wAtk = ""..ms.save["hunter_form"].." icebreath "..target 
   elseif (frostheart or tlock) and not caloric and ms.afflicted["shivering"] == "notaff" and ms.afflicted["frozen"] == "notaff" and ice &gt;= 40 then
     wAtk = ""..ms.save["hunter_form"].." frostbite "..target
-  elseif not shocked and not dblCrips and bp &gt;= 2 then
-    wAtk = "sting "..target.." shock"
-  elseif not dblCrips and (bp &gt;= 3 or (bp &gt;= 2 and (not shockUsed and shocked)) or (tlock and ms.afflicted["cyanide"] == "aff")) then
+  -- Bloodpoison cycle. Rupture at 4 stacks is handled by the bp &gt;= 4 branch above.
+  elseif not dblCrips and bp &lt; ms.hunter.bpOpen then
+    -- 1) open with bpOpen stacks
     wAtk = "sting "..target.." bloodpoison"
+  elseif not dblCrips and not hunterBpSupport() and not (shocked and not shockUsed) then
+    -- 2) land hemotoxin, then asthma, before committing to the rest of the stack
+    if ms.afflicted["hemotoxin"] == "notaff" and not pbob then
+      wAtk = ""..ms.save["hunter_form"].." claw "..target.." hemotoxin"
+    else
+      wAtk = ""..ms.save["hunter_form"].." claw "..target.." mercury"
+    end
+  elseif not shocked and not dblCrips then
+    -- 3) toxicshock so the next bloodpoison counts double
+    wAtk = "sting "..target.." shock"
+  elseif not dblCrips then
+    -- 4) keep stacking to 4
+    wAtk = "sting "..target.." bloodpoison"
+  -- The branches below are bypassed while the cycle above runs (every bp value
+  -- is covered when not double-crippled); kept so the cycle is easy to rebalance.
   elseif not dblCrips and ms.afflicted["stupidity"] == "notaff" and ms.hunter.triggers["stupidity"] and ms.afflicted["impatience"] == "notaff" and not deadened and ((shocked and shockUsed) or (not shocked and not shockUsed)) then
     wAtk = "sting "..target.." deaden"
   elseif not dblCrips and ms.afflicted["nausea"] == "notaff" and not diseased and (ms.afflicted["hemotoxin"] == "notaff" and not pbob) and ((shocked and shockUsed) or (not shocked and not shockUsed)) then
@@ -61456,7 +61480,7 @@ function batAtk()
       end--instability/insanity check    
     elseif not instability and not insanity and ms.afflicted["numbness"] == "notaff" and ms.afflicted["paralysis"] == "notaff" and not table.contains(ms.hunter.triggerAffs, "insanity") then
       bAtk = "bat instability "..target
-      if not dblCrips and not shield and bp &lt; 4 and not bm and acount &lt; 3 then
+      if not dblCrips and not shield and bp &lt; 4 and not bm and acount &lt; 3 and (bp &lt; ms.hunter.bpOpen or (hunterBpSupport() and shocked)) then
         wAtk = "sting "..target.. " bloodpoison"
       end
     elseif ice &lt; 50 then
@@ -61966,7 +61990,7 @@ end</script>
   end)
 end
 
-ms.version = "4.1.0"
+ms.version = "4.2.0"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
