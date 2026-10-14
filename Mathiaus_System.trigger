@@ -56881,6 +56881,11 @@ elseif ms.class["Druid"] then expandAlias("afflict")
 elseif ms.class["Defiler"] then expandAlias("raf")
 elseif ms.class["Mage"] then expandAlias("wdmg")
 elseif ms.class["Shaman"] then expandAlias("afflict")
+elseif ms.class["Runeguard"] then
+  if matches[2] then expandAlias("sl") else expandAlias("dmg") end
+elseif ms.class["Berserker"] then
+  -- "aff" is caught directly by the Berserker class alias ^(aff|dmg)$; only route "af" here
+  if not matches[2] then expandAlias("dmg") end
 elseif ms.class["Outrider"] then
   if matches[2] then
       expandAlias("oaff")
@@ -60894,6 +60899,18 @@ if healing and (pta or autoKill or force) then
           else
             expandAlias("oaf")
           end
+    elseif ms.class["Berserker"] then
+      if ms.save["dmg"] or dmg then
+        expandAlias("dmg")
+      elseif ms.save["solo"] or afflict then
+        expandAlias("aff")
+      end
+    elseif ms.class["Priest"] then
+      if ms.save["group"] or ms.save["dmg"] or dmg then
+        expandAlias("dmg")
+      elseif ms.save["solo"] or afflict then
+        expandAlias("afflict")
+      end
     end
   pta = false
 end--healing
@@ -69644,7 +69661,7 @@ end
   end)
 end
 
-ms.version = "4.3.0"
+ms.version = "4.3.1"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
