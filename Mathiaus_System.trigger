@@ -16498,6 +16498,7 @@ callout("Frostheart", matches[2])
 									<name>Outrider Def Hypothermia</name>
 									<script>local lv = {mild = 1, moderate = 2, severe = 3, intense = 4}
 ms.outrider.myHypo = lv[matches[2]]
+if msCureGroup then msCureGroup("cold") end
 if ms.outrider.myHypo &gt;= 3 then
   fecho("SHATTER", "HYPOTHERMIA", matches[2])
   callout("Shatter threat", "hypothermia "..matches[2])
@@ -57337,6 +57338,8 @@ elseif matches[2]:lower() == "load" then
   sys("&lt;green&gt;MS") cecho("&lt;green&gt;Loading Successful!\n")
 elseif matches[2]:lower() == "smithing" then
   helpSmithing()
+elseif matches[2]:lower() == "curing" then
+  msCuringStatus()
 else
   sys("&lt;DimGray&gt;MS Command") cecho("&lt;DimGray&gt;"..matches[2])
 end
@@ -57347,6 +57350,26 @@ end</script>
 								<command></command>
 								<packageName></packageName>
 								<regex>^ms(?: (\w+))?$</regex>
+							</Alias>
+							<Alias isActive="yes" isFolder="no">
+								<name>MS Curing</name>
+								<script>local a = matches[2]:lower()
+if a == "setup" then
+  msCuringSetup()
+elseif a == "on" or a == "off" then
+  ms.save["curegroups"] = (a == "on")
+  table.save(getMudletHomeDir() .. "/mssave.lua", ms.save)
+  sys("&lt;green&gt;MS Curing") cecho("&lt;snow&gt;Auto-swap " .. (a == "on" and "&lt;green&gt;on" or "&lt;red&gt;off"))
+elseif a == "status" then
+  msCuringStatus()
+elseif a == "main" or ms.curing.groups[a] then
+  msCureGroup(a, true)
+else
+  sys("&lt;red&gt;MS Curing") cecho("&lt;snow&gt;Unknown option &lt;yellow&gt;" .. a .. "&lt;snow&gt;. Try ms curing setup, on, off, status, or a stack: main, lock, bleed, limbs, cold")
+end</script>
+								<command></command>
+								<packageName></packageName>
+								<regex>^ms curing (\w+)$</regex>
 							</Alias>
 							<AliasGroup isActive="yes" isFolder="yes">
 								<name>MS Functions</name>
@@ -60282,6 +60305,7 @@ function chkp()
         elseif ptab[2]:find("Bard") then bard = true
         elseif ptab[2]:find("Priest") then priest = true
         end
+        if msCureForClass and ptab[2] and ms.class[ptab[2]] ~= nil then msCureForClass(ptab[2]) end
           if priest and aph then expandAlias("aph")
           elseif not aph then expandAlias("aph")
           end
@@ -60915,6 +60939,80 @@ if healing and (pta or autoKill or force) then
   pta = false
 end--healing
 end--forceAtk</script>
+								<eventHandlerList />
+							</Script>
+							<Script isActive="yes" isFolder="no">
+								<name>Autocuring Groups</name>
+								<packageName></packageName>
+								<script>-- Autocuring priority stacks (MS 4.3.2).
+-- Built from Imperian's official Fight Club logs: afflictions present at 841 deaths and the
+-- autocuring settings the strongest fighters used. Commands per HELP AUTOCURING (19.5).
+-- ms curing setup  creates the stacks in game (AUTOCURING GROUP SAVE), once.
+-- After that, targeting someone loads the stack for their class (AUTOCURING GROUP LOAD).
+ms.curing = ms.curing or {}
+ms.curing.current = ms.curing.current or ""
+ms.curing.order = {"main", "lock", "bleed", "limbs", "cold"}
+ms.curing.main = {{"aeon", 1}, {"anorexia", 1}, {"asthma", 1}, {"cyanide", 1}, {"impatience", 1}, {"intense hypothermia", 1}, {"metrazol", 1}, {"mild hypothermia", 1}, {"moderate hypothermia", 1}, {"paralysis", 1}, {"peace", 1}, {"poisoned blood", 1}, {"prone", 1}, {"severe hypothermia", 1}, {"slickness", 1}, {"stupidity", 1}, {"addiction", 2}, {"butisol", 2}, {"confusion", 2}, {"dryblood", 2}, {"entropy", 2}, {"gutwyrm", 2}, {"hemotoxin", 2}, {"justice", 2}, {"numbness", 2}, {"recklessness", 2}, {"slow balance", 2}, {"slow equilibrium", 2}, {"clumsiness", 3}, {"haemophilia", 3}, {"lethargy", 3}, {"nausea", 3}, {"recurring freezing", 3}, {"sunallergy", 3}, {"weariness", 3}, {"broken back", 4}, {"healthleech", 4}, {"hooked", 4}, {"jinxed", 4}, {"sensitivity", 4}, {"slow elixirs", 4}, {"slow herbs", 4}, {"transfixed", 4}, {"crippled left arm", 5}, {"crippled right arm", 5}, {"calotropis", 6}, {"concussion", 6}, {"disruption", 6}, {"hallucinations", 6}, {"hypochondria", 6}, {"ineptitude", 6}, {"masochism", 6}, {"sprained back", 6}, {"ablaze", 7}, {"burning", 7}, {"crushed", 7}, {"damaged head", 7}, {"damaged left leg", 8}, {"damaged right leg", 8}, {"heroism", 8}, {"laboured breathing", 8}, {"mangled left leg", 8}, {"mangled right leg", 8}, {"shivering", 8}, {"taint attunement", 8}, {"crippled left leg", 9}, {"crippled right leg", 9}, {"damaged torso", 9}, {"frozen", 9}, {"mangled torso", 9}, {"aqualite shot level 1", 10}, {"aqualite shot level 2", 10}, {"aqualite shot level 3", 10}, {"burning nerves", 10}, {"chlorite shot level 1", 10}, {"chlorite shot level 2", 10}, {"chlorite shot level 3", 10}, {"cryosite shot level 1", 10}, {"cryosite shot level 2", 10}, {"cryosite shot level 3", 10}, {"dystite shot level 1", 10}, {"dystite shot level 2", 10}, {"dystite shot level 3", 10}, {"ephrite shot level 1", 10}, {"ephrite shot level 2", 10}, {"ephrite shot level 3", 10}, {"frostbite", 10}, {"glycerite shot level 1", 10}, {"glycerite shot level 2", 10}, {"glycerite shot level 3", 10}, {"hellsight", 10}, {"hydroite shot level 1", 10}, {"hydroite shot level 2", 10}, {"hydroite shot level 3", 10}, {"incendite shot level 1", 10}, {"incendite shot level 2", 10}, {"incendite shot level 3", 10}, {"ironite shot level 1", 10}, {"ironite shot level 2", 10}, {"ironite shot level 3", 10}, {"manaleech", 10}, {"methite shot level 1", 10}, {"methite shot level 2", 10}, {"methite shot level 3", 10}, {"neuroite shot level 1", 10}, {"neuroite shot level 2", 10}, {"neuroite shot level 3", 10}, {"phosphorite shot level 1", 10}, {"phosphorite shot level 2", 10}, {"phosphorite shot level 3", 10}, {"psiloite shot level 1", 10}, {"psiloite shot level 2", 10}, {"psiloite shot level 3", 10}, {"bound", 11}, {"choked by a root", 11}, {"entangled", 11}, {"entangled by net", 11}, {"impaled", 11}, {"impaled by bolt", 11}, {"impaled by soulspear", 11}, {"pinned by arrow", 11}, {"pinned by dart", 11}, {"pinned by lance", 11}, {"webbed", 11}, {"madness", 13}, {"penance", 13}, {"poisoned mind", 13}, {"sulfonal", 13}, {"withered throat", 13}, {"damaged left arm", 15}, {"damaged right arm", 15}, {"disloyalty", 15}, {"ignorance", 15}, {"mangled left arm", 15}, {"mangled right arm", 15}, {"pacifism", 15}, {"blackblood", 16}, {"rigidity", 16}, {"carved rune", 17}, {"deadening", 17}, {"disfigurement", 17}, {"epilepsy", 17}, {"hypersomnia", 17}, {"scars", 17}, {"bloodtears", 18}, {"fear", 18}, {"shyness", 18}, {"actinium", 19}, {"agoraphobia", 19}, {"claustrophobia", 19}, {"dementia", 19}, {"dizziness", 19}, {"loneliness", 19}, {"paranoia", 19}, {"vertigo", 19}, {"generosity", 20}, {"stuttering", 20}}
+ms.curing.groups = {
+  lock = {{"hemotoxin", 1}, {"sensitivity", 3}, {"haemophilia", 5}},
+  bleed = {{"dryblood", 1}, {"haemophilia", 1}, {"healthleech", 3}, {"hemotoxin", 3}},
+  limbs = {{"broken back", 1}, {"impaled", 1}, {"crippled left arm", 2}, {"crippled right arm", 2}, {"pinned by arrow", 2}, {"sprained back", 2}, {"mangled left leg", 3}, {"mangled right leg", 3}, {"crippled left leg", 4}, {"crippled right leg", 4}},
+  cold = {{"frozen", 1}, {"shivering", 1}, {"frostbite", 2}, {"recurring freezing", 2}},
+}
+ms.curing.byClass = {
+  Assassin = "lock", Renegade = "lock", Hunter = "lock", Diabolist = "lock", Predator = "lock",
+  Deathknight = "bleed", Templar = "bleed", Runeguard = "bleed", Outrider = "bleed",
+  Monk = "limbs", Ranger = "limbs", Amazon = "limbs",
+}
+
+function msCuringSetup()
+  local cmds = {}
+  for _, p in ipairs(ms.curing.main) do cmds[#cmds + 1] = "autocuring priority " .. p[1] .. " " .. p[2] end
+  cmds[#cmds + 1] = "autocuring group save main"
+  for _, name in ipairs({"lock", "bleed", "limbs", "cold"}) do
+    cmds[#cmds + 1] = "autocuring group load main"
+    for _, p in ipairs(ms.curing.groups[name]) do cmds[#cmds + 1] = "autocuring priority " .. p[1] .. " " .. p[2] end
+    cmds[#cmds + 1] = "autocuring group save " .. name
+  end
+  cmds[#cmds + 1] = "autocuring group load main"
+  local gap = 0.3
+  for i, c in ipairs(cmds) do tempTimer(i * gap, function() send(c, false) end) end
+  tempTimer((#cmds + 1) * gap, function()
+    ms.save["curegroups_ready"] = true
+    ms.curing.current = "main"
+    table.save(getMudletHomeDir() .. "/mssave.lua", ms.save)
+    sys("&lt;green&gt;MS Curing") cecho("&lt;snow&gt;Saved stacks: &lt;yellow&gt;main, lock, bleed, limbs, cold&lt;snow&gt;. Auto-swap is " .. (ms.save["curegroups"] and "&lt;green&gt;on" or "&lt;red&gt;off"))
+  end)
+  sys("&lt;green&gt;MS Curing") cecho(string.format("&lt;snow&gt;Sending %d autocuring commands over about %d seconds. Don't change curing until it finishes.", #cmds, math.ceil(#cmds * gap)))
+end
+
+function msCureGroup(name, force)
+  if not name or name == "" then return end
+  if not force and (not ms.save["curegroups"] or not ms.save["curegroups_ready"]) then return end
+  if not force and ms.curing.current == name then return end
+  ms.curing.current = name
+  send("autocuring group load " .. name, false)
+  sys("&lt;green&gt;MS Curing") cecho("&lt;snow&gt;Loaded the &lt;yellow&gt;" .. name .. "&lt;snow&gt; stack")
+end
+
+function msCureForClass(class)
+  if not class or class == "" then return end
+  msCureGroup(ms.curing.byClass[class] or "main")
+end
+
+function msCuringStatus()
+  sys("&lt;green&gt;MS Curing")
+  cecho("&lt;snow&gt;Auto-swap: " .. (ms.save["curegroups"] and "&lt;green&gt;on" or "&lt;red&gt;off")
+    .. "&lt;snow&gt; | Stacks created: " .. (ms.save["curegroups_ready"] and "&lt;green&gt;yes" or "&lt;red&gt;no (type ms curing setup)")
+    .. "&lt;snow&gt; | Current: &lt;yellow&gt;" .. (ms.curing.current ~= "" and ms.curing.current or "unknown"))
+  local byGroup = {}
+  for cls, grp in pairs(ms.curing.byClass) do byGroup[grp] = (byGroup[grp] and byGroup[grp] .. ", " or "") .. cls end
+  for _, grp in ipairs(ms.curing.order) do
+    cecho(string.format("\n&lt;snow&gt;  %-6s &lt;DimGray&gt;%s", grp, grp == "main" and "everyone else" or (byGroup[grp] or "manual")))
+  end
+  cecho("\n&lt;snow&gt;  Commands: &lt;yellow&gt;ms curing setup&lt;snow&gt;, &lt;yellow&gt;ms curing on&lt;snow&gt;/&lt;yellow&gt;off&lt;snow&gt;, &lt;yellow&gt;ms curing &lt;stack&gt;")
+end
+</script>
 								<eventHandlerList />
 							</Script>
 							<Script isActive="no" isFolder="no">
@@ -69661,7 +69759,7 @@ end
   end)
 end
 
-ms.version = "4.3.1"
+ms.version = "4.3.2"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
@@ -71181,6 +71279,8 @@ end
     blunderbuss = "blunderbuss",
     belcher = "belcher",
     sitara = "sitara",
+    curegroups = true,
+    curegroups_ready = false,
     artifacts = {},
     mobs = {
       "a pack of wild dogs",
