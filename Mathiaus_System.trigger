@@ -2495,7 +2495,7 @@ elseif matches[2] == "Terratheria" then send("queue eqbal relearn crystalbinding
 elseif matches[2] == "Noctu" then send("queue eqbal relearn enslavery from "..relearn)
 elseif matches[2] == "Enslavery" then send("queue eqbal relearn tarot from "..relearn)
 elseif matches[2] == "Ritualism" then send("queue eqbal relearn nightfall from "..relearn)
-elseif matches[2] == "Weaponmastery" then send("queue eqbal relearn brutality from "..relearn)
+elseif matches[2] == "Weaponmastery" and not ms.class["Templar"] then send("queue eqbal relearn brutality from "..relearn)
 elseif matches[2] == "Brutality" then send("queue eqbal relearn necromancy from "..relearn)
 elseif matches[2] == "Malignosis" then send("queue eqbal relearn ritualism from "..relearn)
 elseif matches[2] == "Ballistics" then send("queue eqbal relearn inventing from "..relearn)
@@ -2509,6 +2509,14 @@ elseif matches[2] == "Shapeshifting" then send("queue eqbal relearn terrestriali
 elseif matches[2] == "Curses" then send("queue eqbal relearn bonecasting from "..relearn)
 elseif matches[2] == "Bonecasting" then send("queue eqbal relearn shamanism from "..relearn)
 elseif matches[2] == "Tarot" then bnum = 11
+elseif matches[2] == "Wyrmriding" then send("queue eqbal relearn trailblazing from "..relearn)
+elseif matches[2] == "Trailblazing" and ms.class["Outrider"] then send("queue eqbal relearn hunting from "..relearn)
+elseif matches[2] == "Warding" then send("queue eqbal relearn bowmanship from "..relearn)
+elseif matches[2] == "Bowmanship" then send("queue eqbal relearn trailblazing from "..relearn)
+elseif matches[2] == "Taekate" then send("queue eqbal relearn telepathy from "..relearn)
+elseif matches[2] == "Telepathy" then send("queue eqbal relearn kaido from "..relearn)
+elseif matches[2] == "Knifeplay" then send("queue eqbal relearn beastmastery from "..relearn)
+elseif matches[2] == "Beastmastery" then send("queue eqbal relearn predation from "..relearn)
 end</script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
@@ -8001,7 +8009,7 @@ if bash then expandAlias("b") end
 								<script>deleteLine()
 table.insert(ms.defApplied, matches[2])
 local class = gmcp.Char.Status.prof:lower()
-  if table.contains(ms.save["deflist"][class], matches[2]) then
+  if table.contains(ms.save["deflist"][class] or {}, matches[2]) then
     sys("Defence") cecho("&lt;ivory&gt;"..matches[2].."&lt;ivory&gt;+ (&lt;green&gt;"..class:title().."&lt;ivory&gt;)")
   else
     sys("Defence") cecho("&lt;ivory&gt;"..matches[2].."&lt;ivory&gt;+")
@@ -12467,8 +12475,8 @@ end
 									<integer>1</integer>
 								</regexCodePropertyList>
 							</Trigger>
-							<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-								<name>Ranger</name>
+							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Ranger Detect</name>
 								<script>if matches[2]:find(target) then
 	tranger = true
 end</script>
@@ -13481,8 +13489,8 @@ tempTimer(60, [[expandAlias("tag")]])</script>
 									<integer>3</integer>
 								</regexCodePropertyList>
 							</Trigger>
-							<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-								<name>Shaman</name>
+							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Shaman Detect</name>
 								<script>if autoKill and target ~= matches[2] and not table.contains(ms.allies, matches[2]) then
 	expandAlias("t "..matches[2]:lower())
 end
@@ -15020,6 +15028,1637 @@ sys("Afflictions") cecho("&lt;ivory&gt;Affs: "..table.size(ms.affs).." ("..table
 									<integer>1</integer>
 								</regexCodePropertyList>
 							</Trigger>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Templar Defense</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Templar Check</name>
+									<script>if autoKill and matches[1]:find("falcon") and target ~= matches[2] and not table.contains(ms.allies, matches[2]) then
+  expandAlias("t "..matches[2]:lower())
+end
+if matches[2]:lower() == target:lower() then
+  templar = true
+  if matches[1]:find("falcon") then
+    -- Outrider Check also matches "barks at .+, ordering it to attack you"; undo it once both have run
+    tempTimer(0, function()
+      barked = math.max(0, (barked or 0) - 1)
+      if templar and (barked or 0) &lt; 3 then outrider = false end
+    end)
+  end
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) barks at a keen-eyed falcon, ordering it to attack you\.$</string>
+										<string>^(\w+) focuses (?:his|her) devotional powers upon .+\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Templar Impale Me</name>
+									<script>ms.templar.impaledMe = true
+sys("&lt;red&gt;IMPALED") cecho("&lt;gold&gt;"..matches[2])
+if healing then
+  if ebal and bbal then send("writhe") else send("queue eqbal top writhe") end
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) draws (?:his|her) blade back and plunges it deep into your helpless body impaling</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Templar Writhe Retry</name>
+									<script>if healing then send("queue eqbal top writhe") end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your body is too unbalanced to be able to writhe free of the weapon\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Templar Impale Over Me</name>
+									<script>ms.templar.impaledMe = false</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^With an heroic effort you manage to writhe yourself free from the weapon that impaled you\.$</string>
+										<string>^With a vicious snarl (\w+) carves a merciless swathe through your steaming guts</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Templar Lacerate Me</name>
+									<script>local m = ms.templar
+m.laceMe = (m.laceMe or 0) + 1
+if m.laceTimer then killTimer(m.laceTimer) end
+m.laceTimer = tempTimer(20, function() ms.templar.laceMe = 0; ms.templar.laceWarned = false end)
+sys("&lt;red&gt;LACERATED") cecho("&lt;gold&gt;"..matches[2].." x"..m.laceMe)
+if m.laceMe &gt;= 4 and not m.laceWarned and healing then
+  m.laceWarned = true
+  callout(matches[2].." lacerating me", "x"..m.laceMe.." (bleed kill)")
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) lacerates your skin calmly with the sharp edge of (.+), amplifying</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+							</TriggerGroup>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Monk Defense</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Attack Seen</name>
+									<script>if matches[2]:find(target) then monk = true end
+cecho("&lt;red&gt;\n[Monk] "..matches[2].." attacking you\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) strikes out at you with a bladehand\.$</string>
+										<string>^(\w+) launches a powerful uppercut at you\.$</string>
+										<string>^(\w+) drops to the floor and sweeps (?:his|her|its) legs round at you\.$</string>
+										<string>^(\w+) comes flying in with a jumpkick from the (\w+)\.$</string>
+										<string>^(\w+) spins into the air and throws a whirlwind kick towards you\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Backbreaker Windup</name>
+									<script>-- Match-648:11554. Cannot be stopped once started.
+if matches[2]:find(target) then monk = true end
+ms.monkdef = ms.monkdef or {}
+ms.monkdef.bbAt = os.time()
+cecho("&lt;red&gt;\n[Monk] BACKBREAKER incoming from "..matches[2].."\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) moves in towards you in a grabbing posture\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Swept</name>
+									<script>ms.monkdef = ms.monkdef or {}
+ms.monkdef.swept = os.time()
+cecho("&lt;red&gt;\n[Monk] SWEPT by "..matches[2].." - stand/kipup before backbreaker\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) knocks your legs out from under you and sends you sprawling to the</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Back Sprained</name>
+									<script>-- Match-648:11563. Restoration on the back was the victim's cure (Match-648:11761).
+ms.monkdef = ms.monkdef or {}
+local d = ms.monkdef
+d.back = 1
+cecho("&lt;yellow&gt;\n[Monk] BACK SPRAINED (1/3) - restoration to back\n")
+if healing and (os.time() - (d.restoAt or 0)) &gt; 2 then d.restoAt = os.time(); send("apply restoration to back") end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You cry out in pain as your back weakens from the blow\.</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Back Broken</name>
+									<script>-- Match-648:11733. The next full backbreaker kills (Match-648:11865).
+ms.monkdef = ms.monkdef or {}
+local d = ms.monkdef
+d.back = 2
+cecho("&lt;red&gt;\n[Monk] BACK BROKEN (2/3) - NEXT BACKBREAKER KILLS. Restoration now, stay on your feet\n")
+if healing and (os.time() - (d.restoAt or 0)) &gt; 2 then d.restoAt = os.time(); send("apply restoration to back") end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You hear your spine breaking under the strain\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Back Healing</name>
+									<script>-- Match-1278:12754 and :13130; stage after "greatly healed" is inferred
+ms.monkdef = ms.monkdef or {}
+if matches[1]:find("greatly healed") then ms.monkdef.back = 1 else ms.monkdef.back = 0 end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your back is greatly healed, but still damaged\.$</string>
+										<string>^Your back feels stronger and healthier\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Jumpkick Landed</name>
+									<script>cecho("&lt;red&gt;\n[Monk] JUMPKICK - prone and stunned\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(?:He|She|It) slams into you, knocking you off your feet and stunning you!$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Limbs Damaged</name>
+									<script>ms.monkdef = ms.monkdef or {}
+local d = ms.monkdef
+d.limbs = d.limbs or {}
+d.limbs[matches[2].." "..matches[3]] = os.time()
+if d.limbs["left leg"] and d.limbs["right leg"] then
+  cecho("&lt;red&gt;\n[Monk] BOTH LEGS DAMAGED - sweep/backbreaker setup. Mend legs, avoid prone\n")
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your (left|right) (leg|arm) is greatly damaged from the beating\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Enfeebled</name>
+									<script>-- Match-1278:513-518. 20% of current health/mana (wiki); unblockable, no known cure
+if matches[2]:find(target) then monk = true end
+cecho("&lt;red&gt;\n[Monk] ENFEEBLED by "..matches[2].."\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You feel your body and mind ripped apart as you are enfeebled by (\w+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Choked</name>
+									<script>cecho("&lt;red&gt;\n[Monk] KAI CHOKE\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You gasp and clutch at your throat as an unseen force crushes the breath of</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Immolated</name>
+									<script>-- Match-1278:5102-5106; wiki: briefly blocks the translucent shield and tree tattoo
+cecho("&lt;red&gt;\n[Monk] KAI IMMOLATE - shield and tree tattoo blocked for a moment\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Summoning (?:his|her|its) kai, (\w+) channels it into your flesh, heating your skin to unnatural levels\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Kai Cripple</name>
+									<script>cecho("&lt;red&gt;\n[Monk] KAI CRIPPLE - limbs crippled and prone\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Blue light crackles forth from (\w+)'s palms, striking you down and snapping your puny limbs\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Masked Mind Attack</name>
+									<script>-- Telepathy cast with mind mask on: the affliction is unknown (Match-648:830)
+ms.monkdef = ms.monkdef or {}
+ms.monkdef.masked = (ms.monkdef.masked or 0) + 1
+cecho("&lt;magenta&gt;\n[Monk] masked mind attack #"..ms.monkdef.masked.."\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You feel a faint touch in the farthest recesses of your mind\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Mindlock</name>
+									<script>-- scythe locks instantly (Match-1278:5285-5301); "reject &lt;name&gt;" is the ejection command (Match-1284:2481)
+local who = matches[2]
+local me = gmcp and gmcp.Char and gmcp.Char.Status and gmcp.Char.Status.name
+if matches[3] and not (me and matches[3]:lower() == me:lower()) then return end
+cecho("&lt;red&gt;\n[Monk] MINDLOCK by "..who.."\n")
+send("reject "..who)</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You reel in torment as (\w+) scythes through your mental defences</string>
+										<string>^You sense that (\w+) has secured a mindlock on (\w+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Deliverance Up</name>
+									<script>-- Match-1284:4227. Anyone who attacks a Monk with deliverance up dies (Match-1284:5611-5628; ~30s per wiki).
+if matches[2]:find(target) then
+  pta = false
+  local wasAuto = autoKill
+  autoKill = false
+  send("queue reset all")
+  cecho("&lt;red&gt;\n[Monk] "..matches[2].." DELIVERANCE - STOP ATTACKING (about 30s)\n")
+  tempTimer(32, function() if wasAuto then autoKill = true end cecho("&lt;green&gt;\n[Monk] deliverance window over\n") end)
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) bows (?:his|her|its) head in silent prayer\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Monk Def: Deliverance Killed You</name>
+									<script>cecho("&lt;red&gt;\n[Monk] killed by deliverance - never attack a praying Monk\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^As you reach out towards (\w+), (?:he|she|it) turns to face you, eyes glowing ominously\.</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+							</TriggerGroup>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Predator Defense</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Toxic Shock On Me</name>
+									<script>ms.predator.shockOnMe = true
+cecho("\n&lt;red&gt;*** TOXIC SHOCK (cirisosis) -- cure toxins, you are on a clock ***\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You swoon as you feel a morphing toxin burning in your veins\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Cirisosis On Me</name>
+									<script>cecho("\n&lt;orange&gt;[Predator] cirisosis injected into you -- cure toxins before it morphs\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You feel a noticeable change in your body's internal chemistry\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Hostage On Me</name>
+									<script>ms.predator = ms.predator or {}
+ms.predator.hostageOnMe = true
+cecho("\n&lt;red&gt;*** HOSTAGE by "..matches[2].." -- DO NOT STRUGGLE, kill or escape ***\n")
+if type(ikstop) == "function" then ikstop(matches[2]) end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^A strong arm encircles your chest and a sharp blade is pressed to your throat as you are taken hostage by (\w+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Hostage Struggle</name>
+									<script>cecho("\n&lt;red&gt;*** STOP STRUGGLING -- struggling ends in death ***\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You struggle against your attacker's grip, only to find the knife's edge pressing more firmly into your throat\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Pinned</name>
+									<script>ms.predator = ms.predator or {}
+ms.predator.pinned = true</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You are pinned to the ground by a dart\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Crescentcut On Me</name>
+									<script>cecho("\n&lt;red&gt;[Predator] "..matches[2].." crescentcut -- heavy damage, heal\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+)'s knife leaves a curving vision trail as it speeds into you, cutting a ravaged swath through your flesh\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Lowhook On Me</name>
+									<script>mlh = matches[2].." leg"</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your (left|right) leg threatens to buckle as (\w+) hooks the razor edge of (?:his|her) knife through it\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Spinslash On Me</name>
+									<script>mlh = matches[3].." "..matches[4]</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) kicks off the ground, momentarily becoming a blurred cyclone of motion as (?:his|her) knife rips into your (left|right) (arm|leg) twice</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predator Jab On Me</name>
+									<script>mlh = matches[3].." arm"</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) stabs forth with blinding speed, driving the tip of (?:his|her) knife into your (left|right) arm\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+							</TriggerGroup>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Ranger Defense</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Incendiary Sparks</name>
+									<script>bowSelfIncendiary()</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Sparks catch your eye as an arrow cuts through the air, burying itself deep in your flesh\.</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Incendiary Panic</name>
+									<script>if matches[2]:lower() == (target or ""):lower() then tranger = true end
+bowSelfIncendiary()</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Panic overcomes you as (\w+) draws back (?:her|his|its) bowstring and releases an arrow</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Fuse Low</name>
+									<script>if bowArmsCrippled() then
+  cecho("\n&lt;red&gt;[ FUSE LOW - ARMS CRIPPLED, CURE ARMS AND PULL ]\n")
+  if healing and ms.bow.armCure and ms.bow.armCure ~= "" then send(ms.bow.armCure) end
+else
+  cecho("\n&lt;red&gt;[ FUSE LOW - PULL ARROW ]\n")
+end
+if healing then send("queue eqbal top pull arrow from body") end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^The fuse on the arrow buried in your gut begins to burn low</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Arrow Out</name>
+									<script>bowSelfClear()</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You manage to pull the buried arrowhead from your body with intense concentration of will and ignorance of the pain, extinguishing the fuse and tossing it away\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Cannot Pull</name>
+									<script>cla = true; cra = true
+cecho("\n&lt;red&gt;[ BOTH ARMS CRIPPLED - cannot pull the arrow: cure arms ]\n")
+if healing and ms.bow.armCure and ms.bow.armCure ~= "" then send(ms.bow.armCure) end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^As both your arms are crippled, you cannot do that\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Slam</name>
+									<script>if matches[2]:lower() == (target or ""):lower() then tranger = true end
+cecho("\n&lt;red&gt;[ "..matches[2].." SLAM - a limb just broke, watch the arms ]\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) slams (?:his|her|its) body into you overwhelming (?:you|him|her|it) with (?:his|her|its) collective attacks\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Limb Trembled</name>
+									<script>local limb = matches[2].." "..matches[3]
+ms.ranger.me[limb] = true
+cecho("\n&lt;red&gt;[ "..limb:upper().." TREMBLING - next slam breaks it ]\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your (left|right) (arm|leg) trembles slightly under the blow\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Limb Slammed</name>
+									<script>local limb = matches[2].." "..matches[3]
+ms.ranger.me[limb] = nil
+cecho("\n&lt;red&gt;[ "..limb:upper().." BROKEN ]\n")
+if bowArmsCrippled() then cecho("\n&lt;red&gt;[ BOTH ARMS DOWN - incendiary is next, cure arms NOW ]\n") if healing and ms.bow.armCure and ms.bow.armCure ~= "" then send(ms.bow.armCure) end end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your (left|right) (arm|leg) is greatly damaged from the beating\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Ranger Defense Piercejab</name>
+									<script>if matches[2]:lower() == (target or ""):lower() then tranger = true end
+cecho("\n&lt;yellow&gt;[ "..matches[2].." PIERCEJAB razed your "..matches[4].." - reraise ]\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) jabs (.+) towards you, piercing through and shattering your (aura of rebounding|translucent shield)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+							</TriggerGroup>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Amazon Defense</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Bashimpale</name>
+									<script>if matches[2]:find(target) then amazon = true; tranger = true end
+ph = true
+cecho("\n&lt;red&gt;[ &lt;yellow&gt;IMPALED by "..matches[2].." - WRITHING &lt;red&gt;]\n")
+amazonMeWrithe("impale")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) quickly raps you on the head with the blunt end of (.+) before whipping the tip around and impaling you upon it\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Pinned</name>
+									<script>cecho("\n&lt;red&gt;[ &lt;yellow&gt;PINNED BY ARROW - WRITHING &lt;red&gt;]\n")
+amazonMeWrithe("arrow")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^The arrow spears into you, pinning you to the ground\.$</string>
+										<string>^You are pinned to the ground by an arrow\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Impale Freed</name>
+									<script>amazonMeFreed()</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^With an heroic effort you manage to writhe yourself free from the weapon that impaled you\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Pin Freed</name>
+									<script>amazonMeFreed()</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You have broken free from the arrow\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Battlecry</name>
+									<script>if matches[2]:find(target) then amazon = true; tranger = true end
+cecho("\n&lt;red&gt;[ &lt;yellow&gt;BATTLECRY from "..matches[2].." &lt;red&gt;]\n")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) gathers (?:his|her) breath and hurls a piercing battlecry towards you\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Qjab Far</name>
+									<script>amazonMeLimbHit(matches[2], matches[4])</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) jabs forward with (.+) javelin at your (.+), taking a step in closer\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Qjab Close</name>
+									<script>amazonMeLimbHit(matches[2], matches[3])</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) aims a short, quick jab at your (.+) with (.+) javelin\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Tipslash</name>
+									<script>amazonMeLimbHit(matches[2], matches[3])</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Stinging pain hits you as (\w+) rakes you across the (.+) with the tip of (.+) javelin\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Plimb</name>
+									<script>amazonMeLimbHit(matches[2], matches[4])</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) dives forward to thrust (.+) javelin into your (.+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Bruised</name>
+									<script>amazonMeLimbHit(nil, matches[2])</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Painful bruises are forming on your (.+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Bstrike</name>
+									<script>if matches[2]:find(target) then amazon = true; tranger = true end
+ph = true</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) swings the haft of (.+) javelin in a long, sweeping curve at your head\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Amazon Defense Wedge</name>
+									<script>if matches[2]:find(target) then amazon = true; tranger = true end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) plants the butt end of (.+) in the ground, angling the vicious looking tip upwards\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+							</TriggerGroup>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Engineer Defense</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer def chem level</name>
+									<script>local chem, lvl = matches[2], tonumber(matches[3])
+ms.engineer.me[chem] = lvl
+-- dystite is already handled by autocuring (domecap 1). Everything else: eat once it stacks.
+if healing and chem ~= "dystite" and (lvl &gt;= 2 or engineerMeTotal() &gt;= 3) then
+  engineerEatDomecap(chem.." lvl "..lvl)
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You are afflicted with (\w+) shot level (\d+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer def chem cured</name>
+									<script>local lvl = tonumber(matches[3]) - 1
+ms.engineer.me[matches[2]] = (lvl &gt; 0) and lvl or nil</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You have cured (\w+) shot level (\d+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer def rshot shreds rebounding</name>
+									<script>sys("&lt;red&gt;Engineer") cecho("&lt;yellow&gt;rebounding shredded - re-raise")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>pulls the trigger\. The shot shreds your aura of rebounding</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer def hotshot</name>
+									<script>if matches[2] and matches[2]:lower() == (target or ""):lower() then engineer = true end
+sys("&lt;red&gt;Engineer") cecho("&lt;yellow&gt;hotshot - rebounding blocked (chlorite)")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) shoots you with a hotshot\.$</string>
+										<string>^Your rebounding aura is prevented from coming up by the hot chlorite surrounding you\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer def spleenshot</name>
+									<script>if matches[2] and matches[2]:lower() == (target or ""):lower() then engineer = true end
+sys("&lt;red&gt;Engineer") cecho("&lt;yellow&gt;spleenshot - next elixir weakened")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) shoots you with a spleenshot\.$</string>
+										<string>^The spleenshot decreases the elixir's effectiveness\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer def focus on me</name>
+									<script>if matches[2]:lower() == (target or ""):lower() then engineer = true end
+sys("&lt;red&gt;Engineer") cecho("&lt;yellow&gt;"..matches[2].." focusing on you - expect lodged shots")</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) begins to focus (?:her|his|its) attention on you\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer def other lodged shot</name>
+									<script>local part = matches[2]
+if healing and part and (shot == nil or shot == "") and not digging then
+  shot = part
+  send("queue eqbal top dig out shot to "..part)
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^The heavyshot lodges in your (?!liver|heart|throat|artery)(.+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer def gyrocopter</name>
+									<script>if matches[2]:lower() == (target or ""):lower() then engineer = true end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) steps aboard the gyrocopter and firmly grasps the controls\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+							</TriggerGroup>
+							<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Outrider Defense</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Frostheart</name>
+									<script>ms.outrider.frosted = true
+if ms.outrider.frTimer then killTimer(ms.outrider.frTimer) end
+ms.outrider.frTimer = tempTimer(120, [[ms.outrider.frosted = false]])
+fecho("Frostheart", matches[2], "Hypothermia")
+callout("Frostheart", matches[2])
+</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) slashes you across the chest with .+, marking a target for \w+ wyrm\.</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Chill</name>
+									<script>-- chill coating only; caloric fires on the hypothermia lines</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^The icy coating on (\w+)'s \w+ leaches into your wound, chilling you\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Hypothermia</name>
+									<script>local lv = {mild = 1, moderate = 2, severe = 3, intense = 4}
+ms.outrider.myHypo = lv[matches[2]]
+if ms.outrider.myHypo &gt;= 3 then
+  fecho("SHATTER", "HYPOTHERMIA", matches[2])
+  callout("Shatter threat", "hypothermia "..matches[2])
+  if healing then outriderDefCaloric(); outriderDefOnce("shield", "queue eqbal top touch shield", 4) end
+elseif ms.outrider.myHypo &gt;= 1 then
+  if healing then outriderDefCaloric() end
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You are afflicted with (mild|moderate|severe|intense) hypothermia\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Hypothermia Step</name>
+									<script>local l = line or ""
+if l:find("moderate level") then ms.outrider.myHypo = 2 else ms.outrider.myHypo = 3 end
+if healing then outriderDefCaloric() end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your hypothermia has subsided to a moderate level, but your body still craves warmth\.$</string>
+										<string>^Your body warms, but the hypothermia remains quite severe\.$</string>
+										<string>^Your body warms slightly, barely fighting off the most extreme depths of hypothermia\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Hypothermia Gone</name>
+									<script>ms.outrider.myHypo = 0</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your skin warms, free of hypothermia\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Pierce</name>
+									<script>if ms.outrider.myHypo &gt;= 2 and healing then
+  fecho("Pierce", matches[2], "Shatter next")
+  outriderDefOnce("shield", "queue eqbal top touch shield", 4)
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) drives .+ through your (?:aura of rebounding|translucent shield), destroying it\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Longslash</name>
+									<script>local n = outriderLongslashTaken(matches[2])
+if n &gt;= 2 then
+  fecho("Bloodfreeze", matches[2], "Bleeding x"..n)
+  if healing then outriderDefOnce("clot", "clot", 3) end
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) plunges .+ deep into your thigh and pulls its blade up the length of your body</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Bloodfreeze</name>
+									<script>fecho("Bloodfreeze", matches[2], "Hit")
+callout("Bloodfreeze", matches[2])
+if healing then outriderDefOnce("clot", "clot", 3) end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^With a nod to .+ icewyrm, (\w+) leaps forward and plunges .+ into your chest\.</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Outrider Def Charge</name>
+									<script>fecho("Charge", matches[2], "Impaled")
+if healing then send("queue eqbal top writhe") end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) charges furiously into the room, leaps at you</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+							</TriggerGroup>
 						</TriggerGroup>
 					</TriggerGroup>
 					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
@@ -29608,6 +31247,30 @@ end</script>
 									<colorTriggerBgColor>#000000</colorTriggerBgColor>
 									<regexCodeList />
 									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Toxin</name>
+										<script>local a = ms.outrider.toxMap[matches[2]]
+if a and matches[3] and target and matches[3]:find(target) then
+  toxUsed = matches[2]
+  aff(a)
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your (\w+) toxin has affected (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
 								</TriggerGroup>
 								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 									<name>Wyrmriding</name>
@@ -29624,9 +31287,2294 @@ end</script>
 									<colorTriggerBgColor>#000000</colorTriggerBgColor>
 									<regexCodeList />
 									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Hypothermia 1</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.hypo = math.max(ms.outrider.hypo, 1)
+  if pta then enableTrigger("affPrompt") end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) shivers as \w+ skin breaks into goosebumps\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Hypothermia 2</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.hypo = math.max(ms.outrider.hypo, 2)
+  if pta then enableTrigger("affPrompt") end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s hands and lips turn blue\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Hypothermia 3</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.hypo = math.max(ms.outrider.hypo, 3)
+  if pta then enableTrigger("affPrompt") end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) shivers deeply, caught in severe hypothermia\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Hypothermia 4</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.hypo = math.max(ms.outrider.hypo, 4)
+  if pta then enableTrigger("affPrompt") end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) clutches at \w+ chest, looking dizzy and blue\.$</string>
+											<string>^(\w+) shudders and aches, racked by the pain of deepest hypothermia\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Chill Landed</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.chills = ms.outrider.chills + 1
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The icy coating on your \w+ leaches into (\w+)'s wound, chilling \w+\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Target Salve</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.hypo = math.max(ms.outrider.hypo - 1, 0)
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) rubs some salve on \w+ skin\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Frostheart Cast</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  frostheart = true
+  if ms.outrider.fhTimer then killTimer(ms.outrider.fhTimer) end
+  ms.outrider.fhTimer = tempTimer(ms.outrider.fhSecs, [[frostheart = false]])
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You slash (\w+) across the chest with .+, marking a target for your wyrm\.</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Icecoated</name>
+										<script>ms.outrider.icecoated = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You hold .+ in front of .+ icewyrm, which curls its snout and coats the \w+ in thick, jagged ice\.$</string>
+											<string>^.+ is already coated in ice\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Toxin Wasted</name>
+										<script>ms.outrider.icecoated = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^That toxin will not adhere to the weapon, and would be wasted\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Blackened</name>
+										<script>ms.outrider.blackened = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You hold .+ in front of .+ icewyrm, which groans and gurgles before coating the \w+ in oily, black bile\.$</string>
+											<string>^.+ is already shiny with unctuous icewyrm bile\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Bleed Report</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.bleed = tonumber(matches[3])
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your icewyrm informs you that (\w+) has bled (\d+) health\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Pierce Landed</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  shield = false; rb = false
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You drive .+ through (\w+)'s (?:aura of rebounding|translucent shield), destroying it\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Shatter Blocked</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  shield = true
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^A numbing energy runs up your limbs as your attack rebounds off of (\w+)'s shield\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Stab Landed</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.n.stab = ms.outrider.n.stab + 1
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You give .+ a quick flourish before driving it forcefully into (\w+)'s (.+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Smash Landed</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.n.smash = ms.outrider.n.smash + 1
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You bring the flat of .+ down on (\w+)'s head, rattling \w+\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Batter Landed</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.n.batter = ms.outrider.n.batter + 1
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^With two quick flicks of your wrist, you slap (\w+) on each side of \w+ face</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Longslash Landed</name>
+										<script>if matches[2] and target and matches[2]:find(target) then
+  ms.outrider.n.long = ms.outrider.n.long + 1
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You plunge .+ deep into (\w+)'s thigh and pull its blade up the length of \w+ body</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Intercept Cast</name>
+										<script>ms.outrider.icAt = os.time()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You order your wyrm to hinder (\w+)'s chances of escape\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Gorge Start</name>
+										<script>ms.outrider.gorging = true; pta = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You lunge forward atop .+, beckoning it to feed on (\w+)'s body\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Gorge End</name>
+										<script>ms.outrider.gorging = false
+send("autocuring on")</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your icewyrm stops its approach, rumbling with hungry disappointment\.$</string>
+											<string>^Your icewyrm makes its final strike, leaping forward onto (\w+) and pinning</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Kill</name>
+										<script>if ms.outrider.gorging then ms.outrider.gorging = false; send("autocuring on") end
+outriderReset()
+frostheart = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You have slain (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Wyrm Gone</name>
+										<script>ms.outrider.wyrmHere = false; ms.outrider.mounted = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your icewyrm is not here with you\.$</string>
+											<string>^An immense .+ icewyrm slinks off without a sound\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Wyrm Here</name>
+										<script>ms.outrider.wyrmHere = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^An immense .+ icewyrm slides in quietly, its eyes locked to yours\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Mounted</name>
+										<script>ms.outrider.mounted = true; ms.outrider.wyrmHere = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You climb up on .+ icewyrm\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Dismounted</name>
+										<script>ms.outrider.mounted = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You step down off of .+ icewyrm\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
 								</TriggerGroup>
 								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 									<name>Hunting</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider Surge Done</name>
+										<script>outriderSurgeAdvance()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You select a small, compound-soaked bit of cloth from your stash and toss it to .+\. At the first sniff of the pheromones, .+ is caught in a surge of hormonal power\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Outrider No Pets</name>
+										<script>ms.outrider.noPetsUntil = os.time() + 20
+outriderSurgeAdvance()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You have no suitable hunting animal here\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+							</TriggerGroup>
+							<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Monk</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Taekate</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Telepathy</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Kaido</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Limb Tracking</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Trembled</name>
+										<script>if matches[2]:find(target) then
+deleteLine()
+sys("&lt;yellow&gt;Trembled") cecho("&lt;yellow&gt;"..matches[2].." "..matches[3].." Trembled")
+	if matches[3] == "right arm" then
+		rab = false
+		rat = true
+	elseif matches[3] == "left arm" then
+		lab = false
+		lat = true
+	elseif matches[3] == "left leg" then
+		llb = false
+		llt = true
+	elseif matches[3] == "right leg" then
+		rlb = false
+		rlt = true
+	end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (.+) trembles slightly under the blow\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Limb Broken (mutilated)</name>
+										<script>if matches[2]:find(target) then
+	deleteLine()
+	sys("&lt;red&gt;Broken") cecho("&lt;red&gt;"..matches[2].." "..matches[3].." Broken")
+	if matches[3] == "right arm" then
+		rab = false; rat = false; raBP = tonumber(0); raHit = tonumber(0); ram = true
+		ms.afflicted["crippled right arm"] = "aff"
+	elseif matches[3] == "left arm" then
+		lab = false; lat = false; laBP = tonumber(0); laHit = tonumber(0); lam = true
+		ms.afflicted["crippled left arm"] = "aff"
+	elseif matches[3] == "left leg" then
+		llb = false; llt = false; llBP = tonumber(0); llHit = tonumber(0); llm = true
+		ms.afflicted["crippled left leg"] = "aff"
+	elseif matches[3] == "right leg" then
+		rlb = false; rlt = false; rlBP = tonumber(0); rlHit = tonumber(0); rlm = true
+		ms.afflicted["crippled right leg"] = "aff"
+	end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (.+) has been mutilated\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Limb Hit</name>
+										<script>-- no victim name on this line; it follows our hfp/spp on target (Match-1278:10592-10601)
+local limb = matches[2].." "..matches[3]
+if limb == "left leg" then llHit = (llHit or 0) + 1
+elseif limb == "right leg" then rlHit = (rlHit or 0) + 1
+elseif limb == "left arm" then laHit = (laHit or 0) + 1
+elseif limb == "right arm" then raHit = (raHit or 0) + 1 end
+mlh = limb</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You connect to the (left|right) (leg|arm)!$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Combat</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Sweep Landed</name>
+										<script>if matches[2]:find(target) then tprone = true; tik = false end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You knock the legs out from under (\w+) and send (?:him|her|it) sprawling\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Jumpkick Landed</name>
+										<script>if matches[2]:find(target) then tprone = true; tik = false end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your foot slams into (\w+), knocking (?:him|her|it) off (?:his|her|its) feet\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Backbreaker Start</name>
+										<script>ms.monk.bbPending = os.time()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You move in towards (\w+) for the backbreaker\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Back Sprained</name>
+										<script>-- generic line: only count it right after our own backbreaker start line (Match-648:11562-11565)
+if matches[2]:find(target) and (os.time() - (ms.monk.bbPending or 0)) &lt;= 4 then
+  ms.monk.back = 1
+  ms.monk.bbPending = 0
+  cecho("&lt;yellow&gt;\n[Monk] "..target.." back SPRAINED (1/3)\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) cries out in pain\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Back Broken</name>
+										<script>if matches[2]:find(target) then
+  ms.monk.back = 2
+  cecho("&lt;red&gt;\n[Monk] "..target.." back BROKEN (2/3) - next bbt kills\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You hear (\w+)'s spine breaking under the strain\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Target Slain</name>
+										<script>monkReset()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You have slain (.+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Enfeeble Landed</name>
+										<script>ms.monk.enfAt = os.time()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You violently propel your kai energy at (\w+), enfeebling (?:him|her|it)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Enfeeble Blocked</name>
+										<script>ms.monk.enfBlock = os.time()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) cannot be enfeebled again so soon\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk No Kai</name>
+										<script>ms.monk.noKai = os.time()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You do not have enough Kai energy stored to do that\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Shield Rebound</name>
+										<script>if matches[2]:find(target) then shield = true end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^A numbing energy runs up your limbs as your attack rebounds off of (\w+)'s shield\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Target Parry</name>
+										<script>if matches[2]:find(target) then
+  tparried = true
+  ms.monk.parry = {limb = matches[3].." "..matches[4], t = os.time()}
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) parries the attack to the (left|right) (leg|arm) with a deft maneuver\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Own Deliverance Up</name>
+										<script>ms.monk.deliv = true
+pta = false
+cecho("&lt;red&gt;\n[Monk] DELIVERANCE UP - do not attack (any action ends it)\n")</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You have gained the deliverance defence\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Own Deliverance Down</name>
+										<script>ms.monk.deliv = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You have lost the deliverance defence\.$</string>
+											<string>^You raise your head and cease your prayers for deliverance\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Mind</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Mind stupidity</name>
+										<script>-- masked cast: victim sees only a faint touch, so track our own cast (Match-1278:562-566)
+if matches[2]:find(target) then
+  ms.afflicted["stupidity"] = "aff"
+  ms.monk.mind["stupidity"] = os.time()
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You cast a net of stupidity over (\w+)'s mind\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Mind numbness</name>
+										<script>-- masked cast: victim sees only a faint touch, so track our own cast (Match-1278:562-566)
+if matches[2]:find(target) then
+  ms.afflicted["numbness"] = "aff"
+  ms.monk.mind["numbness"] = os.time()
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You reach out with your mind and numb the muscles of (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Mind epilepsy</name>
+										<script>-- masked cast: victim sees only a faint touch, so track our own cast (Match-1278:562-566)
+if matches[2]:find(target) then
+  ms.afflicted["epilepsy"] = "aff"
+  ms.monk.mind["epilepsy"] = os.time()
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You caress the nerves of (\w+) slowly into a state of epilepsy\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Mind pacify</name>
+										<script>-- masked cast: victim sees only a faint touch, so track our own cast (Match-1278:562-566)
+if matches[2]:find(target) then
+  ms.afflicted["pacifism"] = "aff"
+  ms.monk.mind["pacifism"] = os.time()
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You fill the mind of (\w+) with a strong calm and inner peace\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Mind hallucinate</name>
+										<script>-- masked cast: victim sees only a faint touch, so track our own cast (Match-1278:562-566)
+if matches[2]:find(target) then
+  ms.afflicted["hallucinations"] = "aff"
+  ms.monk.mind["hallucinations"] = os.time()
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You project vivid hallucinations into the mind of (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Mindlock Set</name>
+										<script>mlocked = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your telepathic efforts are successful</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Monk Mindlock Lost</name>
+										<script>mlocked = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your mental lock on (\w+) is shattered</string>
+											<string>^Your concentration is interrupted and the mindlock fails\.$</string>
+											<string>^Your mind lock with (.+) has been broken\.$</string>
+											<string>^You dissolve the mindlock</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+							</TriggerGroup>
+							<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Predator</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Knifeplay</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Predator Stance</name>
+										<script>ms.predator.stance = matches[2]:lower()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You quickly flow into the (Gyanis|Vae-Sant|Ein-Fasit|Laesan|Rizet) stance\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Bladesurge Gained</name>
+										<script>ms.predator.bladesurge = true
+ms.predator.bsEnd = os.time() + 120
+ms.predator.bsReady = os.time() + 120</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your concentration enhances ten-fold as you fix your surroundings</string>
+											<string>^You have gained the bladesurge defence\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Bladesurge Gate</name>
+										<script>ms.predator.bladesurge = false
+ms.predator.bsReady = os.time() + 20</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^But you are not concentrating on your battle prowess - you need to BLADESURGE first\.$</string>
+											<string>^You cannot summon up your offensive battle prowess again so soon\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Raze Rebounding</name>
+										<script>if matches[2]:find(target) then ms.predator.rebound = false; rb = false end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You raze (\w+)'s aura of rebounding with .+\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Raze No Effect</name>
+										<script>if matches[2]:find(target) then ms.predator.rebound = false end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You whip .+ through the air in front of (\w+), to no effect\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Rebounding Seen</name>
+										<script>if matches[2]:find(target) then ms.predator.rebound = true end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You suddenly perceive the vague outline of an aura of rebounding around (\w+)</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Rebound On Me</name>
+										<script>ms.predator.rebound = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The attack rebounds back onto you!$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Trip Landed</name>
+										<script>if matches[2]:find(target) then tprone = true end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You step forward, hooking your leg around (\w+)'s calf while simultaneously driving your elbow into (?:his|her) chest and knocking (?:him|her) to the ground\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Not Wielding</name>
+										<script>local now = (getEpoch and getEpoch()) or os.time()
+if healing and now - (ms.predator.wieldAt or 0) &gt;= 3 then ms.predator.wieldAt = now; send(quickdraw(ms.save["sitara"], ms.save["shield"])) end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You are not wielding an? (.+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Kill</name>
+										<script>predReset()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You have slain (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Beastmastery</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Bear Arrived</name>
+										<script>ms.predator.beast = "bear"</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^A brown bear trots in and looks up at you expectantly\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Spider Ordered</name>
+										<script>ms.predator.beast = "spider"</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You bark at an elusive spider, ordering it to intoxicate (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Beast Left</name>
+										<script>if ms.predator.beast == "bear" then ms.predator.beast = "" end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^A brown bear thunders off, on the trail of some elusive prey\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Predation</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Hostage Taken</name>
+										<script>ms.predator.hostage = true
+send("execute hostage")</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^A flick of the wrist, a flash of your blade, and you take (\w+) hostage with your knife to (?:his|her) throat\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Hostage Done</name>
+										<script>ms.predator.hostage = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You swiftly drag the edge of your knife across (\w+)'s throat, splitting flesh and severing arteries\.</string>
+											<string>You have lost your hostage\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Hostage Refused</name>
+										<script>ms.predator.noHostageUntil = os.time() + 20</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You may not take someone hostage while there are prying eyes within the room</string>
+											<string>^You cannot take anybody hostage while mounted\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Toxins</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Cirisosis Injected</name>
+										<script>if matches[2]:find(target) then ms.predator.injected = true; cecho("\n&lt;yellow&gt;[Predator] cirisosis injected -- keep toxins coming\n") end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The cirisosis toxin has been successfully injected into (\w+)'s system\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Cirisosis Wasted</name>
+										<script>cecho("\n&lt;gray&gt;[Predator] cirisosis wasted (needs 3 other toxins)\n")</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The cirisosis toxin disappears from (\w+)'s system without effect\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Toxic Shock Landed</name>
+										<script>if matches[2]:find(target) then
+  ms.predator.shock = true
+  cecho("\n&lt;red&gt;[Predator] TOXIC SHOCK on "..matches[2].." -- keep pressure, deny cures\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your morphing toxin burns through (\w+)'s veins, causing a toxic shock\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Limb Tracking</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Limb Trembled</name>
+										<script>if matches[2]:find(target) then
+  local part = matches[3]
+  ms.predator.limb[part] = 1
+  local map = {["left arm"]="la", ["right arm"]="ra", ["left leg"]="ll", ["right leg"]="rl"}
+  local k = map[part]
+  if k then
+    _G[k.."t"] = true
+    _G[k.."b"] = false
+  end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (.+) trembles slightly under the blow\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Limb Bruised</name>
+										<script>if matches[2]:find(target) then
+  local part = matches[3]
+  ms.predator.limb[part] = 2
+  local map = {["left arm"]="la", ["right arm"]="ra", ["left leg"]="ll", ["right leg"]="rl"}
+  local k = map[part]
+  if k then
+    _G[k.."b"] = true
+    _G[k.."t"] = false
+  end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You notice several bruises forming on (\w+)'s (.+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Limb Mutilated</name>
+										<script>ms.predator.limb[matches[2].." "..matches[3]] = 3</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your .+ carves through meat and tendon, leaving your foe's (left|right) (arm|leg) mutilated\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Limb Mangled</name>
+										<script>if matches[2]:find(target) then
+  local part = matches[3].." "..matches[4]
+  ms.predator.limb[part] = 4
+  local map = {["left arm"]="la", ["right arm"]="ra", ["left leg"]="ll", ["right leg"]="rl"}
+  local k = map[part]
+  if k then _G[k.."t"] = false; _G[k.."b"] = false; _G[k.."m"] = true end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (left|right) (arm|leg) has been beaten into uselessness\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+							</TriggerGroup>
+							<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Templar</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Weaponmastery</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Engage On</name>
+										<script>engage = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You are already engaging (\w+)\.$</string>
+											<string>^(\w+) is already being engaged!$</string>
+											<string>^You move in to engage (\w+)\.$</string>
+											<string>^You have gained the engage defence\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Engage Off</name>
+										<script>engage = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You relax your engagement as your foe is no longer present\.$</string>
+											<string>^You drop back and ease the engagement\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Slash</name>
+										<script>deleteLine()
+sys("&lt;ivory&gt;SLASH") cecho("&lt;gold&gt;"..matches[2]:title())</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^With a lightning-quick motion, you slash (.+) with .+\.$</string>
+											<string>^You swing .+ at (.+) with a powerful strike\.$</string>
+											<string>^You slash viciously into (.+) with .+\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Shred</name>
+										<script>deleteLine()
+sys("&lt;red&gt;SHRED") cecho("&lt;gold&gt;"..matches[2]:title())
+if matches[2]:lower() == target:lower() and ms.afflicted["haemophilia"] ~= "aff" then aff("haemophilia") end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You shred (\w+)'s skin viciously with .+, causing a nasty infection\.$</string>
+											<string>^You use Weaponmastery Shred on (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Lacerate</name>
+										<script>deleteLine()
+sys("&lt;red&gt;LACERATE") cecho("&lt;gold&gt;"..matches[2]:title())
+ms.templar.lacerates = (ms.templar.lacerates or 0) + 1</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You lacerate (\w+)'s skin calmly with the sharp edge of .+, amplifying \w+ bleeding wounds\.$</string>
+											<string>^You use Weaponmastery Lacerate on (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Reave</name>
+										<script>deleteLine()
+sys("&lt;red&gt;REAVE") cecho("&lt;gold&gt;"..matches[2]:title())</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You reave (\w+) furiously with .+\.$</string>
+											<string>^You use Weaponmastery Reave on (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Impaled</name>
+										<script>impaled = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You draw your blade back and plunge it deep into the body of (\w+), impaling \w+ to the hilt\.$</string>
+											<string>^You use Weaponmastery Impale on (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Impale Over</name>
+										<script>if not matches[2] or matches[2]:lower() == target:lower() then impaled = false end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You thrust your blade towards (\w+) but \w+ dodges easily out of the way\.$</string>
+											<string>^With a look of agony on (?:his|her) face, (\w+) manages to writhe (?:himself|herself) free of the weapon which impaled (?:him|her)\.$</string>
+											<string>^With a vicious snarl you carve a merciless swathe through the steaming guts of (\w+)</string>
+											<string>^You have no victim impaled to be able to perform a disembowelment\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Rebound</name>
+										<script>rbHit = true
+rb = true
+if (not ebal or not bbal) and healing then forceAtk(true) end
+if pta then enableTrigger("affPrompt") end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The attack rebounds back onto you!$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Toxin Set</name>
+										<script>ms.dk.toxins = ms.dk.toxins or {}
+table.insert(ms.dk.toxins, matches[2])</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You rub some (\w+) on .+\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Devotion</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Falcon Order</name>
+										<script>ms.templar.falconTarget = matches[2]:lower()
+ms.templar.falconAt = os.time()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You order a keen-eyed falcon to attack (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Crusade Up</name>
+										<script>ms.templar.crusadeUp = true
+ms.templar.crusadeAt = os.time()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You feel the power of the crusade build within your soul\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Crusade Fade</name>
+										<script>ms.templar.crusadeUp = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You feel the power of your holy crusade fade\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Enhance Applied</name>
+										<script>ms.templar.enh = matches[3].." "..matches[4]
+sys("&lt;ivory&gt;Enhance") cecho("&lt;gold&gt;"..ms.templar.enh)</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You focus your devotional powers upon (.+), enhancing it with the (\w+) and (\w+) powers\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Mirroring Proc</name>
+										<script>if matches[2]:lower() == target:lower() then
+  local known = false
+  for k, _ in ms.afflicted:pairs() do
+    if k == matches[3] then known = true break end
+  end
+  if known and ms.afflicted[matches[3]] ~= "aff" then aff(matches[3]) end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The mirroring purification takes effect upon (\w+), afflicting (?:him|her) with (.+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Burning Proc</name>
+										<script>if matches[2]:lower() == target:lower() and ms.afflicted["ablaze"] ~= "aff" then aff("ablaze") end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Extreme heat roars through (\w+)'s body at the touch of .+\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Templar Relearn Chain</name>
+										<script>if matches[2] == "Weaponmastery" then send("queue eqbal relearn devotion from "..relearn)
+elseif matches[2] == "Devotion" then send("queue eqbal relearn chivalry from "..relearn) end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You have fully relearned (Weaponmastery|Devotion)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Chivalry</name>
 									<script></script>
 									<triggerType>0</triggerType>
 									<conditonLineDelta>0</conditonLineDelta>
@@ -31438,6 +35386,325 @@ end</script>
 								<colorTriggerBgColor>#000000</colorTriggerBgColor>
 								<regexCodeList />
 								<regexCodePropertyList />
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer chem landed</name>
+									<script>local c = matches[2]
+local known = {dystite=1,incendite=1,methite=1,hydroite=1,chlorite=1,ephrite=1,psiloite=1,cryosite=1,glycerite=1,neuroite=1,ironite=1,aqualite=1,phosphorite=1}
+if known[c] then
+  engineerCheckTarget()
+  engineerChemHit(c)
+  sys("&lt;green&gt;Engineer") cecho("&lt;gold&gt;"..c.." &lt;DimGrey&gt;lvl "..engineerChemLevel(c))
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>pull the trigger\. The (\w+?)shot hits</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer chem effect seen</name>
+									<script>local line = matches[1]
+local c = line:match("dystite") and "dystite" or line:match("^Incendite") and "incendite" or line:match("^Methite") and "methite" or line:match("hydroite") and "hydroite" or line:match("chlorite") and "chlorite"
+if c and matches[2] and matches[2]:lower() == (target or ""):lower() then engineerCheckTarget(); engineerChemSeen(c) end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+)'s body tenses as the dystite takes over\.$</string>
+										<string>^Incendite burns (\w+), harming (?:him|her|it)\.$</string>
+										<string>^Methite runs through (\w+)'s system</string>
+										<string>^The poison of the hydroite burns through (\w+)'s system\.$</string>
+										<string>^The chlorite burns (\w+)'s lungs\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer target ate domecap</name>
+									<script>if matches[2]:lower() == (target or ""):lower() then
+  engineerDomecap()
+  sys("&lt;green&gt;Engineer") cecho("&lt;red&gt;domecap eaten &lt;DimGrey&gt;- restack")
+  forceAtk()
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) quickly eats a domecap mushroom\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer dystite relaxed</name>
+									<script>if matches[2]:lower() == (target or ""):lower() then ms.engineer.chem["dystite"] = 0 end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) relaxes and the dystite subsides\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer heavyshot lodged</name>
+									<script>engineerCheckTarget()
+ms.engineer.lodged[engineerPartKey(matches[2])] = true</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Your heavyshot lodges in (?:his|her|its) (.+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer target dug out</name>
+									<script>if matches[2]:lower() == (target or ""):lower() then
+  local part = matches[3] or "throat"
+  ms.engineer.lodged[engineerPartKey(part)] = false
+  forceAtk()
+end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^(\w+) digs out a heavy shot from (?:his|her|its) (.+), instantly feeling better\.$</string>
+										<string>^Mushrooms must seem more appetizing as (\w+) digs a heavy shot from (?:his|her|its) throat\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer rshot shreds rebounding</name>
+									<script>rb = false</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>The shot shreds (?:his|her|its) aura of rebounding</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer trick ready</name>
+									<script>ms.engineer.trickReady = true</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You may perform another trickshot\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer trick cooldown</name>
+									<script>ms.engineer.trickReady = false; ms.engineer.trickAt = os.time()</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You cannot perform a trickshot again so soon\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer trickshot used</name>
+									<script>ms.engineer.trickReady = false; ms.engineer.trickAt = os.time()</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^Using your incredible focus you quickly shoot (\w+) with an? (\w+)\.$</string>
+										<string>^You point your finger at (\w+) and make "pew pew"</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer focus on</name>
+									<script>ms.engineer.focusing = true</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You begin to focus on (\w+)\.$</string>
+										<string>^You are already focusing on that person\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer focus lost</name>
+									<script>ms.engineer.focusing = false</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You lose focus as the target is beyond your reach\.$</string>
+										<string>^Your struggle with maintaining your focus as your target is beyond your reach\.$</string>
+										<string>^You cease focusing\.$</string>
+										<string>^Your mind racing from the effects of ephrite, you lose focus\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer ammo</name>
+									<script>local n = tonumber(matches[4])
+ms.engineer.ammo[matches[3]] = n
+if n and n &lt; 10 then sys("&lt;red&gt;Engineer") cecho("&lt;yellow&gt;low ammo: "..matches[3].." "..n) end</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You take (\d+) (\w+), bringing the total to (\d+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
+								<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Engineer shot loaded</name>
+									<script>ms.engineer.loaded = matches[2]</script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList>
+										<string>^You load an? (\w+) shot into an? (.+)\.$</string>
+									</regexCodeList>
+									<regexCodePropertyList>
+										<integer>1</integer>
+									</regexCodePropertyList>
+								</Trigger>
 							</TriggerGroup>
 							<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 								<name>Berserker</name>
@@ -31964,6 +36231,916 @@ end</script>
 										<integer>1</integer>
 									</regexCodePropertyList>
 								</Trigger>
+							</TriggerGroup>
+							<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Ranger</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Warding</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Pierce Razed</name>
+										<script>if matches[3]:lower():find(target:lower(), 1, true) then
+  if matches[4] == "aura of rebounding" then rb = false else shield = false end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You jab (.+) towards (\w+), piercing through and shattering (?:his|her|its) (aura of rebounding|translucent shield)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Rebounded</name>
+										<script>rb = true
+cecho("\n&lt;red&gt;[ REBOUNDING - piercejab first ]\n")</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The attack rebounds back onto you!$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Toxin</name>
+										<script>if matches[3]:lower():find(target:lower(), 1, true) then
+  local a = ms.ranger.toxAff[matches[2]]
+  if a then
+    toxUsed = matches[2]
+    if matches[2] == "benzene" then aff("crippled right arm") if ms.afflicted["crippled right arm"] == "aff" then aff("crippled left arm") end
+    elseif matches[2] == "benzedrine" then aff("crippled right leg") if ms.afflicted["crippled right leg"] == "aff" then aff("crippled left leg") end
+    else aff(a) end
+  end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your (\w+) toxin has affected (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Bowmanship</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Incendiary Landed</name>
+										<script>if matches[2]:lower():find(target:lower(), 1, true) then
+  bowFuseStart(matches[2])
+  cecho("\n&lt;orange&gt;[ INCENDIARY on "..matches[2].." - ~"..ms.bow.fuseLen.."s, keep both arms down ]\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Panic overcomes (\w+) as the arrow buries itself deep into (?:his|her|its) flesh\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Fuse Low</name>
+										<script>if matches[2]:lower():find(target:lower(), 1, true) then rangerFuseNote() end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The fuse on the arrow buried in (\w+)'s gut begins to burn low\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Arrow Removed</name>
+										<script>if matches[2]:lower():find(target:lower(), 1, true) then
+  bowFuseClear()
+  cecho("\n&lt;yellow&gt;[ "..matches[2].." PULLED THE ARROW - reshoot if both arms still broken ]\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^With an agonized look of determination, (\w+) yanks the explosive arrow from (?:his|her|its) flesh, extinguishing the fuse and tossing it away\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Exploded</name>
+										<script>bowFuseClear()</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Where once stood (\w+), there is only a black and crimson crater</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Bow Not Wielded</name>
+										<script>bowFuseClear()
+cecho("\n&lt;red&gt;[ no bow in hand - rbow ]\n")</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You are not wielding a bow</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Trailblazing</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Limb Tracking</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Trembled</name>
+										<script>if matches[2]:lower():find(target:lower(), 1, true) then
+  local limb = matches[3].." "..matches[4]
+  rangerSetLimb(limb, "damaged")
+  cecho("\n&lt;yellow&gt;"..matches[2].." "..limb.." TREMBLED - slam\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (left|right) (arm|leg) trembles slightly under the blow\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Limb Broken</name>
+										<script>if matches[2]:lower():find(target:lower(), 1, true) then
+  local limb = matches[3].." "..matches[4]
+  rangerSetLimb(limb, "broken")
+  cecho("\n&lt;red&gt;"..matches[2].." "..limb.." BROKEN\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (left|right) (arm|leg) has been mutilated\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Limb Mangled</name>
+										<script>if matches[2]:lower():find(target:lower(), 1, true) then
+  local limb = matches[3].." "..matches[4]
+  rangerSetLimb(limb, "broken")
+  cecho("\n&lt;red&gt;"..matches[2].." "..limb.." MANGLED\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (left|right) (arm|leg) has been beaten into uselessness\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Thrust Crack</name>
+										<script>if matches[2]:lower():find(target:lower(), 1, true) then
+  local limb = matches[3].." "..matches[4]
+  rangerSetLimb(limb, "broken")
+  cecho("\n&lt;red&gt;"..matches[2].." "..limb.." CRACKED\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You connect and (\w+)'s (left|right) (arm|leg) snaps with a loud 'CRACK'\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Jab Hit Far</name>
+										<script>if matches[3]:lower():find(target:lower(), 1, true) then
+  local limb = matches[4].." "..matches[5]
+  ms.ranger.hits[limb] = (ms.ranger.hits[limb] or 0) + 1
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You jab forward with (.+) at (\w+)'s (left|right) (arm|leg), stepping in towards (?:him|her|it)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Ranger Jab Hit Close</name>
+										<script>if matches[2]:lower():find(target:lower(), 1, true) then
+  local limb = matches[3].." "..matches[4]
+  ms.ranger.hits[limb] = (ms.ranger.hits[limb] or 0) + 1
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Now within close quarters, you aim a short, quick jab at (\w+)'s (left|right) (arm|leg) with (.+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+							</TriggerGroup>
+							<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+								<name>Amazon</name>
+								<script></script>
+								<triggerType>0</triggerType>
+								<conditonLineDelta>0</conditonLineDelta>
+								<mStayOpen>0</mStayOpen>
+								<mCommand></mCommand>
+								<packageName></packageName>
+								<mFgColor>#ff0000</mFgColor>
+								<mBgColor>#ffff00</mBgColor>
+								<mSoundFile></mSoundFile>
+								<colorTriggerFgColor>#000000</colorTriggerFgColor>
+								<colorTriggerBgColor>#000000</colorTriggerBgColor>
+								<regexCodeList />
+								<regexCodePropertyList />
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Warding</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Pierce Shattered</name>
+										<script>if matches[3]:find(target) then
+  if matches[4] == "translucent shield" then shield = false else rb = false end
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You jab (.+) towards (\w+), piercing through and shattering \w+ (aura of rebounding|translucent shield)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Pierce Nothing</name>
+										<script>if matches[3]:find(target) then rb = false; shield = false end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You jab (.+) towards (\w+) but tumble forward slightly as it meets no resistance\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Rebounded</name>
+										<script>rb = true</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The attack rebounds back onto you!$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Toxin</name>
+										<script>deleteLine()
+cecho(" &lt;DimGrey&gt;-&gt; &lt;green&gt;"..matches[2]:title())
+if matches[3]:find(target) then
+  amazonToxLanded(matches[2])
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your (\w+) toxin has affected (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Target Parried</name>
+										<script>if matches[2]:find(target) then
+  tparried = true
+  ms.amazon.parried = ms.amazon.lastLimb
+  ms.amazon.parriedAt = amazonNow()
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) parries the attack with a deft maneuver\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Slam Nothing</name>
+										<script>if ms.amazon.lastLimb then ms.amazon.slamFail[ms.amazon.lastLimb] = amazonNow() end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You slam your body against (?:the )?(\w+), but nothing happens\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Bashimpale Landed</name>
+										<script>if matches[2]:find(target) then
+  ms.amazon.impaled = true
+  impaled = true
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You quickly rap (\w+) on the head with the blunt end of (.+) before whipping the tip around and impaling \w+ on it\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Impale Ended</name>
+										<script>ms.amazon.impaled = false
+impaled = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^With a snarl of contempt, you allow (\w+) to slide free of your weapon\.$</string>
+											<string>^There is no one impaled upon your weapon\.$</string>
+											<string>^With a look of agony on \w+ face, (\w+) manages to writhe \w+ free of the weapon which impaled \w+\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Battlecry Result</name>
+										<script>if matches[2]:find(target) then
+  ms.amazon.deaf = (matches[1]:find("unaffected") ~= nil)
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) smiles, unaffected by the battlecry\.$</string>
+											<string>^(\w+) clutches (?:his|her|its) ears as the shaft of sound shatters (?:his|her|its) will\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Bowmanship</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Pinned Target</name>
+										<script>if matches[2]:find(target) then
+  ms.amazon.pinned = true
+  tprone = true
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Your arrow spears (\w+), pinning \w+ to the ground\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Pin Freed</name>
+										<script>if matches[2]:find(target) then ms.amazon.pinned = false end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+) has broken free from an arrow pinning \w+ to the ground\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Incendiary Landed</name>
+										<script>if matches[2]:find(target) then
+  amazonFuseStart()
+  cecho("\n&lt;red&gt;[ &lt;yellow&gt;INCENDIARY ON "..matches[2]:upper().." - HOLD THEM DOWN ("..ms.amazon.fuseLen.."s) &lt;red&gt;]\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^Panic overcomes (\w+) as the arrow buries itself deep into \w+ flesh\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Fuse Low</name>
+										<script>if matches[2]:find(target) then
+  local left = amazonFuseLeft()
+  cecho("\n&lt;red&gt;[ &lt;yellow&gt;FUSE LOW"..(left and string.format(" - %.0fs", left) or "").." &lt;red&gt;]\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^The fuse on the arrow buried in (\w+)'s gut begins to burn low\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Arrow Pulled</name>
+										<script>if matches[2]:find(target) then
+  amazonFuseClear()
+  cecho("\n&lt;red&gt;[ &lt;yellow&gt;ARROW PULLED - REFIRE &lt;red&gt;]\n")
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^With an agonized look of determination, (\w+) yanks the explosive arrow from \w+ flesh, extinguishing the fuse and tossing it away\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Kill</name>
+										<script>amazonFuseClear()
+ms.amazon.pinned = false
+ms.amazon.impaled = false</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You have slain (\w+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Trailblazing</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+								</TriggerGroup>
+								<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+									<name>Limb Tracking</name>
+									<script></script>
+									<triggerType>0</triggerType>
+									<conditonLineDelta>0</conditonLineDelta>
+									<mStayOpen>0</mStayOpen>
+									<mCommand></mCommand>
+									<packageName></packageName>
+									<mFgColor>#ff0000</mFgColor>
+									<mBgColor>#ffff00</mBgColor>
+									<mSoundFile></mSoundFile>
+									<colorTriggerFgColor>#000000</colorTriggerFgColor>
+									<colorTriggerBgColor>#000000</colorTriggerBgColor>
+									<regexCodeList />
+									<regexCodePropertyList />
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Trembled</name>
+										<script>if matches[2]:find(target) then
+  deleteLine()
+  sys("&lt;yellow&gt;Trembled") cecho("&lt;yellow&gt;"..matches[2].." "..matches[3].." Trembled")
+  amazonSetLimb(matches[3], 1)
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (.+) trembles slightly under the blow\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Bruised</name>
+										<script>if matches[2]:find(target) then
+  deleteLine()
+  sys("&lt;blue&gt;Bruised") cecho("&lt;gold&gt;"..matches[2].." &lt;purple&gt;"..matches[3].." Bruised")
+  amazonSetLimb(matches[3], 2)
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^You notice several bruises forming on (\w+)'s (.+)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Mangled</name>
+										<script>if matches[2]:find(target) then
+  deleteLine()
+  sys("&lt;red&gt;Mangled") cecho("&lt;red&gt;"..matches[2].." "..matches[3].." Mangled")
+  amazonSetLimb(matches[3], 3)
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (.+) has been (?:mutilated|beaten into uselessness)\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+									<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+										<name>Amazon Limb Healed</name>
+										<script>if matches[2]:find(target) then
+  amazonSetLimb(matches[3], 0)
+end</script>
+										<triggerType>0</triggerType>
+										<conditonLineDelta>0</conditonLineDelta>
+										<mStayOpen>0</mStayOpen>
+										<mCommand></mCommand>
+										<packageName></packageName>
+										<mFgColor>#ff0000</mFgColor>
+										<mBgColor>#ffff00</mBgColor>
+										<mSoundFile></mSoundFile>
+										<colorTriggerFgColor>#000000</colorTriggerFgColor>
+										<colorTriggerBgColor>#000000</colorTriggerBgColor>
+										<regexCodeList>
+											<string>^(\w+)'s (.+) looks healthier\.$</string>
+										</regexCodeList>
+										<regexCodePropertyList>
+											<integer>1</integer>
+										</regexCodePropertyList>
+									</Trigger>
+								</TriggerGroup>
 							</TriggerGroup>
 						</TriggerGroup>
 					</TriggerGroup>
@@ -42384,6 +47561,13 @@ elseif matches[2] == "engineer" then send("relearn ballistics from "..relearn)
 elseif matches[2] == "defiler" then send("relearn torment from "..relearn)
 elseif matches[2] == "hunter" then send("relearn supremacy from "..relearn)
 elseif matches[2] == "shaman" then send("relearn curses from "..relearn)
+elseif matches[2] == "outrider" then send("relearn wyrmriding from "..relearn)
+elseif matches[2] == "engineer" then send("relearn ballistics from "..relearn)
+elseif matches[2] == "amazon" then send("relearn warding from "..relearn)
+elseif matches[2] == "ranger" then send("relearn warding from "..relearn)
+elseif matches[2] == "predator" then send("relearn knifeplay from "..relearn)
+elseif matches[2] == "monk" then send("relearn taekate from "..relearn)
+elseif matches[2] == "templar" then send("relearn weaponmastery from "..relearn)
 end
   -- if matches[2] == "assassin" then
     -- expandAlias("mconfig dash on")
@@ -49169,9 +54353,481 @@ end</script>
 										<command></command>
 										<packageName></packageName>
 										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Damage</name>
+											<script>if healing then
+  pta = true
+  group = false; dmg = false; tl = false
+  ms.outrider.mode = "A"
+  wld = quickdraw(ms.save["spear"], ms.save["shield"])
+  outriderAtk("A")
+  plf(); qfront()
+  send("queue reset eqbal");send("queue eqbal top stand"..s..wld..s..plimb..s..qf..s..move..s..oPre..s..oAtk..s..oEq)
+  oPre = ""; oAtk = ""; oEq = ""
+end</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^oaf$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Afflict</name>
+											<script>if healing then
+  pta = true
+  group = false; dmg = false; tl = false
+  ms.outrider.mode = "B"
+  wld = quickdraw(ms.save["spear"], ms.save["shield"])
+  outriderAtk("B")
+  plf(); qfront()
+  send("queue reset eqbal");send("queue eqbal top stand"..s..wld..s..plimb..s..qf..s..move..s..oPre..s..oAtk..s..oEq)
+  oPre = ""; oAtk = ""; oEq = ""
+end</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^oaff$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Gorge</name>
+											<script>if healing then
+  pta = false
+  ms.outrider.gorging = true
+  send(outriderGorge())
+end</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ogor$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Frostheart</name>
+											<script>send("queue eqbal top ".."wyrm frostheart "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ofh$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Icecoat</name>
+											<script>send("queue eqbal top ".."wyrm icecoat "..outriderWeapon())</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^oic$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Blacken</name>
+											<script>send("queue eqbal top ".."wyrm blacken "..outriderWeapon())</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^obk$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Intercept</name>
+											<script>ms.outrider.icAt = os.time()
+send("queue eqbal top ".."wyrm intercept "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^oint$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Charge</name>
+											<script>send("queue eqbal top ".."wyrm charge "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ochg$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Bloodfreeze</name>
+											<script>send("queue eqbal top ".."wyrm bloodfreeze "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^obf$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Trip</name>
+											<script>send("queue eqbal top "..outriderWeapon().." trip "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^otrp$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Pierce</name>
+											<script>send("queue eqbal top "..outriderWeapon().." pierce "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^opc$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Shatter</name>
+											<script>send("queue eqbal top "..outriderWeapon().." shatter "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^osh$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Deepfreeze</name>
+											<script>send("queue eqbal top ".."deepfreeze")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^odf$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Summon</name>
+											<script>send("queue eqbal wyrm summon");send("queue eqbal mount wyrm")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^owy$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Fly</name>
+											<script>send("fly")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ofly$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Land</name>
+											<script>send("land")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^oland$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Limb</name>
+											<script>send("target "..matches[2])</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^olimb (.+)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Bloodfreeze HP</name>
+											<script>ms.outrider.bfHp = tonumber(matches[2]); cecho("\n&lt;cyan&gt;Bloodfreeze at target health &lt;= "..matches[2].."%\n")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^obfhp (\d+)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Status</name>
+											<script>local o = ms.outrider; cecho("\n&lt;cyan&gt;Outrider "..o.mode.." hypo="..o.hypo.." chills="..o.chills.." coat="..tostring(o.icecoated).." bile="..tostring(o.blackened).." bleed="..o.bleed.." fh="..tostring(frostheart).." gorging="..tostring(o.gorging).." myHypo="..o.myHypo.."\n")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ostat$</regex>
+										</Alias>
 									</AliasGroup>
 									<AliasGroup isActive="yes" isFolder="yes">
 										<name>Hunting</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Call Animals</name>
+											<script>send("call animals")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^oca$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Surge</name>
+											<script>send("queue eqbal top surge "..matches[2])</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^osg (\w+)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Outrider Lay Trap</name>
+											<script>send("queue eqbal lay "..matches[2].." "..matches[3]..s.."queue eqbal conceal trap "..matches[3])</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^olay (\w+) (\w+)$</regex>
+										</Alias>
+									</AliasGroup>
+								</AliasGroup>
+								<AliasGroup isActive="no" isFolder="yes">
+									<name>Monk</name>
+									<script></script>
+									<command></command>
+									<packageName></packageName>
+									<regex></regex>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Taekate</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Telepathy</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Kaido</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+									</AliasGroup>
+									<Alias isActive="yes" isFolder="no">
+										<name>Monk Affliction (limb/backbreaker)</name>
+										<script>if healing then
+  pta = true
+  afflict = true
+  group = false; dmg = false; tl = false
+  plf(); qfront()
+  monkSend(monkAffAtk())
+end</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^mkaff$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Monk Damage (bladehand/choke)</name>
+										<script>if healing then
+  pta = true
+  dmg = true
+  afflict = false
+  group = false; tl = false
+  plf(); qfront()
+  monkSend(monkDmgAtk())
+end</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^mkdmg$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Monk Backbreaker</name>
+										<script>send("queue eqbal top bbt "..target)</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^mkbb$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Monk Mindlock</name>
+										<script>send("queue eqbal top mind dissolve"..s.."mind lock "..target)</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^mkml$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Monk Deliverance</name>
+										<script>-- defensive counter: anyone who attacks you for ~30s dies (Match-1284:5611-5628). Stops our own auto-attack.
+pta = false
+send("autocuring off")
+send("queue reset all")
+send("kai deliverance")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^mkdlv$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Monk Kai Boost</name>
+										<script>send("queue eqbal top kai boost")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^mkkb$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Monk Reset State</name>
+										<script>monkReset()
+ms.monk.deliv = false
+cecho("\n&lt;green&gt;[Monk] state reset\n")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^mkreset$</regex>
+									</Alias>
+								</AliasGroup>
+								<AliasGroup isActive="no" isFolder="yes">
+									<name>Predator</name>
+									<script></script>
+									<command></command>
+									<packageName></packageName>
+									<regex></regex>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Knifeplay</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Beastmastery</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Predation</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+									</AliasGroup>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Afflict</name>
+										<script>if healing then
+  pta = true
+  group = false; dmg = false; tl = false
+  ms.predator.mode = "aff"
+  wld = quickdraw(ms.save["sitara"], ms.save["shield"])
+  plf(); qfront()
+  predAtk("aff")
+  send("queue reset eqbal");send("queue eqbal top stand"..s..wld..s..plimb..s..qf..s..move..s..pAtk)
+  pAtk = ""
+end</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^paff$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Damage</name>
+										<script>if healing then
+  pta = true
+  group = false; dmg = true; tl = false
+  ms.predator.mode = "af"
+  wld = quickdraw(ms.save["sitara"], ms.save["shield"])
+  plf(); qfront()
+  predAtk("af")
+  send("queue reset eqbal");send("queue eqbal top stand"..s..wld..s..plimb..s..qf..s..move..s..pAtk)
+  pAtk = ""
+end</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^(pdmg|pag)$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Cirisosis</name>
+										<script>if healing then
+  pta = true
+  ms.predator.mode = "aff"
+  wld = quickdraw(ms.save["sitara"], ms.save["shield"])
+  plf(); qfront()
+  send("queue reset eqbal");send("queue eqbal top stand"..s..wld..s..plimb..s..qf..s..move..s.."combo spinslash spinslash spinslash "..target.." cirisosis")
+end</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^pcir$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Hostage</name>
+										<script>send("queue eqbal top take "..target.." hostage")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^phos$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Execute</name>
+										<script>send("execute hostage")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^pex$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Hostage Toggle</name>
+										<script>ms.predator.useHostage = not ms.predator.useHostage
+cecho("\n&lt;cyan&gt;Predator hostage in aff route: "..tostring(ms.predator.useHostage).."\n")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^phost$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Bladesurge Toggle</name>
+										<script>ms.predator.useBS = not ms.predator.useBS
+cecho("\n&lt;cyan&gt;Predator bladesurge use: "..tostring(ms.predator.useBS).."\n")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^pbs$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Stance</name>
+										<script>send("change stance "..matches[2])</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^pstance (gyanis|vae-sant|ein-fasit|laesan|rizet)$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Spider</name>
+										<script>predBeast("spider")
+send("queue eqbal top spider intoxicate "..target)</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^psp$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Predator Bear</name>
+										<script>predBeast("bear")
+send("queue eqbal top bear pound "..target)</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^pbear$</regex>
+									</Alias>
+								</AliasGroup>
+								<AliasGroup isActive="no" isFolder="yes">
+									<name>Templar</name>
+									<script></script>
+									<command></command>
+									<packageName></packageName>
+									<regex></regex>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Weaponmastery</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Templar Bleed Attack</name>
+											<script>if healing then
+  pta = true
+  ms.templar.mode = "bleed"
+  group = false; dmg = false; tl = false
+  local p = templarBleedAtk()
+  templarSend(p)
+end</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^sl$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Templar Damage Attack</name>
+											<script>if healing then
+  pta = true
+  ms.templar.mode = "dmg"
+  group = false; dmg = true; tl = false
+  local p = templarDmgAtk()
+  templarSend(p)
+end</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^dmg$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Templar Dsb Attack</name>
+											<script>send("impale "..(matches[3] or target)..s.."battlecry "..(matches[3] or target)..s.."queue eqbal disembowel "..(matches[3] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^dsb(\s(\w+))?$</regex>
+										</Alias>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Devotion</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Templar Crusade Type</name>
+											<script>if matches[2] then
+  ms.templar.crusade = matches[2]
+  ms.templar.crusadeUp = false
+  ms.templar.crusadeSent = 0
+end
+sys("&lt;ivory&gt;Crusade") cecho("&lt;gold&gt;"..ms.templar.crusade)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^tcru(?:\s(dazzle|peace|penance|off))?$</regex>
+										</Alias>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Chivalry</name>
 										<script></script>
 										<command></command>
 										<packageName></packageName>
@@ -49710,6 +55366,99 @@ send("queue eqbal grove sever")</script>
 										<command></command>
 										<packageName></packageName>
 										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Afflict</name>
+											<script>engineerSend(engineerAffs)
+afflict = true; dmg = false</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pfa$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Damage</name>
+											<script>engineerSend(engineerDmg)
+dmg = true; afflict = false</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pfd$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Razingshot</name>
+											<script>send("queue eqbal top rshot "..(matches[2] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^prs(?: (\w+))?$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Hotshot</name>
+											<script>send("queue eqbal top hotshot "..(matches[2] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pht(?: (\w+))?$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Spleenshot</name>
+											<script>send("queue eqbal top spleenshot "..(matches[2] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^psp(?: (\w+))?$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Fakeshot</name>
+											<script>send("queue eqbal top fakeshot "..(matches[2] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pfk(?: (\w+))?$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Tagshot</name>
+											<script>send("queue eqbal top tagshot "..(matches[2] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^tgsh(?: (\w+))?$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Veinshot</name>
+											<script>send("queue eqbal top veinshot "..(matches[2] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pvn(?: (\w+))?$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Qshot Chem</name>
+											<script>send("queue eqbal top qshot "..target.." with "..matches[2])</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pqs (\w+)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Snapshot Chem</name>
+											<script>send("queue eqbal top snapshot "..target.." with "..matches[2])</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^psn (\w+)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Dualshot Chem</name>
+											<script>send("queue eqbal top dualshot "..target.." with "..matches[2].." "..matches[3])</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pdu (\w+) (\w+)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Heavy Part</name>
+											<script>send("queue eqbal top shoot "..target.." "..matches[2].." with heavyshot")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^phv (\w+)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Assess</name>
+											<script>send("trueassess "..(matches[2] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pas(?: (\w+))?$</regex>
+										</Alias>
 									</AliasGroup>
 									<AliasGroup isActive="yes" isFolder="yes">
 										<name>Inventing</name>
@@ -49810,6 +55559,20 @@ end</script>
 										<command></command>
 										<packageName></packageName>
 										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Focus</name>
+											<script>send("focus "..(matches[2] or target))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pfc(?: (\w+))?$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Engineer Focus Shooting</name>
+											<script>send("focus with shooting")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^pfw$</regex>
+										</Alias>
 									</AliasGroup>
 								</AliasGroup>
 								<AliasGroup isActive="no" isFolder="yes">
@@ -49903,6 +55666,330 @@ end</script>
 										<command></command>
 										<packageName></packageName>
 										<regex>^(aff|dmg)$</regex>
+									</Alias>
+								</AliasGroup>
+								<AliasGroup isActive="no" isFolder="yes">
+									<name>Ranger</name>
+									<script></script>
+									<command></command>
+									<packageName></packageName>
+									<regex></regex>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Warding</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Ranger Glaive</name>
+											<script>send("queue eqbal top "..quickdraw(ms.save["glaive"], ms.save["shield"]))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^rgl$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Ranger Slam</name>
+											<script>send("queue eqbal top slam "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^rslam$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Ranger Piercejab</name>
+											<script>send("queue eqbal top piercejab "..target.." "..rangerTox(1))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^rpj$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Ranger Quickjab</name>
+											<script>send("queue eqbal top qjab "..target.." "..rangerTox(2))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^rqj$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Ranger Headbutt</name>
+											<script>send("queue eqbal top headbutt "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^rhb$</regex>
+										</Alias>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Bowmanship</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Ranger Incendiary</name>
+											<script>if healing then
+  pta = false
+  send("queue reset eqbal");send("queue eqbal top "..bowIncendiary(target, "here"))
+end</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^rinc$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Ranger Bow</name>
+											<script>send("queue eqbal top quickdraw "..(ms.save["bow"] or "bow"))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^rbow$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Ranger Pull Arrow</name>
+											<script>send("queue eqbal top pull arrow from body")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^rpull$</regex>
+										</Alias>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Trailblazing</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+									</AliasGroup>
+									<Alias isActive="yes" isFolder="no">
+										<name>Ranger Afflict</name>
+										<script>rangerGo("aff")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^raff$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Ranger Damage</name>
+										<script>rangerGo("dmg")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^rgdmg$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Ranger Reset Limbs</name>
+										<script>for limb in pairs(ms.ranger.limbs) do rangerSetLimb(limb, "ok") end
+bowFuseClear()
+cecho("\n&lt;gold&gt;[Ranger limb + fuse state reset]\n")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^rreset$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Ranger Verbose</name>
+										<script>ms.ranger.verbose = not ms.ranger.verbose
+cecho("\n&lt;gold&gt;[Ranger verbose: "..tostring(ms.ranger.verbose).."]\n")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^rverbose$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Ranger Headbutt Toggle</name>
+										<script>ms.ranger.headbutt = not ms.ranger.headbutt
+cecho("\n&lt;gold&gt;[Ranger headbutt filler: "..tostring(ms.ranger.headbutt).."]\n")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^rhbt$</regex>
+									</Alias>
+								</AliasGroup>
+								<AliasGroup isActive="no" isFolder="yes">
+									<name>Amazon</name>
+									<script></script>
+									<command></command>
+									<packageName></packageName>
+									<regex></regex>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Warding</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Quickjab</name>
+											<script>local limb = matches[2].." "..matches[3]
+send("queue eqbal top "..amazonJav()..s.."target "..limb..s.."quickjab "..target.." "..limb.." "..amazonTox())</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amqj (left|right) (arm|leg)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Piercelimb</name>
+											<script>local limb = matches[2].." "..matches[3]
+send("queue eqbal top "..amazonJav()..s.."target "..limb..s.."plimb "..target.." "..limb)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ampl (left|right) (arm|leg)$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Slam</name>
+											<script>local pre = ""
+if matches[2] and matches[2] ~= "" then pre = "target "..matches[2].." "..matches[3]..s end
+send("queue eqbal top "..amazonJav()..s..pre.."slam "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amslam(?: (left|right) (arm|leg))?$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Piercejab</name>
+											<script>send("queue eqbal top "..amazonJav()..s.."target nothing"..s.."piercejab "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ampj$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Bashimpale</name>
+											<script>send("queue eqbal top "..amazonJav()..s.."bashimpale "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ambimp$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Withdraw</name>
+											<script>send("queue eqbal top withdraw blade")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amwd$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Battlecry</name>
+											<script>send("queue eqbal top battlecry "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ambc$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Bstrike</name>
+											<script>send("queue eqbal top "..amazonJav()..s.."bstrike "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ambs$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Disembowel</name>
+											<script>send("queue eqbal top disembowel "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amdis$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Wedge</name>
+											<script>send("queue eqbal top "..amazonJav()..s.."wedge for "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amwedge$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Lockup</name>
+											<script>send("queue eqbal top "..amazonJav()..s.."lockup "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amlock$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Javelin</name>
+											<script>send("queue eqbal top "..amazonJav())</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amjav$</regex>
+										</Alias>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Bowmanship</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Incendiary</name>
+											<script>if healing then
+  pta = false
+  send("queue reset eqbal");send("queue eqbal top "..amazonBow()..s.."switch incendiary"..s.."sshot "..target)
+end</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^aminc$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Pin</name>
+											<script>send("queue eqbal top "..amazonBow()..s.."switch barbed "..ms.amazon.pinTox..s.."pinshot "..target)</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ampin$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Quickshot</name>
+											<script>send("queue eqbal top "..amazonBow()..s.."switch barbed "..ms.amazon.pinTox..s.."qshot "..target.." here")</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amqs$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Bow</name>
+											<script>send("queue eqbal top "..amazonBow())</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^ambow$</regex>
+										</Alias>
+										<Alias isActive="yes" isFolder="no">
+											<name>Amazon Switch Arrow</name>
+											<script>send("queue eqbal top switch "..matches[2]..((matches[3] and matches[3] ~= "") and (" "..matches[3]) or ""))</script>
+											<command></command>
+											<packageName></packageName>
+											<regex>^amswitch (\w+)(?: (\w+))?$</regex>
+										</Alias>
+									</AliasGroup>
+									<AliasGroup isActive="yes" isFolder="yes">
+										<name>Trailblazing</name>
+										<script></script>
+										<command></command>
+										<packageName></packageName>
+										<regex></regex>
+									</AliasGroup>
+									<Alias isActive="yes" isFolder="no">
+										<name>Amazon Afflict</name>
+										<script>amazonGo("aff")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^amaff$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Amazon Group</name>
+										<script>amazonGo("group")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^amgaf$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Amazon Damage</name>
+										<script>amazonGo("dmg")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^amdmg$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Amazon Reset</name>
+										<script>amazonReset()
+cecho("\n&lt;cyan&gt;[ Amazon ] &lt;ivory&gt;state reset for "..tostring(target).."\n")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^amreset$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Amazon Arms Toggle</name>
+										<script>ms.amazon.needArms = not ms.amazon.needArms
+cecho("\n&lt;cyan&gt;[ Amazon ] &lt;ivory&gt;mangle an arm before the incendiary: "..tostring(ms.amazon.needArms).."\n")</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^amarms$</regex>
+									</Alias>
+									<Alias isActive="yes" isFolder="no">
+										<name>Amazon Status</name>
+										<script>amazonStatus()</script>
+										<command></command>
+										<packageName></packageName>
+										<regex>^amstat$</regex>
 									</Alias>
 								</AliasGroup>
 							</AliasGroup>
@@ -50038,6 +56125,10 @@ elseif ms.class["Shaman"] then send(quickdraw(ms.save["longsword"], ms.save["shi
 elseif ms.class["Priest"] then send(quickdraw(ms.save["mace"], ms.save["shield"]))
 elseif ms.class["Outrider"] then send(quickdraw(ms.save["spear"], ms.save["shield"]))
 elseif ms.class["Infiltrator"] then send(quickdraw(ms.save["whip"], ms.save["dirk"]))
+elseif ms.class["Amazon"] then send(quickdraw(ms.save["javelin"], ms.save["shield"]))
+elseif ms.class["Ranger"] then send(quickdraw(ms.save["glaive"]))
+elseif ms.class["Predator"] then send(quickdraw(ms.save["sitara"]))
+elseif ms.class["Monk"] then send("unwield left"..s.."unwield right")
 end</script>
 								<command></command>
 								<packageName></packageName>
@@ -50790,6 +56881,46 @@ elseif ms.class["Druid"] then expandAlias("afflict")
 elseif ms.class["Defiler"] then expandAlias("raf")
 elseif ms.class["Mage"] then expandAlias("wdmg")
 elseif ms.class["Shaman"] then expandAlias("afflict")
+elseif ms.class["Outrider"] then
+  if matches[2] then
+      expandAlias("oaff")
+    else
+      expandAlias("oaf")
+    end
+elseif ms.class["Engineer"] then
+  if matches[2] then
+    expandAlias("pfa")
+  else
+    expandAlias("pfd")
+  end
+elseif ms.class["Amazon"] then
+  if matches[2] then
+    expandAlias("amaff")
+  elseif ms.save["dmg"] then
+    expandAlias("amdmg")
+  else
+    expandAlias("amgaf")
+  end
+elseif ms.class["Ranger"] then
+  if matches[2] then
+    expandAlias("raff")
+  else
+    expandAlias("rgdmg")
+  end
+elseif ms.class["Predator"] then
+  if matches[2] then
+    expandAlias("paff")
+  else
+    expandAlias("pdmg")
+  end
+elseif ms.class["Monk"] then
+  if matches[2] then expandAlias("mkaff") else expandAlias("mkdmg") end
+elseif ms.class["Templar"] then
+  if matches[2] then
+    expandAlias("sl")
+  else
+    expandAlias("dmg")
+  end
 end</script>
 								<command></command>
 								<packageName></packageName>
@@ -51476,7 +57607,7 @@ sys("&lt;green&gt;MS") cecho("&lt;snow&gt;Windows Reset")</script>
 </script>
 									<command></command>
 									<packageName></packageName>
-									<regex>^ms fs (\d+)$</regex>
+									<regex>^ms fs (\d*\.?\d+)$</regex>
 								</Alias>
 								<Alias isActive="yes" isFolder="no">
 									<name>Font Size Window</name>
@@ -51511,7 +57642,7 @@ end
 </script>
 									<command></command>
 									<packageName></packageName>
-									<regex>^ms fs (\w+) (.*)$</regex>
+									<regex>^ms fs (\w+) ([+-]?\d*\.?\d+)$</regex>
 								</Alias>
 								<Alias isActive="yes" isFolder="no">
 									<name>Windows to Fontsize</name>
@@ -51532,11 +57663,11 @@ end
 sys("&lt;green&gt;MS Windows")
 echo "\n"
 for name,fs in pairsByKeys(wfs) do
-  cecho(string.format("\n&lt;snow&gt;|  &lt;cyan&gt;%12s &lt;snow&gt;set to: &lt;yellow&gt;%d  &lt;snow&gt;|", name, fs))
+  cecho(string.format("\n&lt;snow&gt;|  &lt;cyan&gt;%12s &lt;snow&gt;set to: &lt;yellow&gt;%g  &lt;snow&gt;|", name, fs))
 end
 echo"\n"
 cecho(string.rep("-", 28))
-cecho(string.format("\n&lt;snow&gt;|     &lt;snow&gt;Overall FontSize: &lt;yellow&gt;%d  &lt;snow&gt;|", ms.save["fontSize"]))</script>
+cecho(string.format("\n&lt;snow&gt;|     &lt;snow&gt;Overall FontSize: &lt;yellow&gt;%g  &lt;snow&gt;|", ms.save["fontSize"]))</script>
 									<command></command>
 									<packageName></packageName>
 									<regex>^ms fs$</regex>
@@ -51564,7 +57695,7 @@ for defName, v in pairs(ms.save["deflist"]["general"]) do
     cecho("&lt;DimGray&gt;"..defName.."\n")
   end
 end
-for defName, v in pairs(ms.save["deflist"][prof_class]) do
+for defName, v in pairs(ms.save["deflist"][prof_class] or {}) do
   if v["state"] == true then 
     cecho("&lt;snow&gt;"..defName.."\n")
   else
@@ -51692,7 +57823,7 @@ echo "\n"
 uwc = tonumber(1)
 for name,fs in pairsByKeys(wfs) do
   lui(name)
-  cecho(string.format("\n&lt;snow&gt;|&lt;yellow&gt;%2s  &lt;cyan&gt;%12s &lt;snow&gt;set to: &lt;red&gt;%d  &lt;snow&gt;|", uwc, name, fs))
+  cecho(string.format("\n&lt;snow&gt;|&lt;yellow&gt;%2s  &lt;cyan&gt;%12s &lt;snow&gt;set to: &lt;red&gt;%g  &lt;snow&gt;|", uwc, name, fs))
   uwc = uwc + 1
 end
   if ww &gt; 1680 then
@@ -51704,7 +57835,7 @@ end
   end
 echo"\n"
 cecho(string.rep("-", 30))
-cecho(string.format("\n&lt;snow&gt;|       &lt;snow&gt;Overall FontSize: &lt;red&gt;%d  &lt;snow&gt;|", ms.save["fontSize"]))</script>
+cecho(string.format("\n&lt;snow&gt;|       &lt;snow&gt;Overall FontSize: &lt;red&gt;%g  &lt;snow&gt;|", ms.save["fontSize"]))</script>
 									<command></command>
 									<packageName></packageName>
 									<regex>^ms ui show$</regex>
@@ -53758,6 +59889,13 @@ end
 -- The global every UI script depends on. 7 is the value in your mssave.lua.
 fontSize = tonumber(ms.save["fontSize"]) or 7
 
+-- Mudlet consoles only render whole-number font sizes (TConsole stores an int;
+-- checked in Mudlet 4.19.1 and 5.0.1), so ms fs accepts decimals and every
+-- window gets its total (overall + offset) rounded to the nearest whole size.
+function msFs(size)
+  return math.floor((tonumber(size) or 0) + 0.5)
+end
+
 -- Window offsets table, in case the save is ever missing it.
 if type(ms.save["windows"]) ~= "table" then
   ms.save["windows"] = {
@@ -54132,6 +60270,10 @@ function chkp()
         elseif ptab[2]:find("Assassin") then assassin = true
         elseif ptab[2]:find("Diabolist") then diabolist = true
         elseif ptab[2]:find("Monk") then monk = true
+        elseif ptab[2]:find("Engineer") then engineer = true
+        elseif ptab[2]:find("Outrider") then outrider = true
+        elseif ptab[2]:find("Predator") then predator = true
+        elseif ptab[2]:find("Templar") then templar = true
         elseif ptab[2]:find("Bard") then bard = true
         elseif ptab[2]:find("Priest") then priest = true
         end
@@ -54354,6 +60496,9 @@ function msFontSize(num)
   msBorders()
   expandAlias("fixchat")
   sys("&lt;green&gt;MS Font Size") cecho("&lt;snow&gt;All Scaling Font Sizes set to: &lt;yellow&gt;"..tostring(ms.save["fontSize"]))
+  if fontSize ~= math.floor(fontSize) then
+    cecho("\n&lt;snow&gt;  (Mudlet draws whole sizes only; each window uses its total rounded, e.g. &lt;yellow&gt;"..fontSize.."&lt;snow&gt; -&gt; &lt;yellow&gt;"..msFs(fontSize).."&lt;snow&gt;)")
+  end
 end
 
 function msFontWindow(font_window, num)
@@ -54401,6 +60546,11 @@ end</script>
 	 		elseif ms.class["Deathknight"] or ms.class["Runeguard"] then send("queue eqbal top "..quickdraw(ms.save["longsword"], ms.save["shield"])..""..s.."wm raze lacerate "..(ikname or target).." strychnine"..s.."battlecry "..(ikname or target))
 	 		elseif ms.class["Assassin"] or ms.class["Renegade"] then send("queue eqbal top "..quickdraw(ms.save["dirk"], ms.save["shield"])..""..s.."dstab "..(ikname or target).." opium opium")
       elseif ms.class["Hunter"] then send("queue eqbal top "..quickdraw("sword", ms.save["shield"])..""..s..""..ms.save["hunter_form"].." claw "..(ikname or target).." opium"..s.."bat sleep "..(ikname or target))
+      elseif ms.class["Outrider"] then send("queue eqbal top "..quickdraw(ms.save["spear"], ms.save["shield"])..s..outriderWeapon().." trip "..(ikname or target))
+      elseif ms.class["Amazon"] then send("queue eqbal top "..quickdraw(ms.save["javelin"], ms.save["shield"])..s.."quickjab "..(ikname or target).." opium opium"..s.."battlecry "..(ikname or target))
+      elseif ms.class["Predator"] then send("queue eqbal top quickdraw "..ms.save["sitara"]..s.."trip "..(ikname or target))
+      elseif ms.class["Monk"] then send("queue eqbal top mind numbness "..(ikname or target))
+      elseif ms.class["Templar"] then send("queue eqbal top "..quickdraw(ms.save["longsword"], ms.save["shield"])..s.."wm raze lacerate "..(ikname or target).." strychnine"..s.."battlecry "..(ikname or target))
 		  end
 		end
   end
@@ -54693,6 +60843,57 @@ if healing and (pta or autoKill or force) then
           expandAlias("aff")
         end
       end
+    elseif ms.class["Templar"] then
+      local tm = ms.templar or {}
+      if pta and tm.mode == "dmg" then
+        expandAlias("dmg")
+      elseif pta and tm.mode == "bleed" then
+        expandAlias("sl")
+      elseif ms.save["group"] or ms.save["dmg"] or dmg or group then
+        expandAlias("dmg")
+      elseif ms.save["solo"] or afflict then
+        expandAlias("sl")
+      end
+    elseif ms.class["Monk"] then
+      if ms.save["group"] or ms.save["dmg"] or dmg then
+              expandAlias("mkdmg")
+            elseif ms.save["solo"] or afflict then
+              expandAlias("mkaff")
+            end
+    elseif ms.class["Predator"] then
+      if ms.predator.mode == "af" or ms.save["group"] or group or ms.save["dmg"] or dmg then
+        expandAlias("pdmg")
+      elseif ms.predator.mode == "aff" or ms.save["solo"] or afflict then
+        expandAlias("paff")
+      end
+    elseif ms.class["Ranger"] then
+      if ms.ranger and ms.ranger.mode == "dmg" then
+        expandAlias("rgdmg")
+      else
+        expandAlias("raff")
+      end
+    elseif ms.class["Amazon"] then
+      if ms.amazon.mode == "group" then
+        expandAlias("amgaf")
+      elseif ms.amazon.mode == "dmg" then
+        expandAlias("amdmg")
+      else
+        expandAlias("amaff")
+      end
+    elseif ms.class["Engineer"] then
+      if ms.save["dmg"] or dmg then
+        expandAlias("pfd")
+      elseif ms.save["solo"] or ms.save["group"] or afflict or group then
+        expandAlias("pfa")
+      end
+    elseif ms.class["Outrider"] then
+      if ms.outrider.gorging then
+            -- channelling gorge: do not queue anything
+          elseif ms.outrider.mode == "B" then
+            expandAlias("oaff")
+          else
+            expandAlias("oaf")
+          end
     end
   pta = false
 end--healing
@@ -55028,12 +61229,12 @@ function ms.checkDef(defense, timeLeft)
   end
   local defense = defense:lower()
   if timeLeft then
-    if table.contains(ms.save["deflist"][class], defense) then
+    if table.contains(ms.save["deflist"][class] or {}, defense) then
       showDef(defense.." ["..timeLeft.."]", class)
     else
       showDef(defense.." ["..timeLeft.."]")
     end
-  elseif table.contains(ms.save["deflist"][class], defense) then
+  elseif table.contains(ms.save["deflist"][class] or {}, defense) then
     showDef(defense, class)
   else
     showDef(defense)
@@ -55791,6 +61992,8 @@ ms.defCheck = {
   dos = false
   inGroup = false
   engineer = false
+  predator = false
+  templar = false
   priest = false
   crn = ""
   rn = ""
@@ -57692,7 +63895,7 @@ ms.toxins = {
         color = "black"
     }
 )
-cc:setFontSize(fontSize + ms.save["windows"]["toggles"])
+cc:setFontSize(msFs(fontSize + ms.save["windows"]["toggles"]))
 
 function ccspace(name)
     ccspacec = 11 - string.len(name)
@@ -57840,7 +64043,7 @@ x = "-20%", y = "-55%",
 width = "15%", height = "32%",
 color = "black",
 })
-igmap:setFontSize(fontSize+ms.save["windows"]["map"])
+igmap:setFontSize(msFs(fontSize+ms.save["windows"]["map"]))
 
 people = Geyser.MiniConsole:new({
 name = "people",
@@ -57848,7 +64051,7 @@ x = "-20%", y = "-21%",
 width = "15%", height = "11%",
 color = "black",
 })
-people:setFontSize(fontSize)
+people:setFontSize(msFs(fontSize))
 people:enableAutoWrap()
 
 function gatherpeople()
@@ -57942,7 +64145,7 @@ end
   width="9.5%", height="2%",
   color ="dark_green",
 })
-  hbar:setFontSize(fontSize+ms.save["windows"]["hbar"])
+  hbar:setFontSize(msFs(fontSize+ms.save["windows"]["hbar"]))
 hbar:setValue(100, 100, [[&lt;font color="black"&gt;&lt;b&gt;&amp;nbsp;Health (100%)&lt;/b&gt;&lt;/font&gt;]])
 mbar = Geyser.Gauge:new({
   name="mbar",
@@ -57950,7 +64153,7 @@ mbar = Geyser.Gauge:new({
   width="9.5%", height="2%",
   color = "SteelBlue",
 })
-  mbar:setFontSize(fontSize+ms.save["windows"]["mbar"])
+  mbar:setFontSize(msFs(fontSize+ms.save["windows"]["mbar"]))
 mbar:setValue(100, 100, [[&lt;font color="black"&gt;&lt;b&gt;&amp;nbsp;Mana (100%)&lt;/b&gt;&lt;/font&gt;]])
 </script>
 								<eventHandlerList />
@@ -57987,10 +64190,10 @@ color = "black",
 })
 
 
-  statusconsole:setFontSize(fontSize+ms.save["windows"]["scOne"])
-  statusconsole2:setFontSize(fontSize+ms.save["windows"]["scTwo"])
-  statusconsole3:setFontSize(fontSize+ms.save["windows"]["scThree"])
-  statusconsole4:setFontSize(fontSize+ms.save["windows"]["scFour"])
+  statusconsole:setFontSize(msFs(fontSize+ms.save["windows"]["scOne"]))
+  statusconsole2:setFontSize(msFs(fontSize+ms.save["windows"]["scTwo"]))
+  statusconsole3:setFontSize(msFs(fontSize+ms.save["windows"]["scThree"]))
+  statusconsole4:setFontSize(msFs(fontSize+ms.save["windows"]["scFour"]))
 
 ms.class = {
     Akkari = false,
@@ -58107,7 +64310,7 @@ function statc() clearWindow("statusconsole");clearWindow("statusconsole2");clea
 	   cecho("statusconsole4", " &lt;tan&gt;E:"..gmcp.Char.Vitals.endurance.."&lt;ivory&gt;\/&lt;tan&gt;"..gmcp.Char.Vitals.max_endurance)
   end
 	if ms.class["Deathknight"] then cecho("statusconsole4", " &lt;SteelBlue&gt;E:&lt;purple&gt;"..tostring(essence)) end
-  if ms.class["Berzerker"] then cecho("statusconsole4", " &lt;SteelBlue&gt;R:&lt;red&gt;"..gmcp.Char.Vitals.rage.."&lt;snow&gt;%") end
+  if ms.class["Berserker"] then cecho("statusconsole4", " &lt;SteelBlue&gt;R:&lt;red&gt;"..gmcp.Char.Vitals.rage.."&lt;snow&gt;%") end
   if imperian then
   	if gmcp.Char.Vitals.eq == "1" then cecho("statusconsole4", " &lt;cyan&gt;[EQ]") else cecho("statusconsole4", " &lt;DimGrey&gt;[EQ]") end
   	if gmcp.Char.Vitals.bal == "1" then cecho("statusconsole4", " &lt;yellow&gt;[BAL]") else cecho("statusconsole4", " &lt;DimGrey&gt;[BAL]") end
@@ -58201,7 +64404,13 @@ function statc() clearWindow("statusconsole");clearWindow("statusconsole2");clea
   cecho("statusconsole2", "\n&lt;yellow&gt;Shock:      ");if druid_shock then cecho("statusconsole2", "&lt;green&gt;Up") else cecho("statusconsole2", "&lt;red&gt;Down") end
     elseif ms.class["Templar"] then
   cecho("statusconsole3", "&lt;SteelBlue&gt;Target Affs: &lt;green&gt;"..acount)
-  cecho("statusconsole3", " | &lt;cyan&gt;Devotion: &lt;snow&gt;"..gmcp.Char.Vitals.devotion)
+  cecho("statusconsole3", " | &lt;cyan&gt;Devotion: &lt;snow&gt;"..tostring(gmcp.Char.Vitals.devotion or "-"))
+    elseif ms.class["Monk"] then
+  cecho("statusconsole3", "&lt;SteelBlue&gt;Target Affs: &lt;green&gt;"..acount)
+  -- Monk prompts show K: (kai); the GMCP field name is unconfirmed, so fall back to "-".
+  cecho("statusconsole3", " | &lt;cyan&gt;Kai: &lt;snow&gt;"..tostring(gmcp.Char.Vitals.kai or "-"))
+    elseif ms.class["Engineer"] or ms.class["Outrider"] or ms.class["Amazon"] or ms.class["Ranger"] or ms.class["Predator"] then
+  cecho("statusconsole3", "&lt;SteelBlue&gt;Target Affs: &lt;green&gt;"..acount)
     elseif ms.class["Priest"] then
   cecho("statusconsole3", "&lt;SteelBlue&gt;Target Affs: &lt;green&gt;"..acount)
   cecho("statusconsole3", " | &lt;yellow&gt;Fanatism: &lt;magenta&gt;"..gmcp.Char.Vitals.fanatism)
@@ -58364,7 +64573,7 @@ end</script>
         color = "black"
     }
 )
-roomitems:setFontSize(fontSize + ms.save["windows"]["roomItems"])
+roomitems:setFontSize(msFs(fontSize + ms.save["windows"]["roomItems"]))
 
 function roomList()
     clearWindow("roomitems")
@@ -58448,9 +64657,9 @@ color = "black",
 })
 
 
-  winAffs1:setFontSize(fontSize+ms.save["windows"]["affOne"])
-  winAffs2:setFontSize(fontSize+ms.save["windows"]["affTwo"])
-  winAffs3:setFontSize(fontSize+ms.save["windows"]["affThree"])
+  winAffs1:setFontSize(msFs(fontSize+ms.save["windows"]["affOne"]))
+  winAffs2:setFontSize(msFs(fontSize+ms.save["windows"]["affTwo"]))
+  winAffs3:setFontSize(msFs(fontSize+ms.save["windows"]["affThree"]))
   
 function affWindow()
 clearWindow("winAffs1")
@@ -58567,7 +64776,7 @@ x = "-20%", y = "1%",
 width = "15%", height = "24%",
 color = "black",
 })
-  charstats:setFontSize(fontSize+ms.save["windows"]["charStats"])
+  charstats:setFontSize(msFs(fontSize+ms.save["windows"]["charStats"]))
 function charStat()
 	clearWindow("charstats")
   csWidth = charstats:getColumnCount()
@@ -58607,21 +64816,21 @@ end
 								<name>Font Sizes</name>
 								<packageName></packageName>
 								<script>function setTextSize()
-  winAffs1:setFontSize(fontSize+ms.save["windows"]["affOne"])
-  winAffs2:setFontSize(fontSize+ms.save["windows"]["affTwo"])
-  winAffs3:setFontSize(fontSize+ms.save["windows"]["affThree"])
-  cc:setFontSize(fontSize+ms.save["windows"]["toggles"])
-  hbar:setFontSize(fontSize+ms.save["windows"]["hbar"])
-  igmap:setFontSize(fontSize+ms.save["windows"]["map"])
-  mbar:setFontSize(fontSize+ms.save["windows"]["mbar"])
-  people:setFontSize(fontSize+ms.save["windows"]["roomInfo"])
-  statusconsole:setFontSize(fontSize+ms.save["windows"]["scOne"])
-  statusconsole2:setFontSize(fontSize+ms.save["windows"]["scTwo"])
-  statusconsole3:setFontSize(fontSize+ms.save["windows"]["scThree"])
-  statusconsole4:setFontSize(fontSize+ms.save["windows"]["scFour"])
-  roomitems:setFontSize(fontSize+ms.save["windows"]["roomItems"])
-  charstats:setFontSize(fontSize+ms.save["windows"]["charStats"])
-  demonnic.chat.config.fontSize = calcFontSize(fontSize+ms.save["windows"]["chat"])
+  winAffs1:setFontSize(msFs(fontSize+ms.save["windows"]["affOne"]))
+  winAffs2:setFontSize(msFs(fontSize+ms.save["windows"]["affTwo"]))
+  winAffs3:setFontSize(msFs(fontSize+ms.save["windows"]["affThree"]))
+  cc:setFontSize(msFs(fontSize+ms.save["windows"]["toggles"]))
+  hbar:setFontSize(msFs(fontSize+ms.save["windows"]["hbar"]))
+  igmap:setFontSize(msFs(fontSize+ms.save["windows"]["map"]))
+  mbar:setFontSize(msFs(fontSize+ms.save["windows"]["mbar"]))
+  people:setFontSize(msFs(fontSize+ms.save["windows"]["roomInfo"]))
+  statusconsole:setFontSize(msFs(fontSize+ms.save["windows"]["scOne"]))
+  statusconsole2:setFontSize(msFs(fontSize+ms.save["windows"]["scTwo"]))
+  statusconsole3:setFontSize(msFs(fontSize+ms.save["windows"]["scThree"]))
+  statusconsole4:setFontSize(msFs(fontSize+ms.save["windows"]["scFour"]))
+  roomitems:setFontSize(msFs(fontSize+ms.save["windows"]["roomItems"]))
+  charstats:setFontSize(msFs(fontSize+ms.save["windows"]["charStats"]))
+  demonnic.chat.config.fontSize = calcFontSize(msFs(fontSize+ms.save["windows"]["chat"]))
 end
 
 windowNames = {
@@ -60994,10 +67203,668 @@ end</script>
 									<eventHandlerList />
 								</Script>
 								<Script isActive="yes" isFolder="no">
+									<name>Templar</name>
+									<packageName></packageName>
+									<script>-- Templar (Anti-Magick). Weaponmastery + Devotion + Chivalry.
+-- Reuses the Deathknight Script's ew()/bleedDSL()/dmgDSL() toxin builders (always loaded), then
+-- replaces the Deathknight attack choice and enhancement string with Templar ones.
+-- Evidence: tasks/class-research/templar.md (Zubayr longsword bleed route, Match-813/814).
+ms.templar = ms.templar or {}
+local m = ms.templar
+-- m.mode: "bleed" | "dmg" (set by the sl / dmg aliases, read by forceAtk); nil until an alias runs
+m.crusade = m.crusade or "dazzle"   -- dazzle | peace | penance | off  (alias: tcru)
+m.crusadeUp = m.crusadeUp or false
+m.crusadeAt = m.crusadeAt or 0      -- last time we saw the crusade build line
+m.crusadeSent = m.crusadeSent or 0  -- last time we sent crusade (spam guard)
+m.falconTarget = m.falconTarget or ""
+m.falconAt = m.falconAt or 0
+m.enh = m.enh or ""
+m.lacerates = m.lacerates or 0      -- our lacerates on the target
+m.laceMe = m.laceMe or 0            -- enemy lacerates on us (rolling window)
+m.impaledMe = m.impaledMe or false
+
+function templarNum(v) return tonumber(v) or 0 end
+
+-- join non-empty command pieces with the MS separator
+function templarJoin(...)
+  local out = {}
+  for i = 1, select("#", ...) do
+    local v = select(i, ...)
+    if v and v ~= "" then out[#out + 1] = v end
+  end
+  return table.concat(out, s)
+end
+
+-- falcon slay once per target, refreshed every 15s (falcon drops the order on room change)
+function templarFalcon()
+  local m = ms.templar
+  if m.falconTarget == target:lower() and os.time() - m.falconAt &lt; 15 then return "" end
+  m.falconTarget = target:lower()
+  m.falconAt = os.time()
+  return "falcon slay "..target
+end
+
+-- crusade only when it is not already running; never re-sent within 8s (spam guard)
+function templarCrusade()
+  local m = ms.templar
+  if m.crusade == "off" or m.crusade == "" then return "" end
+  local dv = tonumber(gmcp and gmcp.Char and gmcp.Char.Vitals and gmcp.Char.Vitals.devotion)
+  if dv and dv &lt;= 0 then return "" end
+  if m.crusadeUp and os.time() - m.crusadeAt &lt; 180 then return "" end
+  if os.time() - m.crusadeSent &lt; 8 then return "" end
+  m.crusadeSent = os.time()
+  return "crusade "..m.crusade
+end
+
+-- enhancement pair. Observed pairs (Zubayr, Match-813): purge+mirroring opener, mirroring+emblazing
+-- steady (most common), burning+emblazing late. Pair choice thresholds are heuristics.
+function templarEnhance(weapon, kind)
+  local m = ms.templar
+  local pair
+  local dv = tonumber(gmcp and gmcp.Char and gmcp.Char.Vitals and gmcp.Char.Vitals.devotion)
+  if dv and dv &lt;= 0 then m.enh = "" return "" end
+  if kind == "dmg" then
+    if templarNum(hp) &lt;= 60 then pair = "burning emblazing" else pair = "mirroring emblazing" end
+  else
+    if ms.afflicted["haemophilia"] == "notaff" and ms.afflicted["burning nerves"] == "notaff" and templarNum(tbleed) &lt; 30 then
+      pair = "purge mirroring"
+    elseif templarNum(hp) &lt;= 55 or templarNum(tbleed) &gt;= 100 then
+      pair = "burning emblazing"
+    else
+      pair = "mirroring emblazing"
+    end
+  end
+  m.enh = pair
+  return "enhance "..weapon.." with "..pair
+end
+
+-- Longsword bleed route (aff). Returns {wld, cl, enh, atk, eng, a1, a2, kill}.
+function templarBleedAtk()
+  local p = {kill = false}
+  if ew then ew() end
+  if bleedDSL then bleedDSL() end   -- fills ms.dk.affs (toxin priority incl. strychnine lock logic)
+  local tx = (ms.dk and ms.dk.affs) or {}
+  local t1, t2 = tx[1] or "strychnine", tx[2] or "strychnine"
+  local bleeding = templarNum(tbleed) &gt; 0
+  local hemo = ms.afflicted["haemophilia"] == "aff"
+  local a1, a2
+  p.wld = quickdraw(ms.save["longsword"], ms.save["shield"])
+  p.cl = "cleanse "..ms.save["longsword"]
+  p.enh = templarEnhance(ms.save["longsword"], "bleed")
+  p.eng = ""
+  if impaled then
+    p.atk = "disembowel "..target
+    p.wld = ""; p.cl = ""; p.enh = ""
+  else
+    if rb and shield then a1, a2 = "raze", "raze"
+    elseif rb or shield then a1 = "raze"; a2 = bleeding and "lacerate" or "shred"
+    elseif templarNum(tbleed) &gt;= 70 and templarNum(hp) &lt;= 40 then a1, a2 = "lacerate", "lacerate"; p.kill = true
+    elseif not bleeding then a1 = "slash"; a2 = hemo and "slash" or "shred"
+    elseif not hemo then a1, a2 = "lacerate", "shred"
+    else a1, a2 = "lacerate", "lacerate" end
+    p.a1, p.a2 = a1, a2
+    p.atk = "wm "..a1.." "..a2.." "..target.." "..t1.." "..t2
+  end
+  if et and engage then p.eng = "engage "..target end
+  return p
+end
+
+-- Battleaxe reave route (af / group / damage). Returns the same shape.
+function templarDmgAtk()
+  local p = {kill = false}
+  if ew then ew() end
+  if dmgDSL then dmgDSL() end       -- fills ms.dk.affs and atk1/atk2 (reave/reave, raze when rb/shield)
+  local tx = (ms.dk and ms.dk.affs) or {}
+  local t1, t2 = tx[1] or "strychnine", tx[2] or "strychnine"
+  local a1, a2 = atk1 or "reave", atk2 or "reave"
+  p.wld = quickdraw(ms.save["battleaxe"], ms.save["shield"])
+  p.cl = "cleanse "..ms.save["battleaxe"]
+  p.enh = templarEnhance(ms.save["battleaxe"], "dmg")
+  p.eng = ""
+  if impaled then
+    p.atk = "disembowel "..target
+    p.wld = ""; p.cl = ""; p.enh = ""
+  else
+    p.a1, p.a2 = a1, a2
+    p.atk = "wm "..a1.." "..a2.." "..target.." "..t1.." "..t2
+    if a1 == "reave" or a2 == "reave" then p.atk = "lionstance"..s..p.atk end
+  end
+  if et and engage then p.eng = "engage "..target end
+  return p
+end
+
+-- assemble + send one queued chain (same shape Zubayr used: stand, falcon, enemy, wield, cleanse,
+-- enhance, crusade, wm, engage). 'enemy &lt;target&gt;' comes from qfront()'s default branch (qf).
+function templarSend(p)
+  plf(); qfront()
+  local cmd = templarJoin("stand", templarFalcon(), p.wld, plimb, qf, move, p.cl, p.enh, (impaled and "" or templarCrusade()), p.atk, p.eng)
+  send("queue reset eqbal")
+  send("queue eqbal top "..cmd)
+  return cmd
+end
+</script>
+									<eventHandlerList />
+								</Script>
+								<Script isActive="yes" isFolder="no">
+									<name>Monk</name>
+									<packageName></packageName>
+									<script>-- Monk (Anti-Magick) builders for Mathiaus System. Install: Scripts/Classes/Anti-Magick/Monk
+-- Evidence: tasks/class-research/monk.md (Fight Club logs). Unverified guesses are marked [?].
+ms.monk = ms.monk or {}
+ms.monk.back = ms.monk.back or 0          -- target back stage: 0 none, 1 sprained, 2 broken (3rd bbt kills)
+ms.monk.mind = ms.monk.mind or {}         -- aff -&gt; os.time() of our last cast
+ms.monk.enfAt = ms.monk.enfAt or 0        -- last successful kai enfeeble
+ms.monk.enfBlock = ms.monk.enfBlock or 0  -- last "cannot be enfeebled again so soon"
+ms.monk.noKai = ms.monk.noKai or 0        -- last "not enough Kai energy"
+ms.monk.parry = ms.monk.parry or nil      -- {limb = "left leg", t = os.time()} from a parry line
+ms.monk.deliv = ms.monk.deliv or false    -- WE hold the deliverance defence: never attack
+ms.monk.bbPending = ms.monk.bbPending or 0
+ms.monk.spec = ms.monk.spec or "pugilism" -- logs only show pugilism combos (4 punches per balance)
+
+-- Mind attacks in the order the winning logs landed them. Values are the ms.afflicted keys.
+-- cmd = what follows "mind " ; Match-1278:560-972, Match-648:577-3448.
+ms.monk.mindOrder = {
+  {aff = "numbness",      cmd = "numbness"},
+  {aff = "stupidity",     cmd = "stupidity"},
+  {aff = "pacifism",      cmd = "pacify"},
+  {aff = "epilepsy",      cmd = "epilepsy"},
+  {aff = "hallucinations", cmd = "hallucinate"},
+}
+
+local function now() return os.time() end
+
+local function afflicted(a)
+  return ms.afflicted and ms.afflicted[a] == "aff"
+end
+
+-- true when this target leg is crippled (set by the "has been mutilated" trigger / cure tracking)
+function monkLegDown(side)
+  return afflicted("crippled "..side.." leg")
+end
+
+-- kai: GMCP field name is unconfirmed [?]; nil means unknown, so fall back to the noKai failure flag
+function monkKai()
+  local ok, k = pcall(function() return tonumber(gmcp.Char.Vitals.kai) end)
+  if ok then return k end
+  return nil
+end
+
+function monkKaiOK(cost)
+  local k = monkKai()
+  if k then return k &gt;= cost end
+  return (now() - ms.monk.noKai) &gt; 8
+end
+
+-- Kai costs from the wiki: enfeeble 41, choke 10. Cooldown on enfeeble is a guess [?].
+function monkEnfeeble()
+  local m = ms.monk
+  if (now() - m.enfBlock) &gt; 6 and (now() - m.enfAt) &gt; 6 and monkKaiOK(41) then
+    return "kai enfeeble "..target
+  end
+  return nil
+end
+
+function monkChoke()
+  if monkKaiOK(10) then return "kai choke "..target end
+  return nil
+end
+
+-- next mind affliction that is not (recently) landed; masked casts show nothing, so we track our own casts
+function monkMindNext()
+  local m = ms.monk
+  for _, e in ipairs(m.mindOrder) do
+    local landed = afflicted(e.aff) and (now() - (m.mind[e.aff] or 0)) &lt; 25
+    if e.aff == "numbness" and afflicted("paralysis") then landed = true end
+    if not landed then return e end
+  end
+  return nil
+end
+
+-- "mind mask on|mind &lt;aff&gt; T|mind mask off" (Match-1278:556-571); no balance cost
+function monkMindCast()
+  local e = monkMindNext()
+  if not e then return nil end
+  return "mind mask on"..s.."mind "..e.cmd.." "..target..s.."mind mask off"
+end
+
+local function parried(limb)
+  local p = ms.monk.parry
+  return p and p.limb == limb and (now() - p.t) &lt; 12
+end
+
+-- choose hammerfist leg order: trembled leg first, avoid a parried leg, else alternate
+local function legCombo()
+  local t = target
+  local lc, rc = monkLegDown("left"), monkLegDown("right")
+  local side
+  if lc and not rc then side = "right"
+  elseif rc and not lc then side = "left"
+  elseif parried("left leg") then side = "right"
+  elseif parried("right leg") then side = "left"
+  elseif llt and not rlt then side = "left"
+  elseif rlt and not llt then side = "right"
+  end
+  if side then
+    return "combo hfp "..side.." hfp "..side.." hfp "..side.." hfp "..side.." "..t
+  end
+  return "combo hfp right hfp left hfp right hfp left "..t       -- Match-1278:10589
+end
+
+-- Route A (aff): legs -&gt; sweep -&gt; backbreaker x3. Returns the command string for the queue.
+function monkAffAtk()
+  local t = target
+  local m = ms.monk
+  local lc, rc = monkLegDown("left"), monkLegDown("right")
+  local anyLeg = lc or rc
+  local enf = monkEnfeeble()
+  local parts = {}
+  local function add(x) if x and x ~= "" then parts[#parts+1] = x end end
+
+  if shield then
+    -- No shield-break was seen in any Monk log. Enfeeble is unblockable (Match-1278:513), mind attacks are
+    -- non-physical, choke is mental damage [?]. Use those until the shield drops.
+    add(enf)
+    add(monkMindCast())
+    add(monkChoke())
+  elseif tprone and (anyLeg or m.back &gt;= 1) then
+    -- kill loop: Match-648:11421 "kai enfeeble T| bbt T|mind numbness T"
+    add(enf)
+    add("bbt "..t)
+    if not afflicted("paralysis") then add("mind numbness "..t) end
+  elseif not tprone and ((lc and rc) or (anyLeg and (llt or rlt))) then
+    add(enf)
+    add("combo swk hfp left hfp right "..t)                       -- Match-648:11264
+    add(monkMindCast())
+  else
+    add(enf)
+    add(legCombo())
+    add(monkMindCast())
+  end
+  return table.concat(parts, s)
+end
+
+-- Route B (af): Match-1299:487 "kai enfeeble T|combo blp blp blp blp T|kai choke T"
+function monkDmgAtk()
+  local t = target
+  local parts = {}
+  local function add(x) if x and x ~= "" then parts[#parts+1] = x end end
+  local k = monkKai()
+  local enf = monkEnfeeble()
+  add(enf)
+  if shield then
+    add("mind crush "..t)                                          -- non-physical filler [?] vs shield
+  else
+    add("combo blp blp blp blp "..t)
+  end
+  if monkKaiOK((enf and k) and 51 or 10) then add("kai choke "..t) end
+  return table.concat(parts, s)
+end
+
+-- compose and send a queue line; never attack while WE hold deliverance (any Monk action ends it, Match-1284:2846)
+function monkSend(atk)
+  if ms.monk.deliv then
+    cecho("\n&lt;red&gt;[Monk] Deliverance is up - not attacking.\n")
+    return
+  end
+  local parts = {"stand"}
+  local function add(x) if x and x ~= "" then parts[#parts+1] = x end end
+  add(plimb); add(qf); add(move); add(atk)
+  send("queue reset eqbal")
+  send("queue eqbal top "..table.concat(parts, s))
+end
+
+-- clear per-fight state (called on kill / target change)
+function monkReset()
+  local m = ms.monk
+  m.back = 0; m.mind = {}; m.enfAt = 0; m.enfBlock = 0; m.parry = nil; m.bbPending = 0
+end
+</script>
+									<eventHandlerList />
+								</Script>
+								<Script isActive="yes" isFolder="no">
+									<name>Predator</name>
+									<packageName></packageName>
+									<script>-- Predator (Anti-Magick) -- Knifeplay / Predation / Beastmastery
+-- Sources: tasks/class-research/predator.md (Fight Club logs 629-937). Unverified items flagged "UNVERIFIED".
+ms.predator = ms.predator or {}
+ms.predator.stance = ms.predator.stance or ""        -- gyanis / vae-sant / ein-fasit / laesan / rizet
+ms.predator.bladesurge = ms.predator.bladesurge or false
+ms.predator.bsReady = ms.predator.bsReady or 0       -- os.time() after which bladesurge may be re-used
+ms.predator.injected = ms.predator.injected or false -- cirisosis injected into target, awaiting shock
+ms.predator.shock = ms.predator.shock or false       -- target is in toxic shock
+ms.predator.hostage = ms.predator.hostage or false   -- we hold a hostage
+ms.predator.useHostage = ms.predator.useHostage or false -- phost toggle: try hostage in the aff route
+ms.predator.noHostageUntil = ms.predator.noHostageUntil or 0
+ms.predator.limb = ms.predator.limb or {}            -- ["left leg"] = 1..4 (tremble, bruise, mutilated, mangled)
+ms.predator.shockOnMe = ms.predator.shockOnMe or false
+ms.predator.hostageOnMe = ms.predator.hostageOnMe or false
+ms.predator.pinned = ms.predator.pinned or false
+ms.predator.beast = ms.predator.beast or ""
+if ms.predator.useBS == nil then ms.predator.useBS = true end  -- pbs toggles bladesurge use
+ms.predator.rebound = ms.predator.rebound or false
+ms.predator.lastTarget = ms.predator.lastTarget or ""
+ms.predator.mode = ms.predator.mode or ""
+
+-- toxin name -&gt; affliction key in ms.afflicted (mirrors weaverAffs)
+ms.predator.toxmap = {
+  hemotoxin = "hemotoxin", metrazol = "metrazol", ciguatoxin = "numbness", mercury = "asthma",
+  ether = "clumsiness", iodine = "slickness", butisol = "butisol", mazanor = "slow herbs",
+  calotropis = "calotropis", xeroderma = "sunallergy", strychnine = "sensitivity",
+  botulinum = "nausea", luminal = "slow elixirs", noctec = "slow balance", atropine = "recklessness",
+  cyanide = "cyanide", lindane = "dizziness", arsenic = "weariness", vitriol = "disloyalty",
+  psilocybin = "ineptude", aconite = "stupidity", avidya = "ignorance", mebaral = "slow equilibrium",
+}
+-- ordered preference for the aff route (diverse toxins feed Cirisosis)
+ms.predator.toxorder = {
+  "hemotoxin", "metrazol", "ciguatoxin", "mercury", "butisol", "mazanor", "calotropis",
+  "xeroderma", "strychnine", "botulinum", "ether", "iodine", "noctec", "luminal", "lindane",
+  "cyanide", "arsenic", "atropine", "vitriol", "psilocybin", "aconite",
+}
+
+function predReset()
+  ms.predator.injected = false
+  ms.predator.shock = false
+  ms.predator.hostage = false
+  ms.predator.limb = {}
+  ms.predator.rebound = false
+end
+
+local function pAff(k)
+  return ms.afflicted[k] == "aff"
+end
+
+-- number of toxin-type afflictions currently on the target
+function predToxCount()
+  local n = 0
+  for _, a in pairs(ms.predator.toxmap) do
+    if ms.afflicted[a] == "aff" then n = n + 1 end
+  end
+  return n
+end
+
+-- first toxin whose affliction the target does not yet have
+function predToxPick(skip)
+  for _, t in ipairs(ms.predator.toxorder) do
+    local a = ms.predator.toxmap[t]
+    if a and ms.afflicted[a] == "notaff" and t ~= skip then return t end
+  end
+  return nil
+end
+
+function predBladesurgeUp()
+  return ms.predator.bladesurge and os.time() &lt; (ms.predator.bsEnd or 0)
+end
+
+function predBladesurgeReady()
+  return ms.predator.useBS and (not predBladesurgeUp()) and os.time() &gt;= (ms.predator.bsReady or 0)
+end
+
+-- true when the target is weak enough / down enough for the crescentcut finisher
+function predFinisher(mode)
+  local low = (hp or 100)
+  local prone = tprone or pAff("prone")
+  local legs = ms.predator.limb["left leg"] == 4 or ms.predator.limb["right leg"] == 4
+  if low &lt;= 30 then return true end
+  if mode == "af" then
+    return low &lt;= 55 and (prone or legs)
+  end
+  return low &lt;= 40 and (prone or legs)
+end
+
+-- Build the knifeplay combo + support string. mode = "aff" or "af". Sets pAtk and returns it.
+function predAtk(mode)
+  mode = mode or "aff"
+  pAtk = ""
+  local t = target
+  if ms.predator.lastTarget ~= t then predReset(); ms.predator.lastTarget = t end
+  if ms.predator.hostage then
+    pAtk = "execute hostage"
+    return pAtk
+  end
+  local parts = {}
+  if mode == "aff" and ms.predator.useHostage and not ms.predator.hostage
+     and os.time() &gt;= (ms.predator.noHostageUntil or 0) then
+    pAtk = "take "..t.." hostage"
+    return pAtk
+  end
+  local surge = predBladesurgeUp()
+  if predBladesurgeReady() then table.insert(parts, "bladesurge activate") end
+  local verbs = {}
+  local n
+  if predFinisher(mode) then
+    n = surge and 4 or 3
+    for i = 1, n do table.insert(verbs, "crescentcut") end
+  else
+    local opener
+    if shield or rb or ms.predator.rebound then opener = "raze"
+    elseif not (tprone or pAff("prone")) then opener = "trip" end
+    if opener then table.insert(verbs, opener) end
+    n = 3
+    if not opener and surge then n = 4 end
+    for i = 1, n do table.insert(verbs, "spinslash") end
+  end
+  local tox
+  if mode == "aff" then
+    if predToxCount() &gt;= 3 and not ms.predator.shock then tox = "cirisosis"
+    else tox = predToxPick() end
+  else
+    if ms.afflicted["hemotoxin"] == "notaff" then tox = "hemotoxin"
+    elseif ms.afflicted["metrazol"] == "notaff" then tox = "metrazol" end
+  end
+  if verbs[1] == "crescentcut" then tox = nil end
+  local combo = "combo "..table.concat(verbs, " ").." "..t
+  if tox then combo = combo.." "..tox end
+  table.insert(parts, combo)
+  pAtk = table.concat(parts, s)
+  return pAtk
+end
+
+function predBeast(name)
+  if ms.predator.beast ~= name then
+    send("queue eqbal top call "..name)
+    ms.predator.beast = name
+  end
+end
+</script>
+									<eventHandlerList />
+								</Script>
+								<Script isActive="yes" isFolder="no">
 									<name>Outrider</name>
 									<packageName></packageName>
-									<script>ms.outrider = {}
-ms.outrider.affs = {}
+									<script>-- Scripts/Classes/Anti-Magick/Outrider  (always loaded)
+-- Existing contents (kept): ms.outrider table and ms.outrider.affs.
+ms.outrider = ms.outrider or {}
+ms.outrider.affs = ms.outrider.affs or {}
+
+local o = ms.outrider
+
+-- ---------------------------------------------------------------------------
+-- State (all reset-safe: `or` keeps values across a script reload)
+-- ---------------------------------------------------------------------------
+o.mode       = o.mode or "A"            -- "A" = bleed -&gt; bloodfreeze (af), "B" = hypothermia -&gt; shatter (aff)
+o.hypo       = o.hypo or 0              -- TARGET hypothermia level 0-4 (mild, moderate, severe, intense)
+o.chills     = o.chills or 0            -- icecoat chills landed on the target
+o.icecoated  = o.icecoated or false     -- weapon coated with ice
+o.blackened  = o.blackened or false     -- weapon coated with wyrm bile
+o.bleed      = o.bleed or 0             -- last "has bled N health" report for the target
+o.n          = o.n or {stab = 0, smash = 0, batter = 0, long = 0}
+o.surgeSeq   = o.surgeSeq or {"lacerate", "disrupt", "bite", "transfix"}
+o.surgeIdx   = o.surgeIdx or 1
+o.noPetsUntil = o.noPetsUntil or 0
+o.bfHp       = o.bfHp or 50             -- cast bloodfreeze when target health % &lt;= this (kills seen at 250-400 of 637)
+o.icAt       = o.icAt or 0              -- last intercept (os.time)
+o.dfAt       = o.dfAt or 0              -- last deepfreeze (os.time)
+o.fhSecs     = o.fhSecs or 120          -- frostheart duration guess (UNVERIFIED, MS hard-codes 120)
+o.gorging    = o.gorging or false
+o.wyrmHere   = (o.wyrmHere == nil) and true or o.wyrmHere
+o.mounted    = o.mounted or false
+o.lastTarget = o.lastTarget or ""
+o.myHypo     = o.myHypo or 0            -- hypothermia level ON ME (defensive side)
+o.frosted    = o.frosted or false       -- an enemy outrider frostheart'ed me
+o.lsHits     = o.lsHits or {}           -- timestamps of longslashes taken (defensive side)
+
+-- Outrider toxin / shared toxin -&gt; affliction name used by ms.afflicted
+o.toxMap = o.toxMap or {
+  chiltran = "recurring freezing", narcal = "addiction", ditran = "impatience",
+  butisol = "butisol", xeroderma = "sunallergy", botulinum = "nausea",
+  bromine = "anorexia", hemotoxin = "hemotoxin", ciguatoxin = "numbness",
+  mercury = "asthma", ether = "clumsiness", iodine = "slickness",
+  mazanor = "slow herbs", noctec = "slow balance", metrazol = "metrazol",
+  opium = "prone", aconite = "stupidity", arsenic = "weariness",
+  vitriol = "disloyalty", mebaral = "slow equilibrium", strychnine = "sensitivity",
+  cyanide = "cyanide", lindane = "dizziness", calotropis = "calotropis",
+}
+
+-- ---------------------------------------------------------------------------
+-- Helpers
+-- ---------------------------------------------------------------------------
+function outriderWeapon()
+  if ms.outrider.weapon then return ms.outrider.weapon end
+  local w = ms.save and ms.save["spear"]
+  if type(w) == "string" and w:lower():find("trident") then return "trident" end
+  return "spear"
+end
+
+function outriderReset()
+  local o = ms.outrider
+  o.hypo = 0
+  o.chills = 0
+  o.bleed = 0
+  o.n = {stab = 0, smash = 0, batter = 0, long = 0}
+  o.icAt = 0
+  o.dfAt = 0
+  o.lastTarget = tostring(target)
+end
+
+-- Toxin for a spear stab.  Route A: butisol then xeroderma.  Route B: chiltran
+-- (needs an icecoated weapon: "That toxin will not adhere to the weapon").
+function outriderAffs(mode)
+  local o = ms.outrider
+  if mode == "B" then
+    if o.icecoated and ms.afflicted["recurring freezing"] ~= "aff" then return "chiltran" end
+    return nil
+  end
+  if ms.afflicted["butisol"] ~= "aff" then return "butisol" end
+  if ms.afflicted["sunallergy"] ~= "aff" then return "xeroderma" end
+  return nil
+end
+
+-- Equilibrium-side pet surge, rotating lacerate -&gt; disrupt -&gt; bite -&gt; transfix.
+-- The index advances on the confirmation line (see Hunting trigger).
+function outriderSurge()
+  local o = ms.outrider
+  if os.time() &lt; (o.noPetsUntil or 0) then return "" end
+  return "surge "..o.surgeSeq[o.surgeIdx]
+end
+
+function outriderSurgeAdvance()
+  local o = ms.outrider
+  o.surgeIdx = (o.surgeIdx % #o.surgeSeq) + 1
+end
+
+-- ---------------------------------------------------------------------------
+-- Main builder.  Fills three globals read by the aliases:
+--   oPre = free commands (pet order)   oAtk = balance command   oEq = equilibrium command
+-- Route A ("af"):  intercept, pierce, stab(toxin) x3, smash x2, batter x2,
+--                  longslash spam, wyrm bloodfreeze once target health &lt;= bfHp.
+-- Route B ("aff"): frostheart, icecoat, stab chiltran (hypothermia per chill),
+--                  deepfreeze + spear shatter at hypothermia &gt;= 3.
+-- ---------------------------------------------------------------------------
+function outriderAtk(mode)
+  local o = ms.outrider
+  mode = mode or o.mode or "A"
+  if o.lastTarget ~= tostring(target) then outriderReset() end
+  local w = outriderWeapon()
+  local t = tostring(target)
+  local now = os.time()
+  local up = shield or rb              -- shield / rebounding up on target
+  local hpv = hp or 100
+  oPre, oAtk, oEq = "order loyals attack "..t, "", ""
+
+  if o.gorging then oPre = ""; return end   -- never disturb a channel
+
+  if mode == "B" then
+    -- balance slot
+    if up then
+      oAtk = w.." pierce "..t
+    elseif o.hypo &gt;= 3 then
+      oAtk = w.." shatter "..t
+    elseif not o.icecoated then
+      oAtk = "wyrm icecoat "..w
+    else
+      local tox = outriderAffs("B")
+      oAtk = w.." stab "..t..(tox and (" "..tox) or "")
+    end
+    -- equilibrium slot
+    if not frostheart then
+      oEq = "wyrm frostheart "..t
+    elseif o.hypo &gt;= 3 and (now - o.dfAt) &gt;= 8 then
+      oEq = "deepfreeze"; o.dfAt = now
+    elseif move ~= nil and move ~= "" and (now - o.icAt) &gt;= 8 then
+      oEq = "wyrm intercept "..t; o.icAt = now
+    else
+      oEq = outriderSurge()
+    end
+  else
+    -- balance slot
+    if up then
+      oAtk = w.." pierce "..t
+    elseif hpv &lt;= o.bfHp then
+      oAtk = "wyrm bloodfreeze "..t
+    elseif not o.blackened and not o.noBlacken then
+      oAtk = "wyrm blacken "..w
+    elseif o.n.stab &lt; 3 and outriderAffs("A") then
+      oAtk = w.." stab "..t.." "..outriderAffs("A")
+    elseif o.n.smash &lt; 2 then
+      oAtk = w.." smash "..t
+    elseif o.n.batter &lt; 2 then
+      oAtk = w.." batter "..t
+    else
+      oAtk = w.." longslash "..t
+    end
+    -- equilibrium slot
+    if o.icAt == 0 or (move ~= nil and move ~= "" and (now - o.icAt) &gt;= 8) then
+      oEq = "wyrm intercept "..t; o.icAt = now
+    else
+      oEq = outriderSurge()
+    end
+  end
+end
+
+-- Gorge (route C, manual): autocuring off, then the channel.  Autocuring is
+-- restored by the Gorge triggers (abort / final strike / kill).
+function outriderGorge()
+  return "autocuring off"..s.."queue eqbal top wyrm gorge "..tostring(target)
+end
+
+-- Defensive: called by the always-scope triggers when an enemy outrider's
+-- longslash hits me.  Two inside 15s means bloodfreeze is being built.
+function outriderLongslashTaken(name)
+  local o = ms.outrider
+  local now = os.time()
+  local keep = {}
+  for _, ts in ipairs(o.lsHits) do if now - ts &lt;= 15 then keep[#keep + 1] = ts end end
+  keep[#keep + 1] = now
+  o.lsHits = keep
+  return #keep
+end
+
+-- Defensive caloric: at most once every 2 seconds (salve balance), so frequent chill/hypothermia lines don't spam.
+function outriderDefCaloric()
+  local now = (getEpoch and getEpoch()) or os.time()
+  if now - (ms.outrider.calAt or 0) &lt; 2 then return end
+  ms.outrider.calAt = now
+  send("apply caloric")
+end
+
+-- Generic defensive throttle: send cmd at most once every `gap` seconds per key.
+function outriderDefOnce(key, cmd, gap)
+  local now = (getEpoch and getEpoch()) or os.time()
+  ms.outrider.defAt = ms.outrider.defAt or {}
+  if now - (ms.outrider.defAt[key] or 0) &lt; (gap or 2) then return end
+  ms.outrider.defAt[key] = now
+  send(cmd)
+end
 </script>
 									<eventHandlerList />
 								</Script>
@@ -61970,6 +68837,793 @@ function checkWeaken()
 end</script>
 									<eventHandlerList />
 								</Script>
+								<Script isActive="yes" isFolder="no">
+									<name>Ranger</name>
+									<packageName></packageName>
+									<script>-- Ranger (Neutral): glaive (Warding) + bow (Bowmanship). Installed at Scripts/Classes/Neutral/Ranger.
+-- Route: prep an arm with qjab, "trembles" -&gt; slam breaks it, both arms broken -&gt; incendiary arrow,
+-- target cannot pull it (needs an arm), explosion about 10-11 s later.
+-- Evidence: tasks/class-research/ranger.md (Targr, Match-645/1024/1059).
+ms.ranger = ms.ranger or {}
+ms.ranger.mode = ms.ranger.mode or "aff"        -- "aff" or "dmg", read by the forceAtk branch
+ms.ranger.hits = ms.ranger.hits or {}           -- qjab hits per limb (display only; threshold 3-4 is empirical)
+ms.ranger.me = ms.ranger.me or {}               -- defence side: limbs of mine that trembled
+ms.ranger.headbutt = ms.ranger.headbutt or false -- optional eq filler (3.6 s eq) in the routes
+ms.bow = ms.bow or {}                           -- shared with Amazon (functions prefixed bow)
+ms.bow.fuseLen = ms.bow.fuseLen or 10           -- HELP RANGER: "10 seconds"; measured 10-11 s (1059, 639)
+ms.bow.armCure = ms.bow.armCure or ""   -- opt-in: set to your arm-cure command (e.g. a salve); empty = warn only, let curing handle it
+
+-------------------------------------------------------------------------------
+-- Shared bow helpers (Amazon may define the same names; same contract):
+--   bowNow()                    seconds clock
+--   bowFuseStart(who)           target took an incendiary now
+--   bowFuseClear()              exploded / arrow pulled / target changed
+--   bowFuseLeft()               seconds left or nil when no fuse running
+--   bowFuseActive()             boolean
+--   bowIncendiary(tgt, where)   queue string: draw bow, select incendiary, quickshot ("here" or a direction)
+--   bowSelfIncendiary()         defence: an incendiary just hit ME
+--   bowSelfClear()              defence: the arrow is out
+--   bowArmsCrippled()           defence: both of my arms crippled (cannot pull the arrow)
+-------------------------------------------------------------------------------
+bowNow = bowNow or function() return (getEpoch and getEpoch()) or os.time() end
+
+bowFuseStart = bowFuseStart or function(who)
+  ms.bow.fuseAt = bowNow()
+  ms.bow.fuseWho = who
+end
+
+bowFuseClear = bowFuseClear or function()
+  ms.bow.fuseAt = nil
+  ms.bow.fuseWho = nil
+end
+
+bowFuseLeft = bowFuseLeft or function()
+  if not ms.bow.fuseAt then return nil end
+  local left = ms.bow.fuseLen - (bowNow() - ms.bow.fuseAt)
+  if left &lt; -3 then bowFuseClear() return nil end   -- long past the explosion time: stale
+  return left
+end
+
+bowFuseActive = bowFuseActive or function() return bowFuseLeft() ~= nil end
+
+bowIncendiary = bowIncendiary or function(tgt, where)
+  -- Targr 645:2587-2602: queue eqbal top quickdraw bow|switch incendiary|qshot &lt;t&gt; here
+  local bowname = ms.save and ms.save["bow"] or "bow"
+  if bowname == nil or bowname == "" then bowname = "bow" end
+  ms.bow.lastShot = bowNow()
+  return "quickdraw "..bowname..s.."switch incendiary"..s.."qshot "..tgt.." "..(where or "here")
+end
+
+bowArmsCrippled = bowArmsCrippled or function() return (cla and cra) and true or false end
+
+bowSelfIncendiary = bowSelfIncendiary or function()
+  local now = bowNow()
+  if ms.bow.meAt and now - ms.bow.meAt &lt; 2 then return end   -- two lines announce the same arrow
+  ms.bow.meAt = now
+  pullarrow = true
+  if bowArmsCrippled() then
+    cecho("\n&lt;red&gt;[ &lt;yellow&gt;INCENDIARY IN YOU - BOTH ARMS CRIPPLED, CANNOT PULL IT - CURE ARMS NOW &lt;red&gt;]\n")
+    if healing and ms.bow.armCure and ms.bow.armCure ~= "" then send(ms.bow.armCure) end
+  else
+    cecho("\n&lt;red&gt;[ &lt;yellow&gt;INCENDIARY IN YOU - PULL IT OUT (~"..ms.bow.fuseLen.."s) &lt;red&gt;]\n")
+  end
+  if healing then send("queue eqbal top pull arrow from body") end
+end
+
+bowSelfClear = bowSelfClear or function()
+  ms.bow.meAt = nil
+  pullarrow = false
+end
+
+-------------------------------------------------------------------------------
+-- Limb state (same globals as the Deathknight Limb Tracking triggers)
+--   damaged ("trembles"): rat lat rlt llt     broken: ram lam rlm llm
+-------------------------------------------------------------------------------
+ms.ranger.limbs = {
+  ["right arm"] = {dmg = "rat", brk = "ram"},
+  ["left arm"]  = {dmg = "lat", brk = "lam"},
+  ["right leg"] = {dmg = "rlt", brk = "rlm"},
+  ["left leg"]  = {dmg = "llt", brk = "llm"},
+}
+
+function rangerDamaged(limb) local l = ms.ranger.limbs[limb] return l and _G[l.dmg] and true or false end
+function rangerBroken(limb)  local l = ms.ranger.limbs[limb] return l and _G[l.brk] and true or false end
+
+function rangerSetLimb(limb, state)   -- state: "damaged" | "broken" | "ok"
+  local l = ms.ranger.limbs[limb]
+  if not l then return end
+  _G[l.dmg] = (state == "damaged")
+  _G[l.brk] = (state == "broken")
+  if state ~= "damaged" then ms.ranger.hits[limb] = 0 end
+  if state == "broken" and ms.afflicted then
+    if ms.afflicted["crippled "..limb] == "notaff" then ms.afflicted["crippled "..limb] = "aff" end
+  end
+end
+
+-- a broken limb whose crippled aff was cured is no longer broken
+function rangerSync()
+  for limb, l in pairs(ms.ranger.limbs) do
+    if _G[l.brk] and ms.afflicted["crippled "..limb] == "notaff" then
+      _G[l.brk] = false
+      _G[l.dmg] = false
+    end
+  end
+end
+
+function rangerNextLimb(order)
+  for _, limb in ipairs(order) do
+    if not rangerBroken(limb) then return limb end
+  end
+  return nil
+end
+
+-------------------------------------------------------------------------------
+-- Toxins: first two not-yet-landed, in preference order (no benzene/benzedrine in the picker: those
+-- cripple limbs and would be confused with a slam break). toxAff maps a landed toxin to its aff.
+-------------------------------------------------------------------------------
+ms.ranger.toxAff = {
+  ciguatoxin = "numbness", butisol = "butisol", hemotoxin = "hemotoxin", mercury = "asthma",
+  mazanor = "slow herbs", calotropis = "calotropis", iodine = "slickness", noctec = "slow balance",
+  luminal = "slow elixirs", ether = "clumsiness", strychnine = "sensitivity", xeroderma = "sunallergy",
+  botulinum = "nausea", arsenic = "weariness", lindane = "dizziness", metrazol = "metrazol",
+  bromine = "anorexia", benzene = "crippled right arm", benzedrine = "crippled right leg",
+}
+ms.ranger.toxOrder = {"ciguatoxin", "butisol", "hemotoxin", "mercury", "mazanor", "calotropis", "iodine", "noctec", "luminal", "ether"}
+
+function rangerTox(n)
+  local picks = {}
+  for _, tox in ipairs(ms.ranger.toxOrder) do
+    if #picks &gt;= n then break end
+    local a = ms.ranger.toxAff[tox]
+    if ms.afflicted[a] == "notaff" or ms.afflicted[a] == nil then picks[#picks + 1] = tox end
+  end
+  -- everything landed: repeat the opening pair so the command is still well formed
+  local fb = {"ciguatoxin", "butisol"}
+  while #picks &lt; n do picks[#picks + 1] = fb[#picks + 1] or "butisol" end
+  return table.concat(picks, " ")
+end
+
+-------------------------------------------------------------------------------
+-- Builder: sets rAtk (queue body), rWld (weapon draw; "" when the attack draws the bow itself), rWhy
+-------------------------------------------------------------------------------
+ms.ranger.armOrder = {"right arm", "left arm"}
+ms.ranger.allOrder = {"right arm", "left arm", "right leg", "left leg"}
+
+function rangerAtk(mode)
+  mode = mode or ms.ranger.mode or "aff"
+  rAtk = ""
+  rWhy = ""
+  rWld = quickdraw(ms.save["glaive"], ms.save["shield"])
+  rangerSync()
+  local t = target
+  local armsDown = rangerBroken("right arm") and rangerBroken("left arm")
+  local order = (mode == "dmg") and ms.ranger.allOrder or ms.ranger.armOrder
+  local aim = rangerNextLimb(order)
+  local pre = aim and ("target "..aim..s) or ""
+
+  if shield or rb then
+    -- piercejab razes shield AND rebounding then jabs (643:34615, 645:793); a toxin into rebounding returns to us
+    rAtk = pre.."piercejab "..t.." "..rangerTox(1)
+    rWhy = "pierce"
+  elseif mode ~= "dmg" and armsDown and not bowFuseActive() then
+    rAtk = bowIncendiary(t, "here")
+    rWld = ""
+    rWhy = "incendiary"
+  elseif mode ~= "dmg" and armsDown then
+    -- fuse burning, arms still down: keep the glaive drawn and pressure a leg (optional, cheap)
+    local leg = rangerNextLimb({"right leg", "left leg"})
+    if leg and rangerDamaged(leg) then
+      rAtk = "target "..leg..s.."slam "..t
+      rWhy = "slam "..leg
+    elseif leg then
+      rAtk = "target "..leg..s.."qjab "..t.." "..rangerTox(2)
+      rWhy = "qjab "..leg
+    else
+      rAtk = "qjab "..t.." "..rangerTox(2)
+      rWhy = "pressure"
+    end
+  elseif aim and rangerDamaged(aim) then
+    rAtk = pre.."slam "..t
+    rWhy = "slam "..aim
+  elseif aim then
+    rAtk = pre.."qjab "..t.." "..rangerTox(2)
+    rWhy = "qjab "..aim
+  else
+    -- damage route, every limb down: keep jabbing
+    rAtk = "qjab "..t.." "..rangerTox(2)
+    rWhy = "pressure"
+  end
+  if ms.ranger.headbutt and rWhy ~= "incendiary" then rAtk = rAtk..s.."headbutt "..t end
+  return rAtk
+end
+
+-- Shared by the aliases: build + send one queue
+function rangerGo(mode)
+  if not healing then return end
+  pta = true
+  group = false; tl = false
+  ms.ranger.mode = mode
+  dmg = (mode == "dmg")
+  afflict = (mode == "aff")
+  rangerAtk(mode)
+  plf(); qfront()
+  local parts = {"stand", rWld, plimb, qf, move, rAtk}
+  local out = {}
+  for _, p in ipairs(parts) do if p and p ~= "" then out[#out + 1] = p end end
+  send("queue reset eqbal")
+  send("queue eqbal top "..table.concat(out, s))
+  if ms.ranger.verbose then cecho("\n&lt;gold&gt;[Ranger:"..rWhy.."]\n") end
+end
+
+-- Fuse readout for the class triggers
+function rangerFuseNote()
+  local left = bowFuseLeft()
+  if left then cecho("\n&lt;orange&gt;[ INCENDIARY fuse ~"..string.format("%.0f", math.max(left, 0)).."s ]\n") end
+end
+</script>
+									<eventHandlerList />
+								</Script>
+								<Script isActive="yes" isFolder="no">
+									<name>Amazon</name>
+									<packageName></packageName>
+									<script>-- Amazon (Neutral): javelin + shield (Warding), bow (Bowmanship). Installed at Scripts/Classes/Neutral/Amazon.
+-- Evidence: tasks/class-research/amazon.md (Cordilia Match-9/660/710/720/725/740, Lasine Match-1287/1289).
+--
+-- Winning route (Match-710, 720, 725, 740):
+--   1. piercejab strips rebounding/shield (attacks into rebounding bounce back on you).
+--   2. plimb a leg (heavy, ~+2 limb stages), quickjab it with toxins until "bruises forming" (stage 2).
+--   3. slam: mangles the prepped limb (leg mangled = cannot stand).
+--   4. quickdraw bow, switch incendiary, sshot. Fuse is 11-12 s landing to death (Match-710/720/725).
+--   5. Control while it burns: bashimpale, then loop withdraw blade/pinshot/battlecry so the target
+--      cannot stand to pull the arrow ("You must first raise yourself and stand up.").
+--
+-- Limb state uses the SAME globals as the Deathknight "Limb Tracking" triggers:
+--   trembled (stage 1): rat lat rlt llt    bruised (stage 2): rab lab rlb llb    mangled (stage 3): ram lam rlm llm
+--
+-- Everything is prefixed amazon / ms.amazon.  The Ranger build keeps its own bow* helpers; nothing here
+-- depends on them.
+
+ms.amazon = ms.amazon or {}
+ms.amazon.mode      = ms.amazon.mode or "aff"      -- "aff" | "dmg" | "group"; read by the forceAtk branch
+ms.amazon.fuseLen   = ms.amazon.fuseLen or 13      -- landing-&gt;kill measured 11-12 s (help says 10); keep control until then
+ms.amazon.needArms  = ms.amazon.needArms or false  -- true: also mangle an arm before the incendiary
+ms.amazon.pinTox    = ms.amazon.pinTox or "strychnine" -- toxin on the barbed pin arrow (Match-710:13658)
+ms.amazon.slamFail  = ms.amazon.slamFail or {}     -- limb -&gt; time slam reported "nothing happens"
+ms.amazon.me        = ms.amazon.me or {}           -- defence side state (writhing, ...)
+ms.amazon.limbs = {
+  ["left arm"]  = {t = "lat", b = "lab", m = "lam"},
+  ["right arm"] = {t = "rat", b = "rab", m = "ram"},
+  ["left leg"]  = {t = "llt", b = "llb", m = "llm"},
+  ["right leg"] = {t = "rlt", b = "rlb", m = "rlm"},
+}
+
+function amazonNow()
+  return (getEpoch and getEpoch()) or os.time()
+end
+
+-- Per-target state. Called whenever the target name changes (and by the amreset alias).
+function amazonReset()
+  local A = ms.amazon
+  A.target  = target
+  A.fuse    = nil      -- time the incendiary landed on the target
+  A.pinned  = false    -- target pinned by a barbed arrow
+  A.impaled = false    -- target impaled on my javelin
+  A.deaf    = false    -- target immune to battlecry
+  A.parried = nil      -- limb the target last parried
+  A.parriedAt = 0
+  A.lastLimb = nil
+  A.slamFail = {}
+  A.atk, A.why = "", ""
+  impaled = false
+end
+
+-------------------------------------------------------------------------------
+-- Weapons
+-------------------------------------------------------------------------------
+function amazonJav()
+  return quickdraw(ms.save["javelin"] or "javelin", ms.save["shield"] or "shield")
+end
+
+function amazonBow()
+  local b = ms.save["bow"] or "bow"
+  if ms.save["quickdraw"] then return "quickdraw "..b end   -- plain form as typed in Match-9:8668
+  return "unwield left"..s.."unwield right"..s.."wield "..b
+end
+
+-------------------------------------------------------------------------------
+-- Limb state
+-------------------------------------------------------------------------------
+function amazonStage(limb)
+  local l = ms.amazon.limbs[limb]
+  if not l then return 0 end
+  if _G[l.m] then return 3 elseif _G[l.b] then return 2 elseif _G[l.t] then return 1 end
+  return 0
+end
+
+local function amazonBest(list)
+  local A = ms.amazon
+  local bestLimb, bestScore = nil, -999
+  for _, limb in ipairs(list) do
+    local st = amazonStage(limb)
+    if st &lt; 3 then
+      local score = st * 10
+      if A.parried == limb and amazonNow() - (A.parriedAt or 0) &lt; 8 then score = score - 25 end
+      if score &gt; bestScore then bestLimb, bestScore = limb, score end
+    end
+  end
+  return bestLimb
+end
+
+-- Kill condition: a mangled leg (cannot stand to pull the arrow), or both arms mangled.
+-- With needArms set, also require one mangled arm.
+function amazonKillReady()
+  local A = ms.amazon
+  local legs = (llm or rlm) and true or false
+  if A.needArms then return legs and ((lam or ram) and true or false) end
+  return legs or ((lam and ram) and true or false)
+end
+
+function amazonPickLimb()
+  if (llm or rlm) and ms.amazon.needArms and not (lam or ram) then
+    return amazonBest({"left arm", "right arm"})
+  end
+  return amazonBest({"left leg", "right leg"}) or amazonBest({"left arm", "right arm"})
+end
+
+-------------------------------------------------------------------------------
+-- Toxins (aff route). Entries are toxin names in priority order; the first two distinct ones are used.
+-- Landing-&gt;aff mapping is in the Toxin trigger (triggers.json). benzene cripples the arms (cannot pull
+-- the arrow), opium puts the target to sleep (Match-710:11085): both seen on the winning jabs.
+-------------------------------------------------------------------------------
+function amazonAffs()
+  local a = ms.afflicted
+  local function has(x) return a[x] == "aff" end
+  local L = {}
+  if not (has("crippled right arm") and has("crippled left arm")) then table.insert(L, "benzene") end
+  if not has("asleep") then table.insert(L, "opium") end
+  if not has("hemotoxin") and not pbob then table.insert(L, "hemotoxin") end
+  if not has("asthma") then table.insert(L, "mercury") end
+  if not has("numbness") and not has("paralysis") then table.insert(L, "ciguatoxin") end
+  if not has("slow balance") and has("asthma") then table.insert(L, "noctec") end
+  if not has("clumsiness") then table.insert(L, "ether") end
+  if not has("sensitivity") then table.insert(L, "strychnine") end
+  if not has("butisol") then table.insert(L, "butisol") end
+  if not has("slickness") then table.insert(L, "iodine") end
+  if not has("slow herbs") then table.insert(L, "mazanor") end
+  if not has("calotropis") then table.insert(L, "calotropis") end
+  if not has("nausea") then table.insert(L, "botulinum") end
+  if not has("sunallergy") then table.insert(L, "xeroderma") end
+  ms.amazon.affs = L
+  return L
+end
+
+function amazonTox()
+  local L = amazonAffs()
+  local t1 = L[1] or "opium"
+  local t2 = L[2] or t1
+  return t1.." "..t2
+end
+
+-------------------------------------------------------------------------------
+-- Fuse (target took an incendiary)
+-------------------------------------------------------------------------------
+function amazonFuseStart()
+  ms.amazon.fuse = amazonNow()
+end
+
+function amazonFuseClear()
+  ms.amazon.fuse = nil
+end
+
+function amazonFuseLeft()
+  local A = ms.amazon
+  if not A.fuse then return nil end
+  local left = A.fuseLen - (amazonNow() - A.fuse)
+  if left &lt; 0 then A.fuse = nil return nil end   -- past the window: exploded, pulled, or missed
+  return left
+end
+
+function amazonFuseActive()
+  return amazonFuseLeft() ~= nil
+end
+
+-------------------------------------------------------------------------------
+-- Control while the fuse burns. Target must not stand to pull the arrow.
+--   pinned + impaled : battlecry only (keep the stun)
+--   pinned           : bashimpale (needs prone, works on a pinned target) + battlecry
+--   impaled          : withdraw blade, bow, barbed arrow, pinshot, battlecry (Match-710:13223)
+--   prone            : bashimpale + battlecry
+--   upright          : battlecry knocks them down
+-- battlecry is skipped when the target showed it is deaf (unaffected).
+-------------------------------------------------------------------------------
+function amazonControl()
+  local A = ms.amazon
+  local t = target
+  local bc = A.deaf and "" or (s.."battlecry "..t)
+  local out
+  if A.pinned and A.impaled then
+    out = A.deaf and (amazonJav()..s.."bstrike "..t) or ("battlecry "..t)   -- head haft strike knocks out (Match-9:12021)
+    A.why = "control: pinned+impaled"
+  elseif A.pinned then
+    out = amazonJav()..s.."bashimpale "..t..bc
+    A.why = "control: pinned, impale"
+  elseif A.impaled then
+    out = "withdraw blade"..s..amazonBow()..s.."switch barbed "..A.pinTox..s.."pinshot "..t..bc
+    A.why = "control: withdraw, pin"
+  elseif tprone then
+    out = amazonJav()..s.."bashimpale "..t..bc
+    A.why = "control: prone, impale"
+  else
+    out = A.deaf and (amazonJav()..s.."lockup "..t) or ("battlecry "..t)
+    A.why = "control: knock down"
+  end
+  return out
+end
+
+-------------------------------------------------------------------------------
+-- Main builder. mode "aff": quickjab with toxins. "dmg"/"group": no toxins, plimb-heavy, fastest to the slam.
+-- Returns the attack string and stores it in ms.amazon.atk.
+-------------------------------------------------------------------------------
+function amazonAtk(mode)
+  local A = ms.amazon
+  mode = mode or A.mode or "aff"
+  if A.target ~= target then amazonReset() end
+  A.atk, A.why = "", ""
+  local t = target
+  local tox = (mode == "aff")
+
+  if amazonFuseActive() then
+    A.atk = amazonControl()
+    return A.atk
+  end
+
+  local jav = amazonJav()
+
+  if amazonKillReady() then
+    if shield then
+      A.why = "shield up before incendiary"
+      A.atk = jav..s.."target nothing"..s.."piercejab "..t
+    else
+      A.why = "incendiary"
+      A.atk = amazonBow()..s.."switch incendiary"..s.."sshot "..t
+    end
+    return A.atk
+  end
+
+  local limb = amazonPickLimb()
+  if not limb then
+    -- every limb mangled but amazonKillReady false: cannot happen with the default settings; fall back
+    A.why = "no limb"
+    A.atk = amazonBow()..s.."switch incendiary"..s.."sshot "..t
+    return A.atk
+  end
+  A.lastLimb = limb
+  local tl = "target "..limb
+
+  if rb or shield then
+    A.why = "strip "..((rb and "rebounding") or "shield")
+    A.atk = jav..s..tl..s.."piercejab "..t.." "..limb..(tox and (" "..amazonTox()) or "")
+    return A.atk
+  end
+
+  local st = amazonStage(limb)
+  local slamBlocked = A.slamFail[limb] and (amazonNow() - A.slamFail[limb]) &lt; 5
+  if st &gt;= 2 and not slamBlocked then
+    A.why = "slam "..limb
+    A.atk = jav..s..tl..s.."slam "..t
+  elseif st == 0 or not tox then
+    A.why = "plimb "..limb.." (stage "..st..")"
+    A.atk = jav..s..tl..s.."plimb "..t.." "..limb
+  else
+    A.why = "quickjab "..limb.." (stage "..st..")"
+    A.atk = jav..s..tl..s.."quickjab "..t.." "..limb.." "..amazonTox()
+  end
+  return A.atk
+end
+
+-------------------------------------------------------------------------------
+-- Entry point used by the route aliases (amaff / amgaf / amdmg).
+-------------------------------------------------------------------------------
+function amazonGo(mode)
+  if not healing then return end
+  local A = ms.amazon
+  A.mode = mode
+  pta = true                      -- arm forceAtk auto-repeat
+  group = (mode == "group")
+  dmg = (mode == "dmg")
+  tl = false
+  wld = ""                        -- weapon draws are part of the attack string
+  amazonAtk(mode)
+  plf(); qfront()
+  local parts = {"stand"}
+  for _, p in ipairs({plimb, qf, move, A.atk}) do
+    if p and p ~= "" then table.insert(parts, p) end
+  end
+  send("queue reset eqbal")
+  send("queue eqbal top "..table.concat(parts, s))
+end
+
+-------------------------------------------------------------------------------
+-- Defence side (enemy Amazon on me). Used by the always-scope triggers.
+--   kind "impale": writhe impale        kind "arrow": writhe arrow  (both seen typed, Match-710:13539, Match-9:114590)
+-- Writhing continues by itself once started, so re-send at most every 2 s.
+-------------------------------------------------------------------------------
+function amazonMeWrithe(kind)
+  local A = ms.amazon
+  A.me = A.me or {}
+  local now = amazonNow()
+  if A.me.writhing == kind and now - (A.me.writheAt or 0) &lt; 2 then return end
+  A.me.writhing = kind
+  A.me.writheAt = now
+  if healing then send("queue eqbal top writhe "..kind) end
+end
+
+-- Freed from impale or pin: if an incendiary is still in me, stand up and pull it.
+function amazonMeFreed()
+  local A = ms.amazon
+  A.me = A.me or {}
+  A.me.writhing = nil
+  if healing and pullarrow then
+    send("queue eqbal top stand"..s.."pull arrow from body")
+  end
+end
+
+-------------------------------------------------------------------------------
+-- Limb setter used by the Limb Tracking triggers. stage 0 clear, 1 trembled, 2 bruised, 3 mangled.
+-------------------------------------------------------------------------------
+function amazonSetLimb(limb, stage)
+  local l = ms.amazon.limbs[limb]
+  if not l then return end
+  _G[l.t] = (stage == 1)
+  _G[l.b] = (stage == 2)
+  _G[l.m] = (stage == 3)
+end
+
+-------------------------------------------------------------------------------
+-- Toxin landing -&gt; affliction (same table the other limb classes use in their Toxin trigger).
+-- opium -&gt; asleep: the "falls asleep" line is separate; Match-710:11085.
+-------------------------------------------------------------------------------
+ms.amazon.toxAff = {
+  cyanide = "cyanide", aconite = "stupidity", arsenic = "weariness", atropine = "recklessness",
+  avidya = "ignorance", botulinum = "nausea", bromine = "anorexia", butisol = "butisol",
+  calotropis = "calotropis", chloroform = "epilepsy", ciguatoxin = "numbness", digitalis = "shyness",
+  ether = "clumsiness", hemotoxin = "hemotoxin", iodine = "slickness", lindane = "dizziness",
+  mazanor = "slow herbs", mebaral = "slow equilibrium", mercury = "asthma", metrazol = "metrazol",
+  noctec = "slow balance", opium = "asleep", vitriol = "disloyalty", xeroderma = "sunallergy",
+  sulfonal = "sulfonal", psilocybin = "ineptude",
+}
+
+function amazonToxLanded(tox)
+  toxUsed = tox
+  if tox == "benzene" then
+    aff("crippled right arm")
+    if ms.afflicted["crippled right arm"] == "aff" then aff("crippled left arm") end
+  elseif tox == "benzedrine" then
+    aff("crippled right leg")
+    if ms.afflicted["crippled right leg"] == "aff" then aff("crippled left leg") end
+  elseif tox == "strychnine" then
+    if not deaf then aff("sensitivity")
+    elseif ms.afflicted["sensitivity"] == "notaff" then deaf = false end
+  elseif ms.amazon.toxAff[tox] then
+    aff(ms.amazon.toxAff[tox])
+  end
+end
+
+-------------------------------------------------------------------------------
+-- Defence side: a javelin hit landed on one of my limbs. Parry that limb next, flag the Amazon.
+-- (tranger = Amazon or Ranger; it flips the Parried Limb mapping the way the existing code expects.)
+-------------------------------------------------------------------------------
+function amazonMeLimbHit(who, limb)
+  if who and target and who:find(target) then amazon = true; tranger = true end
+  if limb and limb ~= "" and limb ~= "back" then mlh = limb end
+  parry = true
+end
+
+-------------------------------------------------------------------------------
+-- amstat alias
+-------------------------------------------------------------------------------
+function amazonStatus()
+  local A = ms.amazon
+  local names = {"left leg", "right leg", "left arm", "right arm"}
+  local out = {}
+  for _, l in ipairs(names) do table.insert(out, l..": "..amazonStage(l).."/3") end
+  cecho("\n&lt;cyan&gt;[ Amazon ] &lt;ivory&gt;mode "..tostring(A.mode).."  target "..tostring(target).."\n")
+  cecho("&lt;cyan&gt;  limbs: &lt;ivory&gt;"..table.concat(out, "  ").."\n")
+  local fl = amazonFuseLeft()
+  cecho("&lt;cyan&gt;  fuse: &lt;ivory&gt;"..(fl and string.format("%.0fs left", fl) or "none")
+        .."  pinned "..tostring(A.pinned).."  impaled "..tostring(A.impaled).."  deaf "..tostring(A.deaf)
+        .."  needArms "..tostring(A.needArms).."\n")
+  cecho("&lt;cyan&gt;  last: &lt;ivory&gt;"..tostring(A.why).."\n")
+end
+</script>
+									<eventHandlerList />
+								</Script>
+								<Script isActive="yes" isFolder="no">
+									<name>Engineer</name>
+									<packageName></packageName>
+									<script>-- Engineer (Neutral) : Scripts/Classes/Neutral/Engineer
+-- Plain Lua 5.1. State lives in ms.engineer. Target afflictions for chemicals are kept in
+-- ms.engineer.chem[&lt;chem&gt;] = level (0-3) because ms.afflicted has no chemical keys.
+ms.engineer = ms.engineer or {}
+local E = ms.engineer
+E.chem      = E.chem or {}        -- chemical levels on the current target (counted from our own shots)
+E.lodged    = E.lodged or {}      -- heavy shots lodged in the target: liver/heart/wounding/throat/leg
+E.focusing  = E.focusing or false -- "You begin to focus on &lt;t&gt;"
+E.trickReady = (E.trickReady == nil) and true or E.trickReady
+E.trickAt   = E.trickAt or 0
+E.domecaps  = E.domecaps or 0     -- times the current target ate domecap (rotates 2nd chemical)
+E.tgt       = E.tgt or ""
+E.ammo      = E.ammo or {}
+E.me        = E.me or {}          -- chemical levels on US (enemy Engineer)
+E.lastEat   = E.lastEat or 0
+
+-- chemicals we stack, in priority order. dystite = lose balance on tick (the anchor of Route B).
+E.primary = "dystite"
+E.others  = {"incendite", "methite", "hydroite"}
+E.maxLevel = 3
+E.dmgParts = {"liver", "heart", "wounding", "throat", "leg"}
+
+eAtk = eAtk or ""
+
+local function now() return (getEpoch and getEpoch()) or os.time() end
+
+-- reset per-target state when the target changes
+function engineerCheckTarget()
+  local t = (target or ""):lower()
+  if E.tgt ~= t then
+    E.tgt = t
+    E.chem = {}
+    E.lodged = {}
+    E.focusing = false
+    E.domecaps = 0
+  end
+end
+
+-- normalise a body part string from a log line to a dmg-route key
+function engineerPartKey(p)
+  p = (p or ""):lower()
+  if p:find("artery") or p:find("wounding") then return "wounding" end
+  if p:find("leg") or p:find("calf") then return "leg" end
+  return (p:match("(%a+)$")) or p
+end
+
+function engineerChemLevel(c) return E.chem[c] or 0 end
+
+function engineerChemHit(c)
+  E.chem[c] = math.min(E.maxLevel, (E.chem[c] or 0) + 1)
+end
+
+function engineerChemSeen(c)
+  if (E.chem[c] or 0) &lt; 1 then E.chem[c] = 1 end
+end
+
+function engineerDomecap()
+  E.chem = {}
+  E.domecaps = E.domecaps + 1
+end
+
+local function trickOk()
+  return E.trickReady or (now() - E.trickAt) &gt; 8
+end
+
+local function trickUsed()
+  E.trickReady = false
+  E.trickAt = now()
+end
+
+-- pick up to two chemicals for the next dualshot. Dystite until level 3, then the others,
+-- rotated by the number of domecaps the target has eaten so a cured stack is rebuilt with a
+-- different second chemical (research: dystite+incendite, then methite, then hydroite).
+function engineerPickChems()
+  local picks = {}
+  if engineerChemLevel(E.primary) &lt; E.maxLevel then picks[#picks + 1] = E.primary end
+  local n = #E.others
+  local off = E.domecaps % n
+  for i = 1, n do
+    local c = E.others[((i - 1 + off) % n) + 1]
+    if #picks &lt; 2 and engineerChemLevel(c) &lt; E.maxLevel then picks[#picks + 1] = c end
+  end
+  return picks
+end
+
+-- AFFLICTION route: chemical stack. Sets global eAtk (queue chain tail).
+function engineerAffs()
+  engineerCheckTarget()
+  local t = target
+  local c = {}
+  if shield or rb then
+    -- razing shot strips shield and rebounding in one hit (1071:1917)
+    c[#c + 1] = "rshot " .. t
+    eAtk = table.concat(c, s)
+    return eAtk
+  end
+  if not E.focusing then c[#c + 1] = "focus " .. t end
+  if trickOk() and E.focusing then
+    c[#c + 1] = "fakeshot " .. t
+    trickUsed()
+  end
+  local picks = engineerPickChems()
+  local none = true
+  for _, ch in ipairs({E.primary, unpack(E.others)}) do
+    if engineerChemLevel(ch) &gt; 0 then none = false end
+  end
+  if #picks == 2 then
+    if none then
+      c[#c + 1] = "snapshot " .. t .. " with " .. picks[1]
+    else
+      c[#c + 1] = "dualshot " .. t .. " with " .. picks[1] .. " " .. picks[2]
+    end
+  elseif #picks == 1 then
+    c[#c + 1] = "qshot " .. t .. " with " .. picks[1]
+  else
+    -- stack is full: add damage while waiting for domecap
+    c[#c + 1] = engineerDmgShot(t)
+  end
+  eAtk = table.concat(c, s)
+  return eAtk
+end
+
+-- next heavy shot for the bleed/damage route
+function engineerDmgShot(t)
+  for _, p in ipairs(E.dmgParts) do
+    if not E.lodged[p] then
+      return "shoot " .. t .. " " .. p .. " with heavyshot"
+    end
+  end
+  if tbleed then return "shoot " .. t .. " with heavyshot" end
+  return "shoot " .. t .. " with mushroom"
+end
+
+-- DAMAGE route: lodged heavy shots + bleed. Sets global eAtk.
+function engineerDmg()
+  engineerCheckTarget()
+  local t = target
+  local c = {}
+  if shield or rb then
+    c[#c + 1] = "rshot " .. t
+    eAtk = table.concat(c, s)
+    return eAtk
+  end
+  if not E.focusing then c[#c + 1] = "focus " .. t end
+  if trickOk() and E.focusing then
+    c[#c + 1] = "fakeshot " .. t
+    trickUsed()
+  end
+  c[#c + 1] = engineerDmgShot(t)
+  eAtk = table.concat(c, s)
+  return eAtk
+end
+
+-- Wrapper used by aliases: build the whole queue and send it.
+function engineerSend(builder)
+  if not healing then return end
+  pta = true
+  group = false
+  tl = false
+  wld = quickdraw(ms.save["flintlock"], ms.save["shield"])
+  plf(); qfront()
+  builder()
+  send("queue reset eqbal")
+  send("queue eqbal top stand" .. s .. wld .. s .. plimb .. s .. qf .. s .. move .. s .. eAtk .. s .. "trueassess " .. target)
+  eAtk = ""
+end
+
+-- DEFENDER helpers (enemy Engineer shooting us) --------------------------------------------
+function engineerMeTotal()
+  local n = 0
+  for _, v in pairs(E.me) do n = n + v end
+  return n
+end
+
+function engineerEatDomecap(reason)
+  if now() - E.lastEat &lt; 2 then return end
+  E.lastEat = now()
+  send("eat domecap")
+  if sys and cecho then sys("&lt;red&gt;Engineer"); cecho("&lt;yellow&gt;domecap &lt;DimGrey&gt;(" .. (reason or "chemicals") .. ")") end
+end
+</script>
+									<eventHandlerList />
+								</Script>
 							</ScriptGroup>
 							<ScriptGroup isActive="yes" isFolder="yes">
 								<name>MS System</name>
@@ -61990,7 +69644,7 @@ end</script>
   end)
 end
 
-ms.version = "4.2.0"
+ms.version = "4.3.0"
 
 function checkMSVersion()
   gitVerFile = getMudletHomeDir().."/latest.html"
@@ -62047,27 +69701,268 @@ function echoHelp(string, type)
 end
 
 function helpTemplar()
-cecho(f("\n&lt;SteelBlue&gt;Coming soon!:\n"))
+cecho(f("\n&lt;SteelBlue&gt;List of Templar Functions:\n"))
+sys("&lt;SteelBlue&gt;Combat Functions")
+  echoHelp("aff", "cmd")
+  echoHelp("Affliction/kill route (sl); auto-repeats on balance")
+  echoHelp("af", "cmd")
+  echoHelp("Group/damage route (dmg); auto-repeats on balance")
+nl()
+sys("&lt;SteelBlue&gt;Templar Aliases")
+  echoHelp("sl", "cmd")
+  echoHelp("Templar Bleed Attack")
+  echoHelp("dmg", "cmd")
+  echoHelp("Templar Damage Attack")
+  echoHelp("dsb [&lt;target&gt;]", "cmd")
+  echoHelp("Templar Dsb Attack")
+  echoHelp("tcru [dazzle|peace|penance|off]", "cmd")
+  echoHelp("Templar Crusade Type")
 end
 
 function helpMonk()
-cecho(f("\n&lt;SteelBlue&gt;Coming soon!:\n"))
+cecho(f("\n&lt;SteelBlue&gt;List of Monk Functions:\n"))
+sys("&lt;SteelBlue&gt;Combat Functions")
+  echoHelp("aff", "cmd")
+  echoHelp("Affliction/kill route (mkaff); auto-repeats on balance")
+  echoHelp("af", "cmd")
+  echoHelp("Group/damage route (mkdmg); auto-repeats on balance")
+nl()
+sys("&lt;SteelBlue&gt;Monk Aliases")
+  echoHelp("mkaff", "cmd")
+  echoHelp("Monk Affliction (limb/backbreaker)")
+  echoHelp("mkdmg", "cmd")
+  echoHelp("Monk Damage (bladehand/choke)")
+  echoHelp("mkbb", "cmd")
+  echoHelp("Monk Backbreaker")
+  echoHelp("mkml", "cmd")
+  echoHelp("Monk Mindlock")
+  echoHelp("mkdlv", "cmd")
+  echoHelp("Monk Deliverance")
+  echoHelp("mkkb", "cmd")
+  echoHelp("Monk Kai Boost")
+  echoHelp("mkreset", "cmd")
+  echoHelp("Monk Reset State")
 end
 
 function helpAmazon()
-cecho(f("\n&lt;SteelBlue&gt;Coming soon!:\n"))
+cecho(f("\n&lt;SteelBlue&gt;List of Amazon Functions:\n"))
+sys("&lt;SteelBlue&gt;Combat Functions")
+  echoHelp("aff", "cmd")
+  echoHelp("Affliction/kill route (amaff); auto-repeats on balance")
+  echoHelp("af", "cmd")
+  echoHelp("Group/damage route (amgaf); auto-repeats on balance")
+nl()
+sys("&lt;SteelBlue&gt;Amazon Aliases")
+  echoHelp("amaff", "cmd")
+  echoHelp("Amazon Afflict")
+  echoHelp("amgaf", "cmd")
+  echoHelp("Amazon Group")
+  echoHelp("amdmg", "cmd")
+  echoHelp("Amazon Damage")
+  echoHelp("amreset", "cmd")
+  echoHelp("Amazon Reset")
+  echoHelp("amarms", "cmd")
+  echoHelp("Amazon Arms Toggle")
+  echoHelp("amstat", "cmd")
+  echoHelp("Amazon Status")
+  echoHelp("amqj (left|right) (arm|leg)", "cmd")
+  echoHelp("Amazon Quickjab")
+  echoHelp("ampl (left|right) (arm|leg)", "cmd")
+  echoHelp("Amazon Piercelimb")
+  echoHelp("amslam [left|right arm|leg]", "cmd")
+  echoHelp("Amazon Slam")
+  echoHelp("ampj", "cmd")
+  echoHelp("Amazon Piercejab")
+  echoHelp("ambimp", "cmd")
+  echoHelp("Amazon Bashimpale")
+  echoHelp("amwd", "cmd")
+  echoHelp("Amazon Withdraw")
+  echoHelp("ambc", "cmd")
+  echoHelp("Amazon Battlecry")
+  echoHelp("ambs", "cmd")
+  echoHelp("Amazon Bstrike")
+  echoHelp("amdis", "cmd")
+  echoHelp("Amazon Disembowel")
+  echoHelp("amwedge", "cmd")
+  echoHelp("Amazon Wedge")
+  echoHelp("amlock", "cmd")
+  echoHelp("Amazon Lockup")
+  echoHelp("amjav", "cmd")
+  echoHelp("Amazon Javelin")
+  echoHelp("aminc", "cmd")
+  echoHelp("Amazon Incendiary")
+  echoHelp("ampin", "cmd")
+  echoHelp("Amazon Pin")
+  echoHelp("amqs", "cmd")
+  echoHelp("Amazon Quickshot")
+  echoHelp("ambow", "cmd")
+  echoHelp("Amazon Bow")
+  echoHelp("amswitch &lt;arg&gt; [&lt;target&gt;]", "cmd")
+  echoHelp("Amazon Switch Arrow")
 end
 
 function helpRanger()
-cecho(f("\n&lt;SteelBlue&gt;Coming soon!:\n"))
+cecho(f("\n&lt;SteelBlue&gt;List of Ranger Functions:\n"))
+sys("&lt;SteelBlue&gt;Combat Functions")
+  echoHelp("aff", "cmd")
+  echoHelp("Affliction/kill route (raff); auto-repeats on balance")
+  echoHelp("af", "cmd")
+  echoHelp("Group/damage route (rgdmg); auto-repeats on balance")
+nl()
+sys("&lt;SteelBlue&gt;Ranger Aliases")
+  echoHelp("raff", "cmd")
+  echoHelp("Ranger Afflict")
+  echoHelp("rgdmg", "cmd")
+  echoHelp("Ranger Damage")
+  echoHelp("rinc", "cmd")
+  echoHelp("Ranger Incendiary")
+  echoHelp("rgl", "cmd")
+  echoHelp("Ranger Glaive")
+  echoHelp("rbow", "cmd")
+  echoHelp("Ranger Bow")
+  echoHelp("rslam", "cmd")
+  echoHelp("Ranger Slam")
+  echoHelp("rpj", "cmd")
+  echoHelp("Ranger Piercejab")
+  echoHelp("rqj", "cmd")
+  echoHelp("Ranger Quickjab")
+  echoHelp("rhb", "cmd")
+  echoHelp("Ranger Headbutt")
+  echoHelp("rpull", "cmd")
+  echoHelp("Ranger Pull Arrow")
+  echoHelp("rreset", "cmd")
+  echoHelp("Ranger Reset Limbs")
+  echoHelp("rverbose", "cmd")
+  echoHelp("Ranger Verbose")
+  echoHelp("rhbt", "cmd")
+  echoHelp("Ranger Headbutt Toggle")
 end
 
 function helpPredator()
-cecho(f("\n&lt;SteelBlue&gt;Coming soon!:\n"))
+cecho(f("\n&lt;SteelBlue&gt;List of Predator Functions:\n"))
+sys("&lt;SteelBlue&gt;Combat Functions")
+  echoHelp("aff", "cmd")
+  echoHelp("Affliction/kill route (paff); auto-repeats on balance")
+  echoHelp("af", "cmd")
+  echoHelp("Group/damage route (pdmg); auto-repeats on balance")
+nl()
+sys("&lt;SteelBlue&gt;Predator Aliases")
+  echoHelp("paff", "cmd")
+  echoHelp("Predator Afflict")
+  echoHelp("pdmg|pag", "cmd")
+  echoHelp("Predator Damage")
+  echoHelp("pcir", "cmd")
+  echoHelp("Predator Cirisosis")
+  echoHelp("phos", "cmd")
+  echoHelp("Predator Hostage")
+  echoHelp("pex", "cmd")
+  echoHelp("Predator Execute")
+  echoHelp("phost", "cmd")
+  echoHelp("Predator Hostage Toggle")
+  echoHelp("pbs", "cmd")
+  echoHelp("Predator Bladesurge Toggle")
+  echoHelp("pstance (gyanis|vae-sant|ein-fasit|laesan|rizet)", "cmd")
+  echoHelp("Predator Stance")
+  echoHelp("psp", "cmd")
+  echoHelp("Predator Spider")
+  echoHelp("pbear", "cmd")
+  echoHelp("Predator Bear")
 end
 
 function helpOutrider()
-cecho(f("\n&lt;SteelBlue&gt;Coming soon!:\n"))
+cecho(f("\n&lt;SteelBlue&gt;List of Outrider Functions:\n"))
+sys("&lt;SteelBlue&gt;Combat Functions")
+  echoHelp("aff", "cmd")
+  echoHelp("Affliction/kill route (oaff); auto-repeats on balance")
+  echoHelp("af", "cmd")
+  echoHelp("Group/damage route (oaf); auto-repeats on balance")
+nl()
+sys("&lt;SteelBlue&gt;Outrider Aliases")
+  echoHelp("oaf", "cmd")
+  echoHelp("Outrider Damage")
+  echoHelp("oaff", "cmd")
+  echoHelp("Outrider Afflict")
+  echoHelp("ogor", "cmd")
+  echoHelp("Outrider Gorge")
+  echoHelp("ofh", "cmd")
+  echoHelp("Outrider Frostheart")
+  echoHelp("oic", "cmd")
+  echoHelp("Outrider Icecoat")
+  echoHelp("obk", "cmd")
+  echoHelp("Outrider Blacken")
+  echoHelp("oint", "cmd")
+  echoHelp("Outrider Intercept")
+  echoHelp("ochg", "cmd")
+  echoHelp("Outrider Charge")
+  echoHelp("obf", "cmd")
+  echoHelp("Outrider Bloodfreeze")
+  echoHelp("otrp", "cmd")
+  echoHelp("Outrider Trip")
+  echoHelp("opc", "cmd")
+  echoHelp("Outrider Pierce")
+  echoHelp("osh", "cmd")
+  echoHelp("Outrider Shatter")
+  echoHelp("odf", "cmd")
+  echoHelp("Outrider Deepfreeze")
+  echoHelp("owy", "cmd")
+  echoHelp("Outrider Summon")
+  echoHelp("ofly", "cmd")
+  echoHelp("Outrider Fly")
+  echoHelp("oland", "cmd")
+  echoHelp("Outrider Land")
+  echoHelp("olimb &lt;text&gt;", "cmd")
+  echoHelp("Outrider Limb")
+  echoHelp("obfhp &lt;n&gt;", "cmd")
+  echoHelp("Outrider Bloodfreeze HP")
+  echoHelp("ostat", "cmd")
+  echoHelp("Outrider Status")
+  echoHelp("oca", "cmd")
+  echoHelp("Outrider Call Animals")
+  echoHelp("osg &lt;arg&gt;", "cmd")
+  echoHelp("Outrider Surge")
+  echoHelp("olay &lt;arg&gt; &lt;arg&gt;", "cmd")
+  echoHelp("Outrider Lay Trap")
+end
+
+function helpEngineer()
+cecho(f("\n&lt;SteelBlue&gt;List of Engineer Functions:\n"))
+sys("&lt;SteelBlue&gt;Combat Functions")
+  echoHelp("aff", "cmd")
+  echoHelp("Affliction/kill route (pfa); auto-repeats on balance")
+  echoHelp("af", "cmd")
+  echoHelp("Group/damage route (pfd); auto-repeats on balance")
+nl()
+sys("&lt;SteelBlue&gt;Engineer Aliases")
+  echoHelp("pfa", "cmd")
+  echoHelp("Engineer Afflict")
+  echoHelp("pfd", "cmd")
+  echoHelp("Engineer Damage")
+  echoHelp("prs [&lt;target&gt;]", "cmd")
+  echoHelp("Engineer Razingshot")
+  echoHelp("pht [&lt;target&gt;]", "cmd")
+  echoHelp("Engineer Hotshot")
+  echoHelp("psp [&lt;target&gt;]", "cmd")
+  echoHelp("Engineer Spleenshot")
+  echoHelp("pfk [&lt;target&gt;]", "cmd")
+  echoHelp("Engineer Fakeshot")
+  echoHelp("tgsh [&lt;target&gt;]", "cmd")
+  echoHelp("Engineer Tagshot")
+  echoHelp("pvn [&lt;target&gt;]", "cmd")
+  echoHelp("Engineer Veinshot")
+  echoHelp("pqs &lt;arg&gt;", "cmd")
+  echoHelp("Engineer Qshot Chem")
+  echoHelp("psn &lt;arg&gt;", "cmd")
+  echoHelp("Engineer Snapshot Chem")
+  echoHelp("pdu &lt;arg&gt; &lt;arg&gt;", "cmd")
+  echoHelp("Engineer Dualshot Chem")
+  echoHelp("phv &lt;arg&gt;", "cmd")
+  echoHelp("Engineer Heavy Part")
+  echoHelp("pas [&lt;target&gt;]", "cmd")
+  echoHelp("Engineer Assess")
+  echoHelp("pfc [&lt;target&gt;]", "cmd")
+  echoHelp("Engineer Focus")
+  echoHelp("pfw", "cmd")
+  echoHelp("Engineer Focus Shooting")
 end
 
 function helpBerserker()
@@ -62206,7 +70101,7 @@ sys("&lt;SteelBlue&gt;Curatives")
 sys("&lt;SteelBlue&gt;Weapons")
   echoHelp("ms weapons", "cmd")
   echoHelp("Tells system which weapons to use from your inventory")
-  echoHelp("*&lt;yellow&gt;NOTE&lt;snow&gt;* Will set for all 26 weapons for every class.")
+  echoHelp("*&lt;yellow&gt;NOTE&lt;snow&gt;* Will set for all 30 weapons for every class.")
   echoHelp("To quickly set a weapon ID, use &lt;green&gt;ms set &lt;weapon_type&gt; &lt;id#&gt;")
   echoHelp("Examples: &lt;green&gt;ms set longsword longsword1234")
   echoHelp("          &lt;green&gt;ms set shield shield5678")
@@ -62302,6 +70197,8 @@ function helpProf(class)
     helpOutrider()
   elseif class:lower() == "berserker" then
     helpBerserker()
+  elseif class:lower() == "engineer" then
+    helpEngineer()
   end
 end
 
@@ -62611,7 +70508,7 @@ sys("&lt;SteelBlue&gt;Artistry")
 	echoHelp("Renegade has &lt;green&gt;Greenink, &lt;red&gt;Redink, &lt;snow&gt;and &lt;gold&gt;Goldink")
 	echoHelp("csb", "cmd")
 	echoHelp("Checks all your sketchbooks and what sketches you have in them")
-	echoHelp("(hunt|rg|ren)", "cmd")
+	echoHelp("hunt|rg|ren", "cmd")
 	echoHelp("Weild and tear for desired sketch from sketchbook")
 	echoHelp("cs", "cmd")
 	echoHelp("Call sketches to room")
@@ -63262,6 +71159,11 @@ end
     bardiche = "bardiche",
     daegger = "daegger",
     shield = "shield",
+    bow = "bow",
+    flintlock = "flintlock",
+    blunderbuss = "blunderbuss",
+    belcher = "belcher",
+    sitara = "sitara",
     artifacts = {},
     mobs = {
       "a pack of wild dogs",
@@ -63454,17 +71356,20 @@ end
       },
       outrider = {
         nightsight = {action = "nightsight", state = true,},
-        weathering = {action = "weathering", state = true,},
-        fitness = {queue = "fitness", state = true,},
-        barkskin = {queue = "barkskin", state = true,},
-        deadaim = {queue = "deadaim on", state = false,},
-        ["secured weapons"] = {action = "secure wielded", state = true,},
-        bandages = {queue = "apply bandages", state = true,},
-        vitality = {queue = "vitality", state = true,},
-        lifesense = {queue = "lifesense on", state = true,},
-        camouflage = {action = "apply camouflage", state = true,},
-        ["concealed weapons"] = {action = "conceal weapons", state = true,},
-        ["cover tracks"] = {queue = "cover", state = true,},
+                weathering = {action = "weathering", state = true,},
+                fitness = {queue = "fitness", state = true,},
+                barkskin = {queue = "barkskin", state = true,},
+                deadaim = {queue = "deadaim on", state = false,},
+                ["secured weapons"] = {action = "secure wielded", state = true,},
+                bandages = {queue = "apply bandages", state = true,},
+                vitality = {queue = "vitality", state = true,},
+                lifesense = {queue = "lifesense on", state = true,},
+                camouflage = {action = "apply camouflage", state = true,},
+                ["concealed weapons"] = {action = "conceal weapons", state = true,},
+                ["cover tracks"] = {queue = "cover", state = true,},
+                ["wyrm bloodscent"] = {queue = "wyrm bloodscent on", state = true,},
+                ["wyrm clinging"] = {queue = "wyrm cling", state = false,},
+                hide = {queue = "hide", state = false,},
       },
       priest = {
         ["hunting heretics"] = {queue = "hunt heresy", state = false,},
@@ -63536,6 +71441,55 @@ end
         nightsight = {action = "nightsight", state = true,},
         ["dust cover"] = {queue = "dustthrow cover with gold", state = true,},
       },
+      -- New classes (2026-10-13). Keys are the exact names from the game's
+      -- "You have gained the &lt;name&gt; defence." lines in the Fight Club logs;
+      -- commands are what players of that class typed. Engineer has no
+      -- confirmed class defence yet, so its list starts empty.
+      amazon = {
+        weathering = {queue = "weathering", state = true,},
+        vitality = {queue = "vitality", state = true,},
+        fitness = {queue = "fitness", state = true,},
+        balancing = {queue = "balancing on", state = true,},
+        counter = {queue = "counter", state = true,},
+        prowling = {queue = "prowling on", state = true,},
+        lifesense = {queue = "lifesense on", state = true,},
+        nightsight = {queue = "nightsight", state = true,},
+        ["covered tracks"] = {queue = "cover tracks", state = true,},
+        ["concealed weapons"] = {queue = "conceal weapons", state = true,},
+      },
+      engineer = {
+      },
+      monk = {
+        ["kai boost"] = {queue = "kai boost", state = false,},
+        deliverance = {queue = "kai deliverance", state = false,},
+        ["body block"] = {queue = "bdb", state = false,},
+        ["evade block"] = {queue = "evb", state = false,},
+        ["telepathy mask"] = {queue = "mind mask on", state = false,},
+        fitness = {queue = "fitness", state = false,},
+        immunity = {queue = "immunity", state = false,},
+      },
+      predator = {
+        bladesurge = {queue = "bladesurge activate", state = false,},
+        shrugging = {action = "shrug hemotoxin", state = true,},
+        hide = {queue = "hide", state = false,},
+      },
+      ranger = {
+        weathering = {queue = "weathering", state = true,},
+        vitality = {queue = "vitality", state = true,},
+        fitness = {queue = "fitness", state = true,},
+        balancing = {queue = "balancing on", state = true,},
+        counter = {queue = "counter", state = true,},
+        prowling = {queue = "prowling on", state = true,},
+        lifesense = {queue = "lifesense on", state = true,},
+        ["covered tracks"] = {queue = "cover tracks", state = true,},
+        ["concealed weapons"] = {queue = "conceal weapons", state = true,},
+      },
+      templar = {
+        weathering = {action = "weathering", state = true,},
+        fitness = {queue = "fitness", state = true,},
+        resistance = {action = "resistance", state = true,},
+        gripping = {action = "grip", state = true,},
+      },
     }
   }
 end
@@ -63589,7 +71543,8 @@ end
 									<script>local weapons = {
     "longsword", "broadsword", "shortsword", "scimitar", "claymore", "sabre", "battleaxe", "handaxe",
     "club", "dagger", "dirk", "flail", "mace", "javelin", "glaive", "halberd", "morning star", "spear",
-    "warhammer", "trident", "whip", "bardiche", "daegger", "quarterstaff", "shield", "bow"
+    "warhammer", "trident", "whip", "bardiche", "daegger", "quarterstaff", "shield", "bow",
+    "flintlock", "blunderbuss", "belcher", "sitara"
 }
 
 function msWeapons(_, cmd)
@@ -63601,7 +71556,7 @@ function msWeapons(_, cmd)
     end
 
     if mwi &lt;= #weapons then
-        local weapon = weapons[mwi - 1]
+        local weapon = weapons[mwi]
         if weapon then
             sys("&lt;green&gt;Setup - Weapons")
             cecho(string.format("&lt;snow&gt;Type the &lt;cyan&gt;%s &lt;snow&gt;ID# (Put 'none' to use default or current ID#): ", weapon))
@@ -71600,7 +79555,7 @@ demonnic.chat.config.blinkFromAll = false
 
 --Font size for the chat messages
 
-demonnic.chat.config.fontSize = calcFontSize(fontSize+ms.save["windows"]["chat"])
+demonnic.chat.config.fontSize = calcFontSize(msFs(fontSize+ms.save["windows"]["chat"]))
 
 --[[
 Should we preserve the formatting of the text. 
